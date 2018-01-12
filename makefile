@@ -8,8 +8,8 @@ template.pdf: template.tex template_frontmatter.tex template.bib template.bbl
 .PHONY: clean vclean
 
 clean:
-	rm -f *.aux *.toc *.lof *.lot *.log
+	rm -f *.aux *.blg *.lof *.log *.lot *.toc
 
 vclean: clean
-	rm -f *.pdf
+	rm -f template.pdf
 
