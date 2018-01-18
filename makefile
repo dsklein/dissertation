@@ -8,7 +8,7 @@ dissertation.pdf: dissertation.tex dissertation_frontmatter.tex dissertation.bib
 .PHONY: clean vclean
 
 clean:
-	rm -f *.aux *.blg *.lof *.log *.lot *.toc
+	rm -f *.aux *.bbl *.blg *.lof *.log *.lot *.out *.toc
 
 vclean: clean
 	rm -f dissertation.pdf

@@ -336,7 +336,7 @@
 %                  ~~~~~~~~~~~~~~
 %
 % \thebibliography:
-\def\bibname{Bibliography}
+\def\bibname{References}
 %            ~~~~~~~~~~~~
 %
 % \theindex:
