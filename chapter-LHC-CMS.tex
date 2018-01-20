@@ -1,0 +1,68 @@
+\chapter{The Large Hadron Collider and the CMS Detector}
+\label{chap:hardware}
+
+This chapter will introduce the LHC and the CMS detector.
+For the LHC, it will give the basic explanation for how we accelerate
+and collide particles. For CMS, it will give all the detector components
+and talk about how they are used in reconstructing particles.
+
+In addition, this chapter will discuss the techniques (both at hardware
+and software level) used in particle reconstruction and identification.
+
+\section{The Large Hadron Collider}
+\label{sec:lhc}
+
+The LHC is a really big accelerator under Geneva. It revs particles up
+to 99.99999999\% the speed of light, then smashes them together.
+There are four main places the smashing happens.
+When protons smash, it's best not to think of the proton as a solid
+thing, but rather as a bag of quarks and gluons. PDFs show that really
+the LHC is primarily a gluon collider.
+
+\section{The CMS Detector}
+\label{sec:cms}
+
+CMS is the Compact Muon Solenoid.
+
+\subsection{Detector components}
+\label{ssec:cmsparts}
+
+\begin{itemize}
+\item The inner silicon tracker tracks charged particles
+\item The ECAL measures the energy in electrons and photons
+\item The HCAL measures the energy in hadrons
+\item The 3.8T superconducting magnet bends the paths of charged particles
+\item The return yokes bring most of the magnetic field back around
+\item The muon chambers measure the tracks of muons (and energy?)
+\end{itemize}
+
+Don't forget to include stuff about the readout hardware
+
+\subsection{Triggers} % and other stuff?
+\label{ssec:triggers}
+
+We can't keep all the data we capture.
+We use hardware and software triggers to pick out the events that are
+most interesting, or clearest.
+Later on down the line, we sometimes have to correct for trigger effects.
+Sometimes we have to prescale the triggers.
+Triggers are used to sort the events into primary datasets.
+
+\subsection{Particle reconstruction and identification}
+\label{ssec:recoandid}
+
+We use the particle flow algorithm to make candidates out of the readouts.
+Candidates may or may not actually be the thing they're ID'ed as.
+So, we have IDs with different working points, which vary from analysis to analysis.
+MET is also a thing.
+
+\subsection{Monte Carlo simulations}
+\label{ssec:montecarlo}
+
+The easiest way to compare theory predictions against our data is to
+make fake data based on the theory equations.
+There are a bunch of software packages we use to do this.
+Some of these packages include MadGraph, AMC@NLO, Powheg, Pythia, etc.
+We also use GEANT to simulate the detector response to particles.
+At the end of the day, we have tons of fake data we can use for various purposes.
+
