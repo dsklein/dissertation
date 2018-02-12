@@ -8,10 +8,15 @@ basic building blocks of all structures in the universe. By
 particles, from which all other known interactions in the universe
 arise.
 
-This chapter will provide a basic introduction to the terminology
-and principles of particle physics, with the goals of motivating the
-research in this dissertation, and of making the dissertation understandable to
-readers outside the particle physics community.
+This chapter will provide a simple introduction to the concepts
+and terminology of particle physics, with the dual goals of motivating the
+research in this dissertation, and of making that research understandable to
+readers inexperienced in particle physics. Pursuant to those
+goals, this introduction will focus on the concepts most relevant to
+the research, and will use plain, non-technical language as much as
+possible. These self-imposed constraints risk hiding some of the
+considerable beauty and richness of particle physics, so I encourage the
+interested reader to seek deeper explanations elsewhere.
 
 \section{The Standard Model}
 \label{sec:standardmodel}
@@ -24,15 +29,15 @@ The Standard Model (SM) is the scientific theory that describes
 It is a relativistic quantum field theory, describing both the
 behavior of particles at speeds up to and including the speed of
 light, as well as their quantum mechanical nature.
-The Standard Model was developed over several decades of the 20\textsuperscript{th}
-century through the joint efforts of theoretical and experimental physicists.
-Although it is not a perfect description of all known phenomena in
-particle physics, it is still widely considered to be one of the most
-successful scientific theories of all time. %Citation for successful
-                                % and development history
+The Standard Model was developed beginning in the early 1970s,
+through the joint efforts of theoretical and experimental physicists.
+Although it is not a perfect description of all known physical
+phenomena, it has correctly predicted numerous discoveries,
+cementing its place as one of the most
+successful physical theories of all time \cite{griffiths,smcoffee}.
 
 The Standard Model describes two families of matter particles -- that is
-to say, particles that may give rise to tangible materials at the macro scale.
+to say, particles that may give rise to tangible structures at the macro scale.
 These two families are called quarks and leptons. In addition, it
 describes several force-carrying particles, as well as the Higgs
 boson. A sort of ``periodic table'' of these particles is given in
@@ -56,9 +61,10 @@ There are six quarks in the SM. In order from lightest to heaviest,
 these quarks are named \emph{up, down, strange, charm, bottom,} and
 \emph{top}. They are often referred to using only the first letter of
 their names. Up and down quarks are essential to our lives, as
-they make up the nuclei of atoms: the proton is composed of two up
+they make up the nuclei of atoms: ignoring short-lived quantum
+fluctuations, the proton is composed of two up
 quarks and a down quark bound together ($uud$), and the neutron is composed of one up
-quark and two down quarks ($udd$) bound together. The four heavier
+quark and two down quarks bound together ($udd$). The four heavier
 quarks tend to decay into lighter quarks within a fraction of a
 second, so they are generally not found in everyday matter. The up,
 charm, and top quarks all have a positive charge with $\frac{2}{3}$ the
@@ -76,7 +82,7 @@ electrons. For comparison, the mass of the up quark is approximately
 In addition, when the top quark decays, it has a 96\% chance of
 decaying into a bottom quark and a W boson \cite{pdg}. Few other
 particles have such predictable decay products. The reasons why these
-properties are so important will be articulated in later chapters. % Specific reference?
+properties are so important will be articulated in later chapters. % Reference a more specific section once written?
 
 \subsubsection*{Leptons}
 There are three defining members of the lepton family. In order of
@@ -88,8 +94,8 @@ The electron is well known as the part of an atom responsible for the
 majority of its chemical interactions with other atoms. Muons and taus
 tend to decay within a fraction of a second, so they also tend not to
 be found in everyday matter. However, muons are often produced in
-Earth's upper atmostphere due to bombardment by cosmic rays, particles
-streaming in from outer space \cite{griffiths}.
+Earth's upper atmostphere due to bombardment by cosmic rays (particles
+streaming in from outer space) \cite{griffiths}.
 
 For each charged lepton, there is a corresponding particle called a
 neutrino. They are the electron neutrino ($\nu_e$), the muon
@@ -120,6 +126,9 @@ they convey. In general, matter particles interact with other matter
 particles through the force-carriers. However, not all particles are
 able to interact with all forces.
 
+% Do I need to explain Feynman diagrams?
+% If so, this might be a good place to do it.
+
 The photon ($\gamma$), commonly known as the particle of light,
 is in fact the quantum of the electromagnetic
 force. Thus every time two particles interact electrically or
@@ -136,13 +145,13 @@ neutrons, and other composite particles (known collectively as
 bind together into atomic nuclei. Gluons couple to any particle
 that has so-called \emph{color charge}, namely quarks and
 other gluons. Although gluons are in principle massless, the energy of
-their collective interactions actually makes up more than 99\% of the
-mass of protons and neutrons. % Citation needed! %%%%%%%%%%%%%%%%%%%%%%%%%%
+their collective interactions actually makes up more than 98\% of the
+mass of protons and neutrons \cite{protonmass}.
 
 The W and Z bosons ($W^+$, $W^-$, $Z$) carry the weak nuclear force. This
 force is best known for mediating radioactive $\beta$-decay through
 the W-bosons. In addition, the W boson mediates all Standard Model
-processes where a quark or lepton changes flavor. % Citation for flavor-changing neutral current?
+processes where a quark or lepton changes flavor \cite{griffiths}.
 Particle physicists know the Z-boson best for its
 role in the Drell-Yan process, where pairs of quarks convert into
 pairs of charged leptons. The W and Z bosons couple to all matter
@@ -151,10 +160,7 @@ though such interactions are rare. The W bosons have a mass of around
 80 GeV, and the Z boson has a mass around 91 GeV \cite{pdg}.
 
 \subsubsection*{Higgs Boson}
-The Higgs boson is included here for completeness, and for the benefit
-of the curious reader, although it plays at best a minimal
-role in the research described in this dissertation. The Higgs
-boson is neither a force-carrying particle nor a matter particle, but
+The Higgs boson is neither a force-carrying particle nor a matter particle, but
 something else entirely. It is the manifestation, or quantum, of the
 Higgs field, a field that permeates the entire universe, and endows
 mass upon most elementary particles. The top quark is so massive
@@ -188,28 +194,32 @@ called a positron) has a positive electrical charge instead of
 negative. The antimatter versions of the charged leptons are indicated
 with a plus in their symbol ($e^+, \mu^+, \tau^+$), and all other
 antiparticles have a bar on top of their symbol ($\bar{u},
-\bar{b}, \bar{\nu_{\mu}}$, etc.). When a particle meets its own
-antiparticle, they usually produce high-energy photons, or sometimes
-Z-bosons. Because antimatter
-annihilates on contact with normal matter, it is not found
-in large quantities in our universe. However, very small quantities can be
-produced by energetic particle collisions in nature, and in manmade
-particle colliders.
+\bar{b}, \bar{\nu_{\mu}}$, etc.). Since the properties of
+antiparticles are mostly identical to those of normal-matter
+particles, particle physicists seldom distinguish between matter and
+antimatter in our speech or writing.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Do I need to explain Feynman diagrams?
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+When a particle meets its own antiparticle, they usually annihilate,
+and produce high-energy photons, or sometimes Z-bosons. Because of this
+instant annihilation, antimatter is not generally found
+in large quantities in our universe. However, very small quantities can be
+produced by energetic collisions in nature, radioactive decays, and in manmade
+particle colliders.
 
 \subsection{Successes}
 \label{ssec:SMsuccesses}
 
 The predictions of the Standard Model have been borne out in a
-staggering number of experiments over the last several decades. This
-unprecedented success has led the Standard Model to be labeled as one
-of the most successful scientific theories ever formulated. % Probably need a reference for this.
--Give some statistics on number of published particle physics papers
--How many of them substantiate the predictions of the SM?
--Give some examples of remarkable successes (e.g. the Higgs discovery)
+staggering number of experiments over the last several decades.
+Some of the greatest successes of the SM
+include the correct predictions of the Higgs boson, the W and Z
+bosons, and the top and bottom quarks. On a less exciting but equally
+telling note, thousands of deliberate searches for phenomena that
+violate the Standard Model have been conducted by a wide variety of
+experimental groups; the overwhelming majority have failed to find
+any such violations. This unprecedented success has led the
+Standard Model to be labeled as one of the most successful
+physics theories ever formulated \cite{griffiths,smcoffee}.
 
 \subsection{Shortcomings}
 \label{ssec:SMshortcomings}
@@ -218,8 +228,10 @@ Despite the Standard Model's vast successes, it is not a complete
 theory of all particles and interactions in the universe. Physicists
 have observed a number of phenomena that are not described within the
 framework of the Standard Model. Additionally, the Standard Model does
-not contain all the information needed to
-build a stable universe. Some of these shortcomings are presented here.
+not contain all the information needed to build a stable universe from
+scratch. Some of these shortcomings are presented here, as they provide
+strong motivations for further research in particle physics and
+related fields.
 
 \subsubsection*{Gravity and the Hierarchy Problem}
 When describing the fundamental forces of nature in Section
@@ -238,70 +250,76 @@ means the only one) is called the Hierarchy Problem. In plain language, the
 problem is that gravity is weaker than the other fundamental forces by
 a staggering 20 to 30 orders of magnitude, depending on the distance
 scale considered. Any attempt to unite gravity and the other forces
-of nature must find a way to bridge this gulf.
+of nature must find a way to bridge this gulf. % Do I need a citation here?
 
 \subsubsection*{Fine Tuning}
 Another perceived deficit of the Standard Model is the fact that many
-of the fundamental constants of nature are not part of the theory. For
+of the fundamental constants of nature are not given in the theory. For
 example, the Standard Model predicts the existence of the elementary
-particles described above, but it does not predict what their masses will be;
+particles described in Section \ref{ssec:SMdescription}, but it does
+not predict what their masses will be;
 the masses must be measured experimentally. Similarly, the Standard
 Model offers no clue to the strength of the various forces of nature,
 only their existence. In total, the Standard Model has 19 independent
-parameters that cannot be derived from other information in the % Citation for the various free parameters
-theory. Some theorists object to this large number as being clunky
+parameters that cannot be derived from other information in the theory
+\cite{smparams}. Some physicists object to this large number as being clunky
 and inelegant, feeling that a fundamental description of the universe
-should have fewer free parameters.
+should have fewer unexplained parameters \cite{griffiths}.
 
 \subsubsection*{Dark Matter}
 Humans have been observing the motions of stars
-for longer than recorded history. Starting in the late 19\textsuperscript{th}
-century, physicists tried to calculate the mass of the Milky Way
-galaxy based on the stars they could see through their
+for millenia. Starting in the late 19\textsuperscript{th}
+century, scientists attempted to calculate the mass of the Milky Way
+galaxy based on the stars and gas they could see through their
 telescopes. They soon discovered that the galactic mass estimated from
-visible stars was significantly less than the galactic mass
-estimated from the rate at which those stars rotate about the % Citation for 19th century galactic observations
-galactic center. In the first half of the 20\textsuperscript{th}
-century, scientists noticed the same discrepancy for other galaxies
-as well. They hypothesized that galaxies also contained some kind of
+visible matter was significantly less than the galactic mass
+estimated from Newtonian gravity and the velocities of those objects. In the early
+20\textsuperscript{th} century, astronomers began to notice the same
+discrepancy for distant galaxies and galaxy clusters as well \cite{dmhistory}.
+They hypothesized that galaxies contained some kind of
 matter that was not visible through telescopes (hence \emph{dark}),
-but that nevertheless exerted a gravitational pull. In fact, we now % Citation for 20th century galactic observations
-estimate that only about $\frac{1}{6}$ of the mass of the universe consists
-of visible matter such as stars and planets. % Citation for how much of the universe is made up of what
+but that nevertheless exerted a gravitational pull.
+In fact, we now estimate that only about $\frac{1}{6}$ of the
+mass of the universe consists of visible matter such as stars
+and planets, and the remainder consists of this mysterious dark matter
+\cite{planck2013}.
 
 Since everything is made of particles, the particle physics community
-was naturally curious to learn what particles make up dark matter.
-Careful astronomical observations and detailed calculations
-have shown that dark matter does not interact with the strong or
-electromagnetic forces. % Citation needed
-However, it is believed to participate in the weak interaction. % Why? Also, citation needed!
-Further work has shown that no Standard Model particle (or composite
-of Standard Model particles) can have these properties and be
-consistent with astronomical observations of temperature and % Ick, I hate how this is phrased. Rewrite!
-density. Therefore, the existence of dark matter seems to require
+is naturally curious to learn what particles make up dark matter.
+The observation that dark matter neither absorbs nor emits light
+indicates that it does not interact electromagnetically, and thus
+cannot be charged. Observations of distant stars, and calculations of
+nucleus formation after the Big Bang, have ruled out the possibility
+that dark matter is made of baryons (three-quark hadrons,
+such as the proton and neutron). Finally, simulations have shown
+that neutrinos could not give rise to the large-scale structures
+we see in the universe \cite{dmhistory}.
+This exhausts all possibilities from among standard-model particles.
+Therefore, the existence of dark matter seems to require
 physics Beyond the Standard Model (BSM).
 
 \subsubsection*{Dark Energy}
-Observations of the cosmic microwave background (CMB) and of the % When? By whom?
-doppler shifts of various stars have demonstrated that the universe is
-expanding at an accelerating rate. This result surprised many % Citation for expanding universe
-scientists, because the inexorable pull of gravity is expected to slow
-the expansion of the universe, until it eventually collapses in on itself. Yet something
-is driving an outward push that is speeding up instead of slowing
-down. Scientists use the term ``dark energy'' to refer to the unknown
-and unobserved energy driving this expansion.
-% Does this really necessatate an extension of the SM?
-% May be easier to delete this part entirely.
+In a universe filled with ordinary matter and dark matter, it is
+natural to believe that the inexorable pull of gravity would
+slow the expansion of that universe, until the universe eventually began to
+contract again. However, observations of the cosmic microwave background
+(CMB), distant supernovae, galaxy clusters, and more have shown that
+the expansion of the universe is \emph{accelerating}, not slowing
+\cite{darkenergy}. The mysterious energy that drives this outward expansion
+is given the name ``dark energy''. Thus far, the Standard Model offers no
+explanation for how this kind of energy could exist.
 
 \subsubsection*{Neutrino Masses and Oscillations}
 The Standard Model predicts that neutrinos should be entirely
 massless. And for many years, observations of processes that produced
 neutrinos, such as $\beta$-decay, seemed to confirm this
-supposition. However, in 19XX, observations of neutrinos produced in % Year!
+belief. However, beginning in 1968, observations of neutrinos produced in
 the sun showed that the rate of electron neutrinos reaching the earth
-was only a third of what was expected. Further experiments eventually % Citation for solar neutrino deficit
-revealed that neutrinos actually change back and forth between their three % Citation for neutrino oscillations?
-flavors as they travel through space. This mutability made it impossible
+was only a third of what was expected \cite{homestake1968,homestake1992}.
+Further measurements of neutrinos from the sun, nuclear reactors, and
+particle accelerators eventually led to the conclusion that neutrinos
+change back and forth between their three flavors as they
+travel through space \cite{nuphenom}. This mutability makes it impossible
 for neutrinos to be massless, because massless particles must travel
 at the speed of light, and therefore cannot experience the passage of
 time. But since neutrinos morph between different states, clearly they
@@ -318,11 +336,11 @@ shortcomings of the Standard Model. One particular class of theories,
 known as supersymmetry (or SUSY for short), is extremely popular for
 the elegant ways it can fill some of these gaps. Although there
 are numerous variations of supersymmetric theories, they all have one
-defining feature in common. For every Standard Model particle, SUSY
+defining feature in common. For every standard-model particle, SUSY
 postulates the existence of another particle with mostly the same
-properties, but with a spin that differs by $\frac{1}{2}$. Thus every Standard Model
+properties, but with a spin that differs by $\frac{1}{2}$. Thus every standard-model
 fermion would have a corresponding ``superpartner'' that is a boson,
-and every Standard Model boson would have a superpartner that is a
+and every standard-model boson would have a superpartner that is a
 fermion \cite{susyprimer}.
 
 \subsection{Sparticles}
@@ -356,15 +374,14 @@ particles. However, to date, no sparticles have been
 observed, implying that most sparticles (if they exist) must be too
 heavy to produce using our current particle colliders. Since the
 equality of masses is destroyed, we say SUSY is a \emph{broken
-  symmetry} \cite{susyprimer}.
+symmetry} \cite{susyprimer}.
 
 \subsection{Rationale}
 \label{ssec:susyrationale}
 
 One of the features that makes SUSY very attractive is its ability to
 solve the hierarchy problem. The exact nature of this solution
-invokes complicated mathematics, and is not terribly pertinent to the
-research described in this dissertation. However, it revolves around
+invokes complicated physics, but it revolves around
 the notion that the introduction of several new massive sparticles
 creates substantial corrections to the square of the mass of the
 Higgs boson ($m_H^2$) \cite{susyprimer}.
@@ -382,11 +399,23 @@ the composition of dark matter is weakly-interacting massive particles
 force, and that also have mass, allowing them to exert a gravitational
 pull. The neutralinos fit this bill nicely. In addition, the dark
 matter particle must be stable. The lightest supersymmetric particle
-(LSP) is expected to be stable due to conservation laws associated
-with supersymmetry, and many SUSY models predict that the lightest
+(LSP) would be stable due to conservation laws associated
+with supersymmetry. In fact, many SUSY models predict that the lightest
 neutralino, $\lsp_1$, actually \emph{is} the LSP. Thus the lightest
 neutralino makes a tantalizing dark matter candidate
-\cite{susyprimer}. We will assume moving forward that $\lsp_1$ is the
-LSP, and will use the two terms interchangeably.
-% Need citation for this stuff?
+\cite{susydarkmatter,susyprimer}. We will assume moving forward
+that $\lsp_1$ is the LSP, and will use the terms LSP and neutralino
+interchangeably.
 
+If the theoretical considerations were not enough to make SUSY an
+attractive target for study, there is a strong experimental case as
+well. \emph{Naturalness} is the idea that it makes sense for the
+parameters of a model to be not-too-dissimilar in size (the hierarchy
+problem is an example of un-naturalness). If SUSY is
+to be ``natural'', as many theorists hope it is, then the lightest
+sparticles are likely to have masses in the terra-electron volt (TeV)
+range \cite{susydarkmatter,susyprimer}. This is exactly the energy
+scale probed by current and near-future collider experiments.
+Therefore, there is reason to believe that searches at the Large Hadron
+Collider or a close successor must uncover evidence for the existence
+of supersymmetry.
