@@ -1,28 +1,184 @@
 \chapter{Top Asymmetry Measurements}
 \label{chap:afb}
 
+This chapter will describe the measurements of several asymmetries in
+events where a top-antitop ($\ttbar$) pair decays to a two-lepton
+final state ($2\ell$). This work was performed during Run I of the LHC and the
+CMS detector, at both 7 TeV and 8 TeV center-of-mass energies, though
+I will focus on the 8 TeV results, and in particular, my work on the
+unfolding technique. The 8 TeV analysis led to two publications, which
+are Refs. \cite{chargeasym} and \cite{spincorrpol}.
+
+% Question: Should I use the past tense of present tense when
+% describing this analysis?
+% I guess the same question is also applicable to the stop analysis.
+
 \section{Motivation}
 \label{sec:afbmotivation}
 
-The top quark is the heaviest elementary particle.
-This gives it the unique property that it decays before it can hadronize.
-This means that its decay products preserve some of its properties.
-We are interested in measuring these properties for various reasons.
+As mentioned in Section \ref{ssec:SMdescription}, the top quark is the
+heaviest known elementary particle, with a mass of $\approx 173$ GeV
+\cite{pdg}. This large mass gives the top quark a number of properties
+that make it uniquely interesting to study.
+
+In particle physics, a particle's mass is inversely proportional to
+its lifetime - how long it tends to last before decaying. % Do I need a citation for this?
+Because the top quark is so heavy, it has an extremely short lifetime
+of $\mathcal{O} 10^{-25}$ seconds \cite{pdg}.
+Because this lifetime is so short, there is insufficient time for the
+top quark to hadronize, or for spin decorrelation to occur. % Does this need a separate reference?
+Thus, unlike any other quark, the polarization and spin correlation
+of the top quark are preserved in its decay products. So by studying
+the decays of top quarks, we can learn about the properties of the
+bare quark itself.
+
+Additionally, the top quark's large mass places it on the edge of
+unexplored territory.
+Because the likelihood of a particular decay is proportional
+to the mass difference between the particles involved, there are many
+models of new physics that predict new particles with a strong
+coupling to the top quark. % Probably gonna need to cite or rewrite that claim...
+These couplings would naturally cause some of the top quark's
+properties to deviate from the value predicted by the SM. Thus, it is
+important to make precise measurements of properties such as charge
+asymmetry to tease out any links to possible new physics.
 
 \section{Previous Measurements}
 \label{sec:afbtevatron}
 
-The Tevatron did this analysis previously.
-The Tevatron was a proton-antiproton collider.
-This means there's a natural way to define the forward and
-backward directions.
-The LHC is a proton-proton collider, so the directions are symmetric.
-So we have to define forward and backward somewhat differently.
+The Tevatron collider at Fermilab has made several previous measurements of
+top charge asymmetry (CITATIONS), and of top spin % Pull in all these citations
+correlation and polarization (CITATIONS). The
+early charge asymmetry measurements were particularly interesting, because
+they revealed a $2\sigma$ deviation from the SM expectation (though
+later results, such as Reference (CITATION), showed a
+reduced discrepancy). During the LHC Run I, it was
+natural to want to confirm the Tevatron measurements, and to extend
+them if possible.
+
+The Tevatron collided beams of protons against beams of
+antiprotons. When such $p\bar{p}$ collisions produce
+$\ttbar$ pairs, we naturally expect the top will travel more along the direction
+of the proton beam, and the antitop will travel
+more along the direction of the antiproton beam, so that the
+difference in their rapidities is positive ($y_t - y_{\bar{t}} > 0$).
+This case was called ``forward'', and the reverse was called
+``backward''. Thus, given a number of $\ttbar$
+events from the Tevatron, we can define a forward-backward
+asymmetry by subtracting the number of backward events from the number
+of forward ones:
+
+\begin{equation}
+A_{FB} = \asymmetry{\Delta y}{0}
+\end{equation}
+
+However, the LHC is a proton-proton collider, and as such, there is no
+naturally favored direction for the top or antitop to travel. As the
+next section will explain, we must define ``forward'' and ``backward''
+events somewhat differently.
 
 \section{Asymmetry Variables}
 \label{sec:afbvariables}
 
-Here I'll explain the various variables measured in the AFB analysis.
+In this analysis, we evaluated six different asymmetries in $\ttdilep$
+events, including two charge asymmetries, one
+polarization, and three measures of spin correlation. If any of these
+variables deviate from their expected SM values, it could potentially
+be a sign of new physics.
+
+\subsection{Definitions}
+\label{ssec:afbvariables}
+
+% Top charge asymmetry %%%%%%%%%%%
+As at the Tevatron, the top charge asymmetry was measured at CMS using
+the rapidity of the top quarks. However, absent a natural direction
+for the top and antitop to travel, we categorized events as
+``forward'' and ``backward'' based on which quark had a higher
+absolute value of rapidity. Thus we define our \textbf{top charge
+asymmetry} as:
+\begin{equation}
+A_C = \asymmetry{|y_t|}{|y_{\bar{t}}|}
+\end{equation}
+
+% Leptonic charge asymmetry %%%%%%%%
+In addition to the top charge asymmetry, we define a similar
+\textbf{leptonic charge asymmetry} to be:
+\begin{equation}
+A_C^{lep} = \asymmetry{|\eta_{\ell^+}|}{|\eta_{\ell^-}|}
+\end{equation}
+Though similar to the top charge asymmetry, this variable
+is based purely on the pseudorapidity of the leptons produced in the
+decay. We may use the leptons as a proxy for the tops because we
+expect their direction to be correlated with the directions of their
+parent tops. One advantage of using only the leptons is that it obviates the
+need to reconstruct the $\ttbar$ system, as described in Sec.
+\ref{sec:afbselections}, thereby allowing us to include more events in
+our calculation of this variable. However, this variable also has some
+dependence on the polarization, so it is not fully correlated with $A_C$.
+
+% INTERLUDE: Helicity angle %%%%%%%%%%%
+Before proceding further, we must define the \emph{helicity angle}, which
+will be used in the next two asymmetry variables.
+The helicity angle $\theta^*_{\ell}$ is defined as the angle
+a charged lepton makes in the rest frame of its parent top,
+relative to the parent top's direction in the $\ttbar$ center-of-mass
+(CM) reference frame. This angle may be defined separately for the
+positive and negative charged lepton in an event.
+
+% Top polarization %%%%%%%%%%%%%%
+The \textbf{top polarization} is an asymmetry based on the helicity %% Note: revisit this later, and decide whether to present +/- separately or together
+angles of the charged leptons, and is given by:
+\begin{equation}
+A_{P\pm} = \asymmetry{\cos(\theta^*_{\ell^\pm})}{0}
+\end{equation}
+We measure it for the positively and
+negatively charged leptons separately. A different, commonly used
+polarization variable, $P$, can be calculated as $P = 2 A_P = 2(
+A_{P+} + A_{P-})$, if we assume CP-invariance.
+
+% Top spin correlation %%%%%%%%%
+Our \textbf{top spin correlation} asymmetry, which also depends on the
+lepton helicity angles, is defined as:
+\begin{equation}
+A_{c1c2} = \asymmetry{\cos(\theta^*_{\ell^+}) \times \cos(\theta^*_{\ell^-})}{0}
+\end{equation}
+From this variable, we may also obtain the $C$ spin correlation
+coefficient, which is given by $C = -4 \times A_{c1c2}$ \cite{spincorrpolcoeff}.
+
+% Lepton azimuthal asymmetry %%%%%
+We also obtain an indirect measurement of the spin correlation using
+the \textbf{lepton azimuthal asymmetry}. This variable depends on the
+azimuthal angle between the two leptons, and is defined as:
+\begin{equation}
+A_{\Delta\phi} = \asymmetry{\Delta\phi_{\ell^+\ell^-}}{\pi/2}
+\end{equation}
+As with the leptonic charge asymmetry, this variable also relies
+solely on the charged leptons, and does not require reconstruction of
+the $\ttbar$ system, permitting us to use more events than are
+available for the top spin correlation.
+
+% Lepton opening angle %%%%%%%%%
+Finally, we define our \textbf{lepton opening angle} asymmetry as:
+\begin{equation}
+A_{\cos\phi} = \asymmetry{\cos(\theta_{\ell\ell})}{0}
+\end{equation}
+This variable is based on the opening angle between the two leptons in
+their respective parent top reference frames. From this measured
+asymmetry, we can calculate the $D$ spin correlation coefficient to be
+$D = -2 \times A_{\cos\phi}$ \cite{spincorrpolcoeff}.
+
+\subsection{Differential Measurements}
+\label{ssec:afbvarsdifferential}
+
+In addition to measuring the above six asymmetries in one dimension
+(\emph{inclusively}), we also measured them in two dimensions
+(\emph{differentially}), against other physical variables.
+We chose to make differential measurements because the CDF charge asymmetry
+discrepancy was more pronounced at $\ttbar$ invariant masses above 450 % Cite CDF charge asymmetry at Mtt>450
+GeV than below it. If similar behavior occurs at CMS, in any variable,
+we would like to observe it. We measured all six of our asymmetry
+variables differentially with respect to the $\ttbar$ invariant mass
+($m_{\ttbar}$), rapidity ($y_{\ttbar}$), and transverse momentum ($p_T^{\ttbar}$).
 
 \section{Datasets and Triggers}
 \label{sec:afbdatatrig}
@@ -37,6 +193,9 @@ Explain which triggers were used.
 Give definitions of electrons, muons, jets, MET, etc. used in the analysis.
 List how the different objects are used to select events.
 Maybe also talk about scale factors and other reweighting here?
+
+Will probably also want to talk about reconstructing the ttbar system
+using the Rochester magic.
 
 \section{Comparison Between Data and Simulation}
 \label{sec:afbdatamccompare}
@@ -103,3 +262,6 @@ Give the 2D results
 Not sure if this section should be included or not. If I keep it:
 Talk about the search for chromo-magnetic dipole moments.
 
+\subsection{Acknowledgements}
+Mention work of CMS collaboration, maybe specific people who worked on
+the analysis with me, and definitely Bernreuther and Si
