@@ -17,14 +17,14 @@ are Refs. \cite{chargeasym} and \cite{spincorrpol}.
 \label{sec:afbmotivation}
 
 As mentioned in Section \ref{ssec:SMdescription}, the top quark is the
-heaviest known elementary particle, with a mass of $\approx 173$ GeV
+heaviest known elementary particle, with a mass of $\sim 173$ GeV
 \cite{pdg}. This large mass gives the top quark a number of properties
 that make it uniquely interesting to study.
 
 In particle physics, a particle's mass is inversely proportional to
 its lifetime - how long it tends to last before decaying. % Do I need a citation for this?
 Because the top quark is so heavy, it has an extremely short lifetime
-of $\mathcal{O} 10^{-25}$ seconds \cite{pdg}.
+of $\mathcal{O} (10^{-25})$ seconds \cite{pdg}.
 Because this lifetime is so short, there is insufficient time for the
 top quark to hadronize, or for spin decorrelation to occur. % Does this need a separate reference?
 Thus, unlike any other quark, the polarization and spin correlation
@@ -42,6 +42,9 @@ These couplings would naturally cause some of the top quark's
 properties to deviate from the value predicted by the SM. Thus, it is
 important to make precise measurements of properties such as charge
 asymmetry to tease out any links to possible new physics.
+
+% Should talk about why we use the dilepton final state
+% And also include a Feynman diagram of the process
 
 \section{Previous Measurements}
 \label{sec:afbtevatron}
@@ -183,33 +186,435 @@ variables differentially with respect to the $\ttbar$ invariant mass
 \section{Datasets and Triggers}
 \label{sec:afbdatatrig}
 
-Explain which CMS datasets were used.
-Explain which CMS Monte Carlo datasets were used.
-Explain which triggers were used.
+For this analysis, we used 19.5 fb\textsuperscript{-1} of data from
+the 8 TeV portion of CMS Run I, encompassing the 2012A through 2012D
+eras. Because the analysis focused on a process that produced two
+leptons in the final state, we used the dilepton datasets from that
+period. A complete list is given in Table \ref{tab:afb:datasamples}.
+
+%% Table of data samples. Taken from AN-14-246. Believed unpublished so far %%%%%%%
+\begin{table}[!ht]
+\begin{center}
+\caption{List of CMS datasets used.}
+\label{tab:afb:datasamples}
+{\footnotesize
+\begin{tabular}{l|r}
+\hline
+Dataset Name & run range \\
+\hline\hline
+Dilepton Samples \\
+\hline
+
+  /DoubleMu/Run2012A-13Jul2012-v1/AOD &  190456-193621 \\
+  /DoubleElectron/Run2012A-13Jul2012-v1/AOD & 190456-193621  \\
+  /MuEG/Run2012A-13Jul2012-v1/AOD & 190456-193621 \\
+
+  /DoubleMu/Run2012A-recover-06Aug2012-v1/AOD & 190949 190945 190906 190895 190782 \\
+  /DoubleElectron/Run2012A-recover-06Aug2012-v1/AOD & 190949 190945 190906 190895 190782 \\
+  /MuEG/Run2012A-recover-06Aug2012-v1/AOD & 190949 190945 190906 190895 190782\\
+
+  /DoubleElectron/Run2012B-13Jul2012-v1/AOD  & 193834-196531 \\
+  /DoubleMu/Run2012B-13Jul2012-v1/AOD  & 193834-196531  \\
+  /MuEG/Run2012B-13Jul2012-v1/AOD  & 193834-196531  \\
+
+  /DoubleElectron/Run2012C-24Aug2012-v1/AOD &  197770- 198913 \\
+  /DoubleMu/Run2012C-24Aug2012-v1/AOD &  197770- 198913 \\
+  /MuEG/Run2012C-24Aug2012-v1/AOD &  197770- 198913 \\
+
+  /DoubleElectron/Run2012C-PromptReco-v2/AOD & 198934 - 203755  \\
+  /DoubleMu/Run2012C-PromptReco-v2/AOD &  198934 - 203755 \\
+  /MuEG/Run2012C-PromptReco-v2/AOD &  198934 - 203755 \\
+
+  /DoubleElectron/Run2012D-PromptReco-v1/AOD & 203768 - 208686 \\
+  /DoubleMu/Run2012D-PromptReco-v1/AOD & 203768 - 208686 \\
+  /MuEG/Run2012D-PromptReco-v1/AOD & 203768 - 208686 \\
+
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+We used several Monte Carlo datasets to model both the $\ttdilep$
+process and any potential background processes. A list of all Monte
+Carlo datasets used is given in Table \ref{tab:afb:mcsamples}.
+
+%% Table of MC samples. Adapted from AN-14-246. Believed unpublished so far %%%%%%%
+\begin{table}[!ht]
+\begin{center}
+\caption{List of CMS Monte Carlo samples used.}
+\label{tab:afb:mcsamples}
+{\footnotesize
+\begin{tabular}{l|l|c}
+\hline
+\multicolumn{3}{c}{With Pileup: Processed dataset name is} \\
+\multicolumn{3}{c}{(53) Summer12\_DR53X-PU\_S10\_START53\_V7A-v*/AODSIM} \\
+\hline
+ Description                     &   Primary Dataset Name   & cross-section [pb]\\
+\hline
+$\ttbar$                                                     &   /TT\_TuneZ2Star\_8TeV-mcatnlo (S3)                            & 234 \\
+$\ttbar$ (alternative)                                           &   /TT\_CT10\_TuneZ2Star\_8TeV-powheg-tauola (53)           & 234 \\
+W $\rightarrow$ $\ell\nu$+ jets                &   /WJetsToLNu\_TuneZ2Star\_8TeV-madgraph-tarball                             & 37509\\
+W $\rightarrow$ $\ell\nu$+1 jets               &   /W1JetsToLNu\_TuneZ2Star\_8TeV-madgraph-tauola (53)                        &  6663  \\
+W $\rightarrow$ $\ell\nu$+2 jets               &   /W2JetsToLNu\_TuneZ2Star\_8TeV-madgraph-tauola (53)                        &  2159 \\
+W $\rightarrow$ $\ell\nu$+3 jets               &   /W3JetsToLNu\_TuneZ2Star\_8TeV-madgraph-tauola (53)                        &   640 \\
+W $\rightarrow$ $\ell\nu$+$\geq 4$ jets        &   /W4JetsToLNu\_TuneZ2Star\_8TeV-madgraph-tauola (53)                        &   264 \\
+WW      & /WWJetsTo2L2Nu\_TuneZ2star\_8TeV-madgraph-tauola (53) &   5.8123\\
+WZ      & /WZJetsTo3LNu\_TuneZ2\_8TeV-madgraph-tauola (53)              &   1.0575\\
+        & /WZJetsTo2L2Q\_TuneZ2star\_8TeV-madgraph-tauola (53)          &   2.206\\
+ZZ      & /ZZJetsTo2L2Nu\_TuneZ2star\_8TeV-madgraph-tauola (53)         &   0.365\\
+        & /ZZJetsTo4L\_TuneZ2star\_8TeV-madgraph-tauola (53)            &   0.176908\\
+        & /ZZJetsTo2L2Q\_TuneZ2star\_8TeV-madgraph-tauola (53)          &   2.4487\\
+$WG^{*}$  & /WGstarToLNu2E\_TuneZ2star\_8TeV-madgraph-tauola (53)          &  \\
+        & /WGstarToLNu2Mu\_TuneZ2star\_8TeV-madgraph-tauola (53)          &  \\
+        & /WGstarToLNu2Tau\_TuneZ2star\_8TeV-madgraph-tauola (53)          &  \\
+$t$ ($s$-chan)                           &   /T\_TuneZ2Star\_s-channel\_8TeV-powheg-tauola (53)                        &  3.9 \\
+$\bar{t}$ ($s$-chan)                     &   /Tbar\_TuneZ2Star\_s-channel\_8TeV-powheg-tauola (53)                      &  1.8 \\
+$t$ ($t$-chan)                           &   /T\_TuneZ2Star\_t-channel\_8TeV-powheg-tauola (53)                         &  55.5 \\
+$\bar{t}$ ($t$-chan)                     &   /Tbar\_TuneZ2Star\_t-channel\_8TeV-powheg-tauola (53)                      &  30.0 \\
+$tW$                                     &   /T\_TuneZ2Star\_tW-channel-DR\_8TeV-powheg-tauola (53)                     &  11.2 \\
+$\bar{t} W$                               &   /Tbar\_TuneZ2Star\_tW-channel-DR\_8TeV-powheg-tauola (53)                  &  11.2 \\
+Z/$\gamma^* \rightarrow \ell \ell$      & /DYJetsToLL\_TuneZ2Star\_M-10To50filter\_8TeV-madgraph (53)                   &  860.5 \\
+Z/$\gamma^* \rightarrow \ell \ell$      & /DYJetsToLL\_TuneZ2Star\_M-50\_8TeV-madgraph-tarball (53)                   &  3532.8 \\
+Z/$\gamma^* \rightarrow \ell \ell$+$\geq 1$ jets       & /DY1JetsToLL\_M-50\_TuneZ2Star\_8TeV-madgraph (53)                   &  671.83 \\
+Z/$\gamma^* \rightarrow \ell \ell$+$\geq 2$ jets       & /DY2JetsToLL\_M-50\_TuneZ2Star\_8TeV-madgraph (53)                   &  216.76 \\
+Z/$\gamma^* \rightarrow \ell \ell$+$\geq 3$ jets       & /DY3JetsToLL\_M-50\_TuneZ2Star\_8TeV-madgraph (53)                   &  61.2 \\
+Z/$\gamma^* \rightarrow \ell \ell$+$\geq 4$ jets       & /DY4JetsToLL\_M-50\_TuneZ2Star\_8TeV-madgraph (53)                   &  27.6 \\
+$\ttbar W$                                       &   /TTW\_TuneZ2Star\_8TeV-madgraph (53)                   &  0.23 \\
+$\ttbar Z$                                       &   /TTZ\_TuneZ2Star\_8TeV-madgraph (53)                   &  0.21 \\
+$\ttbar \gamma$                      &   /TTGJets\_TuneZ2Star\_8TeV-madgraph (53)            &  2.166 \\
+$\ttbar W W$                                     &   /TTWW\_TuneZ2Star\_8TeV-madgraph (53)        &  0.002037  \\
+WWW     & /WWW\_TuneZ2Star\_8TeV-madgraph (53)                  & 0.08058 \\
+WWZ     & /WWZNoGstar\_TuneZ2Star\_8TeV-madgraph (53)           & 0.05798 \\
+WZZ     & /WZZNoGstar\_TuneZ2Star\_8TeV-madgraph (53)           & 0.01698 \\
+ZZZ     & /ZZZNoGstar\_TuneZ2Star\_8TeV-madgraph (53)           & 0.0055269 \\
+WWG     & / WWGJets\_TuneZ2Star\_8TeV-madgraph (53)             & 0.528 \\
+\hline\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+To select events from the datasets listed in
+\ref{tab:afb:datasamples}, we used a set of dilepton triggers that
+would capture the four possible dilepton flavors. These triggers are
+listed in table \ref{tab:afb:triggers}.
+% AN also uses this spot to reference where trigger efficiency weights
+% are applied later. Should I?
+
+%% Table of triggers used. Taken from AN-14-246. Believed unpublished so far %%%%%%%
+\begin{table}[!ht]
+\begin{center}
+\caption{List of triggers used.}
+\label{tab:afb:triggers}
+\begin{tabular}{l}
+\hline\hline
+Triggers   \\
+\hline\hline
+Dilepton Sample \\
+\hline
+\footnotesize{\verb=HLT_Mu17_Mu8_v*=}\\
+\footnotesize{\verb=HLT_Mu17_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v*=}\\
+\footnotesize{\verb=HLT_Mu8_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL*=}\\
+\footnotesize{\verb=HLT_Ele17_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_Ele8_CaloIdT_CaloIsoVL_TrkIdVL_TrkIsoVL_v*=}\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \section{Object and Event Selection}
 \label{sec:afbselections}
 
-Give definitions of electrons, muons, jets, MET, etc. used in the analysis.
-List how the different objects are used to select events.
-Maybe also talk about scale factors and other reweighting here?
+We employed a set of physics object and event selections designed to
+accept as many $\ttdilep$ events as possible while minimizing the
+number of background events selected.
 
-Will probably also want to talk about reconstructing the ttbar system
-using the Rochester magic.
+\subsection{Object Definitions}
+\label{ssec:afb:objdefs}
 
-\section{Comparison Between Data and Simulation}
-\label{sec:afbdatamccompare}
+For the purpose of our analysis, we consider a lepton to mean an
+electron or muon. We define those particles using the following
+criteria:
 
-Insert plots comparing data and Monte Carlo, to show that our
-simulations reflect distributions in data of certain key variables.
+\begin{itemize}
+\item Electrons and muons are defined using the recommended
+  2012 identification criteria provided by their respective Physics Object
+  Groups (POGs) within CMS. Specifically, electrons use the
+  recommended medium working point (WP), and muons use the recommended
+  tight WP.
+\item We require $p_T > 20$ GeV and $|\eta| < 2.4$.
+\item We use particle flow-based isolation within a cone of $\Delta R
+  < 0.3$, where relative isolation must be $< 0.15$ and absolute
+  isolation must be $< 5$ GeV. % AN talks about PU corrections using \Delta\beta
+\item The PF lepton and the reconstructed lepton must have $p_T$ that
+  differ by $< 10$ GeV.
+\item For electrons, we require $E / p_{in} < 4$.
+\end{itemize}
+
+Jets are defined using particle flow. They must have $p_T > 30$ GeV
+and $|\eta| < 2.4$. They must pass the tight Multi-Variate Analysis
+(MVA) pileup ID, and they must be separated from leptons by $\Delta R
+> 0.4$. B-tagging of jets is done using the Combined Secondary Vertex
+(CSV) medium working point.
+
+MET is computed by summing up the vector momenta of all PF particles,
+and multiplying by $-1$.
+
+\subsection{Event Selections}
+\label{ssec:afb:eventsel}
+
+Using the above object definitions, we select events with exactly
+two leptons of opposite-sign charge, and at least two jets, including at
+least one b-tagged jet. Some additional requirements on these objects
+include:
+
+\begin{itemize}
+\item To discount events with low-mass resonances, we require the
+  dilepton invariant mass $M_{\ell\ell} > 20$ GeV.
+\item For events where the leptons have the same flavor, we require
+  $|M_{\ell\ell} - M_Z| > 15$ GeV to exclude dileptons produced by the
+  Drell-Yan (DY) process.
+\item We also require MET $> 40$ GeV in same-flavor events, which
+  further helps to reduce the DY background.
+\end{itemize}
+
+Additionally, we clean our data events using a number of standard
+event filters. These filters are:
+
+\begin{itemize}
+\item At least one primary vertex
+\item Beam scraping events
+\item Tracking failure
+\item HBHE noise filter
+\item EE noise filter
+\item ECAL/HCAL laser events
+\item CSCHaloFilter
+\item Anomalous $\rho$
+\end{itemize}
+
+\subsection{Corrections}
+\label{ssec:afb:evtweights}
+
+We make several corrections to our data to remove spurious effects,
+and to our Monte Carlo simulations to more accurately reflect the
+properties of the data. In particular:
+
+\begin{itemize}
+\item We evaluate the efficiencies of our chosen triggers,
+  parameterized in $p_T$ and $\eta$, and correct
+  MC events to reflect these weights. % Do I need to describe this process in detail?
+\item We use lepton identification and isolation efficiencies measured
+  in a different analysis (CITATION). As these values agree well with % Need citation
+  the efficiencies of our MC, we apply no correction, but we do assign
+  a systematic uncertainty, as described in Section
+  \ref{sec:afbsystematics}.
+\item We correct the MC for the efficiency of b-tagging using the CSV
+  discriminator reshaping method
+\item We apply the standard Jet Energy Corrections (JECs)
+\item JECs are propagated to the MET calculation for jets with $p_T >
+  10$ GeV, and the MET is also corrected to remove modulation in $\phi$.
+\end{itemize}
+
+\subsection{\texorpdfstring{$\ttbar$}{ttbar} System Reconstruction}
+\label{ssec:afb:ttbarreconstruction}
+
+For some of the asymmetry variables described in Section
+\ref{ssec:afbvariables}, it is necessary to reconstruct the $\ttbar$
+system and its decay. This process is challenging because we do not
+know the exact momenta of the two neutrinos (only the total MET for
+the event), and because there is an ambiguity as to which lepton
+corresponds with which b-jet. In addition, some events have only one
+medium CSV jet, not two.
+
+In cases with only one medium CSV jet, we treat the next-highest-CSV
+jet like a second b-tag. We then plug the two b-jets, the lepton
+four-momenta, and the MET into an analytical neutrino solver that
+attempts to reconstruct the $\ttbar$ system, assuming a fixed top mass
+of 172.5 GeV \cite{nusolver}. Of the up to eight possible solutions
+for each event, this software chooses the one with the greatest matrix
+weight. In cases where no solution is found, it returns the closest
+approach to a real solution. If no closest approach solution is
+possible, we do not use the event in measuring the asymmetries that
+require $\ttbar$ reconstruction (about 16\% of events, in both data
+and MC).
+
+% Do I need to present the efficiency and resolution of the neutrino
+% solver? Maybe kick this to an appendix?
 
 \section{Background Estimation}
 \label{sec:afbbackground}
 
-Describe the control regions we used, and what each one is suited for.
-Talk about how we varied the target MC component to optimize the total
-yield in each CR.
-Don't forget to mention how high our S/B ratio is.
+In general, the backgrounds in this analysis are estimated using Monte
+Carlo simulations, normalized based on next-to leading order (NLO) or
+next-to next-to leading order (NNLO) cross sections. However, we
+validate these estimates and
+derive scale factors (SFs) and uncertainties for the backgrounds by
+comparing them to data in certain control regions. Our largest
+background is irreducible, namely single-top production
+in the $tW$ channel. However, it is documented that this background is
+well-modeled by MC, and therefore requires no correction (CITATION). % Citation for TOP-12-040
+And fortunately, our measurements depend on the shape of the data, and
+thus are not very sensitive to the normalization of the background
+components. Finally, as we will see in Section
+\ref{sec:afbdatamccompare}, our background yields are very small
+compared to the $\ttdilep$ signal.
+
+Since our signal region (SR) is designed to enhance the $\ttdilep$
+process and exclude backgrounds, we can create control regions (CRs)
+that target specific background processes by inverting one to two cuts
+and selections from the SR. There are three broad categories of CRs,
+each targeting a particular background component,
+outlined in Figure \ref{fig:afb:crs}. These CRs are described in
+detail in Table \ref{tab:afb:crdefs}.
+
+% Pulled from AN-14-246. UNPUBLISHED! %%%%%%%%%%%%%%%%%
+\vspace{0.25in}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/CRsdef.pdf}
+  \caption{Relationships between the SR and the different categories of CRs.}
+  \label{fig:afb:crs}
+\end{figure}
+
+
+% Adapted from AN-14-246 UNPUBLISHED! %%%%%%%%%%%%%%%%%%
+\begin{table}[h]
+\begin{center}
+\caption{Summary of control regions. For each ``CR$N$'' other than
+  CR0, there is a corresponding ``CR$N$v'', with a b-veto added.}
+\label{tab:afb:crdefs}
+{\small
+\begin{tabular}{l|c c}
+\hline
+Selection Criteria & Name & Target process  \\
+\hline
+b veto & CR0 & DY \\
+\hline
+Z peak & CR1 & DY \\
+\hline
+Z peak, no MET cut & CR2 & DY \\
+\hline
+No MET cut & CR3 & DY \\
+\hline
+1 jet & CR4 & tW  \\
+\hline
+Same sign & CR5 & Fakes \\
+\hline
+Same sign, no MET cut & CR6 & Fakes \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+In each control region, we vary the normalization of the targeted
+background process until the MC yield matches the data yield in that
+region. The SF for the DY process is taken from CR1, and the SF for
+fakes is taken from CR5; in each case, the related CRs are used to
+derive an envelope of variation that defines the systematic
+uncertainties on the SFs. These envelopes are depicted in Figure
+\ref{fig:afb:sfvariations}, and the final SFs and uncertainties are
+given in Table \ref{tab:afb:sfs}. Since we do not apply a SF to the
+$tW$ background, we take the uncertainty on this background component
+from the uncertainty on a CMS cross section measurement of $23.4 \pm
+5.4$ pb \cite{twxsec}.
+
+% Pulled from AN-14-246. UNPUBLISHED! %%%%%%%%%%%%%%%%%
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/SFs_all.pdf}
+  \caption{SFs measured in different CRs. Blue line depicts the
+    central value, and red lines give the systematic uncertainty band.}
+  \label{fig:afb:sfvariations}
+\end{figure}
+
+% Pulled from AN-14-246. Something similar has been published.
+\begin{table}[h]
+\begin{center}
+\caption{SFs applied to the background components, and their
+  associated uncertainties.}
+\label{tab:afb:sfs}
+{\small
+\begin{tabular}{l|c}
+\hline
+Process & SF  \\
+\hline
+DY$\rightarrow ee/\mu\mu$ & 1.36 $\pm$ 0.02 (stat) $\pm$ 0.2 (syst) \\
+DY$\rightarrow\tau\tau$   & 1.18 $\pm$ 0.01 (stat) $\pm$ 0.1 (syst) \\
+fakes             & 2.18 $\pm$ 0.30 (stat) $\pm$ 1.0 (syst) \\
+tW                & 1.00 $\pm$ 0.25 (syst) \\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\section{Comparison Between Data and Simulation}
+\label{sec:afbdatamccompare}
+
+After applying the event selections and scale factors described in the
+previous section, our MC-predicted and observed event yields are as
+shown in Table \ref{tab:afb:datamcyields}. The dileptonic $\ttbar$
+MC has been rescaled so that the total MC yield equals the total data
+yield, because we assume that anything that isn't background must be
+signal. This $\ttdilep$ sample was generated using MC@NLO, and
+required a scale factor of 0.95 to match the data yield. The original
+cross section was verified using Powheg. When all is said and done, the
+total yield is approximately 91\% signal and 9\% background.
+
+Figure \ref{fig:afb:datamccompare} provides comparisons between data
+and Monte Carlo predictions for several of the kinematic variables
+that describe the $\ttbar$ system, after all corrections and scale
+factors have been applied. As the plots themselves and the associated
+ratios show, the MC predictions match the data fairly well, indicating
+good quality modeling of the background processes and the
+$\ttdilep$ process.
+
+% Adapted from AN-14-246. Similar table published in spin correlation/polarization paper.
+\begin{table}[htb]
+\begin{center}
+\caption{Observed and expected yields after applying preselection and scale
+  factors. Yields are scaled to a luminosity of 19.5
+  fb\textsuperscript{-1}. Uncertainties are statistical only.}
+\label{tab:afb:datamcyields}
+\begin{tabular}{l |  c  c  c  c}
+\hline
+                                        Sample   &                $ee$   &            $\mu\mu$   &              $e\mu$   &               Total  \\
+\hline
+                 $\ttbar \rightarrow \ell\ell$   &   6313.6 $\pm$ 37.7   &   8975.7 $\pm$ 44.1   &  24651.6 $\pm$ 73.4   &  39940.9 $\pm$ 93.6  \\
+              $\ttbar \rightarrow \ell +$ jets   &     107.1 $\pm$ 7.7   &      62.2 $\pm$ 5.4   &    327.4 $\pm$ 13.4   &    496.7 $\pm$ 16.4  \\
+                                        W+jets   &       7.3 $\pm$ 3.6   &       1.8 $\pm$ 1.8   &      10.0 $\pm$ 3.5   &      19.1 $\pm$ 5.3  \\
+                  single top (s/t-chan, 1-lep)   &       2.6 $\pm$ 0.6   &       4.6 $\pm$ 0.9   &      18.8 $\pm$ 1.6   &      26.1 $\pm$ 1.9  \\
+                        single top (tW, 2-lep)   &     298.0 $\pm$ 1.6   &     425.9 $\pm$ 1.9   &    1161.9 $\pm$ 3.1   &    1885.8 $\pm$ 4.0  \\
+                                      WW/WZ/ZZ   &      27.6 $\pm$ 1.4   &      40.7 $\pm$ 1.4   &      89.3 $\pm$ 2.3   &     157.5 $\pm$ 3.0  \\
+               DY $\rightarrow ee/\mu\mu$+jets   &    211.0 $\pm$ 16.0   &    368.0 $\pm$ 22.8   &       1.6 $\pm$ 0.5   &    580.6 $\pm$ 27.9  \\
+                DY $\rightarrow \tau\tau$+jets   &      33.9 $\pm$ 2.5   &      51.5 $\pm$ 3.0   &     137.6 $\pm$ 5.1   &     223.0 $\pm$ 6.4  \\
+                                ttW/Z/$\gamma$   &      86.4 $\pm$ 6.5   &     141.3 $\pm$ 8.2   &    331.6 $\pm$ 12.8   &    559.2 $\pm$ 16.5  \\
+                                      triboson   &       1.5 $\pm$ 0.1   &       2.3 $\pm$ 0.2   &       5.2 $\pm$ 0.3   &       9.0 $\pm$ 0.4  \\
+\hline
+                                   Total SM MC   &   7089.0 $\pm$ 42.5   &  10074.0 $\pm$ 50.8   &  26735.0 $\pm$ 76.1   & 43898.0 $\pm$ 100.9  \\
+\hline
+                                          Data   &                7089   &               10074   &               26735   &               43898  \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{table}
+
+% Pulled from AN-14-246. These exact plots are unpublished, but some similar ones may be published in the spin corr/pol paper. %%%%%%%%%%%%%%%%%
+% I'll probably need to change these around to meet criteria for published plots.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/dataMC/n_bjets_combined.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC/lepPt_combined.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC/met_combined.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC/tt_mass_combined.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC/tt_pT_combined.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC/ttRapidity2_combined.pdf}
+  \caption{Comparison of data with Monte Carlo predictions for
+    selected kinematic variables.}
+  \label{fig:afb:datamccompare}
+\end{figure}
 
 \section{Unfolding}
 \label{sec:afbunfolding}
