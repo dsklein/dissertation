@@ -603,7 +603,7 @@ $\ttdilep$ process.
 
 % Pulled from AN-14-246. These exact plots are unpublished, but some similar ones may be published in the spin corr/pol paper. %%%%%%%%%%%%%%%%%
 % I'll probably need to change these around to meet criteria for published plots.
-\begin{figure}[htb]
+\begin{figure}[phtb]
   \centering
   \includegraphics[width=0.45\textwidth]{figures/dataMC/n_bjets_combined.pdf}
   \includegraphics[width=0.45\textwidth]{figures/dataMC/lepPt_combined.pdf}
@@ -615,30 +615,244 @@ $\ttdilep$ process.
     selected kinematic variables.}
   \label{fig:afb:datamccompare}
 \end{figure}
+% Also, are those first three actually the most important variables to
+% plot? Maybe there are some that are more important for modeling, or
+% for this analysis. Think about it.
 
 \section{Unfolding}
 \label{sec:afbunfolding}
 
+As described in Section \ref{sec:cms}, the CMS detector and its
+associated reconstruction software are not perfect, nor are our object
+and event selections and reconstruction methods described in Section
+\ref{sec:afbselections}. Because of these imperfections, our measured
+asymmetry values may be distorted from the true
+values. When theorists make predictions for these asymmetries,
+they predict the true values, not the values that would be measured by
+individual experiments. So in order to compare our results with
+theoretical predictions, as well as with results measured at other
+experiments, it behooves us to extrapolate backward to the underlying
+true asymmetry values. We do this using a technique known as
+\emph{unfolding}.
+
 \subsection{Background}
 \label{ssec:afbunfoldingbkg}
 
-Describe the unfolding technique.
+Unfolding is a technique for signal processing and imaging processing that
+has made its way downstream into several scientific and technical
+disciplines. In other fields it may be known as \emph{deconvolution}
+or \emph{unsmearing}. In our case, the problem works as follows:  %%%% Where do the citations go? Maybe here?
 
-\subsection{One-Dimensional Unfolding}
+Each of the physical observables we use to calculate our asymmetries,
+such as $\Delta \phi_{\ell\ell}$, may be plotted in a histogram, where
+the contents of each bin corresond to some observed number of
+events. If the bin contents of our measured histogram are written as a
+vector $\vec{b}$, and the bin contents of the hypothetical ``true''
+histogram for that variable are written as a vector $\vec{x}$, then we can model the
+distorting effects of our detector, reconstruction, etc. using a response
+matrix that transforms $\vec{x}$ into $\vec{b}$. We choose to split the
+response matrix into two components, $S$ and $A$, giving us the matrix equation:
+\begin{equation}
+\vec{b} = S A \vec{x}
+\label{eq:afb:convolution}
+\end{equation}
+Here, $A$ is the \emph{acceptance} matrix, a diagonal
+matrix that expresses the fraction of true events from each bin that
+are actually measured, and not lost to event selection. $S$ is the \emph{smearing}
+matrix, which describes the fraction of true events from each bin that
+get measured in other bins due to distortion from reconstruction
+effects. If we know the values of the matrices $S$ and
+$A$, and they are invertible, then we can invert Equation
+\ref{eq:afb:convolution} to solve for the true distribution:
+\begin{equation}
+\vec{x} = A^{-1} S^{-1} \vec{b}
+\label{eq:afb:deconvolution}
+\end{equation}
+
+Unfolding is an example of an \emph{inverse problem}, because it takes
+effects and attempts to extrapolate back to their causes. And like
+many other inverse problems, this one is mathematically
+\emph{ill-posed}, because a small fluctuation in the measured
+distribution $\vec{b}$ can cause a much larger fluctuation in the
+unfolded solution $\vec{x}$ \cite{blobelseminar}. To curtail these
+fluctuations, we employ a technique called \emph{regularization}.
+
+Regularization is the process of adding additional constraints to the
+unfolding process, in the hope of making the unfolded result more
+accurate to the true distribution. If we know (or believe) that the
+true distribution $\vec{x}$ should have certain properties, we can
+constrain the unfolding process so that the output will try to have
+those properties too \cite{unfoldingcowan}.
+
+To regularize our unfolded results, we supply the truth-level Monte
+Carlo distributions of our variables as \emph{bias distributions},
+essentially templates for what the unfolded result should
+resemble. In our case, we ask that the unfolded result should attempt
+to mimic the curvature (i.e. the second derivative) of the bias
+distribution. The strength of this regularization is determined by a
+parameter $\tau$. Choosing a small value for $\tau$ will give less
+regularization, and lead to more statistical fluctuations in the
+output; choosing a large value of $\tau$ will give heavy
+regularization, and strongly constrain the output to resemble the bias
+distribution.
+
+\subsection{One-Dimensional Unfolding Procedure}
 \label{ssec:afbunfolding1d}
 
-Describe how we used 1D unfolding to measure the asymmetry variables.
-Talk about binning choices, and all those other optimizations.
+When choosing how to bin histograms that will be unfolded, one must
+strike a balance. If there are too many narrow bins, one risks
+introducing statistical fluctuations in the output. But
+with too few bins, one loses resolution. For the asymmetry variables
+that require us to reconstruct the $\ttbar$ system, we discovered the
+ideal balance was to have six bins in the truth level distribution
+$\vec{x}$. However, for the variables that only require lepton
+reconstruction, we have more statistics and finer resolution, allowing
+us to use 12 bins at truth level. In both cases we use twice as many
+bins for the reconstruction-level distribution ($\vec{b}$) to avoid a
+quirk of the numerical method that would make the problem seem
+artificially well-posed \cite{blobelseminar}. We chose to bin our
+variables so that the number of events in each bin would be
+approximately equal. The specific bins chosen are given in Table
+\ref{tab:afb:binning1d}. The reconstruction-level bins are formed by
+simply dividing the truth-level bins in half.
 
-\subsection{Two-Dimensional Unfolding}
+% Table of binnings from AN-14-246. Believed unpublished, but could probably be deduced from published plots.
+\begin{sidewaystable}%[htb]
+\begin{center}
+\caption{Truth-level bins chosen for 1D unfolding of asymmetry variables.}
+\label{tab:afb:binning1d}
+\begin{tabular}{l |  c  c  c  c  c  c }
+\hline
+Variable &  B1  &  B2 &  B3 &  B4 &  B5 &  B6\\ \hline
+$A_{C}$  &        [-$\infty$,-22/30]  &  [-22/30,-10/30]  &  [-10/30,0]  &  [0, 10/30]  &  [10/30, 22/30]  &  [22/30, $\infty$] \\ \hline
+$A_{P}$             &  [-1,-2/3]  &  [-2/3,-1/3]  &  [-1/3,0]  &  [0, 1/3]  &  [1/3, 2/3]  &  [2/3, 1] \\ \hline
+$A_{c1c2}$        &  [-1,-2/5]  &  [-2/5,-1/6]  &  [-1/6,0]  &  [0, 1/6]  &  [1/6, 2/5]  &  [2/5, 1] \\ \hline
+$A_{\cos\phi}$       &  [-1,-2/3]  &  [-2/3,-1/3]  &  [-1/3,0]  &  [0, 1/3]  &  [1/3, 2/3]  &  [2/3, 1] \\ \hline
+\end{tabular}
+
+\bigskip
+
+\begin{tabular}{l |  c  c  c  c  c  c c c c c c c }
+\hline
+Variable &  B1  &  B2 &  B3 &  B4 &  B5 &  B6 \\ \hline
+$A_C^{lep}$  &  [-$\infty$,-34/30]  &  [-34/30,-24/30]  &  [-24/30,-16/30]  &  [-16/30, -10/30]  &  [-10/30, -4/30]  &  [-4/30, 0] \\
+\hline
+$A_{\Delta\phi}$ &  [0, $5\pi/60$ ]  &  [$5\pi/60$,$10\pi/60$]  &  [$10\pi/60$,$15\pi/60$]  &  [$15\pi/60$, $20\pi/60$]  &  [$20\pi/60$, $25\pi/60$]  &  [$25\pi/60$, $30\pi/60$] \\
+\hline
+  &  B7 &  B8 &  B9 &  B10 &  B11 &  B12 \\ \hline
+$A_C^{lep}$ & [0, 4/30] & [4/30, 10/30] & [10/30, 16/30] & [16/30, 24/30] & [24/30, 34/30] & [34/30, $\infty$] \\ \hline
+$A_{\Delta\phi}$ & [$30\pi/60$, $35\pi/60$ ]  &  [$35\pi/60$,$40\pi/60$]  &  [$40\pi/60$,$45\pi/60$]  &  [$45\pi/60$, $50\pi/60$]  &  [$50\pi/60$, $55\pi/60$]  &  [$55\pi/60$, $\pi$] \\ \hline
+\end{tabular}
+\end{center}
+\end{sidewaystable}
+
+For each asymmetry variable, we calculated the fraction of true
+Monte Carlo events in each bin that passed our selections. These
+values then became the diagonal entries of the acceptance matrix,
+$A$. Because our event selections are slightly different for
+same-flavor and opposite-flavor dileptons, we calculated and applied
+separate acceptance matrices for each case. In Figure \ref{fig:afb:acceptance}, we
+show the acceptance matrices for each asymmetry, after combining
+the two dilepton flavors in appropriate proportion.
+
+% Acceptance matrices taken from AN-14-146. Unpublished in papers, dunno about PASes
+\begin{figure}[htpb]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/accept_lepChargeAsym_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/accept_lepAzimAsym2_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/accept_rapiditydiffMarco_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/accept_lepCosTheta_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/accept_topSpinCorr_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/accept_lepCosOpeningAngle_all.pdf}
+\caption{Acceptance matrices for the six asymmetry variables. Since
+  all off-diagonal elements are zero, only the diagonal elements are shown.}
+\label{fig:afb:acceptance}
+\end{center}
+\end{figure}
+
+The smearing matrices $S$ were populated as one might expect. Each event
+was placed into a 2D histogram bin based on its gen-level asymmetry
+(y-axis) and its reco-level asymmetry (x-axis). So each bin in the
+histogram corresponds exactly to a single element in the smearing
+matrix. These histograms are presented in Figure \ref{fig:afb:smearing}. The smearing
+matrices for the leptonic variables have almost no off-diagonal
+components, reflecting the high quality of our lepton
+reconstruction. For the variables that require $\ttbar$ system
+reconstruction, the smearing is noticeable, and may be due to detector
+effects or to the limitations of the $\ttbar$ reconstruction
+software. At any rate, these smearing matrices are nearly symmetric
+about the diagonal. This fact indicates that reconstruction introduces
+little to no bias, and simply dilutes the true asymmetry.
+
+% Smearing matrices taken from AN-14-146. Not published in papers.
+\begin{figure}[htpb]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/smearing_lepChargeAsym_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/smearing_lepAzimAsym2_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/smearing_rapiditydiffMarco_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/smearing_lepCosTheta_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/smearing_topSpinCorr_all.pdf}
+\includegraphics[width=0.325\linewidth]{figures/smearing_lepCosOpeningAngle_all.pdf}
+\caption{Smearing matrices for the six asymmetry variables.}
+\label{fig:afb:smearing}
+\end{center}
+\end{figure}
+
+As described in Section \ref{ssec:afbunfoldingbkg}, the choice of the
+parameter $\tau$ will impact both the amount of statistical
+fluctuation in the unfolded distribution, and the amount of
+bias. There are many ways to choose the optimal value of this parameter. We
+use the method of minimizing the mean of the global correlation
+coefficients, which is also favored by Blobel
+\cite{blobelseminar}. The values of $\tau$ we arrived at in this way
+are presented in Table \ref{tab:afb:tau1d}. To validate these values,
+we checked how the asymmetry and its uncertainties varied as we raised
+and lowered tau by up to a factor of 100. As expected, the
+uncertainties became larger as $\tau$ was lowered, and the asymmetry % Do I need to include these plots?
+central value shifted, indicating bias, as tau was raised. From this, we deduce
+that our choices for $\tau$ were appropriate.
+
+% Table of tau values from AN-14-246. Believed unpublished. %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[htb]
+\begin{center}
+\caption{Optimal $\tau$ values chosen for each asymmetry.}
+\label{tab:afb:tau1d}
+\begin{tabular}{l | c  c  c  c  c  c }
+\hline
+Asymmetry & $A_{lepC}$ & $A_{\Delta\phi}$ & $A_{C}$ & $A_{P}$ & $A_{c1c2}$ & $A_{\cos\phi}$ \\ \hline
+$\tau$ value & 0.000185 & 0.000166 & 0.000110 & 0.000075 & 0.000089 & 0.000098 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Two-Dimensional Unfolding Procedure}
 \label{ssec:afbunfolding2d}
 
 Describe how we used 2D unfolding to measure differential asymmetries.
 Talk about binning choices and other optimizations.
+Creating S and A matrices (if any different from 1D)
+Choosing the tau parameter
+
+% Binning table from AN-14-246. Believed unpublished, but these values could probably be deduced from published plots.
+% \begin{table}[htb]
+% \begin{center}
+% \caption{Bins chosen for kinematic variables in 2D unfolding.}
+% \label{tab:afb:binning2d}
+% \begin{tabular}{l |  c  c  c }
+% \hline
+% Secondary Variable &  B1  &  B2 &  B3 \\ \hline
+% $m_{t \bar t}$ (GeV)    &  [0, 430]  &  [430,530]  &  [530,$\infty$]  \\ \hline
+% $p_{T}^{t \bar t}$ (GeV)    &  [0,41]  &  [41,92]  &  [92,$\infty$] \\ \hline
+% $|y_{t \bar t}|$        &  [0,0.34]  &  [0.34,0.75]  &  [0.75,$\infty$] \\ \hline
+%  \hline
+% \end{tabular}
+% \end{center}
+% \end{table}
 
 \subsection{Validation}
 \label{ssec:afbunfoldingtests}
 
+Address the concern of introducing bias.
 Talk about the linearity and pull tests, and how they quantify any bias
 introduced by regularization.
 Give the values from those tests.
