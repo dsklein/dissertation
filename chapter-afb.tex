@@ -14,9 +14,9 @@ are Refs. \cite{chargeasym} and \cite{spincorrpol}.
 % I guess the same question is also applicable to the stop analysis.
 
 \section{Motivation}
-\label{sec:afbmotivation}
+\label{sec:afb:motivation}
 
-As mentioned in Section \ref{ssec:SMdescription}, the top quark is the
+As mentioned in Section \ref{ssec:SM:description}, the top quark is the
 heaviest known elementary particle, with a mass of $\sim 173$ GeV
 \cite{pdg}. This large mass gives the top quark a number of properties
 that make it uniquely interesting to study.
@@ -47,7 +47,7 @@ asymmetry to tease out any links to possible new physics.
 % And also include a Feynman diagram of the process
 
 \section{Previous Measurements}
-\label{sec:afbtevatron}
+\label{sec:afb:tevatron}
 
 The Tevatron collider at Fermilab has made several previous measurements of
 top charge asymmetry (CITATIONS), and of top spin % Pull in all these citations
@@ -81,7 +81,7 @@ next section will explain, we must define ``forward'' and ``backward''
 events somewhat differently.
 
 \section{Asymmetry Variables}
-\label{sec:afbvariables}
+\label{sec:afb:variables}
 
 In this analysis, we evaluated six different asymmetries in $\ttdilep$
 events, including two charge asymmetries, one
@@ -90,7 +90,7 @@ variables deviate from their expected SM values, it could potentially
 be a sign of new physics.
 
 \subsection{Definitions}
-\label{ssec:afbvariables}
+\label{ssec:afb:variables}
 
 % Top charge asymmetry %%%%%%%%%%%
 As at the Tevatron, the top charge asymmetry was measured at CMS using
@@ -115,7 +115,7 @@ decay. We may use the leptons as a proxy for the tops because we
 expect their direction to be correlated with the directions of their
 parent tops. One advantage of using only the leptons is that it obviates the
 need to reconstruct the $\ttbar$ system, as described in Sec.
-\ref{sec:afbselections}, thereby allowing us to include more events in
+\ref{sec:afb:selections}, thereby allowing us to include more events in
 our calculation of this variable. However, this variable also has some
 dependence on the polarization, so it is not fully correlated with $A_C$.
 
@@ -171,7 +171,7 @@ asymmetry, we can calculate the $D$ spin correlation coefficient to be
 $D = -2 \times A_{\cos\phi}$ \cite{spincorrpolcoeff}.
 
 \subsection{Differential Measurements}
-\label{ssec:afbvarsdifferential}
+\label{ssec:afb:varsdifferential}
 
 In addition to measuring the above six asymmetries in one dimension
 (\emph{inclusively}), we also measured them in two dimensions
@@ -184,7 +184,7 @@ variables differentially with respect to the $\ttbar$ invariant mass
 ($m_{\ttbar}$), rapidity ($y_{\ttbar}$), and transverse momentum ($p_T^{\ttbar}$).
 
 \section{Datasets and Triggers}
-\label{sec:afbdatatrig}
+\label{sec:afb:datatrig}
 
 For this analysis, we used 19.5 fb\textsuperscript{-1} of data from
 the 8 TeV portion of CMS Run I, encompassing the 2012A through 2012D
@@ -323,7 +323,7 @@ Dilepton Sample \\
 \end{table}
 
 \section{Object and Event Selection}
-\label{sec:afbselections}
+\label{sec:afb:selections}
 
 We employed a set of physics object and event selections designed to
 accept as many $\ttdilep$ events as possible while minimizing the
@@ -407,7 +407,7 @@ properties of the data. In particular:
   in a different analysis (CITATION). As these values agree well with % Need citation
   the efficiencies of our MC, we apply no correction, but we do assign
   a systematic uncertainty, as described in Section
-  \ref{sec:afbsystematics}.
+  \ref{sec:afb:systematics}.
 \item We correct the MC for the efficiency of b-tagging using the CSV
   discriminator reshaping method
 \item We apply the standard Jet Energy Corrections (JECs)
@@ -419,7 +419,7 @@ properties of the data. In particular:
 \label{ssec:afb:ttbarreconstruction}
 
 For some of the asymmetry variables described in Section
-\ref{ssec:afbvariables}, it is necessary to reconstruct the $\ttbar$
+\ref{ssec:afb:variables}, it is necessary to reconstruct the $\ttbar$
 system and its decay. This process is challenging because we do not
 know the exact momenta of the two neutrinos (only the total MET for
 the event), and because there is an ambiguity as to which lepton
@@ -442,7 +442,7 @@ and MC).
 % solver? Maybe kick this to an appendix?
 
 \section{Background Estimation}
-\label{sec:afbbackground}
+\label{sec:afb:background}
 
 In general, the backgrounds in this analysis are estimated using Monte
 Carlo simulations, normalized based on next-to leading order (NLO) or
@@ -456,7 +456,7 @@ well-modeled by MC, and therefore requires no correction (CITATION). % Citation 
 And fortunately, our measurements depend on the shape of the data, and
 thus are not very sensitive to the normalization of the background
 components. Finally, as we will see in Section
-\ref{sec:afbdatamccompare}, our background yields are very small
+\ref{sec:afb:datamccompare}, our background yields are very small
 compared to the $\ttdilep$ signal.
 
 Since our signal region (SR) is designed to enhance the $\ttdilep$
@@ -550,7 +550,7 @@ tW                & 1.00 $\pm$ 0.25 (syst) \\
 \end{table}
 
 \section{Comparison Between Data and Simulation}
-\label{sec:afbdatamccompare}
+\label{sec:afb:datamccompare}
 
 After applying the event selections and scale factors described in the
 previous section, our MC-predicted and observed event yields are as
@@ -620,12 +620,12 @@ $\ttdilep$ process.
 % for this analysis. Think about it.
 
 \section{Unfolding}
-\label{sec:afbunfolding}
+\label{sec:afb:unfolding}
 
 As described in Section \ref{sec:cms}, the CMS detector and its
 associated reconstruction software are not perfect, nor are our object
 and event selections and reconstruction methods described in Section
-\ref{sec:afbselections}. Because of these imperfections, our measured
+\ref{sec:afb:selections}. Because of these imperfections, our measured
 asymmetry values may be distorted from the true
 values. When theorists make predictions for these asymmetries,
 they predict the true values, not the values that would be measured by
@@ -636,7 +636,7 @@ true asymmetry values. We do this using a technique known as
 \emph{unfolding}.
 
 \subsection{Background}
-\label{ssec:afbunfoldingbkg}
+\label{ssec:afb:unfoldingbkg}
 
 Unfolding is a technique for signal processing and imaging processing that
 has made its way downstream into several scientific and technical
@@ -697,7 +697,7 @@ regularization, and strongly constrain the output to resemble the bias
 distribution.
 
 \subsection{One-Dimensional Unfolding Procedure}
-\label{ssec:afbunfolding1d}
+\label{ssec:afb:unfolding1d}
 
 When choosing how to bin histograms that will be unfolded, one must
 strike a balance. If there are too many narrow bins, one risks
@@ -798,7 +798,7 @@ little to no bias, and simply dilutes the true asymmetry.
 \end{center}
 \end{figure}
 
-As described in Section \ref{ssec:afbunfoldingbkg}, the choice of the
+As described in Section \ref{ssec:afb:unfoldingbkg}, the choice of the
 parameter $\tau$ will impact both the amount of statistical
 fluctuation in the unfolded distribution, and the amount of
 bias. There are many ways to choose the optimal value of this parameter. We
@@ -863,20 +863,20 @@ Give the values from those tests.
 Describe all the systematic uncertainties we calculated.
 
 \section{Results and Interpretation}
-\label{sec:afbresults}
+\label{sec:afb:results}
 
 \subsection{One-Dimensional Results}
-\label{ssec:afbresults1d}
+\label{ssec:afb:results1d}
 
 Give the 1D results
 
 \subsection{Two-Dimensional Results}
-\label{ssec:afbresults2d}
+\label{ssec:afb:results2d}
 
 Give the 2D results
 
 \subsection{BSM Interpretation}
-\label{ssec:afbresultsbsm}
+\label{ssec:afb:resultsbsm}
 
 Not sure if this section should be included or not. If I keep it:
 Talk about the search for chromo-magnetic dipole moments.
