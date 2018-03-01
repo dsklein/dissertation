@@ -101,6 +101,7 @@ absolute value of rapidity. Thus we define our \textbf{top charge
 asymmetry} as:
 \begin{equation}
 A_C = \asymmetry{|y_t|}{|y_{\bar{t}}|}
+\label{eq:afb:topchargeasym}
 \end{equation}
 
 % Leptonic charge asymmetry %%%%%%%%
@@ -181,7 +182,7 @@ discrepancy was more pronounced at $\ttbar$ invariant masses above 450 % Cite CD
 GeV than below it. If similar behavior occurs at CMS, in any variable,
 we would like to observe it. We measured all six of our asymmetry
 variables differentially with respect to the $\ttbar$ invariant mass
-($m_{\ttbar}$), rapidity ($y_{\ttbar}$), and transverse momentum ($p_T^{\ttbar}$).
+($m_{\ttbar}$), absolute rapidity ($|y_{\ttbar}|$), and transverse momentum ($p_T^{\ttbar}$).
 
 \section{Datasets and Triggers}
 \label{sec:afb:datatrig}
@@ -694,7 +695,10 @@ parameter $\tau$. Choosing a small value for $\tau$ will give less
 regularization, and lead to more statistical fluctuations in the
 output; choosing a large value of $\tau$ will give heavy
 regularization, and strongly constrain the output to resemble the bias
-distribution.
+distribution. In truth, any amount of regularization must introduce
+some degree of bias into our measurements. In Section
+\ref{ssec:afb:unfoldingtests}, I describe the tests we performed to
+quantify the amount of introduced bias.
 
 \subsection{One-Dimensional Unfolding Procedure}
 \label{ssec:afb:unfolding1d}
@@ -825,42 +829,337 @@ $\tau$ value & 0.000185 & 0.000166 & 0.000110 & 0.000075 & 0.000089 & 0.000098 \
 \end{center}
 \end{table}
 
+We performed the actual regularized unfolding using the TUnfold
+package \cite{tunfold}. We chose TUnfold because it provided good
+support for two-dimensional unfolding, a process described in the next
+section. The results of the one-dimensional unfolding are presented in
+Section \ref{ssec:afb:results1d}. The tests performed in Section
+\ref{ssec:afb:unfoldingtests} show that regularization introduces very
+little bias into these results.
+
 \subsection{Two-Dimensional Unfolding Procedure}
-\label{ssec:afbunfolding2d}
+\label{ssec:afb:unfolding2d}
 
-Describe how we used 2D unfolding to measure differential asymmetries.
-Talk about binning choices and other optimizations.
-Creating S and A matrices (if any different from 1D)
-Choosing the tau parameter
+As described in Section \ref{ssec:afb:varsdifferential}, we also wish
+to measure our asymmetries differentially with respect to three
+different $\ttbar$ kinematic variables -- mass, absolute rapidity, and transverse
+momentum of the $\ttbar$ system. For our asymmetry variables, we use
+the same binning described in Table \ref{tab:afb:binning1d}. For the
+secondary variables, our chosen binning is described in Table
+\ref{tab:afb:binning2d}.
 
-% Binning table from AN-14-246. Believed unpublished, but these values could probably be deduced from published plots.
-% \begin{table}[htb]
-% \begin{center}
-% \caption{Bins chosen for kinematic variables in 2D unfolding.}
-% \label{tab:afb:binning2d}
-% \begin{tabular}{l |  c  c  c }
-% \hline
-% Secondary Variable &  B1  &  B2 &  B3 \\ \hline
-% $m_{t \bar t}$ (GeV)    &  [0, 430]  &  [430,530]  &  [530,$\infty$]  \\ \hline
-% $p_{T}^{t \bar t}$ (GeV)    &  [0,41]  &  [41,92]  &  [92,$\infty$] \\ \hline
-% $|y_{t \bar t}|$        &  [0,0.34]  &  [0.34,0.75]  &  [0.75,$\infty$] \\ \hline
-%  \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
+%Binning table from AN-14-246. Believed unpublished, but these values could probably be deduced from published plots.
+\begin{table}[htb]
+\begin{center}
+\caption{Bins chosen for kinematic variables in differential measurements.}
+\label{tab:afb:binning2d}
+\begin{tabular}{l |  c  c  c }
+\hline
+Secondary Variable &  B1  &  B2 &  B3 \\ \hline
+$m_{\ttbar}$ (GeV)    &  [0, 430]  &  [430,530]  &  [530,$\infty$]  \\ \hline
+$p_{T}^{\ttbar}$ (GeV)    &  [0,41]  &  [41,92]  &  [92,$\infty$] \\ \hline
+$|y_{\ttbar}|$        &  [0,0.34]  &  [0.34,0.75]  &  [0.75,$\infty$] \\ \hline
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
-\subsection{Validation}
-\label{ssec:afbunfoldingtests}
+The procedure for unfolding these two-dimensional distributions is
+nearly identical to the procedure for unfolding
+one-dimensional distributions. We convert our two-dimensional
+distributions into one-dimensional distributions by essentially
+``unwrapping'' the 2D histogram into a 1D histogram. If the 2D
+histogram has the familiar 6(12) bins on the x-axis, and 3 bins (or rows) on the
+y-axis, we concatenate those three rows together, to form a 1D histogram
+(i.e. single row) with 18(36) bins. We can then unfold the unwrapped
+distribution, and re-wrap it to obtain the differential asymmetry
+measurements. % A figure should go here to show the unwrapping
 
-Address the concern of introducing bias.
-Talk about the linearity and pull tests, and how they quantify any bias
-introduced by regularization.
-Give the values from those tests.
+The smearing and acceptance matrices used for unfolding in two
+dimensions follow this same unwrapping scheme, but are otherwise
+derived identically to those for 1D unfolding.
+% Interestingly, the smearing matrices based on unwrapped distributions
+% show a $3 \times 3$ structure that comes from migration between bins
+% in the kinematic variable.
+The regularization parameter $\tau$ is chosen for 2D unfolding just as
+it was for 1D unfolding, by finding the value that minimizes the mean
+of the global correlation coefficients. As an example, the $\tau$
+values used for 2D unfolding vs. $m_{\ttbar}$ are given in Table
+\ref{tab:afb:tau2d}.
+
+% Table of 2D tau values vs Mttbar from AN-14-246. Believed unpublished.
+\begin{table}[htpb]
+\begin{center}
+\caption{Optimal $\tau$ values chosen to unfold each asymmetry against
+$m_{\ttbar}.$}
+\label{tab:afb:tau2d}
+\begin{tabular}{l | c  c  c  c  c  c }
+\hline
+Asymmetry & $A_{lepC}$ & $A_{\Delta\phi}$ & $A_{C}$ & $A_{P}$ & $A_{c1c2}$ & $A_{\phi}$ \\ \hline
+$\tau$ value & 0.000426 & 0.000422 & 0.000144 & 0.000102 & 0.000120 & 0.000121 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Our regularization procedure was already described in Section
+\ref{ssec:afb:unfoldingbkg}, however there is an additional subtlety
+introduced in two-dimensional unfolding. Because the distribution we
+are unfolding is actually an ``unwrapped'' two-dimensional
+distribution, we do not want to regularize the curvature at the
+boundaries between unwrapped rows. In addition, we also wish to
+regularize in the secondary variable, which, in the unwrapped
+distribution, means we must regularize bins that are no longer
+adjacent. We specicially chose to use TUnfold because it natively supports such
+complex regularization schemes \cite{tunfold}. The results of the 2D unfolding
+procedure are presented in Section \ref{ssec:afb:results2d}, and the
+bias tests are described in the next section.
+
+\subsection{Linearity Tests}
+\label{ssec:afb:unfoldingtests}
+
+As described in Section \ref{ssec:afb:unfoldingbkg}, regularization
+introduces some amount of bias to our unfolded results because the
+process constrains our results to look somewhat like a distribution
+we supply. But since regularization is important to
+control statistical fluctuations in the output, we would like to
+quantify the amount of bias introduced by regularization.
+
+To test the amount of bias introduced by regularization, we perform
+\emph{linearity tests} on our asymmetries. For each asymmetry, we
+begin by reweighting the $\ttdilep$ Monte Carlo events using a linear
+function of the measured variable. For example, Equation
+\ref{eq:afb:topchargeasym} describes the top charge asymmetry in terms
+of the measured variable $|y_t| - |y_{\bar{t}}|$, so the reweighting
+equation would be:
+\begin{equation}
+\text{weight} = 1 + K \cdot (|y_t| - |y_{\bar{t}}|)
+\end{equation}
+For other asymmetries, substitute the appropriate measured variable
+into this expression. This reweighting has the effect of artificially
+inducing some asymmetry. The parameter $K$ is varied between -0.3 and 0.3
+in steps of 0.1; this gives artificially induced asymmetries of up to
+25\%, which is much larger than anything we would expect from the
+Standard Model or BSM physics.
+
+For each $K$ value, we then make 10,000 copies of the histogram, and
+fluctuate the bin contents of each randomly up and down according to
+Poisson statistics. Each of these fluctuated histograms is called a
+\emph{pseudoexperiment}, because the Poisson fluctuation approximates
+what we might see if we re-ran our experiment another time. Each of
+the 10,000 pseudoexperiments is unfolded, and we compare the average
+of those unfolded asymmetries against the original,
+artificially-induced asymmetry. Figure \ref{fig:afb:linearity}
+shows plots of the average unfolded asymmetry vs. the induced asymmetry
+for each of the seven $K$ values. We then fit these plots
+with a straight line, and record the slope and offset
+(or intercept) of that line. The slope of the line tells us by what
+factor any asymmetry in the data will be scaled up or down by
+regularization. On top of that, the offset tells us how much asymmetry
+will be added or subtracted by the regularization. These slopes and
+offsets are listed in Table \ref{tab:afb:linearity}. Most of the offsets are
+zero (the largest is 0.2\%), meaning regularization will add
+essentially zero asymmetry that isn't there. The slopes are all fairly
+close to 1.0, meaning any asymmetry in our data won't be artificially
+exaggerated much by regularization. The largest slope is 1.024 for
+$A_{c1c2}$, meaning this asymmetry could be exaggerated by as much as
+2.4\% by regularization. We consider this an acceptably small amount
+of bias. This information is also taken into consideration when
+evaluating our systematic uncertainty due to regularization, described
+in Section \ref{sec:afb:systematics}.
+
+% Plots of the linearity results taken from AN-14-246. Believed unpublished.
+\begin{figure}[htpb]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/linearity_lepChargeAsym.pdf}
+\includegraphics[width=0.325\linewidth]{figures/linearity_lepAzimAsym2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/linearity_rapiditydiffMarco.pdf}
+\includegraphics[width=0.325\linewidth]{figures/linearity_lepCosTheta.pdf}
+\includegraphics[width=0.325\linewidth]{figures/linearity_topSpinCorr.pdf}
+\includegraphics[width=0.325\linewidth]{figures/linearity_lepCosOpeningAngle.pdf}
+\caption{Results of our linearity tests. Artificially induced
+  asymmetry values are on the x-axis, and average unfolded asymmetries
+  are on the y-axis.}
+\label{fig:afb:linearity}
+\end{center}
+\end{figure}
+
+% Table of linear fit parameters taken from AN-14-146. Believed unpublished.
+\begin{table}[htpb]
+\begin{center}
+\caption{Parameters describing the fit to the linearity test results.}
+\label{tab:afb:linearity}
+\begin{tabular}{l |  c  c }
+\hline
+Variable &  offset  &  slope \\ \hline
+$A_{lepC}$       &   0.000 $\pm$ 0.000  &  1.000 $\pm$ 0.000\\ \hline
+$A_{\Delta\phi}$ &   0.000 $\pm$ 0.000  &  1.002 $\pm$ 0.000\\ \hline
+$A_{C}$          &   0.000 $\pm$ 0.000  &  1.001 $\pm$ 0.000\\ \hline
+$A_{P}$          &   0.000 $\pm$ 0.000  &  1.023 $\pm$ 0.000\\ \hline
+$A_{c1c2}$       &   0.002 $\pm$ 0.000  &  1.024 $\pm$ 0.000\\ \hline
+$A_{\phi}$       &   -0.002 $\pm$ 0.000  &  1.015 $\pm$ 0.000\\ \hline
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+In addition to the linearity tests, we also verify that the unfolding
+uncertainties are estimated correctly by examining the \emph{pulls} of
+the pseudoexperiments for each value of $K$. The pull is defined as:
+\begin{equation}
+\text{Pull} = \frac{A_{true} - A_{unfolded}}{\sigma(A_{unfolded})}
+\end{equation}
+When we plot these pulls for all observables and all values of $K$, we
+find that they are gaussian distributed with a width of 1.0, meaning
+that $\sigma(A_{unfolded})$ is estimated
+correctly. Figure \ref{fig:afb:pulls} shows these pull
+distributions for the example case of $K = 0$. Figure
+\ref{fig:afb:pullwidths} shows the pull widths as a function of the
+induced asymmetries.
+
+% Pull distributions from AN-14-246. Believed unpublished.
+\begin{figure}[htpb]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/pull_lepChargeAsym.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pull_lepAzimAsym2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pull_rapiditydiffMarco.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pull_lepCosTheta.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pull_topSpinCorr.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pull_lepCosOpeningAngle.pdf}
+\caption{Pull distributions for the example case $K = 0$.}
+\label{fig:afb:pulls}
+\end{center}
+\end{figure}
+
+% Pull widths from AN-14-246. Believed unpublished.
+\begin{figure}[htpb]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/pullwidth_lepChargeAsym.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pullwidth_lepAzimAsym2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pullwidth_rapiditydiffMarco.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pullwidth_lepCosTheta.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pullwidth_topSpinCorr.pdf}
+\includegraphics[width=0.325\linewidth]{figures/pullwidth_lepCosOpeningAngle.pdf}
+\caption{Pull widths for unfolded asymmetries vs. induced asymmetry
+  values. These results are consistent with pull widths of 1.}
+\label{fig:afb:pullwidths}
+\end{center}
+\end{figure}
+
+%%% Kick any other linearity and pull plots (e.g. for 2D unfolding) to an appendix.
 
 \section{Systematic Uncertainties}
-\label{sec:afbsystematics}
+\label{sec:afb:systematics}
 
-Describe all the systematic uncertainties we calculated.
+There are a number of possible mechanisms by which uncertainty may be
+introduced into our asymmetry measurements. Most of these sources of
+systematic uncertainty relate to imperfect modeling of the physics in our Monte
+Carlo simulations, or to the workings of the CMS detector and
+software. The ways in which we assign uncertainties
+to these effects are discussed below. In Section
+\ref{ssec:afb:regsyst}, we will give special consideration to the
+uncertainty due to regularization.
+
+% Experimental systematics
+Our experimental systematic uncertainties are evaluated as follows:
+
+\begin{itemize}
+\item \textbf{Lepton selection:} We correct the Monte Carlo
+  simulations so that the lepton trigger efficiencies, and the
+  efficiencies of lepton identification and isolation, reflect those
+  measured in actual data. The scale factors used in these corrections
+  never deviate from 1 by more than 2\%, so we vary all the scale
+  factors by 2\% to obtain the lepton selection systematic.
+\item \textbf{Lepton energy scale:} Comparisons between data and Monte
+  Carlo for $Z \rightarrow \ell\ell$ events have shown that the
+  uncertainty on electron energy scales is approximately 0.5\%; for
+  muons, this uncertainty is negligible. Therefore we evaluate a
+  systematic on the electron energy scale by varying that scale by
+  0.5\%.
+\item \textbf{Jet energy scale (JES):} The uncertainty from JES
+  corrections is evaluated by varying those corrections within their
+  uncertainties, and propagating the effect to the MET. We properly
+  account for the effects this has on our event selections, and on the
+  $\ttbar$ system reconstruction.
+\item \textbf{Jet energy resolution (JER):} This uncertainty is
+  evaluated similarly to the uncertainty on the JES. However, the JET
+  is varied by 5-10\% depending on the $\eta$ of the jet.
+\item \textbf{Background estimation:} We vary the normalizations of
+  all our backgrounds by the uncertainties evaluated in Section
+  \ref{sec:afb:background}.
+\item \textbf{Pileup (PU) modeling:} We vary the pileup reweighting
+  scale factors by $\pm 1 \sigma$.
+\item \textbf{b-tagging:} We reweight MC events to correctly model the
+  efficiency of b-tagging $b$ and $c$ quarks. These scale factors are
+  varied by $\pm 1 \sigma$.
+\end{itemize}
+
+% ttbar modeling systematics
+In addition, there are several uncertainties on our modeling of the
+$\ttdilep$ process. These uncertainties are evaluated as follows:
+
+\begin{itemize}
+\item \textbf{Factorization and renormalization scales:} We evaluate
+  the uncertainty by substituting MC@NLO $\ttbar$ samples that have
+  these two values scaled both up and down by a factor of 2.
+\item \textbf{Top quark mass:} As described in Section
+  \ref{ssec:afb:ttbarreconstruction}, we use 172.5 GeV for our top
+  quark mass. To evaluate the systematic on this value, we use
+  $\ttbar$ MC samples with the top mass varied by $\pm 3$ GeV, and
+  interpolate to simulate a variation of $\pm 1$ GeV.
+\item \textbf{Parton density functions (PDFs):} The systematic
+  uncertainty on PDFs was evaluted using the then-current PDF4LHC
+  recommendations \cite{pdf4lhc}.
+\item \textbf{Top $p_T$ reweighting:} Since the effects of top $p_T$
+  reweighting were not fully understood, we assigned a conservative
+  100\% systematic to the reweighting.
+\end{itemize}
+
+Evaluating most of these systematics required us to regenerate the
+smearing and acceptance matrices using reweighted Monte Carlo
+simulations, and then reapply the unfolding procedure. In addition, we
+evaluated the systematic uncertainty due to limited \textbf{Monte
+  Carlo statistics} by propagating the uncertainty on the smearing
+matrix to the unfolded result.
+
+\subsection{Regularization Systematic}
+\label{ssec:afb:regsyst}
+
+At the time this analysis was published, there was no standard way to
+evaluate a systematic uncertainty on regularization. We therefore had
+to devise our own method. We wished to isolate the effect of
+regularization from other potential systematics related to the
+unfolding. Specifically, we wished to separate regularization
+uncertainty from any uncertainty that might arise if the MC used to
+fill the smearing matrix is discrepant from real data. We argued that
+any mismodeling in $S$ is already covered by the other systematic
+uncertainties described above.
+
+To evaluate the systematic uncertainty due to regularization, we
+reweighted the bias distribution to match the data, and compared that
+unfolded result to the nominal. This procedure should isolate the
+effect of the regularization from any other sources of
+uncertainty. As Section \ref{sec:afb:results} will show, the
+uncertainty we obtain this way is less than 0.001 on
+all asymmetry variables -- far smaller than the statistical
+uncertainty on the results.
+
+As a cross-check on the small size of this uncertainty, we also
+use pseudoexperiments to estimate the statistical uncertainty on our
+choice of regularization strength, $\tau$. This check also gives an
+uncertainty of <0.001 on all asymmetries.
+
+To validate the claim that any mismodeling of the smearing matrix is
+covered by other systematics, we tried reweighting both the bias
+distribution and $S$ together. The uncertainty produced by this test
+was still smaller in magnitude than the sum of the other systematics,
+so we can be confident that those systematics cover any mismodeling in
+$S$.
+
+Finally, we verified that the regularization term contributes only a
+small amount to the $\chi^2$ that is minimized in the unfolding
+procedure.
+% There's a table of chi^2 values, but do I really need it here?
+% Probably not, since I don't give hard numbers for the tau variation either.
 
 \section{Results and Interpretation}
 \label{sec:afb:results}
@@ -881,6 +1180,6 @@ Give the 2D results
 Not sure if this section should be included or not. If I keep it:
 Talk about the search for chromo-magnetic dipole moments.
 
-\subsection{Acknowledgements}
+\section{Acknowledgements}
 Mention work of CMS collaboration, maybe specific people who worked on
 the analysis with me, and definitely Bernreuther and Si
