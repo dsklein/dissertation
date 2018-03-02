@@ -558,7 +558,7 @@ previous section, our MC-predicted and observed event yields are as
 shown in Table \ref{tab:afb:datamcyields}. The dileptonic $\ttbar$
 MC has been rescaled so that the total MC yield equals the total data
 yield, because we assume that anything that isn't background must be
-signal. This $\ttdilep$ sample was generated using MC@NLO, and
+signal. This $\ttdilep$ sample was generated using \textsc{mc@nlo}, and
 required a scale factor of 0.95 to match the data yield. The original
 cross section was verified using Powheg. When all is said and done, the
 total yield is approximately 91\% signal and 9\% background.
@@ -1055,9 +1055,8 @@ introduced into our asymmetry measurements. Most of these sources of
 systematic uncertainty relate to imperfect modeling of the physics in our Monte
 Carlo simulations, or to the workings of the CMS detector and
 software. The ways in which we assign uncertainties
-to these effects are discussed below. In Section
-\ref{ssec:afb:regsyst}, we will give special consideration to the
-uncertainty due to regularization.
+to these effects are discussed below. We will give special
+consideration to the uncertainty due to regularization.
 
 % Experimental systematics
 Our experimental systematic uncertainties are evaluated as follows:
@@ -1099,7 +1098,7 @@ $\ttdilep$ process. These uncertainties are evaluated as follows:
 
 \begin{itemize}
 \item \textbf{Factorization and renormalization scales:} We evaluate
-  the uncertainty by substituting MC@NLO $\ttbar$ samples that have
+  the uncertainty by substituting \textsc{mc@nlo} $\ttbar$ samples that have
   these two values scaled both up and down by a factor of 2.
 \item \textbf{Top quark mass:} As described in Section
   \ref{ssec:afb:ttbarreconstruction}, we use 172.5 GeV for our top
@@ -1121,8 +1120,7 @@ evaluated the systematic uncertainty due to limited \textbf{Monte
   Carlo statistics} by propagating the uncertainty on the smearing
 matrix to the unfolded result.
 
-\subsection{Regularization Systematic}
-\label{ssec:afb:regsyst}
+\subsubsection*{Regularization Systematic}
 
 At the time this analysis was published, there was no standard way to
 evaluate a systematic uncertainty on regularization. We therefore had
@@ -1146,7 +1144,7 @@ uncertainty on the results.
 As a cross-check on the small size of this uncertainty, we also
 use pseudoexperiments to estimate the statistical uncertainty on our
 choice of regularization strength, $\tau$. This check also gives an
-uncertainty of <0.001 on all asymmetries.
+uncertainty of $<0.001$ on all asymmetries.
 
 To validate the claim that any mismodeling of the smearing matrix is
 covered by other systematics, we tried reweighting both the bias
@@ -1159,7 +1157,53 @@ Finally, we verified that the regularization term contributes only a
 small amount to the $\chi^2$ that is minimized in the unfolding
 procedure.
 % There's a table of chi^2 values, but do I really need it here?
-% Probably not, since I don't give hard numbers for the tau variation either.
+% Probably not, since I don't give hard numbers for the tau variation
+% either.
+
+The systematic uncertainties on our asymmetry measurements are
+summarized in Table \ref{tab:afb:systematics}.
+
+% Systematics table pulled from AN-14-246.
+\begin{table}[!h]
+\begin{center}
+%{\footnotesize
+\caption{Systematic uncertainties on the 1D unfolded asymmetry measurements.}
+\label{tab:afb:systematics}
+\begin{tabular}{l||r|r|r|r|r|r}
+\hline
+Asymmetry variable              &       \multicolumn{1}{c|}{$A_{\Delta\phi}$}           &       \multicolumn{1}{c|}{$A_{P}$}
+        &       \multicolumn{1}{c|}{$A_{c1c2}$}         &       \multicolumn{1}{c|}{$A_{\cos\phi}$} &       \multicolumn{1}{c|}{$A_{C}$}  & \multicolumn{1}{c|}{$A_{lepC}$} \\
+\hline
+\hline
+\multicolumn{6}{c}{experimental systematic uncertainties}       \\
+\hline
+Jet energy scale                  & $0.002$ & $0.019$ & $0.007$ & $0.009$ & $0.009$ & $0.001$ \\
+Jet energy resolution             & $<0.001$ & $0.003$ & $0.002$ & $0.001$ & $0.002$ & $<0.001$ \\
+Lepton energy scale               & $<0.001$ & $0.003$ & $0.006$ & $0.002$ & $0.001$ & $<0.001$ \\
+b-tagging efficiency              & $<0.001$ & $0.001$ & $0.001$ & $0.001$ & $0.001$ & $<0.001$ \\
+Lepton selection                  & $0.001$ & $0.002$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\
+Pileup                            & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\
+Background                        & $0.001$ & $0.002$ & $0.001$ & $0.001$ & $0.001$ & $0.001$ \\
+\hline
+\hline
+\multicolumn{6}{c}{$\ttbar$ modeling uncertainties}      \\
+\hline
+Top mass                          & $0.001$ & $0.008$ & $0.007$ & $0.001$ & $0.001$ & $0.002$ \\
+Fact. and renorm. scales          & $0.002$ & $0.002$ & $0.005$ & $0.003$ & $0.003$ & $0.003$ \\
+Parton distribution functions     & $0.004$ & $0.001$ & $0.005$ & $0.005$ & $0.001$ & $0.001$ \\
+Hadronization                     & $0.001$ & $0.019$ & $0.005$ & $0.004$ & $0.005$ & $<0.001$ \\
+\hline
+\hline
+Unfolding MC stats                & $0.002$ & $0.003$ & $0.006$ & $0.005$ & $0.005$ & $0.002$ \\
+Unfolding regularization          & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\
+\hline
+\hline
+Top $p_T$ reweighting uncertainty & $0.011$ & $0.004$ & $0.006$ & $0.006$ & $0.001$ & $<0.001$ \\
+\hline
+\end{tabular}
+%}
+\end{center}
+\end{table}
 
 \section{Results and Interpretation}
 \label{sec:afb:results}
@@ -1167,12 +1211,205 @@ procedure.
 \subsection{One-Dimensional Results}
 \label{ssec:afb:results1d}
 
-Give the 1D results
+After subtracting the background and unfolding, distributions for our
+six asymmetry variables are shown in Figure \ref{fig:afb:results1d},
+along with predictions from SM parton-level predictions using
+\textsc{mc@nlo} and, for the spin correlation and polarization
+variables, theoretical predictions by W. Bernreuther and Z.-G. Si. The
+measured asymmetry values with uncertainties and the \textsc{mc@nlo}
+predictions are presented numerically in Table
+\ref{tab:afb:results1d}. All six asymmetries are consistent with the
+predictions; thus, we do not observe any significant deviations from
+the Standard Model expectation.
+
+% Plots taken from AN-14-246
+\begin{figure}[hbt]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/results_1D_lepChargeAsym.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_1D_lepAzimAsym2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_1D_rapiditydiffMarco.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_1D_lepCosTheta.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_1D_topSpinCorr.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_1D_lepCosOpeningAngle.pdf}
+\caption{Distributions of asymmetry variables after
+  unfolding, and simulations and theoretical predictions.}
+\label{fig:afb:results1d}
+\end{center}
+\end{figure}
+
+% Results table taken from AN-14-246
+\begin{table}[hbt]
+\begin{center}
+\caption{Asymmetry values measured after unfolding, compared to
+  predictions from simulation. Uncertainties on measurements are
+  statistical and systematic; uncertainties on simulation are
+  statistical only.}
+\label{tab:afb:results1d}
+\begin{tabular}{l |  c  c }
+\hline
+Variable &  Data  &  MC \\ \hline
+$A_{C}$                         &  $0.011 \pm  0.011  \pm 0.012$   &  $ 0.006 \pm 0.001$  \\
+$A_{lepC}$                      &  $0.003 \pm  0.006  \pm 0.004$   &  $ 0.004 \pm 0.001$   \\
+$A_{\Delta\phi}$                &  $0.094 \pm  0.005  \pm 0.012$   &  $ 0.113 \pm 0.001$   \\
+$A_{c1c2}$                      &  $-0.069 \pm  0.013  \pm 0.016$  &  $ -0.081 \pm 0.001$  \\
+$A_{P}$                                &  $-0.011 \pm  0.007  \pm 0.029$  &  $ 0.000 \pm 0.001$ \\
+$A_{\cos\phi}$                      &  $0.102 \pm  0.010   \pm 0.014$  &  $ 0.114 \pm 0.001$ \\
+% $A_{P}$ (CP+)           &  $-0.011 \pm  0.007     \pm 0.029$  &  $ 0.000 \pm 0.001$       \\
+% $A_{P}$ (CP-)           &  $-0.000 \pm  0.006     \pm 0.005$  &  $ 0$         \\
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \subsection{Two-Dimensional Results}
 \label{ssec:afb:results2d}
 
-Give the 2D results
+After 2D unfolding, the six asymmetries are presented differentially
+with respect to $m_{\ttbar}$, $|y_{\ttbar}|$, and $p_T^{\ttbar}$ in
+Figures \ref{fig:afb:results2d:chargeasym} and
+\ref{fig:afb:results2d:spincorrpol}. The overall values of these
+2D-unfolded asymmetries, and the corresponding MC predictions, are presented in
+Table \ref{tab:afb:results2d:inclusive}. The asymmetry values for each
+bin in the secondary variables are presented in Table
+\ref{tab:afb:results2d:binbybin}.
+
+% Charge asym figures taken from AN-14-246. Version in journal has
+% slightly different formatting.
+\begin{figure}[!hbt]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_rapiditydiffMarco_vsmtt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_rapiditydiffMarco_vsttrapidity2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_rapiditydiffMarco_vsttpt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepChargeAsym_vsmtt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepChargeAsym_vsttrapidity2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepChargeAsym_vsttpt.pdf}
+\caption{Unfolded charge asymmetry values as a function of the three
+  secondary kinematic variables. The last bin includes any overflow.}
+\label{fig:afb:results2d:chargeasym}
+\end{center}
+\end{figure}
+
+% Spin corr and pol figures taken from AN-14-246. Versions published
+% in journal have slight different formatting, AND include predictions
+% by Bernreuther and Si.
+\begin{figure}[!hbt]
+\begin{center}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepAzimAsym2_vsmtt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepAzimAsym2_vsttrapidity2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepAzimAsym2_vsttpt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepCosTheta_vsmtt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepCosTheta_vsttrapidity2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepCosTheta_vsttpt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_topSpinCorr_vsmtt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_topSpinCorr_vsttrapidity2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_topSpinCorr_vsttpt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepCosOpeningAngle_vsmtt.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepCosOpeningAngle_vsttrapidity2.pdf}
+\includegraphics[width=0.325\linewidth]{figures/results_2D_lepCosOpeningAngle_vsttpt.pdf}
+\caption{Unfolded spin correlation and polarization asymmetry values
+  as a function of the three secondary kinematic variables. The last
+  bin includes any overflow.}
+\label{fig:afb:results2d:spincorrpol}
+\end{center}
+\end{figure}
+
+% Inclusive 2D asymmetries adapted from AN-14-246. Not published, but
+% can be inferred from published plots.
+\begin{table}[hbt]
+\begin{center}
+\caption{Measured asymmetries after 2D unfolding, for each of the
+  secondary kinematic variables. Uncertainties on measured asymmetries
+  are statistical and systematic; uncertainties on simulation are
+  statistical only.}
+\label{tab:afb:results2d:inclusive}
+\begin{tabular}{l |  c  c }
+\hline
+Variable &  Unfolded vs $M_{\ttbar}$  &  MC \\ \hline
+$A_{C}$                                 & 0.009 $\pm$ 0.013     $\pm$ 0.016      & 0.006 $\pm$  0.001 \\
+$A_{lepC}$                              & -0.002 $\pm$ 0.006 $\pm$ 0.004         & 0.004 $\pm$  0.001 \\
+$A_{\Delta\phi}$        & 0.095 $\pm$ 0.006     $\pm$ 0.008          & 0.113 $\pm$  0.001 \\
+$A_{c1c2}$                              & -0.065 $\pm$ 0.015 $\pm$ 0.015         & -0.081 $\pm$  0.001 \\
+$A_{P}$                   & -0.011 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
+$A_{\cos\phi}$                              & 0.094 $\pm$ 0.012 $\pm$ 0.013      & 0.114 $\pm$  0.001 \\
+% $A_{P}$ (CP+)                   & -0.011 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
+% $A_{P}$ (CP-)                   & -0.001 $\pm$ 0.007 $\pm$ 0.006         & 0 \\
+ \hline
+
+\hline
+Variable &  Unfolded vs $y_{\ttbar}$  &  MC \\ \hline
+$A_{C}$                                 & 0.016 $\pm$ 0.012     $\pm$ 0.015      & 0.006 $\pm$  0.001 \\
+$A_{lepC}$                              & 0.002 $\pm$ 0.006     $\pm$ 0.004          & 0.004 $\pm$  0.001 \\
+$A_{\Delta\phi}$        & 0.095 $\pm$ 0.006     $\pm$ 0.012          & 0.113 $\pm$  0.001 \\
+$A_{c1c2}$                              & -0.077 $\pm$ 0.015 $\pm$ 0.019         & -0.081 $\pm$  0.001 \\
+$A_{P}$                   & -0.010 $\pm$ 0.008 $\pm$ 0.030         & 0.000 $\pm$  0.001 \\
+$A_{\cos\phi}$                              & 0.097 $\pm$ 0.011     $\pm$ 0.014      & 0.114 $\pm$  0.001 \\
+% $A_{P}$ (CP+)                   & -0.010 $\pm$ 0.008 $\pm$ 0.030         & 0.000 $\pm$  0.001 \\
+% $A_{P}$ (CP-)                   & -0.002 $\pm$ 0.007 $\pm$ 0.007         & 0 \\
+ \hline
+
+\hline
+Variable &  Unfolded vs $p_T^{\ttbar}$  &  MC \\ \hline
+$A_{C}$                                 & 0.011 $\pm$ 0.012     $\pm$ 0.016      & 0.006 $\pm$  0.001 \\
+$A_{lepC}$                              & 0.001 $\pm$ 0.006     $\pm$ 0.004          & 0.004 $\pm$  0.001 \\
+$A_{\Delta\phi}$                & 0.094 $\pm$ 0.006     $\pm$ 0.012          & 0.113 $\pm$  0.001 \\
+$A_{c1c2}$                              & -0.072 $\pm$ 0.014 $\pm$ 0.018         & -0.081 $\pm$  0.001 \\
+$A_{P}$                   & -0.014 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
+$A_{\cos\phi}$                              & 0.100 $\pm$ 0.011     $\pm$ 0.012          & 0.114 $\pm$  0.001 \\
+% $A_{P}$ (CP+)                   & -0.014 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
+% $A_{P}$ (CP-)                   & 0.001 $\pm$ 0.007 $\pm$ 0.006          & 0 \\
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+% Bin-by-bin 2D asymmetries adapted from AN-14-246. Not published, but
+% can be inferred from published plots.
+\begin{table}[hbt]
+\begin{center}
+\caption{Measured asymmetry values after 2D unfolding, presented
+  bin-by-bin in the secondary kinematic variables. Uncertainties on
+  measured values are statistical and systematic.}
+\label{tab:afb:results2d:binbybin}
+\begin{tabular}{l |  c  c  c }
+\hline
+Variable & $M_{\ttbar}$ bin 1 & $M_{\ttbar}$ bin 2 & $M_{\ttbar}$ bin 3  \\ \hline
+$A_{C}$                                 &       0.007   $\pm$   0.031   $\pm$   0.027   &       0.015   $\pm$   0.029   $\pm$   0.025   &       0.004   $\pm$   0.021   $\pm$   0.012   \\
+$A_{lepC}$                              &       -0.023  $\pm$   0.014   $\pm$   0.015   &       0.010   $\pm$   0.016   $\pm$   0.025   &       0.015   $\pm$   0.016   $\pm$   0.015   \\
+$A_{\Delta\phi}$        &       -0.048  $\pm$   0.014   $\pm$   0.011   &       0.108   $\pm$   0.016   $\pm$   0.016   &       0.283   $\pm$   0.017   $\pm$   0.026   \\
+$A_{c1c2}$                              &       -0.053  $\pm$   0.032   $\pm$   0.032   &       -0.090  $\pm$   0.029   $\pm$   0.034   &       -0.056  $\pm$   0.026   $\pm$   0.041   \\
+$A_{P}$                  &       -0.017  $\pm$   0.020   $\pm$   0.024   &       -0.013  $\pm$   0.019   $\pm$   0.040   &       0.000   $\pm$   0.016   $\pm$   0.034   \\
+$A_{\cos\phi}$                              &       0.111   $\pm$   0.024   $\pm$   0.024   &       0.103   $\pm$   0.031   $\pm$   0.026   &       0.059   $\pm$   0.026   $\pm$   0.034   \\
+% $A_{P}$ (CP+)                   &       -0.017  $\pm$   0.020   $\pm$   0.024   &       -0.013  $\pm$   0.019   $\pm$   0.040   &       0.000   $\pm$   0.016   $\pm$   0.034   \\
+% $A_{P}$ (CP-)                   &       -0.029  $\pm$   0.016   $\pm$   0.020   &       0.049   $\pm$   0.017   $\pm$   0.027   &       -0.018  $\pm$   0.012   $\pm$   0.016   \\
+ \hline
+
+\hline
+Variable & $y_{\ttbar}$ bin 1 & $y_{\ttbar}$ bin 2 & $y_{\ttbar}$ bin 3  \\ \hline
+$A_{C}$                                 &       -0.002  $\pm$   0.031   $\pm$   0.027   &       0.016   $\pm$   0.027   $\pm$   0.023   &       0.029   $\pm$   0.022   $\pm$   0.024   \\
+$A_{lepC}$                              &       -0.001  $\pm$   0.015   $\pm$   0.010   &       -0.024  $\pm$   0.015   $\pm$   0.012   &       0.023   $\pm$   0.013   $\pm$   0.008   \\
+$A_{\Delta\phi}$        &       0.103   $\pm$   0.014   $\pm$   0.012   &       0.092   $\pm$   0.015   $\pm$   0.014   &       0.090   $\pm$   0.013   $\pm$   0.017   \\
+$A_{c1c2}$                              &       -0.063  $\pm$   0.028   $\pm$   0.028   &       -0.073  $\pm$   0.028   $\pm$   0.023   &       -0.089  $\pm$   0.027   $\pm$   0.030   \\
+$A_{P}$                   &       -0.018  $\pm$   0.017   $\pm$   0.037   &       -0.012  $\pm$   0.018   $\pm$   0.027   &       -0.003  $\pm$   0.016   $\pm$   0.034   \\
+$A_{\cos\phi}$                              &       0.115   $\pm$   0.023   $\pm$   0.051   &       0.115   $\pm$   0.024   $\pm$   0.019   &       0.070   $\pm$   0.021   $\pm$   0.023   \\
+% $A_{P}$ (CP+)                   &       -0.018  $\pm$   0.017   $\pm$   0.037   &       -0.012  $\pm$   0.018   $\pm$   0.027   &       -0.003  $\pm$   0.016   $\pm$   0.034   \\
+% $A_{P}$ (CP-)                   &       0.006   $\pm$   0.021   $\pm$   0.016   &       0.011   $\pm$   0.015   $\pm$   0.018   &       -0.016  $\pm$   0.011   $\pm$   0.020   \\
+ \hline
+
+\hline
+Variable & $p_T^{\ttbar}$ bin 1 & $p_T^{\ttbar}$ bin 2 & $p_T^{\ttbar}$ bin 3  \\ \hline
+$A_{C}$                                 &       0.009   $\pm$   0.018   $\pm$   0.013   &       -0.033  $\pm$   0.033   $\pm$   0.033   &       0.084   $\pm$   0.035   $\pm$   0.047   \\
+$A_{lepC}$                              &       0.006   $\pm$   0.010   $\pm$   0.010   &       -0.020  $\pm$   0.016   $\pm$   0.018   &       0.015   $\pm$   0.018   $\pm$   0.012   \\
+$A_{\Delta\phi}$                &       0.101   $\pm$   0.010   $\pm$   0.015   &       0.108   $\pm$   0.016   $\pm$   0.016   &       0.049   $\pm$   0.018   $\pm$   0.019   \\
+$A_{c1c2}$                              &       -0.073  $\pm$   0.020   $\pm$   0.018   &       -0.060  $\pm$   0.038   $\pm$   0.039   &       -0.086  $\pm$   0.043   $\pm$   0.078   \\
+$A_{P}$                   &       -0.016  $\pm$   0.012   $\pm$   0.028   &       0.029   $\pm$   0.023   $\pm$   0.034   &       -0.073  $\pm$   0.024   $\pm$   0.041   \\
+$A_{\cos\phi}$                              &       0.081   $\pm$   0.017   $\pm$   0.023   &       0.149   $\pm$   0.031   $\pm$   0.055   &       0.084   $\pm$   0.035   $\pm$   0.042   \\
+% $A_{P}$ (CP+)                   &       -0.016  $\pm$   0.012   $\pm$   0.028   &       0.029   $\pm$   0.023   $\pm$   0.034   &       -0.073  $\pm$   0.024   $\pm$   0.041   \\
+% $A_{P}$ (CP-)                   &       0.014   $\pm$   0.010   $\pm$   0.009   &       -0.017  $\pm$   0.019   $\pm$   0.015   &       -0.012  $\pm$   0.017   $\pm$   0.027   \\
+ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
 
 \subsection{BSM Interpretation}
 \label{ssec:afb:resultsbsm}
