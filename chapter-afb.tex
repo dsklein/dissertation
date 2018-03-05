@@ -349,7 +349,7 @@ criteria:
   isolation must be $< 5$ GeV. % AN talks about PU corrections using \Delta\beta
 \item The PF lepton and the reconstructed lepton must have $p_T$ that
   differ by $< 10$ GeV.
-\item For electrons, we require $E / p_{in} < 4$.
+\item For electrons, we require $E / p_{in} < 4$. % E_calo / p_inner tracker < 4
 \end{itemize}
 
 Jets are defined using particle flow. They must have $p_T > 30$ GeV
@@ -606,12 +606,12 @@ $\ttdilep$ process.
 % I'll probably need to change these around to meet criteria for published plots.
 \begin{figure}[phtb]
   \centering
-  \includegraphics[width=0.45\textwidth]{figures/dataMC/n_bjets_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC/lepPt_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC/met_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC/tt_mass_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC/tt_pT_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC/ttRapidity2_combined.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC_nbjets.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC_lepPt.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC_met.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC_ttmass.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC_ttpT.pdf}
+  \includegraphics[width=0.45\textwidth]{figures/dataMC_ttRapidity2.pdf}
   \caption{Comparison of data with Monte Carlo predictions for
     selected kinematic variables.}
   \label{fig:afb:datamccompare}
@@ -1411,12 +1411,40 @@ $A_{\cos\phi}$                              &       0.081   $\pm$   0.017   $\pm
 \end{table}
 
 
-\subsection{BSM Interpretation}
-\label{ssec:afb:resultsbsm}
+% \subsection{BSM Interpretation}
+% \label{ssec:afb:resultsbsm}
 
-Not sure if this section should be included or not. If I keep it:
-Talk about the search for chromo-magnetic dipole moments.
+% Not sure if this section should be included or not. If I keep it:
+% -Talk about the search for chromo-magnetic dipole moments.
+% -Also, would be cool to talk about possible stop searches using ttbar
+% spin correlation. Maybe talk to the bosses and see if they know of any
+% such analysis that has been done recently.
+
+\section{Conclusion}
+\label{sec:afb:conclusion}
+
+We performed a measurement of six different asymmetries in $\ttdilep$
+events measured by the CMS experiment at the LHC. The data sample was
+gathered at an energy of 8 TeV, and corresponds to 19.5
+fb\textsuperscript{-1} of luminosity. We selected events where
+top-antitop pairs decayed to a final state with two leptons (electrons
+or muons), and ended up with a sample that was believed to be 91\%
+signal and 9\% background. After subtracting the backgrounds, we used
+the unfolding technique to present our results at parton level. These
+results included normal measurements of the asymmetries, and
+differential measurements with respect to the mass, transverse
+momentum, and absolute rapidity of the $\ttbar$ system. Our results
+were consistent with the predictions of the Standard Model, and as a
+result, we see no evidence of deviations from theory that could
+indicate the presence of new physics.
 
 \section{Acknowledgements}
-Mention work of CMS collaboration, maybe specific people who worked on
-the analysis with me, and definitely Bernreuther and Si
+Although the bulk of this analysis was the work of a few physicists,
+the analysis would not be possible without the efforts of the entire
+CMS collaboration, some 3,000 members strong. They were responsible
+for maintaining the detector, software, and computing platforms
+necessary to perform the analysis. In addition, innumerable members
+contributed feedback that shaped the course of the analysis. Thus, the
+entire collaboration has my thanks. In addition, I thank
+W. Bernreuther and Z.-G. Si for their theoretical predictions, and for
+discussions of how this work can be applied to search for new physics.
