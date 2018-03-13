@@ -10,9 +10,7 @@ I will focus on the 8 TeV results, and in particular, my work on the
 unfolding technique. The 8 TeV analysis led to two publications, which
 are Refs. \cite{chargeasym} and \cite{spincorrpol}.
 
-% Question: Should I use the past tense of present tense when
-% describing this analysis?
-% I guess the same question is also applicable to the stop analysis.
+% Make sure to do a final check for past vs. present tense
 
 \section{Motivation}
 \label{sec:afb:motivation}
@@ -331,8 +329,6 @@ To select events from the datasets listed in
 \ref{tab:afb:datasamples}, we used a set of dilepton triggers that
 would capture the four possible dilepton flavors. These triggers are
 listed in table \ref{tab:afb:triggers}.
-% AN also uses this spot to reference where trigger efficiency weights
-% are applied later. Should I?
 
 %% Table of triggers used. Taken from AN-14-246. Believed unpublished so far %%%%%%%
 \begin{table}[!ht]
@@ -646,36 +642,35 @@ $\ttdilep$ process.
 \end{center}
 \end{table}
 
-% Pulled from AN-14-246. These exact plots are unpublished, but some similar ones may be published in the spin corr/pol paper. %%%%%%%%%%%%%%%%%
-% I'll probably need to change these around to meet criteria for published plots.
-% For one thing, they still say "CMS Preliminary"
+% Pulled from AN-14-246. Some of these plots are published in the spin corr/pol paper, and in supplementary material in the charge asym paper.
 \begin{figure}[phtb]
   \centering
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_nbjets.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_lepPt.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_met.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_ttmass.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_ttpT.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_ttRapidity2.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_ttmass.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_ttpT.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_ttRapidity2.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_jetpT.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_nbjets.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_lepPt.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_met.pdf}
   \caption{Comparison of data with Monte Carlo predictions for
     selected $\ttbar$ observables.}
   \label{fig:afb:datamcttvars}
 \end{figure}
-% Also, are those first three actually the most important variables to
-% plot? Maybe there are some that are more important for modeling, or
-% for this analysis. Think about it.
-% Consider adding: Jet pT
+% Are there any other plots that are important to show good modeling?
 
 \begin{figure}[phtb]
   \centering
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_azimuthal_asymmetry2_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_costheta_combined} % Unofficial plot, not from the AN!
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_top_spin_correlation_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_cos_opening_angle_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_top_rapiditydiff_Marco_combined.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_charge_asymmetry_combined.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_lep_azimuthal_asymmetry2_combined.pdf}
+  % \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_costheta_combined} % Unofficial plot, not from the AN!
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_lepPlus_costheta_cms_combined.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_lepMinus_costheta_cms_combined.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_top_spin_correlation_combined.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_lep_cos_opening_angle_combined.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_top_rapiditydiff_Marco_combined.pdf}
+  \includegraphics[width=0.325\textwidth]{figures/dataMC_lep_charge_asymmetry_combined.pdf}
   \caption{Comparison of data with Monte Carlo predictions for the
-    variables used to compute asymmetries.}
+    variables used to compute asymmetries. Helicity angles are
+    presented separately for the positively and negatively charged leptons.}
   \label{fig:afb:datamcasymvars}
 \end{figure}
 
@@ -704,8 +699,10 @@ Unfolding is a technique that can be used to reverse blurring or
 smearing effects. In other fields it may be known as
 \emph{deconvolution} or \emph{unsmearing}. The technique originated in
 signal processing and image processing, but its broad utility has seen
-it spread to various other scientific and technical disciplines. In
-the context of our asymmetry measurements, the technique is used as follows: %%%% Where do the citations go? Maybe here?
+it spread to various other scientific and technical
+disciplines. Unfolding for particle physics in general is described in detail in
+References \cite{unfoldingcowan} and \cite{blobelseminar}. For our
+asymmetry measurements, we use the technique as follows:
 
 Each of the physical observables we use to calculate our asymmetries,
 such as $\Delta \phi_{\ell\ell}$, may be plotted in a histogram, so that
@@ -805,7 +802,7 @@ Variable &  B1  &  B2 &  B3 &  B4 &  B5 &  B6 \\ \hline
 $A_C^{lep}$  &  [-$\infty$,-34/30]  &  [-34/30,-24/30]  &  [-24/30,-16/30]  &  [-16/30, -10/30]  &  [-10/30, -4/30]  &  [-4/30, 0] \\
 \hline
 $A_{\Delta\phi}$ &  [0, $5\pi/60$ ]  &  [$5\pi/60$,$10\pi/60$]  &  [$10\pi/60$,$15\pi/60$]  &  [$15\pi/60$, $20\pi/60$]  &  [$20\pi/60$, $25\pi/60$]  &  [$25\pi/60$, $30\pi/60$] \\
-\hline
+\hline \hline
   &  B7 &  B8 &  B9 &  B10 &  B11 &  B12 \\ \hline
 $A_C^{lep}$ & [0, 4/30] & [4/30, 10/30] & [10/30, 16/30] & [16/30, 24/30] & [24/30, 34/30] & [34/30, $\infty$] \\ \hline
 $A_{\Delta\phi}$ & [$30\pi/60$, $35\pi/60$ ]  &  [$35\pi/60$,$40\pi/60$]  &  [$40\pi/60$,$45\pi/60$]  &  [$45\pi/60$, $50\pi/60$]  &  [$50\pi/60$, $55\pi/60$]  &  [$55\pi/60$, $\pi$] \\ \hline
@@ -822,9 +819,9 @@ separate acceptance matrices for each case. In Figure \ref{fig:afb:acceptance}, 
 show the acceptance matrices for each asymmetry, after combining
 the two dilepton flavors in appropriate proportion.
 
-% Acceptance matrices taken from AN-14-146. Unpublished in papers, dunno about PASes
+% Acceptance matrices taken from AN-14-246. Unpublished in papers or PASes
 \begin{figure}[htpb]
-\begin{center}
+\centering
 \includegraphics[width=0.325\linewidth]{figures/accept_lepChargeAsym_all.pdf}
 \includegraphics[width=0.325\linewidth]{figures/accept_lepAzimAsym2_all.pdf}
 \includegraphics[width=0.325\linewidth]{figures/accept_rapiditydiffMarco_all.pdf}
@@ -834,7 +831,6 @@ the two dilepton flavors in appropriate proportion.
 \caption{Acceptance matrices for the six asymmetry variables. Since
   all off-diagonal matrix elements are zero, only the diagonal elements are plotted.}
 \label{fig:afb:acceptance}
-\end{center}
 \end{figure}
 
 The smearing matrices $S$ were generated based on Monte Carlo
@@ -853,9 +849,9 @@ software. At any rate, these smearing matrices are nearly symmetric
 about the diagonal. This fact indicates that reconstruction introduces
 little to no bias, and simply dilutes the true asymmetry.
 
-% Smearing matrices taken from AN-14-146. Not published in papers.
+% Smearing matrices taken from AN-14-246. Not published in papers or PASes.
 \begin{figure}[htpb]
-\begin{center}
+\centering
 \includegraphics[width=0.325\linewidth]{figures/smearing_lepChargeAsym_all.pdf}
 \includegraphics[width=0.325\linewidth]{figures/smearing_lepAzimAsym2_all.pdf}
 \includegraphics[width=0.325\linewidth]{figures/smearing_rapiditydiffMarco_all.pdf}
@@ -864,7 +860,6 @@ little to no bias, and simply dilutes the true asymmetry.
 \includegraphics[width=0.325\linewidth]{figures/smearing_lepCosOpeningAngle_all.pdf}
 \caption{Smearing matrices for the six asymmetry variables.}
 \label{fig:afb:smearing}
-\end{center}
 \end{figure}
 
 As described in Section \ref{ssec:afb:unfoldingbkg}, the choice of the
@@ -883,21 +878,21 @@ this behavior, we deduce that our choices for $\tau$ were
 appropriate. The dependence of the asymmetries and their uncertainties
 are shown in Figure \ref{fig:afb:tauvary}.
 
-% Table of tau values from AN-14-246. Believed unpublished. %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of tau values from AN-14-246. Unpublished. %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[htb]
 \begin{center}
-\caption{Optimal $\tau$ values chosen for each asymmetry.}
+\caption{Optimized $\tau$ values chosen for each asymmetry.}
 \label{tab:afb:tau1d}
 \begin{tabular}{l | c  c  c  c  c  c }
 \hline
-Asymmetry & $A_{lepC}$ & $A_{\Delta\phi}$ & $A_{C}$ & $A_{P}$ & $A_{c1c2}$ & $A_{\cos\phi}$ \\ \hline
+Asymmetry & $A^{lep}_{C}$ & $A_{\Delta\phi}$ & $A_{C}$ & $A_{P}$ & $A_{c1c2}$ & $A_{\cos\phi}$ \\ \hline
 $\tau$ value & 0.000185 & 0.000166 & 0.000110 & 0.000075 & 0.000089 & 0.000098 \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
 
 \begin{figure}[!htpb]
-\begin{center}
+\centering
 \includegraphics[width=0.325\linewidth]{figures/tau_variation_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/tau_variation_lepAzimAsym2.pdf}
 \includegraphics[width=0.325\linewidth]{figures/tau_variation_rapiditydiffMarco.pdf}
@@ -909,7 +904,6 @@ $\tau$ value & 0.000185 & 0.000166 & 0.000110 & 0.000075 & 0.000089 & 0.000098 \
   nominal unfolded asymmetry, and red lines denote the nominal
   uncertainty bounds. Black lines show how these values vary with $\tau$.}
 \label{fig:afb:tauvary}
-\end{center}
 \end{figure}
 
 We performed the actual regularized unfolding using the TUnfold
@@ -924,13 +918,13 @@ regularization are presented in Section \ref{ssec:afb:unfoldingtests}.
 
 As described in Section \ref{ssec:afb:varsdifferential}, we also wish
 to measure our asymmetries differentially with respect to three
-different $\ttbar$ kinematic variables -- mass, absolute rapidity, and transverse
+different kinematic variables -- the mass, absolute rapidity, and transverse
 momentum of the $\ttbar$ system. For our asymmetry variables, we use
 the same binning described in Table \ref{tab:afb:binning1d}. For the
 secondary variables, our chosen binning is described in Table
 \ref{tab:afb:binning2d}.
 
-%Binning table from AN-14-246. Believed unpublished, but these values could probably be deduced from published plots.
+% Binning table from AN-14-246. Believed unpublished, but could probably be deduced from published plots.
 \begin{table}[htb]
 \begin{center}
 \caption{Bins chosen for kinematic variables in differential measurements.}
@@ -951,11 +945,24 @@ nearly identical to the procedure for unfolding
 one-dimensional distributions. We convert our two-dimensional
 distributions into one-dimensional distributions by essentially
 ``unwrapping'' the 2D histogram into a 1D histogram. If the 2D
-histogram has the familiar 6(12) bins on the x-axis, and 3 bins (or rows) on the
-y-axis, we concatenate those three rows together, to form a 1D histogram
-(i.e. single row) with 18(36) bins. We can then unfold the unwrapped
+histogram has the familiar 6(12) bins on the x-axis, and 3 rows (i.e. bins) on the
+y-axis, we concatenate those three rows together to form a 1D histogram
+(a single row) with 18(36) bins. We can then unfold the unwrapped
 distribution, and re-wrap it to obtain the differential asymmetry
-measurements. % A figure should go here to show the unwrapping
+measurements. The correspondence between the wrapped and unwrapped
+histograms is shown in Figure \ref{fig:afb:unwrapping}.
+
+% Figure I made myself to show how the unwrapping works, and how
+% regularizing adjacent bins becomes complicated
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/unwrapping.pdf}
+\caption{Comparison between wrapped 2D histogram and unwrapped 1D
+  histogram. Each numbered box corresponds to a histogram bin. Bin
+  8 and its adjacent bins are highlighted in red to illustrate how
+  adjacency is not always preserved by the unwrapping process.}
+\label{fig:afb:unwrapping}
+\end{figure}
 
 The smearing and acceptance matrices used for unfolding in two
 dimensions follow this same unwrapping scheme, but are otherwise
@@ -969,15 +976,15 @@ of the global correlation coefficients. As an example, the $\tau$
 values used for 2D unfolding vs. $m_{\ttbar}$ are given in Table
 \ref{tab:afb:tau2d}.
 
-% Table of 2D tau values vs Mttbar from AN-14-246. Believed unpublished.
-\begin{table}[htpb]
+% Table of 2D tau values vs Mttbar from AN-14-246. Unpublished.
+\begin{table}[htbp]
 \begin{center}
-\caption{Optimal $\tau$ values chosen to unfold each asymmetry against
-$m_{\ttbar}.$}
+\caption{Optimized $\tau$ values used to unfold each asymmetry
+  differentially with respect to $m_{\ttbar}.$}
 \label{tab:afb:tau2d}
 \begin{tabular}{l | c  c  c  c  c  c }
 \hline
-Asymmetry & $A_{lepC}$ & $A_{\Delta\phi}$ & $A_{C}$ & $A_{P}$ & $A_{c1c2}$ & $A_{\phi}$ \\ \hline
+Asymmetry & $A^{lep}_{C}$ & $A_{\Delta\phi}$ & $A_{C}$ & $A_{P}$ & $A_{c1c2}$ & $A_{\phi}$ \\ \hline
 $\tau$ value & 0.000426 & 0.000422 & 0.000144 & 0.000102 & 0.000120 & 0.000121 \\ \hline
 \end{tabular}
 \end{center}
@@ -991,7 +998,10 @@ distribution, we do not want to regularize the curvature at the
 boundaries between unwrapped rows. In addition, we also wish to
 regularize in the secondary variable, which, in the unwrapped
 distribution, means we must regularize bins that are no longer
-adjacent. We specicially chose to use TUnfold because it natively supports such
+adjacent. Using Figure \ref{fig:afb:unwrapping} as an example, bin 8
+must be regularized with bins 7, 9, 2, and 14; however, bins 12 and 13
+must not be regularized with each other.
+We specifically chose to use TUnfold because it natively supports such
 complex regularization schemes \cite{tunfold}. The results of the 2D unfolding
 procedure are presented in Section \ref{ssec:afb:results2d}, and the
 bias tests are described in the next section.
@@ -1000,11 +1010,12 @@ bias tests are described in the next section.
 \label{ssec:afb:unfoldingtests}
 
 As described in Section \ref{ssec:afb:unfoldingbkg}, regularization
-introduces some amount of bias to our unfolded results because the
-process constrains our results to look somewhat like a distribution
-we supply. But since regularization is important to
-control statistical fluctuations in the output, we would like to
-quantify the amount of bias introduced by regularization.
+introduces some amount of bias to our unfolded results because it
+forces the results to take on characteristics of a distribution
+we supply. But since regularization is important for
+controlling statistical fluctuations in the output, we cannot abandon
+it entirely. We must therefore try to quantify the amount of bias
+introduced by regularization, and judge whether or not it is acceptable.
 
 To test the amount of bias introduced by regularization, we perform
 \emph{linearity tests} on our asymmetries. For each asymmetry, we
@@ -1017,41 +1028,40 @@ equation would be:
 \text{weight} = 1 + K \cdot (|y_t| - |y_{\bar{t}}|)
 \end{equation}
 For other asymmetries, substitute the appropriate measured variable
-into this expression. This reweighting has the effect of artificially
-inducing some asymmetry. The parameter $K$ is varied between -0.3 and 0.3
-in steps of 0.1; this gives artificially induced asymmetries of up to
-25\%, which is much larger than anything we would expect from the
-Standard Model or BSM physics.
+into this expression. The parameter $K$ is varied between -0.3 and 0.3
+in steps of 0.1. This reweighting artificially induces asymmetries of up to
+25\% in the simulated data, which is much larger than anything we
+would expect from Standard Model or BSM physics.
 
-For each $K$ value, we then make 10,000 copies of the histogram, and
-fluctuate the bin contents of each randomly up and down according to
+For each $K$ value, we then make 10,000 copies of the measurement
+histogram, and in each copy we fluctuate the various bin contents randomly up and down according to
 Poisson statistics. Each of these fluctuated histograms is called a
 \emph{pseudoexperiment}, because the Poisson fluctuation approximates
-what we might see if we re-ran our experiment another time. Each of
+what we might see if we ran our experiment again. Each of
 the 10,000 pseudoexperiments is unfolded, and we compare the average
 of those unfolded asymmetries against the original,
 artificially-induced asymmetry. Figure \ref{fig:afb:linearity}
 shows plots of the average unfolded asymmetry vs. the induced asymmetry
-for each of the seven $K$ values. We then fit these plots
+for each of the seven $K$ values. We fit these plots
 with a straight line, and record the slope and offset
-(or intercept) of that line. The slope of the line tells us by what
+(or intercept) of the line. The slope tells us by what
 factor any asymmetry in the data will be scaled up or down by
 regularization. On top of that, the offset tells us how much asymmetry
 will be added or subtracted by the regularization. These slopes and
 offsets are listed in Table \ref{tab:afb:linearity}. Most of the offsets are
 zero (the largest is 0.2\%), meaning regularization will add
-essentially zero asymmetry that isn't there. The slopes are all fairly
-close to 1.0, meaning any asymmetry in our data won't be artificially
-exaggerated much by regularization. The largest slope is 1.024 for
-$A_{c1c2}$, meaning this asymmetry could be exaggerated by as much as
+essentially zero asymmetry that isn't there. The slopes are all
+close to 1.0, meaning regularization will not enhance or reduce any
+asymmetry in our data by any appreciable amount. The largest slope is 1.024 for
+$A_{c1c2}$, meaning this asymmetry could be exaggerated by up to
 2.4\% by regularization. We consider this an acceptably small amount
 of bias. This information is also taken into consideration when
 evaluating our systematic uncertainty due to regularization, described
 in Section \ref{sec:afb:systematics}.
 
-% Plots of the linearity results taken from AN-14-246. Believed unpublished.
+% Plots of the linearity results taken from AN-14-246. Unpublished.
 \begin{figure}[htpb]
-\begin{center}
+\centering
 \includegraphics[width=0.325\linewidth]{figures/linearity_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/linearity_lepAzimAsym2.pdf}
 \includegraphics[width=0.325\linewidth]{figures/linearity_rapiditydiffMarco.pdf}
@@ -1062,10 +1072,9 @@ in Section \ref{sec:afb:systematics}.
   asymmetry values are on the x-axis, and average unfolded asymmetries
   are on the y-axis.}
 \label{fig:afb:linearity}
-\end{center}
 \end{figure}
 
-% Table of linear fit parameters taken from AN-14-146. Believed unpublished.
+% Table of linear fit parameters taken from AN-14-246. Unpublished.
 \begin{table}[htpb]
 \begin{center}
 \caption{Parameters describing the fit to the linearity test results.}
@@ -1073,7 +1082,7 @@ in Section \ref{sec:afb:systematics}.
 \begin{tabular}{l |  c  c }
 \hline
 Variable &  offset  &  slope \\ \hline
-$A_{lepC}$       &   0.000 $\pm$ 0.000  &  1.000 $\pm$ 0.000\\ \hline
+$A^{lep}_{C}$       &   0.000 $\pm$ 0.000  &  1.000 $\pm$ 0.000\\ \hline
 $A_{\Delta\phi}$ &   0.000 $\pm$ 0.000  &  1.002 $\pm$ 0.000\\ \hline
 $A_{C}$          &   0.000 $\pm$ 0.000  &  1.001 $\pm$ 0.000\\ \hline
 $A_{P}$          &   0.000 $\pm$ 0.000  &  1.023 $\pm$ 0.000\\ \hline
@@ -1098,9 +1107,9 @@ distributions for the example case of $K = 0$. Figure
 \ref{fig:afb:pullwidths} shows the pull widths as a function of the
 induced asymmetries.
 
-% Pull distributions from AN-14-246. Believed unpublished.
+% Pull distributions from AN-14-246. Unpublished.
 \begin{figure}[htpb]
-\begin{center}
+\centering
 \includegraphics[width=0.325\linewidth]{figures/pull_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pull_lepAzimAsym2.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pull_rapiditydiffMarco.pdf}
@@ -1109,12 +1118,11 @@ induced asymmetries.
 \includegraphics[width=0.325\linewidth]{figures/pull_lepCosOpeningAngle.pdf}
 \caption{Pull distributions for the example case $K = 0$.}
 \label{fig:afb:pulls}
-\end{center}
 \end{figure}
 
-% Pull widths from AN-14-246. Believed unpublished.
+% Pull widths from AN-14-246. Unpublished.
 \begin{figure}[htpb]
-\begin{center}
+\centering
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_lepAzimAsym2.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_rapiditydiffMarco.pdf}
@@ -1122,9 +1130,9 @@ induced asymmetries.
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_topSpinCorr.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_lepCosOpeningAngle.pdf}
 \caption{Pull widths for unfolded asymmetries vs. induced asymmetry
-  values. These results are consistent with pull widths of 1.}
+  values. Each data point corresponds to a single $K$ value. These
+  results are consistent with pull widths of 1.}
 \label{fig:afb:pullwidths}
-\end{center}
 \end{figure}
 
 %%% Kick any other linearity and pull plots (e.g. for 2D unfolding) to an appendix.
@@ -1148,7 +1156,7 @@ Our experimental systematic uncertainties are evaluated as follows:
   simulations so that the lepton trigger efficiencies, and the
   efficiencies of lepton identification and isolation, reflect those
   measured in actual data. The scale factors used in these corrections
-  never deviate from 1 by more than 2\%, so we vary all the scale
+  never deviate from 1.0 by more than 2\%, so we vary all the scale
   factors by 2\% to obtain the lepton selection systematic.
 \item \textbf{Lepton energy scale:} Comparisons between data and Monte
   Carlo for $Z \rightarrow \ell\ell$ events have shown that the
@@ -1162,10 +1170,10 @@ Our experimental systematic uncertainties are evaluated as follows:
   account for the effects this has on our event selections, and on the
   $\ttbar$ system reconstruction.
 \item \textbf{Jet energy resolution (JER):} This uncertainty is
-  evaluated similarly to the uncertainty on the JES. However, the JET
+  evaluated similarly to the uncertainty on the JES. However, the JER
   is varied by 5-10\% depending on the $\eta$ of the jet.
 \item \textbf{Background estimation:} We vary the normalizations of
-  all our backgrounds by the uncertainties evaluated in Section
+  our backgrounds by the uncertainties evaluated in Section
   \ref{sec:afb:background}.
 \item \textbf{Pileup (PU) modeling:} We vary the pileup reweighting
   scale factors by $\pm 1 \sigma$.
@@ -1186,7 +1194,7 @@ $\ttdilep$ process. These uncertainties are evaluated as follows:
   \ref{ssec:afb:ttbarreconstruction}, we use 172.5 GeV for our top
   quark mass. To evaluate the systematic on this value, we use
   $\ttbar$ MC samples with the top mass varied by $\pm 3$ GeV, and
-  interpolate to simulate a variation of $\pm 1$ GeV.
+  interpolate down to an effective variation of $\pm 1$ GeV.
 \item \textbf{Parton density functions (PDFs):} The systematic
   uncertainty on PDFs was evaluted using the then-current PDF4LHC
   recommendations \cite{pdf4lhc}.
@@ -1223,10 +1231,13 @@ uncertainty we obtain this way is less than 0.001 on
 all asymmetry variables -- far smaller than the statistical
 uncertainty on the results.
 
-As a cross-check on the small size of this uncertainty, we also
+As a cross-check on the small size of this uncertainty, we
 use pseudoexperiments to estimate the statistical uncertainty on our
 choice of regularization strength, $\tau$. This check also gives an
-uncertainty of $<0.001$ on all asymmetries.
+uncertainty of $<0.001$ on all asymmetries. Further, this small
+uncertainty is consistent with the findings from Section
+\ref{ssec:afb:unfoldingtests}, that the bias induced by regularization
+is a very small fraction of the total asymmetry.
 
 To validate the claim that any mismodeling of the smearing matrix is
 covered by other systematics, we tried reweighting both the bias
@@ -1248,42 +1259,46 @@ summarized in Table \ref{tab:afb:systematics}.
 % Systematics table pulled from AN-14-246.
 \begin{table}[!h]
 \begin{center}
-%{\footnotesize
-\caption{Systematic uncertainties on the 1D unfolded asymmetry measurements.}
+\caption{Systematic uncertainties on the inclusive unfolded asymmetry measurements.}
 \label{tab:afb:systematics}
 \begin{tabular}{l||r|r|r|r|r|r}
 \hline
-Asymmetry variable              &       \multicolumn{1}{c|}{$A_{\Delta\phi}$}           &       \multicolumn{1}{c|}{$A_{P}$}
-        &       \multicolumn{1}{c|}{$A_{c1c2}$}         &       \multicolumn{1}{c|}{$A_{\cos\phi}$} &       \multicolumn{1}{c|}{$A_{C}$}  & \multicolumn{1}{c|}{$A_{lepC}$} \\
+Asymmetry variable              &       \multicolumn{1}{c|}{$A_{C}$}            &       \multicolumn{1}{c|}{$A^{lep}_{C}$}
+        &       \multicolumn{1}{c|}{$A_{\Delta\phi}$}           &       \multicolumn{1}{c|}{$A_{\cos\phi}$}  &       \multicolumn{1}{c|}{$A_{c1c2}$}  &       \multicolumn{1}{c|}{$A_{P}$}  \\
 \hline
 \hline
-\multicolumn{6}{c}{experimental systematic uncertainties}       \\
+\multicolumn{6}{c}{experimental systematic uncertainties} \\
 \hline
-Jet energy scale                  & $0.002$ & $0.019$ & $0.007$ & $0.009$ & $0.009$ & $0.001$ \\
-Jet energy resolution             & $<0.001$ & $0.003$ & $0.002$ & $0.001$ & $0.002$ & $<0.001$ \\
-Lepton energy scale               & $<0.001$ & $0.003$ & $0.006$ & $0.002$ & $0.001$ & $<0.001$ \\
-b-tagging efficiency              & $<0.001$ & $0.001$ & $0.001$ & $0.001$ & $0.001$ & $<0.001$ \\
-Lepton selection                  & $0.001$ & $0.002$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\
-Pileup                            & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\
-Background                        & $0.001$ & $0.002$ & $0.001$ & $0.001$ & $0.001$ & $0.001$ \\
-\hline
-\hline
-\multicolumn{6}{c}{$\ttbar$ modeling uncertainties}      \\
-\hline
-Top mass                          & $0.001$ & $0.008$ & $0.007$ & $0.001$ & $0.001$ & $0.002$ \\
-Fact. and renorm. scales          & $0.002$ & $0.002$ & $0.005$ & $0.003$ & $0.003$ & $0.003$ \\
-Parton distribution functions     & $0.004$ & $0.001$ & $0.005$ & $0.005$ & $0.001$ & $0.001$ \\
-Hadronization                     & $0.001$ & $0.019$ & $0.005$ & $0.004$ & $0.005$ & $<0.001$ \\
+Jet energy scale                  & $0.001$   & $0.000$   & $0.001$   & $0.005$   & $0.007$   & $0.018$   \\
+Jet energy resolution             & $0.002$   & $0.000$   & $0.000$   & $0.001$   & $0.002$   & $0.003$   \\
+Lepton energy scale               & $0.001$   & $0.000$   & $0.001$   & $0.002$   & $0.005$   & $0.003$   \\
+b-tagging efficiency              & $0.001$   & $0.000$   & $0.000$   & $0.001$   & $0.001$   & $0.001$   \\
+Lepton selection                  & $0.000$   & $0.000$   & $0.001$   & $0.000$   & $0.000$   & $0.002$   \\
+Pileup                            & $0.000$   & $0.000$   & $0.000$   & $0.000$   & $0.000$   & $0.000$   \\
+Background                        & $0.001$   & $0.001$   & $0.001$   & $0.001$   & $0.001$   & $0.002$   \\
 \hline
 \hline
-Unfolding MC stats                & $0.002$ & $0.003$ & $0.006$ & $0.005$ & $0.005$ & $0.002$ \\
-Unfolding regularization          & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ & $<0.001$ \\
+\multicolumn{6}{c}{$\ttbar$ modeling uncertainties} \\
+\hline
+Top quark mass                    & $0.001$   & $0.001$   & $0.001$   & $0.001$   & $0.007$   & $0.008$   \\
+Fact. and renorm. scales          & $0.003$   & $0.002$   & $0.002$   & $0.003$   & $0.005$   & $0.002$   \\
+Parton distribution functions     & $0.001$   & $0.001$   & $0.004$   & $0.005$   & $0.005$   & $0.001$   \\
+Hadronization                     & $0.003$   & $0.000$   & $0.001$   & $0.004$   & $0.005$   & $0.019$   \\
 \hline
 \hline
-Top $p_T$ reweighting uncertainty & $0.011$ & $0.004$ & $0.006$ & $0.006$ & $0.001$ & $<0.001$ \\
+Unfolding (simulation statistics) & $0.005$   & $0.002$   & $0.002$   & $0.005$   & $0.006$   & $0.003$   \\
+Unfolding (regularization)        & $0.000$   & $0.000$   & $0.000$   & $0.000$   & $0.000$   & $0.000$   \\
+\hline
+\hline
+Top quark $p_T$                   & $0.001$   & $0.000$   & $0.011$   & $0.006$   & $0.006$   & $0.004$   \\
+\hline
+\hline
+Total systematic uncertainty      & $0.007$   & $0.003$   & $0.012$   & $0.012$   & $0.016$   & $0.028$   \\
+\hline
+\hline
+Total uncertainty (inc. data stat.) & $0.013$   & $0.006$   & $0.013$   & $0.016$   & $0.021$   & $0.029$   \\
 \hline
 \end{tabular}
-%}
 \end{center}
 \end{table}
 
@@ -1295,32 +1310,32 @@ Top $p_T$ reweighting uncertainty & $0.011$ & $0.004$ & $0.006$ & $0.006$ & $0.0
 
 After subtracting the background and unfolding, distributions for our
 six asymmetry variables are shown in Figure \ref{fig:afb:results1d},
-along with predictions from SM parton-level predictions using
-\textsc{mc@nlo} and, for the spin correlation and polarization
-variables, theoretical predictions by W. Bernreuther and Z.-G. Si. The
+along with SM parton-level predictions using
+\textsc{mc@nlo} and NLO+EW predictions. The
 measured asymmetry values with uncertainties and the \textsc{mc@nlo}
 predictions are presented numerically in Table
 \ref{tab:afb:results1d}. All six asymmetries are consistent with the
 predictions; thus, we do not observe any significant deviations from
 the Standard Model expectation.
 
-% Plots taken from AN-14-246
-\begin{figure}[hbt]
-\begin{center}
+% Plots taken from AN-14-246. Charge asymmetry plots are a wee bit
+% different from published versions, which say "NLO (QCD+EW)", and
+% have horizontal error bars on the ratio plot markers
+\begin{figure}[hbtp]
+\centering
+\includegraphics[width=0.325\linewidth]{figures/results_1D_rapiditydiffMarco.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_1D_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_1D_lepAzimAsym2.pdf}
-\includegraphics[width=0.325\linewidth]{figures/results_1D_rapiditydiffMarco.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_1D_lepCosTheta.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_1D_topSpinCorr.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_1D_lepCosOpeningAngle.pdf}
 \caption{Distributions of asymmetry variables after
   unfolding, and simulations and theoretical predictions.}
 \label{fig:afb:results1d}
-\end{center}
 \end{figure}
 
 % Results table taken from AN-14-246
-\begin{table}[hbt]
+\begin{table}[hbtp]
 \begin{center}
 \caption{Asymmetry values measured after unfolding, compared to
   predictions from simulation. Uncertainties on measurements are
@@ -1330,14 +1345,13 @@ the Standard Model expectation.
 \begin{tabular}{l |  c  c }
 \hline
 Variable &  Data  &  MC \\ \hline
-$A_{C}$                         &  $0.011 \pm  0.011  \pm 0.012$   &  $ 0.006 \pm 0.001$  \\
-$A_{lepC}$                      &  $0.003 \pm  0.006  \pm 0.004$   &  $ 0.004 \pm 0.001$   \\
-$A_{\Delta\phi}$                &  $0.094 \pm  0.005  \pm 0.012$   &  $ 0.113 \pm 0.001$   \\
-$A_{c1c2}$                      &  $-0.069 \pm  0.013  \pm 0.016$  &  $ -0.081 \pm 0.001$  \\
-$A_{P}$                                &  $-0.011 \pm  0.007  \pm 0.029$  &  $ 0.000 \pm 0.001$ \\
-$A_{\cos\phi}$                      &  $0.102 \pm  0.010   \pm 0.014$  &  $ 0.114 \pm 0.001$ \\
-% $A_{P}$ (CP+)           &  $-0.011 \pm  0.007     \pm 0.029$  &  $ 0.000 \pm 0.001$       \\
-% $A_{P}$ (CP-)           &  $-0.000 \pm  0.006     \pm 0.005$  &  $ 0$         \\
+$A_{C}$ & $0.011 \pm 0.011 \pm 0.007$  &  $ 0.006 \pm 0.001$  \\
+$A^{lep}_{C}$ & $0.003 \pm 0.006 \pm 0.003$  &  $ 0.004 \pm 0.001$   \\
+$A_{\Delta\phi}$ & $0.094 \pm 0.005 \pm 0.012$  &  $ 0.113 \pm 0.001$   \\
+$A_{\cos\phi}$ & $0.102 \pm 0.010 \pm 0.012$  &  $ 0.114 \pm 0.001$ \\
+$A_{c1c2}$ & $-0.069 \pm 0.013 \pm 0.016$  &  $ -0.081 \pm 0.001$  \\
+$A_{P}$ & $-0.011 \pm 0.007 \pm 0.028$  &  $ 0.000 \pm 0.001$       \\
+% $A_{P}^{\rm{CPV}}$ & $-0.000 \pm 0.006 \pm 0.005$  &  $ 0$         \\
  \hline
 \end{tabular}
 \end{center}
@@ -1346,19 +1360,22 @@ $A_{\cos\phi}$                      &  $0.102 \pm  0.010   \pm 0.014$  &  $ 0.11
 \subsection{Two-Dimensional Results}
 \label{ssec:afb:results2d}
 
-After 2D unfolding, the six asymmetries are presented differentially
+After 2D unfolding, the six asymmetries, along with \textsc{mc@nlo}
+and NLO+EW predictions, are presented differentially
 with respect to $m_{\ttbar}$, $|y_{\ttbar}|$, and $p_T^{\ttbar}$ in
 Figures \ref{fig:afb:results2d:chargeasym} and
 \ref{fig:afb:results2d:spincorrpol}. The overall values of these
 2D-unfolded asymmetries, and the corresponding MC predictions, are presented in
 Table \ref{tab:afb:results2d:inclusive}. The asymmetry values for each
 bin in the secondary variables are presented in Table
-\ref{tab:afb:results2d:binbybin}.
+\ref{tab:afb:results2d:binbybin}. The overall 2D-unfolded asymmetries
+are consistent with the MC predictions; therefore, we do not observe
+any discrepancy from the Standard Model expectation.
 
-% Charge asym figures taken from AN-14-246. Version in journal has
-% slightly different formatting.
-\begin{figure}[!hbt]
-\begin{center}
+% Charge asym figures taken from AN-14-246. Slightly different from
+% published plots, which say "NLO (QCD+EW)" instead of "NLO+EW".
+\begin{figure}[!hbtp]
+\centering
 \includegraphics[width=0.325\linewidth]{figures/results_2D_rapiditydiffMarco_vsmtt.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_2D_rapiditydiffMarco_vsttrapidity2.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_2D_rapiditydiffMarco_vsttpt.pdf}
@@ -1368,14 +1385,11 @@ bin in the secondary variables are presented in Table
 \caption{Unfolded charge asymmetry values as a function of the three
   secondary kinematic variables. The last bin includes any overflow.}
 \label{fig:afb:results2d:chargeasym}
-\end{center}
 \end{figure}
 
-% Spin corr and pol figures taken from AN-14-246. Versions published
-% in journal have slight different formatting, AND include predictions
-% by Bernreuther and Si.
-\begin{figure}[!hbt]
-\begin{center}
+% Spin corr and pol figures taken from AN-14-246. Published.
+\begin{figure}[!hbtp]
+\centering
 \includegraphics[width=0.325\linewidth]{figures/results_2D_lepAzimAsym2_vsmtt.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_2D_lepAzimAsym2_vsttrapidity2.pdf}
 \includegraphics[width=0.325\linewidth]{figures/results_2D_lepAzimAsym2_vsttpt.pdf}
@@ -1392,7 +1406,6 @@ bin in the secondary variables are presented in Table
   as a function of the three secondary kinematic variables. The last
   bin includes any overflow.}
 \label{fig:afb:results2d:spincorrpol}
-\end{center}
 \end{figure}
 
 % Inclusive 2D asymmetries adapted from AN-14-246. Not published, but
@@ -1407,36 +1420,36 @@ bin in the secondary variables are presented in Table
 \begin{tabular}{l |  c  c }
 \hline
 Variable &  Unfolded vs $M_{\ttbar}$  &  MC \\ \hline
-$A_{C}$                                 & 0.009 $\pm$ 0.013     $\pm$ 0.016      & 0.006 $\pm$  0.001 \\
-$A_{lepC}$                              & -0.002 $\pm$ 0.006 $\pm$ 0.004         & 0.004 $\pm$  0.001 \\
-$A_{\Delta\phi}$        & 0.095 $\pm$ 0.006     $\pm$ 0.008          & 0.113 $\pm$  0.001 \\
+$A_{C}$                                 & 0.009 $\pm$ 0.013     $\pm$ 0.008      & 0.006 $\pm$  0.001 \\
+$A^{lep}_{C}$                              & -0.002 $\pm$ 0.006 $\pm$ 0.003         & 0.004 $\pm$  0.001 \\
+$A_{\Delta\phi}$        & 0.095 $\pm$ 0.006     $\pm$ 0.007          & 0.113 $\pm$  0.001 \\
 $A_{c1c2}$                              & -0.065 $\pm$ 0.015 $\pm$ 0.015         & -0.081 $\pm$  0.001 \\
 $A_{P}$                   & -0.011 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
-$A_{\cos\phi}$                              & 0.094 $\pm$ 0.012 $\pm$ 0.013      & 0.114 $\pm$  0.001 \\
+$A_{\cos\phi}$                              & 0.094 $\pm$ 0.012 $\pm$ 0.009      & 0.114 $\pm$  0.001 \\
 % $A_{P}$ (CP+)                   & -0.011 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
 % $A_{P}$ (CP-)                   & -0.001 $\pm$ 0.007 $\pm$ 0.006         & 0 \\
  \hline
 
 \hline
 Variable &  Unfolded vs $y_{\ttbar}$  &  MC \\ \hline
-$A_{C}$                                 & 0.016 $\pm$ 0.012     $\pm$ 0.015      & 0.006 $\pm$  0.001 \\
-$A_{lepC}$                              & 0.002 $\pm$ 0.006     $\pm$ 0.004          & 0.004 $\pm$  0.001 \\
+$A_{C}$                                 & 0.016 $\pm$ 0.012     $\pm$ 0.007      & 0.006 $\pm$  0.001 \\
+$A^{lep}_{C}$                              & 0.002 $\pm$ 0.006     $\pm$ 0.003          & 0.004 $\pm$  0.001 \\
 $A_{\Delta\phi}$        & 0.095 $\pm$ 0.006     $\pm$ 0.012          & 0.113 $\pm$  0.001 \\
 $A_{c1c2}$                              & -0.077 $\pm$ 0.015 $\pm$ 0.019         & -0.081 $\pm$  0.001 \\
-$A_{P}$                   & -0.010 $\pm$ 0.008 $\pm$ 0.030         & 0.000 $\pm$  0.001 \\
-$A_{\cos\phi}$                              & 0.097 $\pm$ 0.011     $\pm$ 0.014      & 0.114 $\pm$  0.001 \\
+$A_{P}$                   & -0.010 $\pm$ 0.008 $\pm$ 0.029         & 0.000 $\pm$  0.001 \\
+$A_{\cos\phi}$                              & 0.097 $\pm$ 0.011     $\pm$ 0.012      & 0.114 $\pm$  0.001 \\
 % $A_{P}$ (CP+)                   & -0.010 $\pm$ 0.008 $\pm$ 0.030         & 0.000 $\pm$  0.001 \\
 % $A_{P}$ (CP-)                   & -0.002 $\pm$ 0.007 $\pm$ 0.007         & 0 \\
  \hline
 
 \hline
 Variable &  Unfolded vs $p_T^{\ttbar}$  &  MC \\ \hline
-$A_{C}$                                 & 0.011 $\pm$ 0.012     $\pm$ 0.016      & 0.006 $\pm$  0.001 \\
-$A_{lepC}$                              & 0.001 $\pm$ 0.006     $\pm$ 0.004          & 0.004 $\pm$  0.001 \\
+$A_{C}$                                 & 0.011 $\pm$ 0.012     $\pm$ 0.008      & 0.006 $\pm$  0.001 \\
+$A^{lep}_{C}$                              & 0.001 $\pm$ 0.006     $\pm$ 0.003          & 0.004 $\pm$  0.001 \\
 $A_{\Delta\phi}$                & 0.094 $\pm$ 0.006     $\pm$ 0.012          & 0.113 $\pm$  0.001 \\
-$A_{c1c2}$                              & -0.072 $\pm$ 0.014 $\pm$ 0.018         & -0.081 $\pm$  0.001 \\
+$A_{c1c2}$                              & -0.072 $\pm$ 0.014 $\pm$ 0.017         & -0.081 $\pm$  0.001 \\
 $A_{P}$                   & -0.014 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
-$A_{\cos\phi}$                              & 0.100 $\pm$ 0.011     $\pm$ 0.012          & 0.114 $\pm$  0.001 \\
+$A_{\cos\phi}$                              & 0.100 $\pm$ 0.011     $\pm$ 0.011          & 0.114 $\pm$  0.001 \\
 % $A_{P}$ (CP+)                   & -0.014 $\pm$ 0.008 $\pm$ 0.028         & 0.000 $\pm$  0.001 \\
 % $A_{P}$ (CP-)                   & 0.001 $\pm$ 0.007 $\pm$ 0.006          & 0 \\
  \hline
@@ -1455,38 +1468,35 @@ $A_{\cos\phi}$                              & 0.100 $\pm$ 0.011     $\pm$ 0.012 
 \begin{tabular}{l |  c  c  c }
 \hline
 Variable & $M_{\ttbar}$ bin 1 & $M_{\ttbar}$ bin 2 & $M_{\ttbar}$ bin 3  \\ \hline
-$A_{C}$                                 &       0.007   $\pm$   0.031   $\pm$   0.027   &       0.015   $\pm$   0.029   $\pm$   0.025   &       0.004   $\pm$   0.021   $\pm$   0.012   \\
-$A_{lepC}$                              &       -0.023  $\pm$   0.014   $\pm$   0.015   &       0.010   $\pm$   0.016   $\pm$   0.025   &       0.015   $\pm$   0.016   $\pm$   0.015   \\
-$A_{\Delta\phi}$        &       -0.048  $\pm$   0.014   $\pm$   0.011   &       0.108   $\pm$   0.016   $\pm$   0.016   &       0.283   $\pm$   0.017   $\pm$   0.026   \\
-$A_{c1c2}$                              &       -0.053  $\pm$   0.032   $\pm$   0.032   &       -0.090  $\pm$   0.029   $\pm$   0.034   &       -0.056  $\pm$   0.026   $\pm$   0.041   \\
-$A_{P}$                  &       -0.017  $\pm$   0.020   $\pm$   0.024   &       -0.013  $\pm$   0.019   $\pm$   0.040   &       0.000   $\pm$   0.016   $\pm$   0.034   \\
-$A_{\cos\phi}$                              &       0.111   $\pm$   0.024   $\pm$   0.024   &       0.103   $\pm$   0.031   $\pm$   0.026   &       0.059   $\pm$   0.026   $\pm$   0.034   \\
-% $A_{P}$ (CP+)                   &       -0.017  $\pm$   0.020   $\pm$   0.024   &       -0.013  $\pm$   0.019   $\pm$   0.040   &       0.000   $\pm$   0.016   $\pm$   0.034   \\
-% $A_{P}$ (CP-)                   &       -0.029  $\pm$   0.016   $\pm$   0.020   &       0.049   $\pm$   0.017   $\pm$   0.027   &       -0.018  $\pm$   0.012   $\pm$   0.016   \\
+$A_{C}$  & $0.007 \pm 0.031 \pm 0.019$   & $0.015 \pm 0.029 \pm 0.015$   & $0.004 \pm 0.021 \pm 0.013$  \\
+$A^{lep}_{C}$  & $-0.023 \pm 0.014 \pm 0.009$   & $0.010 \pm 0.016 \pm 0.009$   & $0.015 \pm 0.016 \pm 0.010$  \\
+$A_{\Delta\phi}$  & $-0.048 \pm 0.014 \pm 0.012$   & $0.108 \pm 0.016 \pm 0.014$   & $0.283 \pm 0.017 \pm 0.026$  \\
+$A_{\cos\phi}$  & $0.111 \pm 0.024 \pm 0.024$   & $0.103 \pm 0.031 \pm 0.022$   & $0.059 \pm 0.026 \pm 0.021$  \\
+$A_{c1c2}$  & $-0.053 \pm 0.032 \pm 0.031$   & $-0.090 \pm 0.029 \pm 0.032$   & $-0.056 \pm 0.026 \pm 0.030$  \\
+$A_{P}$  & $-0.017 \pm 0.020 \pm 0.025$   & $-0.013 \pm 0.019 \pm 0.038$   & $0.000 \pm 0.017 \pm 0.035$  \\
+%$A_{P}^{\rm{CPV}}$  & $-0.029 \pm 0.016 \pm 0.013$   & $0.049 \pm 0.017 \pm 0.013$   & $-0.018 \pm 0.012 \pm 0.016$  \\
  \hline
 
 \hline
 Variable & $y_{\ttbar}$ bin 1 & $y_{\ttbar}$ bin 2 & $y_{\ttbar}$ bin 3  \\ \hline
-$A_{C}$                                 &       -0.002  $\pm$   0.031   $\pm$   0.027   &       0.016   $\pm$   0.027   $\pm$   0.023   &       0.029   $\pm$   0.022   $\pm$   0.024   \\
-$A_{lepC}$                              &       -0.001  $\pm$   0.015   $\pm$   0.010   &       -0.024  $\pm$   0.015   $\pm$   0.012   &       0.023   $\pm$   0.013   $\pm$   0.008   \\
-$A_{\Delta\phi}$        &       0.103   $\pm$   0.014   $\pm$   0.012   &       0.092   $\pm$   0.015   $\pm$   0.014   &       0.090   $\pm$   0.013   $\pm$   0.017   \\
-$A_{c1c2}$                              &       -0.063  $\pm$   0.028   $\pm$   0.028   &       -0.073  $\pm$   0.028   $\pm$   0.023   &       -0.089  $\pm$   0.027   $\pm$   0.030   \\
-$A_{P}$                   &       -0.018  $\pm$   0.017   $\pm$   0.037   &       -0.012  $\pm$   0.018   $\pm$   0.027   &       -0.003  $\pm$   0.016   $\pm$   0.034   \\
-$A_{\cos\phi}$                              &       0.115   $\pm$   0.023   $\pm$   0.051   &       0.115   $\pm$   0.024   $\pm$   0.019   &       0.070   $\pm$   0.021   $\pm$   0.023   \\
-% $A_{P}$ (CP+)                   &       -0.018  $\pm$   0.017   $\pm$   0.037   &       -0.012  $\pm$   0.018   $\pm$   0.027   &       -0.003  $\pm$   0.016   $\pm$   0.034   \\
-% $A_{P}$ (CP-)                   &       0.006   $\pm$   0.021   $\pm$   0.016   &       0.011   $\pm$   0.015   $\pm$   0.018   &       -0.016  $\pm$   0.011   $\pm$   0.020   \\
+$A_{C}$  & $-0.002 \pm 0.031 \pm 0.013$   & $0.016 \pm 0.027 \pm 0.017$   & $0.029 \pm 0.022 \pm 0.014$  \\
+$A^{lep}_{C}$  & $-0.001 \pm 0.015 \pm 0.009$   & $-0.024 \pm 0.015 \pm 0.010$   & $0.023 \pm 0.013 \pm 0.006$  \\
+$A_{\Delta\phi}$  & $0.103 \pm 0.014 \pm 0.012$   & $0.092 \pm 0.016 \pm 0.015$   & $0.090 \pm 0.013 \pm 0.015$  \\
+$A_{\cos\phi}$  & $0.115 \pm 0.023 \pm 0.021$   & $0.115 \pm 0.024 \pm 0.019$   & $0.070 \pm 0.021 \pm 0.022$  \\
+$A_{c1c2}$  & $-0.063 \pm 0.028 \pm 0.027$   & $-0.073 \pm 0.028 \pm 0.023$   & $-0.089 \pm 0.027 \pm 0.029$  \\
+$A_{P}$  & $-0.018 \pm 0.017 \pm 0.034$   & $-0.012 \pm 0.018 \pm 0.029$   & $-0.003 \pm 0.016 \pm 0.031$  \\
+%$A_{P}^{\rm{CPV}}$  & $0.006 \pm 0.021 \pm 0.016$   & $0.011 \pm 0.015 \pm 0.017$   & $-0.016 \pm 0.011 \pm 0.010$  \\
  \hline
 
 \hline
 Variable & $p_T^{\ttbar}$ bin 1 & $p_T^{\ttbar}$ bin 2 & $p_T^{\ttbar}$ bin 3  \\ \hline
-$A_{C}$                                 &       0.009   $\pm$   0.018   $\pm$   0.013   &       -0.033  $\pm$   0.033   $\pm$   0.033   &       0.084   $\pm$   0.035   $\pm$   0.047   \\
-$A_{lepC}$                              &       0.006   $\pm$   0.010   $\pm$   0.010   &       -0.020  $\pm$   0.016   $\pm$   0.018   &       0.015   $\pm$   0.018   $\pm$   0.012   \\
-$A_{\Delta\phi}$                &       0.101   $\pm$   0.010   $\pm$   0.015   &       0.108   $\pm$   0.016   $\pm$   0.016   &       0.049   $\pm$   0.018   $\pm$   0.019   \\
-$A_{c1c2}$                              &       -0.073  $\pm$   0.020   $\pm$   0.018   &       -0.060  $\pm$   0.038   $\pm$   0.039   &       -0.086  $\pm$   0.043   $\pm$   0.078   \\
-$A_{P}$                   &       -0.016  $\pm$   0.012   $\pm$   0.028   &       0.029   $\pm$   0.023   $\pm$   0.034   &       -0.073  $\pm$   0.024   $\pm$   0.041   \\
-$A_{\cos\phi}$                              &       0.081   $\pm$   0.017   $\pm$   0.023   &       0.149   $\pm$   0.031   $\pm$   0.055   &       0.084   $\pm$   0.035   $\pm$   0.042   \\
-% $A_{P}$ (CP+)                   &       -0.016  $\pm$   0.012   $\pm$   0.028   &       0.029   $\pm$   0.023   $\pm$   0.034   &       -0.073  $\pm$   0.024   $\pm$   0.041   \\
-% $A_{P}$ (CP-)                   &       0.014   $\pm$   0.010   $\pm$   0.009   &       -0.017  $\pm$   0.019   $\pm$   0.015   &       -0.012  $\pm$   0.017   $\pm$   0.027   \\
+$A_{C}$  & $0.009 \pm 0.018 \pm 0.012$   & $-0.033 \pm 0.033 \pm 0.027$   & $0.084 \pm 0.036 \pm 0.026$  \\
+$A^{lep}_{C}$  & $0.006 \pm 0.010 \pm 0.005$   & $-0.020 \pm 0.016 \pm 0.015$   & $0.015 \pm 0.018 \pm 0.010$  \\
+$A_{\Delta\phi}$  & $0.101 \pm 0.010 \pm 0.016$   & $0.108 \pm 0.016 \pm 0.017$   & $0.049 \pm 0.018 \pm 0.020$  \\
+$A_{\cos\phi}$  & $0.081 \pm 0.017 \pm 0.017$   & $0.149 \pm 0.031 \pm 0.020$   & $0.084 \pm 0.035 \pm 0.037$  \\
+$A_{c1c2}$  & $-0.073 \pm 0.020 \pm 0.019$   & $-0.060 \pm 0.038 \pm 0.039$   & $-0.086 \pm 0.043 \pm 0.038$  \\
+$A_{P}$  & $-0.016 \pm 0.012 \pm 0.025$   & $0.029 \pm 0.023 \pm 0.036$   & $-0.073 \pm 0.024 \pm 0.040$  \\
+%$A_{P}^{\rm{CPV}}$  & $0.014 \pm 0.010 \pm 0.009$   & $-0.017 \pm 0.019 \pm 0.013$   & $-0.012 \pm 0.017 \pm 0.026$  \\
  \hline
 \end{tabular}
 \end{center}
@@ -1510,10 +1520,10 @@ events measured by the CMS experiment at the LHC. The data sample was
 gathered at an energy of 8 TeV, and corresponds to 19.5
 fb\textsuperscript{-1} of luminosity. We selected events where
 top-antitop pairs decayed to a final state with two leptons (electrons
-or muons), and ended up with a sample that was believed to be 91\%
+or muons), giving a sample that was estimated to be 91\%
 signal and 9\% background. After subtracting the backgrounds, we used
 the unfolding technique to present our results at parton level. These
-results included normal measurements of the asymmetries, and
+results included inclusive measurements of the asymmetries, and
 differential measurements with respect to the mass, transverse
 momentum, and absolute rapidity of the $\ttbar$ system. Our results
 were consistent with the predictions of the Standard Model, and as a
@@ -1523,10 +1533,14 @@ indicate the presence of new physics.
 \section{Acknowledgements}
 Although the bulk of this analysis was the work of a few physicists,
 the analysis would not be possible without the efforts of the entire
-CMS collaboration, some 3,000 members strong. They were responsible
+CMS collaboration, more than 3,000 members strong. They were responsible
 for maintaining the detector, software, and computing platforms
-necessary to perform the analysis. In addition, innumerable members
-contributed feedback that shaped the course of the analysis. Thus, the
-entire collaboration has my thanks. In addition, I thank
+necessary to perform the analysis. In addition, numerous members
+contributed feedback that enhanced the quality of the analysis. Finally, I thank
 W. Bernreuther and Z.-G. Si for their theoretical predictions, and for
-discussions of how this work can be applied to search for new physics.
+discussions of how this work can be applied to searches for new physics.
+
+This analysis was published in two parts. The charge asymmetry
+measurements were published in Physics Letters \cite{chargeasym}, and the
+spin correlation and polarization measurements were published in
+Physical Review D \cite{spincorrpol}.
