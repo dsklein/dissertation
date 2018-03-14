@@ -9,5 +9,5 @@ I use **latexmk** as my build system. To compile the dissertation, do:
 
 For convenience, this command is also bound up in a makefile, so you
 can just type `make` to build or rebuild the document. `make clean`
-will clean up the LaTex auxiliary files, and `make vclean` will remove
+will clean up the LaTeX auxiliary files, and `make vclean` will remove
 the compiled pdf and the latexmk build files.
