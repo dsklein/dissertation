@@ -49,7 +49,7 @@ hadronic W decay has a higher cross-section than the leptonic decay \cite{pdg},
 meaning that the more hadrons in the final state, the more data we
 would have to work with. Nevertheless, the CMS detector was designed
 with high-precision lepton reconstruction in mind, and precision is
-important to these measurements. So we chose to study the two-lepton
+important to these asymmetry measurements. So we chose to study the two-lepton
 final state, valuing the precision of the lepton reconstruction over
 higher statistics. The production of a top-antitop pair and its decay
 to a dilepton final state is depicted in Figure
@@ -76,7 +76,7 @@ to a dilepton final state is depicted in Figure
 The CDF and D0 experiments on the Tevatron collider at Fermilab made
 several previous measurements of top charge asymmetry
 \cite{cdfchargeasym1,d0chargeasym1, cdfchargeasym2,d0chargeasym2}, and
-CDF, D0, and ATLAS have made measurements of top spin correlation and
+CDF, D0, and ATLAS made prior measurements of top spin correlation and
 polarization
 \cite{cdfspincorr,d0spincorr1,d0spincorr2,d0pol,atlaspol,atlasspincorr}. The
 early charge asymmetry measurements
@@ -89,10 +89,10 @@ ATLAS measurements.
 
 The Tevatron collided beams of protons against beams of
 antiprotons. When such $p\bar{p}$ collisions produce
-$\ttbar$ pairs, we naturally expect the top will travel more along the direction
-of the proton beam, and the antitop will travel
+$\ttbar$ pairs, we expect the top will tend to travel more along the direction
+of the proton beam, and the antitop will tend to travel
 more along the direction of the antiproton beam, so that the
-difference in their rapidities is positive ($y_t - y_{\bar{t}} > 0$).
+difference in their rapidities tends to be positive ($y_t - y_{\bar{t}} > 0$).
 This case was called ``forward'', and the reverse was called
 ``backward''. Thus, given a number of $\ttbar$
 events from the Tevatron, we can define a forward-backward
@@ -384,10 +384,8 @@ Jets are defined using particle flow. They must have $p_T > 30$ GeV
 and $|\eta| < 2.4$. They must pass the tight Multi-Variate Analysis
 (MVA) pileup ID, and they must be separated from leptons by $\Delta R
 > 0.4$. B-tagging of jets is done using the Combined Secondary Vertex
-(CSV) medium working point.
-
-MET is computed by summing up the vector momenta of all PF particles,
-and multiplying by $-1$.
+(CSV) medium working point. MET is computed by summing up the vector
+momenta of all PF particles, and multiplying by $-1$.
 
 \subsection{Event Selections}
 \label{ssec:afb:eventsel}
@@ -429,9 +427,10 @@ and to our Monte Carlo simulations to more accurately reflect the
 properties of the data. In particular:
 
 \begin{itemize}
-\item We evaluate the efficiencies of our chosen triggers,
-  parameterized in $p_T$ and $\eta$, and reweight
-  MC events to reflect these efficiencies. % Do I need to describe efficiency measurements in detail?
+\item We measure the efficiencies of our chosen triggers
+  vs. $p_T$ and $\eta$, and reweight
+  MC events to reflect these efficiencies. The measurement technique
+  is described below.
 \item We use lepton identification and isolation efficiencies measured
   in a previous but related analysis \cite{run1stop1l}. As these values agree well with
   the efficiencies of our MC, we apply no correction, but we do assign
@@ -443,6 +442,119 @@ properties of the data. In particular:
 \item JECs are propagated to the MET calculation for jets with $p_T >
   10$ GeV, and the MET is also corrected to remove modulation in $\phi$.
 \end{itemize}
+
+\subsubsection*{Trigger efficiency measurements}
+We measure the efficiencies of the dilepton triggers listed in Table
+\ref{tab:afb:triggers} using a method called \emph{tag-and-probe}. The
+essence of this method is that the process $Z \rightarrow \ell\ell$
+is very clean to reconstruct and has a much higher cross section than its
+backgrounds. We begin by selecting pairs of leptons that are consistent with
+a Z boson origin. We require that one of the leptons pass some very tight
+selection (we call this lepton a tag). The other lepton must pass some
+looser selection (we call it a probe). The efficiency of a lepton
+trigger is thus given by the fraction of tag-probe pairs where the
+probe passes the trigger.
+
+For this analysis, tags must pass our full analysis selections, must
+have $p_T > 30$ GeV and $|\eta| < 2.1$, and must be matched to the
+dilepton trigger. Probes need only pass our analysis
+selections. A tag-probe pair must have opposite charge, and must have an invariant mass within 15
+GeV of the Z boson mass. We evaluate the efficiencies of the leading
+and trailing legs of the dilepton triggers separately. The muon trigger
+efficiencies are given in Tables \ref{tab:afb:trigeff:mu8} and
+\ref{tab:afb:trigeff:mu17}, and the electron trigger efficiencies are
+given in Tables \ref{tab:afb:trigeff:ele8} and \ref{tab:afb:trigeff:ele17}.
+
+% Mu8 leg trigger efficiency
+\begin{table}[htbp]
+\begin{center}
+\footnotesize
+\caption{Measured efficiency of the Mu8 leg of the
+HLT\_Mu17\_Mu8\_v* trigger. Uncertainties are statistical only.}
+\label{tab:afb:trigeff:mu8}
+\begin{tabular}{c|c|c|c|c}
+\hline
+\hline
+  $p_T$ range [GeV] & $|\eta|<0.8$ & $0.8<|\eta|<1.2$ & $1.2<|\eta|<2.1$  & $2.1<|\eta|<2.5$\\
+\hline
+  20 -  30  & 0.979 $\pm$ 0.001 & 0.948 $\pm$ 0.002 & 0.945 $\pm$ 0.002 & 0.925 $\pm$ 0.003\\
+  30 -  40  & 0.978 $\pm$ 0.001 & 0.949 $\pm$ 0.001 & 0.939 $\pm$ 0.001 & 0.931 $\pm$ 0.002\\
+  40 -  60  & 0.978 $\pm$ 0.001 & 0.948 $\pm$ 0.001 & 0.935 $\pm$ 0.001 & 0.934 $\pm$ 0.002\\
+  $>$60     & 0.979 $\pm$ 0.002 & 0.949 $\pm$ 0.004 & 0.930 $\pm$ 0.004 & 0.932 $\pm$ 0.007\\
+\hline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+% Mu17 leg trigger efficiency
+\begin{table}[htbp]
+\begin{center}
+\footnotesize
+\caption{Measured efficiency of the Mu17 leg of the
+HLT\_Mu17\_Mu8\_v* trigger. Uncertainties are statistical only.}
+\label{tab:afb:trigeff:mu17}
+\begin{tabular}{c|c|c|c|c}
+\hline
+\hline
+  $p_T$ range [GeV] & $|\eta|<0.8$ & $0.8<|\eta|<1.2$ & $1.2<|\eta|<2.1$  & $2.1<|\eta|<2.5$\\
+\hline
+  20 -  30  & 0.977 $\pm$ 0.001 & 0.937 $\pm$ 0.003 & 0.931 $\pm$ 0.002 & 0.863 $\pm$ 0.004\\
+  30 -  40  & 0.976 $\pm$ 0.001 & 0.939 $\pm$ 0.001 & 0.928 $\pm$ 0.001 & 0.890 $\pm$ 0.002\\
+  40 -  60  & 0.977 $\pm$ 0.001 & 0.939 $\pm$ 0.001 & 0.926 $\pm$ 0.001 & 0.899 $\pm$ 0.002\\
+  $>$60     & 0.978 $\pm$ 0.002 & 0.941 $\pm$ 0.004 & 0.922 $\pm$ 0.004 & 0.904 $\pm$ 0.008\\
+\hline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+% Ele8 leg trigger efficiency
+\begin{table}[htbp]
+\begin{center}
+\footnotesize
+\caption{Measured efficiency of the Ele8 leg of the
+HLT\_Ele17\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_Ele8\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_v*
+trigger. Uncertainties are statistical only.}
+\label{tab:afb:trigeff:ele8}
+\begin{tabular}{c|c|c}
+\hline
+\hline
+  $p_T$ range [GeV] & $|\eta|<1.5$ & $1.5<|\eta|<2.5$\\
+\hline
+  20 -  30  & 0.964 $\pm$ 0.001 & 0.979 $\pm$ 0.001\\
+  30 -  40  & 0.978 $\pm$ 0.001 & 0.986 $\pm$ 0.001\\
+  40 -  60  & 0.982 $\pm$ 0.001 & 0.989 $\pm$ 0.001\\
+  $>$60     & 0.985 $\pm$ 0.001 & 0.991 $\pm$ 0.001\\
+\hline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+% Ele17 leg trigger efficiency
+\begin{table}[htbp]
+\begin{center}
+\footnotesize
+\caption{Measured efficiency of the Ele17 leg of the
+HLT\_Ele17\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_Ele8\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_v*
+trigger. Uncertainties are statistical only.}
+\label{tab:afb:trigeff:ele17}
+\begin{tabular}{c|c|c}
+\hline
+\hline
+  $p_T$ range [GeV] & $|\eta|<1.5$ & $1.5<|\eta|<2.5$\\
+\hline
+  20 -  30  & 0.964 $\pm$ 0.001 & 0.982 $\pm$ 0.001\\
+  30 -  40  & 0.981 $\pm$ 0.001 & 0.990 $\pm$ 0.001\\
+  40 -  60  & 0.987 $\pm$ 0.001 & 0.993 $\pm$ 0.001\\
+  $>$60     & 0.988 $\pm$ 0.001 & 0.994 $\pm$ 0.001\\
+\hline
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
 
 \subsection{\texorpdfstring{$\ttbar$}{ttbar} System Reconstruction}
 \label{ssec:afb:ttbarreconstruction}
@@ -610,6 +722,8 @@ As the plots themselves and the associated
 ratios show, the MC predictions match the data fairly well, indicating
 good quality modeling of the background processes and the
 $\ttdilep$ process.
+% Would be nice to stick in a table with the reco-level asymmetries,
+% if I could get one where A_P isn't separated by lepton charge...
 
 % Adapted from AN-14-246. Similar table published in spin correlation/polarization paper.
 \begin{table}[hbt]
@@ -661,7 +775,7 @@ $\ttdilep$ process.
 \begin{figure}[phtb]
   \centering
   \includegraphics[width=0.325\textwidth]{figures/dataMC_lep_azimuthal_asymmetry2_combined.pdf}
-  % \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_costheta_combined} % Unofficial plot, not from the AN!
+  % \includegraphics[width=0.45\textwidth]{figures/dataMC_lep_costheta_combined} % Unofficial plot
   \includegraphics[width=0.325\textwidth]{figures/dataMC_lepPlus_costheta_cms_combined.pdf}
   \includegraphics[width=0.325\textwidth]{figures/dataMC_lepMinus_costheta_cms_combined.pdf}
   \includegraphics[width=0.325\textwidth]{figures/dataMC_top_spin_correlation_combined.pdf}
@@ -781,7 +895,7 @@ approximately equal. The specific bins chosen are given in Table
 simply dividing the truth-level bins in half.
 
 % Table of binnings from AN-14-246. Believed unpublished, but could probably be deduced from published plots.
-\begin{sidewaystable}%[htb]
+\begin{sidewaystable}
 \begin{center}
 \caption{Truth-level bins chosen for 1D unfolding of asymmetry variables.}
 \label{tab:afb:binning1d}
@@ -876,7 +990,7 @@ uncertainties became larger as $\tau$ was decreased; as $\tau$ was
 increased, the asymmetry central value shifted, indicating bias. From
 this behavior, we deduce that our choices for $\tau$ were
 appropriate. The dependence of the asymmetries and their uncertainties
-are shown in Figure \ref{fig:afb:tauvary}.
+on the choice of $\tau$ is shown in Figure \ref{fig:afb:tauvary}.
 
 % Table of tau values from AN-14-246. Unpublished. %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}[htb]
