@@ -1,19 +1,77 @@
 \chapter{Single-Lepton Stop Search}
 \label{chap:stop}
 
+This chapter will describe a search for supersymmetry with the target signal
+being stop-antistop squark pairs decaying to a single-lepton (1$\ell$)
+final state. This work was performed using the CMS experiment during
+Run II of the LHC, at 13 TeV center-of-mass energy. This analysis
+resulted in two publications: the search performed using 2016 data \cite{stop1l},
+and a combined single-lepton and all-hadronic search using 2015 data
+\cite{combination0l}. Two public research documents (PASes) were
+also produced to support conference results \cite{pasichep,pasmoriond},
+however these are superceded by the published results. I will focus on
+the analysis as described in Reference \cite{stop1l}, particularly my work
+developing the compressed T2tt search strategy.
+
 \section{Motivation}
 \label{sec:stop:motivation}
 
-SUSY is a really important theory, for reasons described in section \ref{ssec:susy:rationale}.
-Since the top is the heaviest particle, the stop is probably the lightest sparticle.
-The single-lepton channel provides a nice balance between cross-section and ease of ID.
+As Section \ref{ssec:susy:rationale} has described, supersymmetry
+(SUSY) is a very important class of theories in particle physics. It
+has the potential to solve the hierarchy problem, and may provide the
+answer to the difficult question of what particles make up dark
+matter. And the notion of naturalness would seem to imply that our
+current or near-future particle colliders have just the right energies
+to search for evidence of SUSY.
+
+One particularly interesting feature of SUSY is that if you arrange
+the sparticles in order from lightest to heaviest, they will generally line up
+in reverse order from the Standard Model particles. So whereas the
+electron is the lightest stable SM particle, and the top quark is the
+heaviest, by contrast the stop squark is expected to be one of the lightest
+sparticles, and the selectron one of the heaviest. We say SUSY has an
+\emph{inverted mass hierarchy}. % Cite this!
+% See refs 8-12 in 8 TeV stop paper.
+This means that the Lightest Supersymmetric Particle ($\lsp$), the
+chargino ($\chargino$), and the stop squark ($\tilde{t}$) should be
+some of the easiest sparticles to detect.
+% The single-lepton channel provides a nice balance between
+% cross-section and ease of ID.
 
 \section{Previous Searches}
 \label{sec:stop:run1}
 
-In Run I, CMS performed a single-lepton stop search.
-Present a sketch of their results.
-Maybe talk about what we do better in Run II?
+A search for stop pairs in the one-lepton final state was previously
+performed at CMS during Run I \cite{stop1l8tev}. This search used 19.5
+fb$^{-1}$ of 8 TeV collision data. The analyzers performed a traditional
+cut-based search, and also a search employing a boosted decision tree
+(BDT). This machine-learning technique allows a computer to attempt to
+discriminate between signal and background. Ultimately, neither search
+strategy detected any evidence of the production of stop squarks. This
+result allowed the analyzers to set limits on the possible masses of
+stops and LSPs. Specifically, stop squarks were excluded up to masses
+of about 650 GeV in the case where the LSP is massless, and LSPs were
+excluded up to a maximum of 200-250 GeV for stop masses around 500-600
+GeV.
+
+The LHC and the CMS detector received a number of upgrades for Run II,
+some of which have greatly benefitted the single-lepton stop
+search. Of particular note, the LHC collision energy was raised from 8
+to 13 TeV, which increases the likelihood of producing heavy new
+particles, and the luminosity was increased considerably, allowing us % Quantify lumi increase
+to record more data in the same amount of running time. In addition,
+we have learned from the Run I analysis, and attempted to improve our
+analysis techniques for Run II. To avoid the obfuscation inherent in
+results produced by machine learning, we declined to perform a BDT
+search. But we did add a dedicated search strategy to address the
+previous lack of sensitivity in the ``top corridor'' region, as will
+be discussed in Sections \ref{ssec:stop:sigcompressed} and
+\ref{sec:stop:sigregs}.
+
+% How about any ATLAS stop-1L searches?
+% Or searches from CDF or D0?
+% It's hard, because there are a LOT of searches that set limits on
+% stops in general.
 
 \section{Signal Models}
 \label{sec:stop:sigmodels}
