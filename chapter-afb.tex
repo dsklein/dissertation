@@ -384,7 +384,7 @@ Jets are defined using particle flow. They must have $p_T > 30$ GeV
 and $|\eta| < 2.4$. They must pass the tight Multi-Variate Analysis
 (MVA) pileup ID, and they must be separated from leptons by $\Delta R
 > 0.4$. B-tagging of jets is done using the Combined Secondary Vertex
-(CSV) medium working point. MET is computed by summing up the vector
+(CSV) medium working point. $\met$ is computed by summing up the vector
 momenta of all PF particles, and multiplying by $-1$.
 
 \subsection{Event Selections}
@@ -401,7 +401,7 @@ include:
 \item For events where the leptons have the same flavor, we require
   $|M_{\ell\ell} - M_Z| > 15$ GeV to exclude dileptons produced by the
   Drell-Yan (DY) process.
-\item We also require MET $> 40$ GeV in same-flavor events, which
+\item We also require $\met > 40$ GeV in same-flavor events, which
   further helps to reduce the DY background.
 \end{itemize}
 
@@ -439,8 +439,8 @@ properties of the data. In particular:
 \item We correct the MC for the efficiency of b-tagging using the CSV
   discriminator reshaping method.
 \item We apply the standard Jet Energy Corrections (JECs).
-\item JECs are propagated to the MET calculation for jets with $p_T >
-  10$ GeV, and the MET is also corrected to remove modulation in $\phi$.
+\item JECs are propagated to the $\met$ calculation for jets with $p_T >
+  10$ GeV, and the $\met$ is also corrected to remove modulation in $\phi$.
 \end{itemize}
 
 \subsubsection*{Trigger efficiency measurements} % Should this section be moved to under "datasets and triggers"?
@@ -562,14 +562,14 @@ trigger. Uncertainties are statistical only.}
 For some of the asymmetry variables described in Section
 \ref{ssec:afb:variables}, it is necessary to reconstruct the $\ttbar$
 system and its decay chain. This process is challenging because we do not
-know the exact momenta of the two neutrinos (only the total MET for
+know the exact momenta of the two neutrinos (only the total $\met$ for
 the event), and because there is an ambiguity as to which lepton
 corresponds with which b-jet. In addition, some events have only one
 medium CSV jet, not two.
 
 In cases with only one medium CSV jet, we treat the next-highest-CSV
 jet like a second b-tag. We then plug the two b-jets, the lepton
-four-momenta, and the MET into an analytical neutrino solver that
+four-momenta, and the $\met$ into an analytical neutrino solver that
 attempts to reconstruct the $\ttbar$ system, assuming a fixed top mass
 of 172.5 GeV \cite{nusolver}. Of the up to eight possible solutions
 for each event, this software chooses the one with the greatest matrix
@@ -634,15 +634,15 @@ b veto & CR0 & DY \\
 \hline
 Z peak & CR1 & DY \\
 \hline
-Z peak, no MET cut & CR2 & DY \\
+Z peak, no $\met$ cut & CR2 & DY \\
 \hline
-No MET cut & CR3 & DY \\
+No $\met$ cut & CR3 & DY \\
 \hline
 1 jet & CR4 & tW  \\
 \hline
 Same sign & CR5 & Fakes \\
 \hline
-Same sign, no MET cut & CR6 & Fakes \\
+Same sign, no $\met$ cut & CR6 & Fakes \\
 \hline
 \end{tabular}
 }
@@ -1280,7 +1280,7 @@ Our experimental systematic uncertainties are evaluated as follows:
   0.5\%.
 \item \textbf{Jet energy scale (JES):} The uncertainty from JES
   corrections is evaluated by varying those corrections within their
-  uncertainties, and propagating the effect to the MET. We properly
+  uncertainties, and propagating the effect to the $\met$. We properly
   account for the effects this has on our event selections, and on the
   $\ttbar$ system reconstruction.
 \item \textbf{Jet energy resolution (JER):} This uncertainty is
