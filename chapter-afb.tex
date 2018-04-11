@@ -384,7 +384,7 @@ Jets are defined using particle flow. They must have $p_T > 30$ GeV
 and $|\eta| < 2.4$. They must pass the tight Multi-Variate Analysis
 (MVA) pileup ID, and they must be separated from leptons by $\Delta R
 > 0.4$. B-tagging of jets is done using the Combined Secondary Vertex
-(CSV) medium working point. $\met$ is computed by summing up the vector
+(CSV) medium working point. $\metvec$ is computed by summing up the vector
 momenta of all PF particles, and multiplying by $-1$.
 
 \subsection{Event Selections}
@@ -443,7 +443,8 @@ properties of the data. In particular:
   10$ GeV, and the $\met$ is also corrected to remove modulation in $\phi$.
 \end{itemize}
 
-\subsubsection*{Trigger efficiency measurements} % Should this section be moved to under "datasets and triggers"?
+\subsubsection{Trigger efficiency measurements} % Should this section be moved to under "datasets and triggers"?
+\label{sssec:afb:evtweights:trigeff}
 We measure the efficiencies of the dilepton triggers listed in Table
 \ref{tab:afb:triggers} using a method called \emph{tag-and-probe}. The
 essence of this method is that the process $Z \rightarrow \ell\ell$
@@ -469,7 +470,9 @@ given in Tables \ref{tab:afb:trigeff:ele8} and \ref{tab:afb:trigeff:ele17}.
 \begin{table}[htbp]
 \begin{center}
 \footnotesize
-\caption{Measured efficiency of the Mu8 leg of the
+\caption[Measured efficiency of the Mu8 leg of the dimuon
+trigger. Uncertainties are statistical only.]
+{Measured efficiency of the Mu8 leg of the
 HLT\_Mu17\_Mu8\_v* trigger. Uncertainties are statistical only.}
 \label{tab:afb:trigeff:mu8}
 \begin{tabular}{c|c|c|c|c}
@@ -491,7 +494,9 @@ HLT\_Mu17\_Mu8\_v* trigger. Uncertainties are statistical only.}
 \begin{table}[htbp]
 \begin{center}
 \footnotesize
-\caption{Measured efficiency of the Mu17 leg of the
+\caption[Measured efficiency of the Mu17 leg of the dimuon
+trigger. Uncertainties are statistical only.]
+{Measured efficiency of the Mu17 leg of the
 HLT\_Mu17\_Mu8\_v* trigger. Uncertainties are statistical only.}
 \label{tab:afb:trigeff:mu17}
 \begin{tabular}{c|c|c|c|c}
@@ -513,7 +518,9 @@ HLT\_Mu17\_Mu8\_v* trigger. Uncertainties are statistical only.}
 \begin{table}[htbp]
 \begin{center}
 \footnotesize
-\caption{Measured efficiency of the Ele8 leg of the
+\caption[Measured efficiency of the Ele8 leg of the dielectron
+trigger. Uncertainties are statistical only.]
+{Measured efficiency of the Ele8 leg of the
 HLT\_Ele17\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_Ele8\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_v*
 trigger. Uncertainties are statistical only.}
 \label{tab:afb:trigeff:ele8}
@@ -536,7 +543,9 @@ trigger. Uncertainties are statistical only.}
 \begin{table}[htbp]
 \begin{center}
 \footnotesize
-\caption{Measured efficiency of the Ele17 leg of the
+\caption[Measured efficiency of the Ele17 leg of the dielectron
+trigger. Uncertainties are statistical only.]
+{Measured efficiency of the Ele17 leg of the
 HLT\_Ele17\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_Ele8\_CaloIdT\_CaloIsoVL\_TrkIdVL\_TrkIsoVL\_v*
 trigger. Uncertainties are statistical only.}
 \label{tab:afb:trigeff:ele17}
@@ -1324,7 +1333,8 @@ evaluated the systematic uncertainty due to limited \textbf{Monte
   Carlo statistics} by propagating the uncertainty on the smearing
 matrix to the unfolded result.
 
-\subsubsection*{Regularization Systematic}
+\subsubsection{Regularization Systematic}
+\label{sssec:afb:systematics:regularization}
 
 At the time this analysis was published, there was no standard way to
 evaluate a systematic uncertainty on regularization. We therefore had

@@ -143,12 +143,12 @@ must be produced off-shell (i.e. with a mass that is not its normal
 $\sim$173 GeV). This kind of process would be difficult to detect
 because the production of off-shell top quarks is suppressed, and
 because there is also less energy and momentum available to the top
-deca products. We may also consider what happens if we go one step
+decay products. We may also consider what happens if we go one step
 further, to the region where $\mstop - \mlsp \lesssim m_W$. In this case, not
 only the top quark but also its resultant W boson must be produced
 off-shell, making it even harder to detect this signal. We call these
-cases ``compressed'' T2tt decays, because the phase space available to
-the decay products is squeezed down to a smalle range.
+cases \emph{compressed} T2tt decays, because the phase space available to
+the decay products is squeezed down to a small range.
 
 The difficulties in detecting compressed T2tt signals are evident in
 the results plot of the Run I analysis \cite{stop1l8tev}. The exclusion
@@ -161,7 +161,7 @@ regions. To that end, I developed a specialized set of
 signal regions that target the kinematics of compressed decays, with
 the aim of increasing our sensitivity to these signals. These
 specialized signal regions will be described in Section
-\ref{ssec:stop:corridorsrs}, and the compressed T2tt search will be
+\ref{sec:stop:sigregs}, and the compressed T2tt search will be
 described separately from the nominal search in cases where
 the two strategies differ.
 
@@ -361,8 +361,10 @@ are produced as MINIAODSIM.
 
 % Table of MC samples taken from AN-16-463. Unpublished.
 \begin{table}[htp]
-\caption{
-  Monte Carlo simulation datasets used in this analysis, and their
+\caption[Monte Carlo simulation datasets used in this analysis, and
+  their theoretical cross sections. The symbols * and $\dagger$ replace
+  longer strings.]
+  {Monte Carlo simulation datasets used in this analysis, and their
   theoretical cross sections. The symbol * replaces the string
   RunIISummer16MiniAODv2-PUMoriond17\_80X\_mcRun2\_asymptotic\_2016\_TrancheIV\_v6, % Warning: underfull hboxes abound here!
   and the $\dagger$ replaces
@@ -415,8 +417,6 @@ Sample & Cross Section \\
 }
 \end{table}
 
-% Transition between these sections by talking about the components
-% other than 1L+MET used to identify stop decays?
 \section{Search Strategy}
 \label{sec:stop:searchstrategy}
 
@@ -506,9 +506,9 @@ described in Section \ref{ssec:stop:rarebkg}.
 \subsection{Vertex Selections}
 \label{ssec:stop:vtxselections}
 
-All events selected must have at least one good reconstructed
-vertex. A vertex is considered to be ``good'' if it meets the
-following criteria:
+For an event to be selected, at least the first vertex in the event
+must be a good vertex. A vertex is considered to be ``good'' if it
+meets the following criteria:
 
 \begin{itemize}
 \item The tracks used to create the vertex must have trajectory fits
@@ -632,8 +632,9 @@ We reconstruct jets using the anti-$k_t$ jet clustering algorithm
 $p_T >$ 30 GeV, must have $|\eta| <$ 2.4, and must pass the
 established jet ID at the loose working point. The jet ID requirement
 is waived for our signal MC samples, because the jet ID has some
-inefficiencies in samples made using FastSim. We require a minimum of
-two jets in every event; some signal regions have higher requirements to
+inefficiencies in samples made using FastSim. We apply the official
+CMS jet energy corrections. Each event is required to have at least
+two jets; some signal regions have higher requirements to
 suit their purposes, as Section \ref{sec:stop:sigregs} will describe.
 
 We also require each event to have at least one b-tagged jet, where
@@ -645,7 +646,7 @@ WP (CSV $>$ 0.8) or the tight WP (CSV $>$ 0.935). Section
 \subsection{\texorpdfstring{$\met$}{MET}}
 \label{ssec:stop:met}
 
-As described earlier, $\met$ is calculated as the negative of the vector
+As described earlier, $\metvec$ is calculated as the negative of the vector
 sum of all the particle flow candidates in the event. We recalculate
 the $\met$ after the jet energy corrections have been applied to the jets
 in the event. We also employ the following filters, as recommended by
@@ -710,57 +711,735 @@ resolution effects.
 % MT n-1 plot, taken from AN-16-463. Believed unpublished.
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.5\textwidth]{figures/mt_nminusone.pdf}
-\caption{Distribution of $\mt$ with all other event selections applied.}
+\includegraphics[width=0.6\textwidth]{figures/nminusone_mt.pdf}
+\caption{Distribution of $\mt$ after all other selections have been applied.}
 \label{fig:stop:mt:nminusone}
 \end{figure}
 
 \subsection{Modified Topness (\texorpdfstring{$t_{\text{mod}}$}{tmod})}
 \label{ssec:stop:tmod}
 
-\subsection{Lepton-b Invariant Mass (\texorpdfstring{$m_{\ell b}$}{mlb})}
+In a previous search for stop quarks, particle physicists developed a
+variable they called \emph{topness}, denoted $t$. This complicated
+variable attempts to quantify the degree to which an event is
+consistent with being a $\ttdilep$ event \cite{topness}. Although our
+analysis must also suppress the $\ttdilep$ background, our
+investigations showed that we could achieve better discrimination
+between signal and $\ttdilep$ by removing two of the terms in the
+topness variable (specifically, the center-of-mass constraint, and the
+$\chi^2$ for leptonic top decay). We thus arrive at a variable we call
+\emph{modified topness}, or $t_\text{mod}$. To calculate this
+variable, we must minimize an expression that constrains the
+neutrino-lepton system to have a mass similar to the W-boson mass, and the
+b-quark-W-boson system to have a mass similar to top quark mass. Thus
+we define:
+\begin{equation}
+\label{eq:stop:tmod}
+\begin{split}
+t_\text{mod} & = \ln ( \text{min} \; S ), \; \text{where} \\
+S(\vec{p}_W, p_{\nu,z}) & = \frac{(m_W^2-(p_\nu+p_\ell)^2)^2}{a_W^4} + \frac{(m_t^2 - (p_{b_2}+p_W)^2)^2}{a_t^4}
+\end{split}
+\end{equation}
+
+The parameters $a_W$ and $a_t$ provide the scale for the W-boson
+and top quark masses; we set them to 5 GeV and 15 GeV, respectively.
+There is some abiguity as to which jets should be used in this
+calculation. We found that $t_\text{mod}$ behaved best across signal
+models with both low and high mass splittings if we chose our jets
+according to these rules:
+\begin{itemize}
+\item Consider all combinations of the three jets with the highest
+  CSVv2 discriminator values. If at least one such jet is b-tagged,
+  only consider permutations that include at least one b-tagged jet.
+\item Choose the combination of jets that minimizes the ultimate
+  $t_\text{mod}$ value.
+\end{itemize}
+Ultimately, modified topness is effective in discriminating against
+both $\ttdilep$ events and single top $tW$ events. However, it also
+suppresses signal models with certain kinematics. For that reason, we
+choose to bin our signal regions in $t_\text{mod}$, instead of making
+a strict cut on it. Figure \ref{fig:stop:tmod} shows the distribution
+of $t_\text{mod}$ for our background processes and various signal mass
+points.
+
+% Plot of t_mod taken from AN-16-463. Unpublished.
+%%% ALSO: needs to have the CMS header added!
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/nminusone_tmod.pdf}
+\caption{Distribution of $t_\text{mod}$ after all other selections
+  have been applied. Normalization is arbitrary.}
+\label{fig:stop:tmod}
+\end{figure}
+
+\subsection{Lepton-b Invariant Mass (\texorpdfstring{$M_{\ell b}$}{mlb})}
 \label{ssec:stop:mlb}
 
-\subsection{Minimum Delta-Phi (\texorpdfstring{$\text{min}\Delta\phi(j_{1,2},\met)$}{minDphi})}
+Another variable that can help us discriminate signal from background
+is the invariant mass of the lepton and its corresponding b-jet,
+denoted $M_{\ell b}$. In the case of $\ttdilep$ and $\ttonelep$
+backgrounds, as well as T2tt signals, assuming we pair our lepton with
+the correct b-jet, then $M_{\ell b}$ is constrained by kinematics:
+\begin{equation}
+M_{\ell b} \leq \sqrt{m_t^2 - m_W^2} \approx 153 \text{GeV} % Verify this calculation for yourself!
+\end{equation}
+This inequality does not hold true for the W+jets background, nor for T2bW
+signals. So a low-$M_{\ell b}$ requirement will reduce W+jets content
+compared to the T2tt signal, and a high-$M_{\ell b}$ requirement will reduce
+the $\ttbar$ backgrounds compared to the T2bW signal. As Section
+\ref{sec:stop:sigregs} will describe, we use different bins of
+$M_{\ell b}$ in the definitions of some of our signal regions.
+
+We define $M_{\ell b}$ to be the invariant mass of the system of the
+leading lepton and the b-tag nearest the lepton in $\Delta R$. Figure
+\ref{fig:stop:mlb} shows an example distribution of this
+variable. Because the W+jets background is dominant at higher
+$M_{\ell b}$, and because W+jets has a much higher prevalence of
+light-flavor jets over b-jets, we also tighten our b-tagging WP at
+high $M_{\ell b}$.
+
+% Mlb plot pulled from AN-16-463. Unpublished.
+%%% ALSO: like plot above, needs the CMS header
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/nminusone_mlb.pdf}
+\caption{Distribution of $M_{\ell b}$ variable after baseline
+  selections, in the region $t_\text{mod} > 0$. Normalization is arbitrary.}
+\label{fig:stop:mlb}
+\end{figure}
+
+\subsection{Minimum Delta-Phi (\texorpdfstring{$\text{min}\Delta\phi(j_{1,2},\metvec)$}{minDphi})}
 \label{ssec:stop:mindphi}
 
-% Corrections / SFs
+The final variable we consider in selecting our events is the minimum
+$\Delta\phi$ between the $\metvec$ and either of the two leading
+jets. In other words:
+\begin{equation}
+\text{min} \Delta\phi (j_{1,2},\metvec) = \text{min} \left\{ \Delta\phi
+    (\metvec, j_1),\; \Delta\phi (\metvec, j_2) \right\}
+\end{equation}
+This variable allows us to reduce backgrounds such as $\ttdilep$ and
+$\ttonelep$  with relatively little loss of signal, because in these
+backgrounds we expect the neutrino (i.e. the source of the $\met$) to
+be relatively close to the high-$p_T$ quark produced in the top
+decay. Figure \ref{fig:stop:mindphi} shows the distribution of this
+variable. We require a min$\Delta\phi >$ 0.8 for our bulk signal
+regions; for the compressed T2tt search, this requirement is relaxed
+to min$\Delta\phi >$ 0.5.
 
-Give the criteria we used to define electrons, muons, hadronic taus,
-jets, b-tags, MET, etc.
-% Also have to define M_T - a reference is expected above.
-Talk about how we used these objects to select events.
-Maybe this is a good place to also describe the scale factors and
-other corrections applied to the Monte Carlo.
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{figures/nminusone_mindphi.pdf}
+\caption{Distribution of min$\Delta\phi (j_{1,2}, \metvec)$ after all
+  other selections have been applied.}
+\label{fig:stop:mindphi}
+\end{figure}
+
+\subsection{Corrections}
+\label{ssec:stop:corrections}
+
+Our Monte Carlo simulations seldom reproduce the aggregate properties of
+real data with perfect accuracy. Therefore, we must reweight our
+simulated events to reproduce the properties of the data more
+exactly. The nominal weights applied to our MC simulations are
+described here. Sections \ref{sec:stop:bkgest} and
+\ref{sec:stop:signal} will describe the systematic uncertainties
+on these and other weights, and how we propagate those uncertainties
+to our final results.
+
+\begin{itemize}
+\item As was described in Section \ref{ssec:stop:trigeff}, we evaluate
+  the efficiencies of all triggers used in this analysis. For our
+  signal regions, the combined trigger efficiency is so near 100\% that we
+  do not reweight our MC; in the regions where we use dilepton
+  triggers, we do apply a weight for the efficiency of those triggers.
+\item We apply the official jet energy corrections, as mentioned in
+  Sections \ref{ssec:stop:jets} and \ref{ssec:stop:met}.
+\item We apply weights to mimic the efficiency of our b-tagging
+  algorithms. These weights are provided by the b-tagging POG within
+  CMS. There are separate weights for heavy flavor (HF) and light
+  flavor (LF) jets, as well as for the medium and tight WPs used in
+  the analysis.
+\item We apply weights for the efficiency of lepton identification and
+  isolation, as provided by the SUSY group in CMS. We also account for
+  the efficiency of vetoing a second lepton where applicable. Separate
+  weights must be applied to our signal samples because they were
+  generated using FastSim.
+%\item % Tau and IsoTrack SFs?? % Not sure I fully understand this
+% Top pT reweighting % I believe this was deprecated in favor of ttbar system pT
+\item All of our signal and control regions involve binning in
+  $\met$. If the $\met$ resolution differs between data and MC, we run
+  the risk of MC events being counted in the wrong bin. We performed a
+  separate study to measure the $\met$ resolution, % Describe this in an appendix?
+  and the results are used to reweight our simulated events. Because
+  the $\met$ resolution differs between the nominal and
+  compressed-T2tt regions, we calculate separate weights for each. % Would be nice to be able to reference overlapping nature of these regions
+\item Similar to the case of $\met$ resolution, there is a difference
+  between data and MC in the $\met$ spectrum of $\ttbar$ and tW events.
+  % Studied in the ttbar e/mu crosscheck region. Describe this study in an appendix.
+  For simulated $\ttbar$ and tW events, we apply a weight to correct
+  for this effect.
+\item Initial state radiation (ISR) refers to any jets that may be
+  produced alongside the main process in an event. ISR is not
+  necessarily modeled correctly in our signal samples. Therefore, in
+  those samples only, we reweight the events to obtain a more accurate
+  distribution of the number of jets per event.
+\item To correct for discrepancies in the pileup distribution, we
+  reweight events using the official corrections prescribed by CMS.
+% HJ will know more about the PU corrections, since he committed the
+% necessary files to our repo. But since it's a CMS thing, I may not
+% even need to say more.
+\end{itemize}
 
 \section{Signal Regions}
 \label{sec:stop:sigregs}
 
-Give the definitions for the different signal regions.
-Talk about why these definitions were chosen.
+As Section \ref{sec:stop:selections} has described, we preselect events
+for our search using the following criteria:
+\begin{itemize}
+\item The first vertex must meet certain quality criteria.
+\item The event must have one well-reconstructed electron or
+  muon. There must be no other electrons or muons in the event, even
+  of low reconstruction quality.
+\item The event must not have a tau in it, or an isolated track that
+  could be a tau.
+\item The event must have at least two jets, of which at least one
+  must be b-tagged.
+\item The $\met$ must be at least 250 GeV.
+\item The $\mt$ must be at least 150 GeV.
+\item The minimum $\Delta \phi$ betwee the $\met$ and the two leading
+  jets must be at least 0.8; at least 0.5 for the corridor search.
+\end{itemize}
+After those criteria have been met, events are further subdivided
+among several different signal regions, to increase our sensitivity to
+a wide variety of SUSY scenarios.
 
-\subsection{Nominal Signal Regions}
-\label{ssec:stop:nominalsrs}
+\subsubsection*{Nominal Signal Regions}
 
-\subsection{Corridor Signal Regions}
-\label{ssec:stop:corridorsrs}
+Our nominal signal regions are tailored to the search for most T2tt
+signals, the T2bW signals, and the T2tb signals. To that end, our
+signal regions are divided by the number of jets in the event, the
+modified topness variable, the lepton-b-jet invariant mass, and the
+amount of $\met$. These signal regions are enumerated in Table
+\ref{tab:stop:nominalsrs}. At times we will refer to these regions using a
+letter for the series and a number for the specific $\met$ bin, as
+A3, D1, G4, etc.
 
+% Table of nominal SRs adapted from AN-16-463. Published.
+\begin{table}[htb]
+\centering
+\caption{Definitions of the signal regions used in the nominal search.}
+\label{tab:stop:nominalsrs}
+\begin{tabular}{|c|c|r|r|lllll|}
+\hline
+Label & $N_J$ & $t_\text{mod}$ & $M_{\ell b}$ [GeV] & \multicolumn{5}{c|}{$\met$ [GeV]} \\
+\hline
+A & 2-3     & $>10$ & $\leq175$     & 250-350 & 350-450 & 450-600 & $>600$ & \\
+B & 2-3     & $>10$ & $>175$        & 250-450 & 450-600 & $>600$ & & \\
+C & $\geq4$ & $\leq0$ & $\leq175$   & 250-350 & 350-450 & 450-550 & 550-650 & $>650$ \\
+D & $\geq4$ & $\leq0$ & $>175$      & 250-350 & 350-450 & 450-550 & $>550$ & \\
+E & $\geq4$ & 0-10 & $\leq175$      & 250-350 & 350-550 & $>550$ & & \\
+F & $\geq4$ & 0-10 & $>175$         & 250-450 & $>450$ & & & \\
+G & $\geq4$ & $>10$ & $\leq175$     & 250-350 & 350-450 & 450-600 & $>600$ & \\
+H & $\geq4$ & $>10$ & $>175$        & 250-450 & $>450$ & & & \\
+\hline
+\end{tabular}
+\end{table}
+
+The signal regions that require 2-3 jets and $t_\text{mod} >$ 10
+(the A and B series) are
+designed to target T2tb signals. Because we take the mass difference
+between the chargino and the LSP to be only 5 GeV in this model, the
+W-boson produced in the chargino to LSP decay will be very off
+shell. Thus the lepton will come from the top decay, and the off-shell
+W will decay into very weak jets that we cannot resolve. In addition,
+these regions will also have sensitivity to any of our signal models
+where the stops are highly boosted and cause two jets to merge into one.
+
+The remaining nominal signal regions (C-H) target T2tt and T2bW
+models. They include a four jet requirement because we expect two b-jets from the
+top or stop decays and two more jets from the hadronic W decay.
+
+The three bins in $t_\text{mod}$ are formulated to enhance three different
+types of signal kinematics against the $\ttdilep$
+background. As Figure \ref{fig:stop:tmod} shows, the compressed
+case, where the mass splitting
+between the stop and the LSP is small, is most prominent when
+$t_\text{mod}$ is $<$ 0. When $0 < t_\text{mod} < 10$, signal models % Rewrite when able?
+with moderate mass splittings will stand out most against
+$\ttdilep$. And when $t_\text{mod} >$ 10, the $\ttdilep$ background
+drops off substantially faster than signals with a large mass
+splitting.
+
+The binning in $M_{\ell b}$ follows from the facts explained in
+Section \ref{ssec:stop:mlb}. At low $M_{\ell b}$, the W+jets
+background is reduced with little loss in the T2tt signal, and at high
+$M_{\ell b}$, the $\ttbar$ backgrounds are reduced for little loss in
+the T2bW signal. Because this reduction in $\ttbar$ leaves W+jets as
+the dominant background, we also require that our one b-tag pass a
+tight WP in the in the high $M_{\ell b}$ regions.
+
+Finally, the higher the mass splitting, the more $\met$ we generally
+expect in an event. So binning in $\met$ increases the
+likelihood that any one particular signal model will stand out against the
+SM background. We choose how many $\met$ bins to use in each series,
+and where their boundaries should be, in order to give reasonable
+statistics in all signal regions.
+
+\subsubsection*{Corridor Signal Regions}
+
+As Section \ref{ssec:stop:sigcompressed} described, previous stop
+searches have struggled to achieve sensitivity in the top corridor
+region because compressed T2tt decays are suppressed and difficult to
+detect. In order to address this deficit, I developed a dedicated
+search strategy focused on increasing our acceptance of compressed
+T2tt signals, while maintaining a low rate of SM background
+events. The final product of my work was four additional signal
+regions to add to our overall search strategy.
+% Would be nice to mention that I validated that it worked with all
+% our background estimation techniques, etc.
+
+The dedicated corridor signal regions use the same event selections as
+the nominal signal regions, except for the following changes:
+\begin{itemize}
+\item I require at least 5 jets in the event.
+\item The highest-$p_T$ jet must not be b-tagged using the medium WP.
+\item The $p_T$ of the lepton in the event must be $<$ 150 GeV.
+\item The azimuthal angle between the $\met$ and the lepton, $\Delta
+  \phi (\met, \ell)$, must be $<$ 2.0.
+\item As described earlier, the min$\Delta \phi(j_{1,2},\metvec)$
+  must be $>$ 0.5.
+\end{itemize}
+In addition to these selections, the four corridor signal regions are
+defined by four bins in $\met$, given by Table \ref{tab:stop:corridorsrs}:
+
+% Table of corridor SR met bins, adapted from AN-16-463. Something like this is published.
+\begin{table}[h]
+\centering
+\caption{$\met$ bins used in the dedicated corridor signal regions.}
+\label{tab:stop:corridorsrs}
+\begin{tabular}{|c|cccc|}
+\hline
+Label & \multicolumn{4}{c|}{$\met$ [GeV]} \\
+\hline
+I & 250-350 & 350-450 & 450-550 & $>550$ \\
+\hline
+\end{tabular}
+\end{table}
+
+To develop these signal regions, I considered the unique kinematics of
+compressed T2tt signals, and how they might affect the variables
+already employed in our stop search. I also considered whether any new
+variables might be able to discriminate compressed T2tt from the SM
+background. Although several variables had the potential to
+discriminate compressed T2tt from background, I made the final choice
+by measuring which added cuts provided the greatest increases in
+expected sensitivity, measured using a simplified version of the
+limit-setting procedure described later in Section
+\ref{sec:stop:interp}.
+
+Compressed stop decays, by virtue of their off-shell top quark, tend
+to have lower $\met$ than the bulk signals. So one of the first
+modifications I considered was relaxing our $\met$
+requirement. However, I found that any reduction in $\met$ would cause a
+proportionally larger increase in background yield than in signal
+yield. With the 250 GeV $\met$ cut firmly fixed in place, we then
+asked how might a compressed stop decay generate such large $\met$?
+The answer to that question ultimately became the defining element of
+the corridor search strategy.
+
+We concluded that in the corridor region, in order to generate at least
+250 GeV of $\met$, a stop pair must have a large boost. Momentum conservation
+dictates that in order to have a large boost, the stop pair should be
+recoiling off some other physics object. The most likely candidate was
+a high-$p_T$ jet produced as ISR. Because we expected another jet in
+the event, in addition to the four from stop decay, we imposed the
+$N_J > 5$ requirement. Additionally, ISR jets seldom originate from
+b-quarks, because b-quarks are fairly heavy, and thus hard to
+produce. So we further target the compressed signal by requiring
+that the leading jet not be b-tagged.
+
+The $\met$ in a stop decay comes from the two LSPs, as well as the
+neutrino produced alongside the single lepton. In the case where the
+stop squarks are boosted, we expect the products of the stop decays,
+including the main contributors to the
+$\met$, to continue in the rough direction of their parents too. Thus the cut
+$\Delta\phi (\met, \ell) < 2$ selects events where the lepton and the
+$\met$ are not separated by a large angle. Similarly, by relaxing
+the cut on min$\Delta \phi(j_{1,2},\metvec)$ to $>$ 0.5, we allow jets
+produced in the stop decays to be more colinear with the lepton.
+Finally, the upper bound on the lepton $p_T$ is because compressed top
+quarks have less momentum to pass on to their decay products.
+
+% Should add the four N-1 plots here, to show why we cut on these variables
+
+It is worth noting that the dedicated corridor signal regions are not
+orthogonal to the nominal signal regions. In fact, if not for the
+relaxed min$\Delta\phi$ cut, the corridor signal regions would
+constitute a strict subset of the nominal signal regions. To avoid
+double-counting events in multiple signal regions, we decided to use
+the corridor and nominal signal regions in non-overlapping regions of
+phase space. Using the limit-setting machinery described in Section
+\ref{sec:stop:interp}, I calculated the expected sensitivity to T2tt
+signals for both the nominal and corridor signal regions at a variety
+of mass points. The sensitivity is expressed as a number, $r$, the
+smallest value by which one could scale the signal cross section and
+be able to exclude the signal hypothesis. Put simply, lower values
+of $r$ indicate greater sensitivity to the signal. In Figure
+\ref{fig:stop:rratio}, I plotted the ratio
+$r_\text{corridor} / r_\text{nominal}$; wherever that value is less
+than 1, the corridor signal regions are expected to be more sensitive
+than the nominal signal regions. Unsurprisingly, the corridor search
+regions have more expected sensitivity for $\Delta M$ between 100 and
+225 GeV; in other words, in the area around and between the top and W
+corridors. The size of the improvement in sensitivity ranges from
+about 10-30\%. We therefore use only the corridor signal regions for
+T2tt models with $\Delta M$ between 100 and 225 GeV, and we use only
+the nominal signal regions elsewhere.
+
+% r-ratio between corridor and nominal signal regions. Originally made
+% by moi. NOT PUBLISHED!
+\begin{sidewaysfigure}
+\centering
+\includegraphics{figures/rratioplot.pdf}
+\caption{Ratio of expected sensitivities for the corridor and nominal
+  signal regions, at every mass point in the T2tt signal scan.}
+\label{fig:stop:rratio}
+\end{sidewaysfigure}
 
 
 \section{Background Estimation}
 \label{sec:stop:bkgest}
 
-If you didn't do so earlier, go over the different backgrounds:
-Lost lepton, 1l-from-W, 1l-from-top, and rare.
+As previous sections have described, we apply a number of
+preselections that reduce the prevalence of the SM backgrounds in our
+search. In addition, we divide our search up into signal
+regions so that we can hunt for several possible signal models while
+spreading out the backgrounds. However, even with these measures,
+we still expect our signal regions to be dominated by SM background
+events. If we hope to find any signal from SUSY among the backgrounds,
+we must be able to reliably estimate the size of the backgrounds so we
+can subtract them from the measured data. We make these estimates
+using a variety of techniques that will be described below. Wherever
+possible, we make data-driven estimates by looking at control regions
+(CRs) that are adjacent or complementary to our signal regions. In
+general, the same strategies are applied to estimate backgrounds for
+both the nominal and corridor signal regions. This section will also
+describe how we estimate the systematic uncertainties on each
+background component.
 
 \subsection{Lost Lepton}
 \label{ssec:stop:lostlep}
 
-Introduce the dilepton control regions, and the selections used
-to define them.
-Talk about how these control regions are validated.
-Describe how we do a data-driven estimate based on the CR yields.
-Explain how we estimate all the various systematic uncertainties.
+Across all our signal regions, the largest total background
+is the lost lepton background. These are events that have two true
+leptons in them, but for various reasons, the second lepton is not
+caught by our second lepton veto, hadronic tau veto, or isolated track
+veto. Often this loss occurs because the additional lepton is poorly
+reconstructed, or falls outside the $|\eta|$ or $p_T$ ranges we can
+detect. Because the second lepton is not detected, it effectively
+creates additional $\met$, helping the event to pass our $\met$
+requirement. Plus the additional neutrino associated with the second
+lepton can help the event pass our $\mt$ cut. The dominant physics
+process contributing to this background is $\ttdilep$, however there
+is a strong contribution from single-top production in the $tW$
+channel. Other contributors include $\ttbar$ + vector boson
+production, and diboson production.
+
+\subsubsection{Estimation Method}
+\label{sssec:stop:lostlep:estimation}
+
+We estimate the number of lost lepton events in our signal regions
+based on the number of events in a set of dilepton control regions, to be
+defined below. We assume that Monte Carlo simulations correctly model
+the ratio of lost lepton events to dilepton events, so that the
+following relationship holds true:
+\begin{equation}
+\label{eq:stop:lostlep:rationm}
+\frac{N_{\text{lost }\ell}^\text{Data, SR}}{N_{\ell\ell}^\text{Data, CR}} =
+\frac{M_{\text{lost }\ell}^\text{MC, SR}}{M_{\ell\ell}^\text{MC, CR}}
+\end{equation}
+In this and future equations, $N$ will denote the number of events in
+actual data, and $M$ will denote the number of events in Monte Carlo
+simulations.
+
+By rearranging Equation \ref{eq:stop:lostlep:rationm}, we can derive
+a data-driven estimate for the number of lost lepton events in the
+signal region, using the data yield in the corresponding control region,
+times the SR/CR ratio derived from Monte Carlo. So:
+\begin{equation}
+\label{eq:stop:lostlep:estimate}
+N_{\ell\ell}^\text{SR} = N_{\ell\ell}^\text{CR} \times \frac{M_{\ell\ell}^\text{SR}}{M_{\ell\ell}^\text{CR}}
+\end{equation}
+
+Five of the high-$\met$ CRs have very small data yields, a fact that
+would contribute to large statistical uncertainty using the
+extrapolaton method described above. To mitigate this uncertainty, we
+combine the low-statistics bins with their neighboring bins that have
+higher statistics, and add another term where we use MC to extrapolate
+from the merged $\met$ bins to the single $\met$ bins:
+\begin{equation}
+\label{eq:stop:lostlep:metextrap}
+N_{\ell\ell}^\text{SR, bin} = N_{\ell\ell}^\text{CR, merged} \times \frac{M_{\ell\ell}^\text{SR, merged}}{M_{\ell\ell}^\text{CR, merged}}
+\times \left( \frac{M_{\ell\ell}^\text{SR, bin}}{M_{\ell\ell}^\text{SR, merged}} \right)
+\end{equation}
+The specific regions that are merged in this way are: B2/3, E2/3,
+F1/2, and H1/2.
+
+This process of extrapolating in $\met$ has the potential to introduce
+errors in our measurements if the $\met$ resolution or the $\ttbar$
+system properties are mismodeled in MC. In [SOME APPENDIX], we study % Appendix!
+the modeling of the $\ttbar$ system using an $e/\mu$ cross-check
+region, and in [SOME OTHER APPENDIX] we study the modeling of the % Appendix!
+$\met$ resolution. Based on these studies, we assign appropriate scale
+factors and systematic uncertainties to account for any effects due to
+mismodeling. The $\met$ extrapolation also introduces some additional
+uncertainty due to limited MC statistics.
+
+\subsubsection{Control Region Definitions}
+\label{sssec:stop:lostlep:crdefinitions}
+
+To form our dilepton control regions, we use the same selections and
+binning as the signal regions, except that we invert the veto on
+additional leptons. Whereas the signal regions require the \textbf{absence} of
+a second electron or muon, our dilepton control regions require the
+\textbf{presence} of a second reconstructed electron or muon passing the
+veto ID (described earlier), and with $p_T >$ 10 GeV. To simplify
+our estimate and its uncertainties, we do not invert the
+hadronic tau or isolated track vetos. Because lost leptons contribute
+to $\met$ in our signal regions, when working with the dilepton
+control regions we add the trailing lepton $p_T$ to the $\met$, and
+recalculate all derived quantities that are based on $\met$. This
+helps us keep the conditions as similar as possible between the CRs
+and the SRs.
+
+The data and MC yields in the dilepton control regions are given in
+Table \ref{tab:stop:lostlep:cryields}. Though not included in the % Would be nice to include SFs in the yield table
+table, these events receive all the same corrections as the SR
+events. The only difference is in the trigger weights, because we
+select dilepton events using dilepton triggers.
+Our control regions are over 95\% pure in dilepton events,
+so we make no correction for impurities. The rightmost column of Table
+\ref{tab:stop:lostlep:cryields} presents the ratio of the data to MC
+yields. In some regions, this ratio differs considerably from
+unity. Such differences in normalization between data and MC
+actually have no effect on our final background estimate. Looking at Equation
+\ref{eq:stop:lostlep:estimate}, we see that the background
+normalization comes entirely from the CR data, and that MC is used
+only to calculate the transfer factor from the CRs to SRs (and the
+$\met$ extrapolation factor, where relevant).
+
+% Dilepton CR yield table, adapted from AN-16-463. Unpublished!
+\begin{sidewaystable}
+\centering
+{\scriptsize
+\caption{Data and Monte Carlo yields in the dilepton control regions,
+  before any corrections are applied. These yields are based on 35.9
+  fb$^{-1}$ of luminosity.}
+\label{tab:stop:lostlep:cryields}
+\begin{tabular}{|l|c c c c c|c|c|}
+\multicolumn{8}{c}{}\\* \hline
+Region  & $\ge2$~leptons & $1$~lepton,~from~$W$ & $1$~lepton,~from~$t$ & $Z\rightarrow\nu\nu$ & Sum Bkg. & Data & Data/MC \\*
+\hline \hline
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 215.40 $\pm$ 4.56  & 4.27 $\pm$ 2.62  & 6.49 $\pm$ 0.95  & 1.35 $\pm$ 0.06  & 227.51 $\pm$ 5.35  & 217 $\pm$ 14.73  & 0.95 $\pm$ 0.07 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$  & 77.88 $\pm$ 2.80  & 0.27 $\pm$ 0.13  & 2.61 $\pm$ 0.62  & 0.65 $\pm$ 0.04  & 81.40 $\pm$ 2.87  & 75 $\pm$ 8.66  & 0.92 $\pm$ 0.11 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$  & 25.01 $\pm$ 1.63  & 3.33 $\pm$ 3.08  & 1.37 $\pm$ 0.44  & 0.23 $\pm$ 0.03  & 29.95 $\pm$ 3.51  & 25 $\pm$ 5.00  & 0.83 $\pm$ 0.19 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 6.62 $\pm$ 0.84  & 0.02 $\pm$ 0.02  & 0.47 $\pm$ 0.27  & 0.06 $\pm$ 0.01  & 7.17 $\pm$ 0.88  & 3 $\pm$ 1.73  & 0.42 $\pm$ 0.25 \\*
+\hline
+$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 9.44 $\pm$ 0.92  & 3.15 $\pm$ 2.80  & 0.88 $\pm$ 0.36  & 0.22 $\pm$ 0.02  & 13.68 $\pm$ 2.97  & 11 $\pm$ 3.32  & 0.80 $\pm$ 0.30 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$450<MET<650$  & 2.64 $\pm$ 0.51  & 0.05 $\pm$ 0.03  & ---  & 0.04 $\pm$ 0.01  & 2.72 $\pm$ 0.51  & 3 $\pm$ 1.73  & 1.10 $\pm$ 0.67 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>600$  & 0.75 $\pm$ 0.26  & 0.05 $\pm$ 0.03  & 0.15 $\pm$ 0.15  & 0.01 $\pm$ 0.00  & 0.95 $\pm$ 0.31  & --- & --- \\*
+\hline
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$250<MET<350$  & 667.08 $\pm$ 7.32  & 0.71 $\pm$ 0.21  & 27.62 $\pm$ 1.81  & 4.87 $\pm$ 0.11  & 700.28 $\pm$ 7.54  & 675 $\pm$ 25.98  & 0.96 $\pm$ 0.04 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$350<MET<450$  & 140.51 $\pm$ 3.45  & 2.45 $\pm$ 2.19  & 5.53 $\pm$ 0.84  & 1.28 $\pm$ 0.06  & 149.76 $\pm$ 4.17  & 150 $\pm$ 12.25  & 1.00 $\pm$ 0.09 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$450<MET<550$  & 34.80 $\pm$ 1.75  & 0.18 $\pm$ 0.10  & 1.00 $\pm$ 0.38  & 0.33 $\pm$ 0.03  & 36.31 $\pm$ 1.79  & 27 $\pm$ 5.20  & 0.74 $\pm$ 0.15 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$550<MET<650$  & 10.44 $\pm$ 0.95  & 0.08 $\pm$ 0.04  & 0.27 $\pm$ 0.19  & 0.13 $\pm$ 0.02  & 10.92 $\pm$ 0.97  & 7 $\pm$ 2.65  & 0.64 $\pm$ 0.25 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$MET>650$  & 3.97 $\pm$ 0.59  & ---  & 0.14 $\pm$ 0.14  & 0.05 $\pm$ 0.01  & 4.17 $\pm$ 0.60  & 8 $\pm$ 2.83  & 1.92 $\pm$ 0.73 \\*
+\hline
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$250<MET<350$  & 95.64 $\pm$ 2.73  & 0.83 $\pm$ 0.24  & 5.54 $\pm$ 0.82  & 1.02 $\pm$ 0.05  & 103.03 $\pm$ 2.86  & 73 $\pm$ 8.54  & 0.71 $\pm$ 0.09 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$350<MET<450$  & 25.32 $\pm$ 1.45  & 0.28 $\pm$ 0.11  & 1.39 $\pm$ 0.42  & 0.25 $\pm$ 0.03  & 27.25 $\pm$ 1.52  & 24 $\pm$ 4.90  & 0.88 $\pm$ 0.19 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$450<MET<550$  & 7.16 $\pm$ 0.78  & 0.00 $\pm$ 0.00  & 0.61 $\pm$ 0.28  & 0.09 $\pm$ 0.02  & 7.86 $\pm$ 0.83  & 4 $\pm$ 2.00  & 0.51 $\pm$ 0.26 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$MET>550$  & 4.92 $\pm$ 0.65  & 0.02 $\pm$ 0.02  & 0.40 $\pm$ 0.23  & 0.05 $\pm$ 0.01  & 5.38 $\pm$ 0.69  & 2 $\pm$ 1.41  & 0.37 $\pm$ 0.27 \\*
+\hline
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$250<MET<350$  & 119.79 $\pm$ 3.04  & 1.02 $\pm$ 0.74  & 12.02 $\pm$ 1.24  & 1.46 $\pm$ 0.11  & 134.29 $\pm$ 3.36  & 119 $\pm$ 10.91  & 0.89 $\pm$ 0.08 \\*
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$350<MET<550$  & 33.87 $\pm$ 1.68  & 0.37 $\pm$ 0.14  & 4.69 $\pm$ 0.80  & 0.50 $\pm$ 0.04  & 39.42 $\pm$ 1.86  & 33 $\pm$ 5.74  & 0.84 $\pm$ 0.15 \\*
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$MET>550$  & 1.64 $\pm$ 0.41  & 0.02 $\pm$ 0.02  & ---  & 0.05 $\pm$ 0.01  & 1.71 $\pm$ 0.42  & 1 $\pm$ 1.00  & 0.58 $\pm$ 0.60 \\*
+\hline
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$250<MET<450$  & 7.95 $\pm$ 0.79  & 0.53 $\pm$ 0.19  & 1.58 $\pm$ 0.44  & 0.18 $\pm$ 0.02  & 10.24 $\pm$ 0.92  & 16 $\pm$ 4.00  & 1.56 $\pm$ 0.42 \\*
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$MET>450$  & 1.31 $\pm$ 0.32  & 0.15 $\pm$ 0.10  & 0.26 $\pm$ 0.18  & 0.13 $\pm$ 0.11  & 1.85 $\pm$ 0.39  & 1 $\pm$ 1.00  & 0.54 $\pm$ 0.55 \\*
+\hline
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 23.14 $\pm$ 1.35  & 0.13 $\pm$ 0.11  & 7.34 $\pm$ 0.95  & 0.44 $\pm$ 0.03  & 31.04 $\pm$ 1.65  & 29 $\pm$ 5.39  & 0.93 $\pm$ 0.18 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$  & 18.13 $\pm$ 1.24  & 0.26 $\pm$ 0.14  & 3.37 $\pm$ 0.66  & 0.29 $\pm$ 0.03  & 22.05 $\pm$ 1.41  & 23 $\pm$ 4.80  & 1.04 $\pm$ 0.23 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$  & 11.54 $\pm$ 0.98  & 0.03 $\pm$ 0.02  & 2.15 $\pm$ 0.54  & 0.16 $\pm$ 0.02  & 13.88 $\pm$ 1.12  & 15 $\pm$ 3.87  & 1.08 $\pm$ 0.29 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 3.22 $\pm$ 0.51  & 0.05 $\pm$ 0.03  & 0.22 $\pm$ 0.15  & 0.21 $\pm$ 0.14  & 3.71 $\pm$ 0.55  & 2 $\pm$ 1.41  & 0.54 $\pm$ 0.39 \\*
+\hline
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 2.01 $\pm$ 0.36  & 0.10 $\pm$ 0.09  & 1.05 $\pm$ 0.37  & 0.07 $\pm$ 0.01  & 3.22 $\pm$ 0.53  & 1 $\pm$ 1.00  & 0.31 $\pm$ 0.31 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>450$  & 1.91 $\pm$ 0.40  & 0.21 $\pm$ 0.13  & 0.37 $\pm$ 0.21  & 0.02 $\pm$ 0.01  & 2.51 $\pm$ 0.47  & 3 $\pm$ 1.73  & 1.20 $\pm$ 0.73 \\*
+\hline
+%%%%%%%%%%%%% Add corridor region numbers here!! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Compressed search, $250<MET<350$  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
+Compressed search, $350<MET<450$  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
+Compressed search, $450<MET<550$  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
+Compressed search, $MET>550$      & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
+\hline
+\end{tabular}
+}
+\end{sidewaystable}
+
+\subsubsection{Systematic Uncertainties}
+\label{sssec:stop:lostlep:systematics}
+
+Our use of Monte Carlo simulations introduces several sources of
+systematic uncertainty on our lost lepton background
+estimate. Interestingly, a number of uncertainties cancel out in the
+ratio $M^\text{SR} / M^\text{CR}$, such as the flat 2.6\% uncertainty
+on the luminosity of the data. But most do not, or not completely, and
+must be included in our background estimate. The procedures used to
+estimate these uncertainties are as follows:
+
+\begin{itemize}
+\item \textbf{Data and MC stats:} The largest sources of uncertainty
+  on our background estimates are the statistical uncertainties on our
+  data and Monte Carlo yields.
+\item \textbf{Trigger efficiency:} The efficiencies of our dilepton
+  triggers are parameterized in leading lepton flavor, leading lepton
+  $p_T$, and $\met$ (with second lepton added). We take the
+  uncertainties on these efficiency measurements and propagate them
+  through the background estimate.
+\item \textbf{JES:} We vary the jet energy scale within its
+  uncertainties. This effect cancels out to first order in
+  $M^\text{SR} / M^\text{CR}$.
+\item \textbf{ISR:} The uncertainties on the ISR nJet corrections are
+  propagated through the background estimate.
+\item \textbf{$\met$ resolution:} The effects of $\met$ resolution are % Appendix!
+  studied in [SOME APPENDIX]. These effects cancel in all regions
+  except those where we perform $\met$ extrapolation. We assign an
+  uncertainty of half the distance between the scale factor and
+  unity.
+\item \textbf{$\ttbar$ and $tW$ $\met$:} These effects are studied in % Appendix!
+  [SOME OTHER APPENDIX], and as with the $\met$ resolution, they
+  cancel everywhere that $\met$ extrapolation is not used. The
+  uncertainty on the scale factor is propagated through the background
+  estimate.
+\item \textbf{b-tagging efficiencies:} We apply the uncertainties on the heavy
+  flavor (HF) and light flavor (LF) b-tagging scale factors provided
+  by CMS. To first order, this effect cancels out in $M^\text{SR} /
+  M^\text{CR}$.
+\item \textbf{Lepton efficiencies:} The variations on the lepton ID
+  and isolation scale factors are applied.
+% \item \textbf{Hadronic tau and isolated track efficiencies:} The
+%   efficiencies of these vetos are measured following the method of the
+%   all-hadronic mt2 search. % Let's face it, I don't understand this part.
+\item \textbf{Pileup reweighting:} The cross section for the data
+  sample used to reweigh the distribution of the number of primary
+  vertices is varied by 5\%.
+\item \textbf{PDF:} We take the average of 100 different PDF
+  variations, and use the standard deviation of this average to scale
+  our Monte Carlo yields up and down.
+\item \textbf{$\alpha_S$:} We vary the QCD scale of our events, but we
+  calculate the uncertainty based only on the change in acceptance. To
+  first order, this uncertainty cancels out in $M^\text{SR} / M^\text{CR}$
+\item \textbf{$Q^2$:} We take the largest two variations in
+  factorization and normalization scales as an envelope, but calculate
+  the uncertainty based only on the change in acceptance. This effect
+  cancels out to first order in $M^\text{SR} / M^\text{CR}$.
+\end{itemize}
+The size of these uncertainties is presented in Table
+\ref{tab:stop:lostlep:systematics}.
+
+% Table of systematics, adapted from AN-16-463. Unpublished.
+\begin{sidewaystable}[htb]
+\centering
+\small
+\caption{Summary of systematic uncertainties on the lost lepton
+  background estimate.}
+\label{tab:stop:lostlep:systematics}
+\scalebox{0.4}{
+
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+Systematic  & A  & A  & A  & A  & B  & B  & B  & C  & C  & C  & C  & C  & D  & D  & D  & D  & E  & E  & E  & F  & F  & G  & G  & G  & G  & H  & H & I & I & I & I \\
+ & $250-350$  & $350-450$  & $450-600$  & $>600$  & $250-450$  & $450-600$  & $>600$  & $250-350$  & $350-450$  & $450-550$  & $550-650$  & $>650$  & $250-350$  & $350-450$  & $450-550$  & $>550$  & $250-350$  & $350-550$  & $>550$  & $250-450$  & $>450$  & $250-350$  & $350-450$  & $450-600$  & $>600$  & $250-450$  & $>450$ & $250-350$  & $350-450$  & $450-550$  & $>550$ \\ \hline \hline
+
+Data Stats & 6.8\%  & 11.5\%  & 20.0\%  & 57.7\%  & 30.2\%  & 57.7\%  & 57.7\%  & 3.8\%  & 8.2\%  & 19.2\%  & 37.8\%  & 35.4\%  & 11.7\%  & 20.4\%  & 50.0\%  & 70.7\%  & 9.2\%  & 17.1\%  & 17.1\%  & 24.3\%  & 24.3\%  & 18.6\%  & 20.9\%  & 25.8\%  & 70.7\%  & 50.0\%  & 50.0\% & 9.4\%  & 19.2\%  & 50.0\%  & 44.7\% \\
+MC Stats & 5.0\%  & 9.1\%  & 21.6\%  & 37.9\%  & 30.9\%  & 29.2\%  & 45.4\%  & 2.0\%  & 4.9\%  & 9.3\%  & 17.3\%  & 25.9\%  & 5.8\%  & 10.9\%  & 20.4\%  & 23.7\%  & 5.2\%  & 4.9\%  & 28.3\%  & 8.5\%  & 82.1\%  & 11.5\%  & 14.4\%  & 18.5\%  & 36.2\%  & 22.9\%  & 47.8\% & 4.5\%  & 8.8\%  & 16.5\%  & 22.5\% \\ \hline
+CR2l~Trigger~Scale~Factor  & 2.1\%  & 1.6\%  & 1.9\%  & 1.8\%  & 4.3\%  & 1.1\%  & 1.1\%  & 2.1\%  & 2.4\%  & 1.6\%  & 1.6\%  & 2.2\%  & 1.2\%  & 1.3\%  & 1.1\%  & 1.0\%  & 2.2\%  & 1.9\%  & 1.9\%  & 1.5\%  & 1.5\%  & 2.1\%  & 1.9\%  & 1.8\%  & 1.8\%  & 1.3\%  & 1.3\% & 1.3\%  & 1.9\%  & 1.4\%  & 2.2\% \\
+JES  & 0.6\%  & 5.7\%  & 5.3\%  & 5.2\%  & 15.2\%  & 3.3\%  & 3.3\%  & 3.0\%  & 1.2\%  & 1.0\%  & 9.3\%  & 8.8\%  & 5.5\%  & 5.4\%  & 4.1\%  & 5.7\%  & 5.2\%  & 7.3\%  & 23.4\%  & 0.9\%  & 132.0\%  & 2.0\%  & 3.7\%  & 6.6\%  & 6.8\%  & 7.4\%  & 4.9\% & 2.2\%  & 0.7\%  & 2.0\%  & 7.3\% \\
+ISR  & 0.1\%  & 0.2\%  & 0.1\%  & 0.3\%  & 0.3\%  & 0.1\%  & 0.1\%  & 1.2\%  & 0.9\%  & 0.5\%  & 0.6\%  & 2.7\%  & 0.5\%  & 1.3\%  & 4.1\%  & 6.5\%  & 0.8\%  & 0.3\%  & 4.8\%  & 4.2\%  & 12.4\%  & 1.0\%  & 3.0\%  & 3.0\%  & 4.1\%  & 3.9\%  & 4.9\% & 1.6\%  & 2.4\%  & 0.7\%  & 2.4\% \\
+MET~Resolution  & 0.0\%  & 0.0\%  & 0.0\%  & 0.2\%  & 0.0\%  & 5.3\%  & 5.3\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.1\%  & 0.4\%  & 0.0\%  & 0.1\%  & 0.2\%  & 0.2\%  & 0.0\%  & 0.0\%  & 1.6\%  & 0.3\%  & 2.1\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.2\%  & 1.1\%  & 1.2\% & 0.0\%  & 0.0\%  & 0.1\%  & 0.2\% \\
+MET~$t\bar{t}$~SF  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 9.3\%  & 29.0\%  & 4.6\%  & 15.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 4.4\%  & 14.3\% & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\% \\
+bTag~Efficicency,~Heavy~Flavour  & 0.0\%  & 0.0\%  & 0.7\%  & 0.3\%  & 1.2\%  & 0.6\%  & 0.8\%  & 0.1\%  & 0.2\%  & 0.2\%  & 0.2\%  & 0.2\%  & 0.0\%  & 0.2\%  & 0.3\%  & 0.9\%  & 0.0\%  & 0.2\%  & 0.2\%  & 0.2\%  & 1.5\%  & 0.2\%  & 0.2\%  & 0.1\%  & 0.6\%  & 0.4\%  & 1.0\% & 0.1\%  & 0.2\%  & 0.4\%  & 0.1\% \\
+bTag~Efficicency,~Light~Flavour  & 0.1\%  & 0.2\%  & 0.2\%  & 0.6\%  & 3.2\%  & 0.1\%  & 3.2\%  & 0.2\%  & 0.4\%  & 0.3\%  & 0.7\%  & 0.7\%  & 0.1\%  & 0.8\%  & 0.3\%  & 1.6\%  & 0.1\%  & 0.5\%  & 0.1\%  & 0.7\%  & 0.7\%  & 0.8\%  & 0.2\%  & 0.4\%  & 1.1\%  & 0.2\%  & 0.2\% & 0.1\%  & 0.7\%  & 0.4\%  & 0.1\% \\
+Lepton~Scale~Factor  & 6.3\%  & 6.5\%  & 5.3\%  & 40.1\%  & 4.9\%  & 4.5\%  & 18.0\%  & 6.5\%  & 6.7\%  & 7.9\%  & 6.8\%  & 12.0\%  & 8.1\%  & 6.2\%  & 6.7\%  & 8.5\%  & 6.5\%  & 5.7\%  & 4.7\%  & 17.2\%  & 5.4\%  & 7.9\%  & 9.8\%  & 7.9\%  & 9.6\%  & 18.7\%  & 7.5\% & 7.5\%  & 8.1\%  & 8.1\%  & 9.5\% \\
+$\tau$~Efficiency~SF  & 0.3\%  & 0.5\%  & 0.4\%  & 0.5\%  & 0.2\%  & 0.3\%  & 0.2\%  & 0.5\%  & 0.7\%  & 0.6\%  & 0.7\%  & 0.5\%  & 0.6\%  & 0.5\%  & 0.9\%  & 1.0\%  & 0.4\%  & 0.6\%  & 0.6\%  & 0.4\%  & 0.1\%  & 0.6\%  & 0.6\%  & 0.8\%  & 0.7\%  & 0.8\%  & 0.3\% & 0.5\%  & 0.5\%  & 0.8\%  & 0.6\% \\
+Pileup~Reweight  & 0.9\%  & 2.2\%  & 2.5\%  & 0.8\%  & 4.9\%  & 2.4\%  & 14.1\%  & 0.5\%  & 0.1\%  & 0.7\%  & 2.3\%  & 3.0\%  & 1.1\%  & 2.1\%  & 1.6\%  & 6.0\%  & 0.3\%  & 2.0\%  & 0.2\%  & 0.4\%  & 1.9\%  & 1.5\%  & 1.5\%  & 3.2\%  & 5.6\%  & 0.6\%  & 1.2\% & 0.8\%  & 1.1\%  & 1.7\%  & 1.6\% \\
+PDF  & 3.0\%  & 0.7\%  & 5.2\%  & 5.8\%  & 2.2\%  & 4.6\%  & 2.3\%  & 0.3\%  & 0.3\%  & 1.1\%  & 6.0\%  & 7.6\%  & 1.5\%  & 4.0\%  & 4.3\%  & 6.6\%  & 0.9\%  & 1.3\%  & 3.4\%  & 5.0\%  & 50.7\%  & 2.3\%  & 7.2\%  & 4.7\%  & 3.3\%  & 5.3\%  & 9.4\% & 0.8\%  & 1.6\%  & 1.6\%  & 6.3\% \\
+$\alpha_{S}$  & 2.7\%  & 0.5\%  & 2.5\%  & 5.0\%  & 3.1\%  & 3.4\%  & 1.8\%  & 0.5\%  & 0.1\%  & 0.1\%  & 0.3\%  & 8.2\%  & 1.2\%  & 2.0\%  & 3.8\%  & 5.2\%  & 0.8\%  & 0.7\%  & 6.2\%  & 3.0\%  & 27.6\%  & 2.5\%  & 7.2\%  & 3.0\%  & 2.3\%  & 4.9\%  & 5.8\% & 0.5\%  & 1.8\%  & 2.0\%  & 6.4\% \\
+$Q^{2}$  & 0.5\%  & 0.9\%  & 1.4\%  & 3.2\%  & 0.7\%  & 3.7\%  & 7.5\%  & 0.1\%  & 0.2\%  & 0.1\%  & 0.1\%  & 1.7\%  & 0.8\%  & 0.3\%  & 1.2\%  & 1.6\%  & 0.4\%  & 0.4\%  & 2.1\%  & 0.2\%  & 5.6\%  & 0.3\%  & 2.2\%  & 2.0\%  & 2.8\%  & 3.1\%  & 0.5\% & 0.2\%  & 0.1\%  & 1.3\%  & 0.3\% \\
+\hline
+Total  & 11.6\%  & 17.3\%  & 31.1\%  & 80.5\%  & 46.8\%  & 65.6\%  & 77.7\%  & 8.8\%  & 12.0\%  & 22.9\%  & 43.6\%  & 47.9\%  & 16.6\%  & 25.1\%  & 55.1\%  & 76.3\%  & 13.7\%  & 22.4\%  & 50.9\%  & 32.1\%  & 168.9\%  & 23.7\%  & 29.6\%  & 34.2\%  & 80.8\%  & 59.4\%  & 72.2\% & 13.2\%  & 23.0\%  & 53.5\%  & 52.4\% \\ \hline
+\end{tabular}}
+\end{sidewaystable}
+% Need to figure out a way to present this table that grad division
+% will be okay with.
+
+\subsubsection{Results}
+\label{sssec:stop:lostlep:results}
+
+The results of the full background estimation procedure, including
+reweighting and systematic uncertainties, are presented in Table
+\ref{tab:stop:lostlep:results}.
+
+% Results table adapted from AN-16-463. Unpublished.
+\begin{sidewaystable}
+\centering
+{\small
+\caption{Summary of the lost lepton background estimate and its key terms.}
+\label{tab:stop:lostlep:results}
+\begin{tabular}{|l|c|c|c|c|c|c|} \hline
+Region & MET bin & Observed$_{CR}$ & $TF_\text{lepton}$ & $TF_\text{SR bin}$ & $TF_\text{Total}$ & SR Estimate \\ \hline \hline
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$  & 217 $\pm$ 14.73  & 0.25 $\pm$ 0.02  & 1.00 $\pm$ 0.00 & 0.25 $\pm$ 0.02  & 53.89 $\pm$ 6.23  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$  & 75 $\pm$ 8.66  & 0.19 $\pm$ 0.02  & 1.00 $\pm$ 0.00 & 0.19 $\pm$ 0.02  & 14.16 $\pm$ 2.45  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$  & 25 $\pm$ 5.00  & 0.12 $\pm$ 0.03  & 1.00 $\pm$ 0.00 & 0.12 $\pm$ 0.03  & 2.95 $\pm$ 0.92  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$  & 3 $\pm$ 1.73  & 0.20 $\pm$ 0.11  & 1.00 $\pm$ 0.00 & 0.20 $\pm$ 0.11  & 0.61 $\pm$ 0.49  \\
+\hline
+ $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 11 $\pm$ 3.32  & 0.15 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.15 $\pm$ 0.06  & 1.70 $\pm$ 0.79  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $450<MET<600$  & 3 $\pm$ 1.73  & 0.01 $\pm$ 0.00  & 0.64 $\pm$ 0.16 & 0.01 $\pm$ 0.00  & 0.02 $\pm$ 0.01  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>600$  & 3 $\pm$ 1.73  & 0.01 $\pm$ 0.00  & 0.36 $\pm$ 0.16 & 0.00 $\pm$ 0.00  & 0.01 $\pm$ 0.01  \\
+\hline
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $250<MET<350$  & 675 $\pm$ 25.98  & 0.51 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.51 $\pm$ 0.04  & 345.68 $\pm$ 30.33  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $350<MET<450$  & 150 $\pm$ 12.25  & 0.44 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.44 $\pm$ 0.04  & 66.25 $\pm$ 7.93  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $450<MET<550$  & 27 $\pm$ 5.20  & 0.45 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.45 $\pm$ 0.06  & 12.11 $\pm$ 2.77  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $550<MET<650$  & 7 $\pm$ 2.65  & 0.48 $\pm$ 0.11  & 1.00 $\pm$ 0.00 & 0.48 $\pm$ 0.11  & 3.38 $\pm$ 1.48  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $MET>650$  & 8 $\pm$ 2.83  & 0.74 $\pm$ 0.24  & 1.00 $\pm$ 0.00 & 0.74 $\pm$ 0.24  & 5.92 $\pm$ 2.84  \\
+\hline
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $250<MET<350$  & 73 $\pm$ 8.54  & 0.36 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.36 $\pm$ 0.04  & 26.05 $\pm$ 4.31  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $350<MET<450$  & 24 $\pm$ 4.90  & 0.43 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.43 $\pm$ 0.06  & 10.41 $\pm$ 2.61  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $450<MET<550$  & 4 $\pm$ 2.00  & 0.42 $\pm$ 0.10  & 1.00 $\pm$ 0.00 & 0.42 $\pm$ 0.10  & 1.68 $\pm$ 0.93  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $MET>550$  & 2 $\pm$ 1.41  & 0.54 $\pm$ 0.16  & 1.00 $\pm$ 0.00 & 0.54 $\pm$ 0.16  & 1.08 $\pm$ 0.83  \\
+\hline
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $250<MET<350$  & 119 $\pm$ 10.91  & 0.36 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.36 $\pm$ 0.04  & 42.99 $\pm$ 5.89  \\
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $350<MET<550$  & 34 $\pm$ 5.83  & 0.28 $\pm$ 0.04  & 0.94 $\pm$ 0.02 & 0.27 $\pm$ 0.04  & 9.13 $\pm$ 2.05  \\
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $MET>550$  & 34 $\pm$ 5.83  & 0.28 $\pm$ 0.04  & 0.06 $\pm$ 0.02 & 0.02 $\pm$ 0.01  & 0.55 $\pm$ 0.28  \\
+\hline
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $250<MET<450$  & 17 $\pm$ 4.12  & 0.27 $\pm$ 0.06  & 0.98 $\pm$ 0.03 & 0.26 $\pm$ 0.05  & 4.43 $\pm$ 1.42  \\
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $MET>450$  & 17 $\pm$ 4.12  & 0.27 $\pm$ 0.06  & 0.02 $\pm$ 0.03 & 0.01 $\pm$ 0.01  & 0.10 $\pm$ 0.16  \\
+\hline
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$  & 29 $\pm$ 5.39  & 0.33 $\pm$ 0.05  & 1.00 $\pm$ 0.00 & 0.33 $\pm$ 0.05  & 9.48 $\pm$ 2.25  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$  & 23 $\pm$ 4.80  & 0.26 $\pm$ 0.05  & 1.00 $\pm$ 0.00 & 0.26 $\pm$ 0.05  & 5.92 $\pm$ 1.75  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$  & 15 $\pm$ 3.87  & 0.26 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.26 $\pm$ 0.06  & 3.83 $\pm$ 1.31  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$  & 2 $\pm$ 1.41  & 0.38 $\pm$ 0.15  & 1.00 $\pm$ 0.00 & 0.38 $\pm$ 0.15  & 0.75 $\pm$ 0.61  \\
+\hline
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.70 $\pm$ 0.15 & 0.14 $\pm$ 0.04  & 0.55 $\pm$ 0.32  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.30 $\pm$ 0.15 & 0.06 $\pm$ 0.03  & 0.23 $\pm$ 0.17  \\
+\hline
+Corridor regions & $250<MET<350$  & 114 $\pm$ 10.68  & 0.59 $\pm$ 0.06 & 1.00 $\pm$ 0.00 & 0.59 $\pm$ 0.06  & 67.55 $\pm$ 8.95  \\
+Corridor regions & $350<MET<450$  &  27 $\pm$ 5.20   & 0.56 $\pm$ 0.07 & 1.00 $\pm$ 0.00 & 0.56 $\pm$ 0.07  & 15.11 $\pm$ 3.48  \\
+Corridor regions & $450<MET<550$  &   4 $\pm$ 2.00   & 0.61 $\pm$ 0.12 & 1.00 $\pm$ 0.00 & 0.61 $\pm$ 0.12  &  2.44 $\pm$ 1.31  \\
+Corridor regions & $MET>550$      &   5 $\pm$ 2.24   & 0.77 $\pm$ 0.21 & 1.00 $\pm$ 0.00 & 0.77 $\pm$ 0.21  &  3.86 $\pm$ 2.02  \\
+\hline
+\end{tabular}
+}
+\end{sidewaystable}
 
 \subsection{Single Lepton not from Top}
 \label{ssec:stop:1lw}
@@ -796,16 +1475,11 @@ Explain the method for assessing uncertainties on signal yields.
 
 Give the final yields and uncertainties.
 
-\section{Limit Setting}
-\label{sec:stop:limits}
+\section{Interpretation}
+\label{sec:stop:interp}
 
 Describe the Higgs Combine tool.
 Talk about how we use it.
 Explain (the rudiments of) the statistical methods.
-
-\section{Interpretation}
-\label{sec:stop:interp}
-
-Maybe combine with previous section?
-Anyway, interpret our results in the context of constraints on stop production.
+Interpret our results in the context of constraints on stop production.
 
