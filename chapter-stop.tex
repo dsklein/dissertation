@@ -277,7 +277,7 @@ SingleElectron & HLT\_Ele25\_eta2p1\_WPTight\_Gsf OR HLT\_Ele27\_eta2p1\_WPTight
  & HLT\_PFMET(NoMu)120\_PFMHT120(NoMu)\_IDTight \\
 \hline
 \hline
-\multirow{2}{*}{MuonEG} & HLT\_Mu8\_TrkIsoVVL\_Ele23\_CaloIdL\_TrackIdL\_IsoVL(\_DZ) OR \\ 
+\multirow{2}{*}{MuonEG} & HLT\_Mu8\_TrkIsoVVL\_Ele23\_CaloIdL\_TrackIdL\_IsoVL(\_DZ) OR \\
  & HLT\_Mu23\_TrkIsoVVL\_Ele12\_CaloIdL\_TrackIdL\_IsoVL(\_DZ) \\
 \hline
 \multirow{2}{*}{SinglePhoton} & HLT\_Photon*\_R9Id90\_HE10\_IsoM OR HLT\_Photon165\_HE10 OR \\
@@ -383,7 +383,7 @@ Sample & Cross Section \\
 /TTJets\_DiLept\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8/*\_ext-v1 (and *-v4) & 87.3 \\
 /ST\_tW\_top\_5f\_NoFullyHadronicDecays\_13TeV-powheg\_TuneCUETP8M1/*-v1 & 19.6 \\
 /ST\_tW\_antitop\_5f\_NoFullyHadronicDecays\_13TeV-powheg\_TuneCUETP8M1/*-v1 & 19.6 \\
-/ST\_t-channel\_top\_4f\_leptonDecays\_13TeV-powheg-pythia8\_TuneCUETP8M1/*-v1 & 44.1 \\ 
+/ST\_t-channel\_top\_4f\_leptonDecays\_13TeV-powheg-pythia8\_TuneCUETP8M1/*-v1 & 44.1 \\
 /ST\_t-channel\_antitop\_4f\_leptonDecays\_13TeV-powheg-pythia8\_TuneCUETP8M1/*-v1 & 26.2 \\
 /ST\_s-channel\_4f\_leptonDecays\_13TeV-amcatnlo-pythia8\_TuneCUETP8M1/*-v1 & 3.7 \\
 /W1JetsToLNu\_TuneCUETP8M1\_13TeV-madgraphMLM-pythia8/*-v1 & 11782  \\
@@ -1165,8 +1165,9 @@ simulations.
 
 By rearranging Equation \ref{eq:stop:lostlep:rationm}, we can derive
 a data-driven estimate for the number of lost lepton events in the
-signal region, using the data yield in the corresponding control region,
-times the SR/CR ratio derived from Monte Carlo. So:
+signal region, using the data yield in the corresponding control region
+times the SR/CR ratio derived from Monte Carlo. This ratio is known as
+the lepton transfer factor, $TF_\text{lep}$. So:
 \begin{equation}
 \label{eq:stop:lostlep:estimate}
 N_{\ell\ell}^\text{SR} = N_{\ell\ell}^\text{CR} \times \frac{M_{\ell\ell}^\text{SR}}{M_{\ell\ell}^\text{CR}}
@@ -1214,8 +1215,8 @@ helps us keep the conditions as similar as possible between the CRs
 and the SRs.
 
 The data and MC yields in the dilepton control regions are given in
-Table \ref{tab:stop:lostlep:cryields}. Though not included in the % Would be nice to include SFs in the yield table
-table, these events receive all the same corrections as the SR
+Table \ref{tab:stop:lostlep:cryields}. The events in the control
+regions receive all the same corrections as the SR
 events. The only difference is in the trigger weights, because we
 select dilepton events using dilepton triggers.
 Our control regions are over 95\% pure in dilepton events,
@@ -1234,11 +1235,10 @@ $\met$ extrapolation factor, where relevant).
 \centering
 {\scriptsize
 \caption{Data and Monte Carlo yields in the dilepton control regions,
-  before any corrections are applied. These yields are based on 35.9
-  fb$^{-1}$ of luminosity.}
+  based on 35.9 fb$^{-1}$ of luminosity.}
 \label{tab:stop:lostlep:cryields}
 \begin{tabular}{|l|c c c c c|c|c|}
-\multicolumn{8}{c}{}\\* \hline
+\hline
 Region  & $\ge2$~leptons & $1$~lepton,~from~$W$ & $1$~lepton,~from~$t$ & $Z\rightarrow\nu\nu$ & Sum Bkg. & Data & Data/MC \\*
 \hline \hline
 $<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 215.40 $\pm$ 4.56  & 4.27 $\pm$ 2.62  & 6.49 $\pm$ 0.95  & 1.35 $\pm$ 0.06  & 227.51 $\pm$ 5.35  & 217 $\pm$ 14.73  & 0.95 $\pm$ 0.07 \\*
@@ -1276,11 +1276,10 @@ $\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 3.22 $\pm$ 0.51  & 0.0
 $\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 2.01 $\pm$ 0.36  & 0.10 $\pm$ 0.09  & 1.05 $\pm$ 0.37  & 0.07 $\pm$ 0.01  & 3.22 $\pm$ 0.53  & 1 $\pm$ 1.00  & 0.31 $\pm$ 0.31 \\*
 $\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>450$  & 1.91 $\pm$ 0.40  & 0.21 $\pm$ 0.13  & 0.37 $\pm$ 0.21  & 0.02 $\pm$ 0.01  & 2.51 $\pm$ 0.47  & 3 $\pm$ 1.73  & 1.20 $\pm$ 0.73 \\*
 \hline
-%%%%%%%%%%%%% Add corridor region numbers here!! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Compressed search, $250<MET<350$  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
-Compressed search, $350<MET<450$  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
-Compressed search, $450<MET<550$  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
-Compressed search, $MET>550$      & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x.xx $\pm$ y.yy  & x $\pm$ y.yy  & x.xx $\pm$ y.yy \\*
+Compressed search, $250<MET<350$  & 109.78 $\pm$ 2.79  & 0.43 $\pm$ 0.14  & 8.20 $\pm$ 0.97  & 1.19 $\pm$ 0.06  & 119.60 $\pm$ 2.96  & 114.00 $\pm$ 10.68  & 0.95 $\pm$ 0.09 \\*
+Compressed search, $350<MET<450$  & 31.39 $\pm$ 1.53  & 0.30 $\pm$ 0.13  & 2.01 $\pm$ 0.49  & 0.35 $\pm$ 0.03  & 34.05 $\pm$ 1.61  & 27.00 $\pm$ 5.20  & 0.79 $\pm$ 0.16 \\*
+Compressed search, $450<MET<550$  & 8.04 $\pm$ 0.81  & 0.07 $\pm$ 0.04  & 0.30 $\pm$ 0.22  & 0.11 $\pm$ 0.02  & 8.52 $\pm$ 0.83  & 4.00 $\pm$ 2.00  & 0.47 $\pm$ 0.24 \\*
+Compressed search, $MET>550$  & 4.76 $\pm$ 0.61  & 0.05 $\pm$ 0.03  & 0.23 $\pm$ 0.16  & 0.08 $\pm$ 0.01  & 5.12 $\pm$ 0.63  & 5.00 $\pm$ 2.24  & 0.98 $\pm$ 0.45 \\*
 \hline
 \end{tabular}
 }
@@ -1298,7 +1297,7 @@ must be included in our background estimate. The procedures used to
 estimate these uncertainties are as follows:
 
 \begin{itemize}
-\item \textbf{Data and MC stats:} The largest sources of uncertainty
+\item \textbf{Data and MC statistics:} The largest sources of uncertainty
   on our background estimates are the statistical uncertainties on our
   data and Monte Carlo yields.
 \item \textbf{Trigger efficiency:} The efficiencies of our dilepton
@@ -1309,7 +1308,7 @@ estimate these uncertainties are as follows:
 \item \textbf{JES:} We vary the jet energy scale within its
   uncertainties. This effect cancels out to first order in
   $M^\text{SR} / M^\text{CR}$.
-\item \textbf{ISR:} The uncertainties on the ISR nJet corrections are
+\item \textbf{ISR:} The uncertainties on the ISR $n_\text{jets}$ corrections are
   propagated through the background estimate.
 \item \textbf{$\met$ resolution:} The effects of $\met$ resolution are % Appendix!
   studied in [SOME APPENDIX]. These effects cancel in all regions
@@ -1334,7 +1333,7 @@ estimate these uncertainties are as follows:
   sample used to reweigh the distribution of the number of primary
   vertices is varied by 5\%.
 \item \textbf{PDF:} We take the average of 100 different PDF
-  variations, and use the standard deviation of this average to scale
+  variations, and use the standard deviation of this average to scale % PDF uncertainty is described more fully in ZtoNuNu section
   our Monte Carlo yields up and down.
 \item \textbf{$\alpha_S$:} We vary the QCD scale of our events, but we
   calculate the uncertainty based only on the change in acceptance. To
@@ -1342,15 +1341,15 @@ estimate these uncertainties are as follows:
 \item \textbf{$Q^2$:} We take the largest two variations in
   factorization and normalization scales as an envelope, but calculate
   the uncertainty based only on the change in acceptance. This effect
-  cancels out to first order in $M^\text{SR} / M^\text{CR}$.
+  cancels out to first order in $M^\text{SR} / M^\text{CR}$. % Described better in 1LW section, and in ZtoNuNu section
 \end{itemize}
 The size of these uncertainties is presented in Table
 \ref{tab:stop:lostlep:systematics}.
 
 % Table of systematics, adapted from AN-16-463. Unpublished.
-\begin{sidewaystable}[htb]
+\begin{table}[htb]
 \centering
-\small
+\tiny
 \caption{Summary of systematic uncertainties on the lost lepton
   background estimate.}
 \label{tab:stop:lostlep:systematics}
@@ -1378,7 +1377,7 @@ $Q^{2}$  & 0.5\%  & 0.9\%  & 1.4\%  & 3.2\%  & 0.7\%  & 3.7\%  & 7.5\%  & 0.1\% 
 \hline
 Total  & 11.6\%  & 17.3\%  & 31.1\%  & 80.5\%  & 46.8\%  & 65.6\%  & 77.7\%  & 8.8\%  & 12.0\%  & 22.9\%  & 43.6\%  & 47.9\%  & 16.6\%  & 25.1\%  & 55.1\%  & 76.3\%  & 13.7\%  & 22.4\%  & 50.9\%  & 32.1\%  & 168.9\%  & 23.7\%  & 29.6\%  & 34.2\%  & 80.8\%  & 59.4\%  & 72.2\% & 13.2\%  & 23.0\%  & 53.5\%  & 52.4\% \\ \hline
 \end{tabular}}
-\end{sidewaystable}
+\end{table}
 % Need to figure out a way to present this table that grad division
 % will be okay with.
 
@@ -1386,13 +1385,13 @@ Total  & 11.6\%  & 17.3\%  & 31.1\%  & 80.5\%  & 46.8\%  & 65.6\%  & 77.7\%  & 8
 \label{sssec:stop:lostlep:results}
 
 The results of the full background estimation procedure, including
-reweighting and systematic uncertainties, are presented in Table
+systematic uncertainties, are presented in Table
 \ref{tab:stop:lostlep:results}.
 
 % Results table adapted from AN-16-463. Unpublished.
 \begin{sidewaystable}
 \centering
-{\small
+\small
 \caption{Summary of the lost lepton background estimate and its key terms.}
 \label{tab:stop:lostlep:results}
 \begin{tabular}{|l|c|c|c|c|c|c|} \hline
@@ -1432,43 +1431,679 @@ Region & MET bin & Observed$_{CR}$ & $TF_\text{lepton}$ & $TF_\text{SR bin}$ & $
  $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.70 $\pm$ 0.15 & 0.14 $\pm$ 0.04  & 0.55 $\pm$ 0.32  \\
  $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.30 $\pm$ 0.15 & 0.06 $\pm$ 0.03  & 0.23 $\pm$ 0.17  \\
 \hline
-Corridor regions & $250<MET<350$  & 114 $\pm$ 10.68  & 0.59 $\pm$ 0.06 & 1.00 $\pm$ 0.00 & 0.59 $\pm$ 0.06  & 67.55 $\pm$ 8.95  \\
-Corridor regions & $350<MET<450$  &  27 $\pm$ 5.20   & 0.56 $\pm$ 0.07 & 1.00 $\pm$ 0.00 & 0.56 $\pm$ 0.07  & 15.11 $\pm$ 3.48  \\
-Corridor regions & $450<MET<550$  &   4 $\pm$ 2.00   & 0.61 $\pm$ 0.12 & 1.00 $\pm$ 0.00 & 0.61 $\pm$ 0.12  &  2.44 $\pm$ 1.31  \\
-Corridor regions & $MET>550$      &   5 $\pm$ 2.24   & 0.77 $\pm$ 0.21 & 1.00 $\pm$ 0.00 & 0.77 $\pm$ 0.21  &  3.86 $\pm$ 2.02  \\
+Compressed search & $250<MET<350$  & 114 $\pm$ 10.68  & 0.59 $\pm$ 0.06 & 1.00 $\pm$ 0.00 & 0.59 $\pm$ 0.06  & 67.55 $\pm$ 8.95  \\
+Compressed search & $350<MET<450$  &  27 $\pm$ 5.20   & 0.56 $\pm$ 0.07 & 1.00 $\pm$ 0.00 & 0.56 $\pm$ 0.07  & 15.11 $\pm$ 3.48  \\
+Compressed search & $450<MET<550$  &   4 $\pm$ 2.00   & 0.61 $\pm$ 0.12 & 1.00 $\pm$ 0.00 & 0.61 $\pm$ 0.12  &  2.44 $\pm$ 1.31  \\
+Compressed search & $MET>550$      &   5 $\pm$ 2.24   & 0.77 $\pm$ 0.21 & 1.00 $\pm$ 0.00 & 0.77 $\pm$ 0.21  &  3.86 $\pm$ 2.02  \\
 \hline
 \end{tabular}
-}
 \end{sidewaystable}
 
 \subsection{Single Lepton not from Top}
 \label{ssec:stop:1lw}
 
-Talk about the single-lepton-from-W background.
-Describe the WJets control regions and their selections.
-Talk about validating these control regions.
-Describe the data-driven estimate for this component.
-Explain how the systematic uncertainties are calculated.
+The second largest background component across all signal regions
+comprises events with one true lepton that originates from a W-boson,
+where the W-boson is not the daughter of a top quark. We may refer to
+this background as 1$\ell$W. By far the
+largest physics process contributing to this background is the
+production of W+jets, where the W-boson decays leptonically. Other
+very small contributions come from single top $tW$ and $ttW$
+production where no top quarks decay leptonically, and diboson
+production. Note that if an event has any Z-boson decaying to
+neutrinos, it is automatically counted in the rare background
+category, even if it has a leptonic W decay.
+
+\subsubsection{Estimation Method}
+\label{sssec:stop:1lw:estimation}
+
+The method used to estimate the 1$\ell$W background is very similar to
+the method used for the lost lepton background, as described in
+Section \ref{sssec:stop:lostlep:estimation}. We estimate the number of
+such events in our signal regions based on the number of events in a
+set of 0-btag control regions, described below. We assume that Monte
+Carlo simulations correctly model the ratio of $\geq$1-btag events to
+0-btag events, so that this ratio holds true:
+\begin{equation}
+\label{eq:stop:1lw:rationm}
+\frac{N_{\geq\text{1 btag}}^\text{data}}{N_\text{0 btag}^\text{data}} = \frac{M_{\geq\text{1 btag}}^\text{MC}}{M_\text{0 btag}^\text{MC}}
+\end{equation}
+
+We can rearrange this equation to derive
+a data-driven estimate of the 1$\ell$W background component in our
+signal regions, using the data yield from the control regions times
+the SR/CR ratio derived in Monte Carlo. We will refer to this ratio as
+the b-tag transfer factor, $TF_\text{btag}$.
+\begin{equation}
+\label{eq:stop:1lw:estimateimpure}
+N_{\geq\text{1 btag}}^\text{SR} = N_\text{0 btag}^\text{CR} \times
+\frac{M_{\geq\text{1 btag}}^\text{SR}}{M_\text{0 btag}^\text{CR}}
+%= N_\text{0 btag}^\text{CR} \times TF_\text{btag}
+\end{equation}
+
+The 0-btag control regions are not totally pure; in other words, the
+contamination from non-1$\ell$W events is significant. So in order for
+our background estimate to reflect only the 1$\ell$W content in the
+signal regions, we must multiply our estimate by the purity of the
+CR. The purity is the fraction of events in the CR that are true
+1$\ell$W events, and is derived from simulation. So the estimate is
+now given by:
+\begin{equation}
+\label{eq:stop:1lw:estimatepure}
+N_{\geq\text{1 btag, SR}}^{1\ell W} = N_\text{0 btag, CR}^\text{total} \times
+\frac{M_{\geq\text{1 btag, SR}}^\text{total}}{M_\text{0 btag, CR}^\text{total}} \times
+\frac{M_\text{0 btag, CR}^{1\ell W}}{M_\text{0 btag, CR}^\text{total}}
+\end{equation}
+
+\subsubsection{Control Region Definitions}
+\label{sssec:stop:1lw:crdefinitions}
+
+Because bottom quarks are heavy, processes without top decays tend to
+have b-jets very rarely. So one of the easiest ways to make a sample
+enriched in 1$\ell$W events is to require the absence of b-tags.
+Thus we generally form our 0-btag control regions from the
+corresponding signal regions by simply inverting
+the b-tag requirement. The low-$M_{\ell b}$ signal regions, which
+require 1 medium b-tag, are inverted to form control regions that require no medium
+b-tags. Similarly, the high-$M_{\ell b}$ signal regions, which require
+1 tight b-tag, are inverted to form control regions that require no
+tight b-tags.
+
+This na\"{i}ve inversion does give rise to some high-$M_{\ell b}$ control regions with low
+purity of 1$\ell$W events. We later assess a systematic uncertainty on
+impurities (or \emph{contamination}), so any low-purity CRs would wind up
+with an outsize uncertainty. To reduce the number of CRs with
+excessive uncertainties, we change certain high-$M_{\ell b}$ CRs to
+require 0 medium b-tags, instead of 0 tight b-tags. This modification
+is made on a case-by-case basis; we apply the change only in CRs where
+we see a 0 medium b-tag requirement would substantially increase the
+purity without cutting out too many data events. These regions are:
+\begin{itemize}
+\item All CRs in the D series ($\geq 4$ jets, $t_\text{mod} < 0$, high $M_{\ell b}$)
+\item All CRs in the F series ($\geq 4$ jets, $0 < t_\text{mod} < 10$, high $M_{\ell b}$)
+\end{itemize}
+Needless to say, in these regions, the b-tag transfer factor must take
+on a slightly new meaning, as it maps CRs with 0 medium b-tags to
+SRs with $\geq$1 tight b-tag:
+\begin{equation}
+TF_\text{btag} = \frac{M_{\geq\text{1 (tight) btag,
+      SR}}^\text{total}}{M_\text{0 (med) btag, CR}^\text{total}}
+\end{equation}
+
+Because the control regions are defined by the absence of
+b-tagged jets, the definition of $M_{\ell b}$ from Section
+\ref{ssec:stop:mlb} will no longer serve. In the absence of formally
+b-tagged jets, we instead calculate $M_{\ell b}$ using the jet with
+the highest CSV discriminator value in place of a b-tag.
+In Figure \ref{fig:stop:1lw:mlb}, we plot this makeshift
+$M_{\ell b}$ from our CRs against the nominal $M_{\ell b}$ from the
+SRs, both using MC, and verify that they agree to within
+uncertainties. We also check the shape of $M_{\ell b}$ in data vs MC
+within a high-statistics crosscheck region, defined only by $60 < \mt
+< 120$ GeV, $\met >$ 250 GeV, and 1-2 jets. As Figure
+\ref{fig:stop:1lw:mlbxcheck} shows, the
+shape agreement is quite good. Therefore we
+do not assess a systematic uncertainty on $M_{\ell b}$ shape
+modeling. Note that any issues with $M_{\ell b}$ modeling
+would not affect the corridor regions because they are not binned in
+$M_{\ell b}$.
+
+% Mlb comparison plots taken from AN-16-463. Unpublished!
+% Also not quite up to CMS publication standards...
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_AB.png}
+\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_CD.png}
+\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_EF.png}
+\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_GH.png}
+\caption{Comparison between $M_{\ell b}$ from SRs and makeshift $M_{\ell
+    b}$ from CRs, using simulated data. The four plots are made in the
+  combined A+B regions, the C+D regions, the E+F regions, and the G+H
+  regions, respectively.}
+\label{fig:stop:1lw:mlb}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/cr0b_Mlbshape_crosscheck.pdf}
+\caption{Comparison of $M_{\ell b}$ shape for data and MC, in 0-btag
+  and $\geq$1-btag crosscheck regions.}
+\label{fig:stop:1lw:mlbxcheck}
+\end{figure}
+
+The yields for data and MC in the control regions are given in Table
+\ref{tab:stop:1lw:cryields}. The MC simulations receive all the same
+corrections as in the SRs. The purity of these control regions ranges
+from a high of 83\% to a low of 37\%. The impurity of these regions
+will be addressed further on with a systematic uncertainty.
+
+% Yield table hand-made using the common looper.
+% Have NOT checked this against tables in the AN! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{sidewaystable}
+\centering
+\scriptsize
+\caption{Data and Monte Carlo yields in the 0-btag control regions,
+  based on 35.9 fb$^{-1}$ of luminosity.}
+\label{tab:stop:1lw:cryields}
+\begin{tabular}{|l|c c c c c|c|c|}
+\hline
+Region  & $\ge2$~leptons & $1$~lepton,~from~$W$ & $1$~lepton,~from~$t$ & $Z\rightarrow\nu\nu$ & Sum Bkg. & Data & Data/MC \\*
+\hline \hline
+% A regions
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 30.78 $\pm$ 2.14  & 96.44 $\pm$ 2.92  & 0.47 $\pm$ 0.27  & 14.22 $\pm$ 2.00  & 141.91 $\pm$ 4.15  & 151 $\pm$ 12.29  & 1.06 $\pm$ 0.09 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$  & 10.30 $\pm$ 1.23  & 49.02 $\pm$ 2.21  & 0.33 $\pm$ 0.23  & 9.30 $\pm$ 1.36  & 68.95 $\pm$ 2.89  & 68 $\pm$ 8.25  & 0.99 $\pm$ 0.13 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$  & 3.63 $\pm$ 0.80  & 26.07 $\pm$ 1.77  & ---  & 4.55 $\pm$ 1.05  & 34.25 $\pm$ 2.21  & 31 $\pm$ 5.57  & 0.91 $\pm$ 0.17 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 0.36 $\pm$ 0.18  & 7.56 $\pm$ 0.41  & ---  & 1.17 $\pm$ 0.52  & 9.09 $\pm$ 0.69  & 11 $\pm$ 3.32  & 1.21 $\pm$ 0.38 \\*
+\hline
+% B regions
+$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 18.27 $\pm$ 1.70  & 163.16 $\pm$ 1.83  & ---  & 21.95 $\pm$ 2.31  & 203.38 $\pm$ 3.40  & 232 $\pm$ 15.23  & 1.14 $\pm$ 0.08 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$450<MET<650$  & 2.86 $\pm$ 0.73  & 47.58 $\pm$ 1.48  & ---  & 9.50 $\pm$ 1.41  & 59.94 $\pm$ 2.17  & 48 $\pm$ 6.93  & 0.80 $\pm$ 0.12 \\*
+$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>600$  & 0.57 $\pm$ 0.32  & 29.39 $\pm$ 1.76  & ---  & 4.30 $\pm$ 1.08  & 34.26 $\pm$ 2.09  & 27 $\pm$ 5.20  & 0.79 $\pm$ 0.16 \\*
+\hline
+% C regions
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$250<MET<350$  & 77.99 $\pm$ 2.93  & 54.11 $\pm$ 2.25  & 4.98 $\pm$ 0.85  & 8.70 $\pm$ 1.16  & 145.79 $\pm$ 3.96  & 143 $\pm$ 11.96  & 0.98 $\pm$ 0.09 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$350<MET<450$  & 16.61 $\pm$ 1.46  & 17.36 $\pm$ 1.66  & 0.64 $\pm$ 0.29  & 3.69 $\pm$ 0.86  & 38.30 $\pm$ 2.39  & 31 $\pm$ 5.57  & 0.81 $\pm$ 0.15 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$450<MET<550$  & 4.25 $\pm$ 0.77  & 4.06 $\pm$ 0.29  & 0.29 $\pm$ 0.21  & 1.71 $\pm$ 0.59  & 10.30 $\pm$ 1.04  & 5 $\pm$ 2.24  & 0.49 $\pm$ 0.22 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$550<MET<650$  & 0.80 $\pm$ 0.28  & 1.70 $\pm$ 0.22  & ---  & 0.09 $\pm$ 0.02  & 2.58 $\pm$ 0.36  & 3 $\pm$ 1.73  & 1.16 $\pm$ 0.69 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$MET>650$  & 0.94 $\pm$ 0.36  & 1.30 $\pm$ 0.17  & 0.14 $\pm$ 0.14  & 0.32 $\pm$ 0.26  & 2.70 $\pm$ 0.50  & 4 $\pm$ 2.00  & 1.48 $\pm$ 0.79 \\*
+\hline
+% D regions
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$250<MET<350$  & 58.54 $\pm$ 2.66  & 95.51 $\pm$ 5.39  & 5.51 $\pm$ 0.84  & 8.45 $\pm$ 1.32  & 168.01 $\pm$ 6.21  & 137 $\pm$ 11.70  & 0.82 $\pm$ 0.08 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$350<MET<450$  & 17.31 $\pm$ 1.43  & 36.16 $\pm$ 3.89  & 0.79 $\pm$ 0.31  & 6.11 $\pm$ 1.05  & 60.37 $\pm$ 4.29  & 36 $\pm$ 6.00  & 0.60 $\pm$ 0.11 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$450<MET<550$  & 5.24 $\pm$ 0.79  & 12.01 $\pm$ 0.53  & 0.00 $\pm$ 0.00  & 1.58 $\pm$ 0.68  & 18.83 $\pm$ 1.17  & 11 $\pm$ 3.32  & 0.58 $\pm$ 0.18 \\*
+$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$MET>550$  & 4.74 $\pm$ 1.33  & 10.38 $\pm$ 0.50  & 0.39 $\pm$ 0.22  & 1.25 $\pm$ 0.56  & 16.76 $\pm$ 1.55  & 13 $\pm$ 3.61  & 0.78 $\pm$ 0.23 \\*
+\hline
+% E regions
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$250<MET<350$  & 16.34 $\pm$ 1.33  & 27.47 $\pm$ 3.52  & 0.28 $\pm$ 0.20  & 4.75 $\pm$ 0.79  & 48.84 $\pm$ 3.85  & 54 $\pm$ 7.35  & 1.11 $\pm$ 0.17 \\*
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$350<MET<550$  & 4.76 $\pm$ 0.78  & 13.35 $\pm$ 0.53  & 0.13 $\pm$ 0.12  & 1.67 $\pm$ 0.62  & 19.91 $\pm$ 1.13  & 13 $\pm$ 3.61  & 0.65 $\pm$ 0.18 \\*
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$MET>550$  & 0.27 $\pm$ 0.16  & 1.48 $\pm$ 0.17  & ---  & 0.74 $\pm$ 0.40  & 2.49 $\pm$ 0.46  & 2 $\pm$ 1.41  & 0.80 $\pm$ 0.59 \\*
+\hline
+% F regions
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$250<MET<450$  & 6.34 $\pm$ 0.80  & 33.10 $\pm$ 1.48  & 0.05 $\pm$ 0.05  & 4.91 $\pm$ 0.94  & 44.40 $\pm$ 1.93  & 50 $\pm$ 7.07  & 1.13 $\pm$ 0.17 \\*
+$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$MET>450$  & 1.30 $\pm$ 0.59  & 8.71 $\pm$ 0.41  & ---  & 2.46 $\pm$ 0.61  & 12.47 $\pm$ 0.95  & 5 $\pm$ 2.24  & 0.40 $\pm$ 0.18 \\*
+\hline
+% G regions
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 1.57 $\pm$ 0.37  & 1.74 $\pm$ 0.18  & 0.15 $\pm$ 0.15  & 0.57 $\pm$ 0.24  & 4.03 $\pm$ 0.49  & 7 $\pm$ 2.65  & 1.74 $\pm$ 0.69 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$  & 1.69 $\pm$ 0.42  & 3.94 $\pm$ 1.10  & ---  & 0.25 $\pm$ 0.03  & 5.88 $\pm$ 1.18  & 7 $\pm$ 2.65  & 1.19 $\pm$ 0.51 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$  & 1.28 $\pm$ 0.50  & 3.08 $\pm$ 0.25  & ---  & 0.50 $\pm$ 0.43  & 4.86 $\pm$ 0.70  & 3 $\pm$ 1.73  & 0.62 $\pm$ 0.37 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 0.64 $\pm$ 0.37  & 2.58 $\pm$ 1.13  & ---  & 0.31 $\pm$ 0.44  & 3.53 $\pm$ 1.27  & 2 $\pm$ 1.41  & 0.57 $\pm$ 0.45 \\*
+\hline
+% H regions
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 3.15 $\pm$ 0.90  & 6.65 $\pm$ 0.36  & 0.11 $\pm$ 0.11  & 0.93 $\pm$ 0.28  & 10.84 $\pm$ 1.02  & 12 $\pm$ 3.46  & 1.11 $\pm$ 0.34 \\*
+$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>450$  & 1.82 $\pm$ 0.54  & 9.65 $\pm$ 0.44  & ---  & 2.68 $\pm$ 0.59  & 14.15 $\pm$ 0.91  & 9 $\pm$ 3.00  & 0.64 $\pm$ 0.22 \\*
+\hline
+% I regions
+Compressed search, $250<MET<350$  & 19.70 $\pm$ 1.43  & 23.62 $\pm$ 4.24  & 1.80 $\pm$ 0.45  & 2.36 $\pm$ 0.52  & 47.47 $\pm$ 4.53  & 49 $\pm$ 7.00  & 1.03 $\pm$ 0.18 \\*
+Compressed search, $350<MET<450$  & 7.49 $\pm$ 0.92  & 12.07 $\pm$ 3.64  & 0.40 $\pm$ 0.21  & 2.43 $\pm$ 0.76  & 22.38 $\pm$ 3.83  & 11 $\pm$ 3.32  & 0.49 $\pm$ 0.17 \\*
+Compressed search, $450<MET<550$  & 2.98 $\pm$ 0.67  & 3.68 $\pm$ 0.27  & 0.30 $\pm$ 0.22  & 1.75 $\pm$ 0.53  & 8.71 $\pm$ 0.92  & 5 $\pm$ 2.24  & 0.57 $\pm$ 0.26 \\*
+Compressed search, $MET>550$  & 1.43 $\pm$ 0.43  & 3.26 $\pm$ 0.26  & ---  & 1.13 $\pm$ 0.48  & 5.82 $\pm$ 0.70  & 3 $\pm$ 1.73  & 0.52 $\pm$ 0.30 \\*
+\hline
+\end{tabular}
+\end{sidewaystable}
+
+\subsubsection{Systematic Uncertainties}
+\label{sssec:stop:1lw:systematics}
+
+Many of the systematic uncertainties on the 1$\ell$W background are
+assessed the same way as for the lost lepton background, as described
+in Section \ref{sssec:stop:lostlep:systematics}. These uncertainties
+are:
+\begin{itemize}
+\item Data and MC statistics
+\item b-tagging efficiencies
+\item JES
+\item PDF
+\item $Q^2$
+\item $\met$ resolution
+\end{itemize}
+% Note: Table from common looper includes several other systematics
+% not mentioned in the AN.
+
+Because our $TF_\text{btag}$ is derived from simulation, we must ensure that
+the relative cross-sections of W+b and W+non-b jets are correctly
+modeled in MC. We check the agreement between data and MC on number of
+b-jets in the high-statistics crosscheck region described above. As
+Figure \ref{fig:stop:1lw:wb} shows, a 50\% systematic uncertainty on
+the W+b cross section adequately covers any mismodeling that may
+exist. Additionally, the 0-btag CRs have considerable impurity from
+non-1$\ell$W backgrounds, so we assess a 50\% systematic uncertainty on
+that contamination. The systematic uncertainties on the single lepton
+from W estimate are presented in Table \ref{tab:stop:1lw:systematics}.
+
+% Plot of W+b crosscheck, taken from AN-16-463. Unpublished.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\textwidth]{Figures/cr0b_nbtags_crosscheck.pdf}
+\caption{Number of b-tags compared between data and MC, in
+  high-statistics crosscheck region. The second bin includes events
+  with one or more b-tags. The uncertainty band illustrates a 50\%
+  uncertainty on the W+b cross section}
+\label{fig:stop:1lw:wb}
+\end{figure}
+
+% Systematics table goes here. Should probably check it against the AN...
+% ALSO, need to add in the corridor systematics too!
+\begin{table}[htb]
+\centering
+\tiny
+\caption{Summary of systematic uncertainties on single lepton from W
+  background estimate.}
+\label{tab:stop:1lw:systematics}
+\scalebox{0.4}{
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|} \hline
+Systematic  & A  & A  & A  & A  & B  & B  & B  & C  & C  & C  & C  & C  & D  & D  & D  & D  & E  & E  & E  & F  & F  & G  & G  & G  & G  & H  & H \\
+ & $250-350$  & $350-450$  & $450-600$  & $>600$  & $250-450$  & $450-600$  & $>600$  & $250-350$  & $350-450$  & $450-550$  & $550-650$  & $>650$  & $250-350$  & $350-450$  & $450-550$  & $>550$  & $250-350$  & $350-550$  & $>550$  & $250-450$  & $>450$  & $250-350$  & $350-450$  & $450-600$  & $>600$  & $250-450$  & $>450$ \\ \hline \hline
+Data Stats & 8.1\%  & 12.1\%  & 18.0\%  & 30.2\%  & 6.6\%  & 14.4\%  & 19.2\%  & 8.4\%  & 18.0\%  & 44.7\%  & 57.7\%  & 50.0\%  & 8.5\%  & 16.7\%  & 30.2\%  & 27.7\%  & 13.6\%  & 27.7\%  & 70.7\%  & 14.1\%  & 44.7\%  & 37.8\%  & 37.8\%  & 57.7\%  & 70.7\%  & 28.9\%  & 33.3\% \\
+MC Stats & 5.8\%  & 7.7\%  & 11.5\%  & 20.8\%  & 6.7\%  & 10.9\%  & 14.2\%  & 12.2\%  & 12.2\%  & 20.1\%  & 31.0\%  & 33.3\%  & 7.3\%  & 12.5\%  & 19.0\%  & 22.5\%  & 22.7\%  & 11.4\%  & 30.1\%  & 9.8\%  & 19.2\%  & 21.9\%  & 20.8\%  & 21.2\%  & 27.0\%  & 18.8\%  & 19.2\% \\ \hline
+CR Impurity & 19.1\%  & 16.9\%  & 13.6\%  & 9.2\%  & 11.0\%  & 11.5\%  & 7.7\%  & 45.9\%  & 37.6\%  & 43.5\%  & 20.6\%  & 35.0\%  & 27.5\%  & 25.1\%  & 22.1\%  & 23.5\%  & 28.0\%  & 19.7\%  & 25.5\%  & 14.6\%  & 17.8\%  & 39.7\%  & 19.7\%  & 22.4\%  & 15.6\%  & 24.0\%  & 18.9\% \\
+JES  & 3.6\%  & 4.8\%  & 6.7\%  & 5.6\%  & 1.0\%  & 5.2\%  & 0.1\%  & 13.7\%  & 10.4\%  & 16.3\%  & 7.9\%  & 4.7\%  & 1.1\%  & 3.9\%  & 11.5\%  & 1.1\%  & 2.2\%  & 9.3\%  & 0.9\%  & 7.8\%  & 7.2\%  & 11.3\%  & 36.1\%  & 3.9\%  & 4.7\%  & 18.7\%  & 1.8\% \\
+ISR  & 0.2\%  & 0.2\%  & 0.1\%  & 0.2\%  & 0.2\%  & 0.1\%  & 0.0\%  & 7.7\%  & 6.2\%  & 4.9\%  & 3.8\%  & 3.9\%  & 5.2\%  & 4.3\%  & 3.4\%  & 1.3\%  & 4.9\%  & 3.6\%  & 3.1\%  & 2.1\%  & 0.3\%  & 7.3\%  & 4.1\%  & 1.6\%  & 0.5\%  & 3.7\%  & 0.4\% \\
+MET~Resolution  & 0.1\%  & 0.4\%  & 1.3\%  & 0.9\%  & 0.0\%  & 0.8\%  & 1.5\%  & 0.0\%  & 0.5\%  & 0.8\%  & 0.2\%  & 0.0\%  & 0.0\%  & 0.4\%  & 0.1\%  & 1.3\%  & 0.0\%  & 0.4\%  & 1.3\%  & 0.1\%  & 0.4\%  & 0.1\%  & 0.6\%  & 0.8\%  & 1.9\%  & 0.0\%  & 0.8\% \\
+bTag~Efficicency,~Heavy~Flavour  & 2.1\%  & 1.8\%  & 1.6\%  & 1.2\%  & 2.3\%  & 2.5\%  & 4.2\%  & 3.4\%  & 2.7\%  & 1.9\%  & 3.0\%  & 2.5\%  & 3.1\%  & 2.8\%  & 2.8\%  & 2.2\%  & 3.2\%  & 2.6\%  & 1.5\%  & 2.5\%  & 2.6\%  & 2.7\%  & 2.5\%  & 2.2\%  & 1.9\%  & 2.7\%  & 2.8\% \\
+bTag~Efficicency,~Light~Flavour  & 2.8\%  & 3.4\%  & 3.2\%  & 5.5\%  & 2.8\%  & 2.0\%  & 1.7\%  & 2.9\%  & 3.5\%  & 2.8\%  & 4.9\%  & 2.4\%  & 1.8\%  & 1.7\%  & 1.6\%  & 1.8\%  & 2.6\%  & 3.5\%  & 4.3\%  & 1.3\%  & 2.2\%  & 2.3\%  & 2.6\%  & 4.8\%  & 3.5\%  & 0.9\%  & 2.0\% \\
+Lepton~Scale~Factor  & 0.4\%  & 0.3\%  & 0.8\%  & 0.2\%  & 0.2\%  & 0.4\%  & 0.2\%  & 1.1\%  & 2.4\%  & 0.8\%  & 0.3\%  & 0.2\%  & 1.0\%  & 1.5\%  & 1.3\%  & 1.7\%  & 0.3\%  & 0.5\%  & 0.2\%  & 0.3\%  & 0.2\%  & 0.3\%  & 1.0\%  & 5.7\%  & 0.1\%  & 0.7\%  & 1.3\% \\
+$\tau$~Efficiency~SF  & 0.1\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.0\%  & 0.3\%  & 0.2\%  & 0.3\%  & 0.2\%  & 0.3\%  & 0.2\%  & 0.2\%  & 0.2\%  & 0.2\%  & 0.1\%  & 0.2\%  & 0.1\%  & 0.1\%  & 0.1\%  & 0.3\%  & 0.1\%  & 0.1\%  & 0.0\%  & 0.1\%  & 0.1\% \\
+${\nu}p_{T}$  & 2.3\%  & 3.1\%  & 1.8\%  & 0.6\%  & 2.3\%  & 0.5\%  & 0.2\%  & 1.1\%  & 4.8\%  & 2.7\%  & 2.7\%  & 6.0\%  & 5.4\%  & 6.3\%  & 6.9\%  & 6.1\%  & 4.4\%  & 4.6\%  & 2.1\%  & 3.0\%  & 3.8\%  & 6.4\%  & 6.9\%  & 8.2\%  & 5.6\%  & 5.7\%  & 4.2\% \\
+$W$~Width  & 0.7\%  & 0.5\%  & 0.4\%  & 0.2\%  & 0.3\%  & 0.2\%  & 0.1\%  & 0.3\%  & 0.8\%  & 0.4\%  & 0.3\%  & 0.8\%  & 1.2\%  & 0.9\%  & 0.8\%  & 0.7\%  & 1.0\%  & 0.6\%  & 0.2\%  & 0.6\%  & 0.4\%  & 1.4\%  & 1.0\%  & 1.0\%  & 0.6\%  & 1.0\%  & 0.5\% \\
+$W+HF$~x-section  & 23.0\%  & 21.2\%  & 25.3\%  & 15.5\%  & 35.8\%  & 32.9\%  & 35.8\%  & 2.9\%  & 6.9\%  & 7.2\%  & 3.4\%  & 10.3\%  & 21.6\%  & 21.0\%  & 28.5\%  & 14.5\%  & 10.8\%  & 15.9\%  & 24.5\%  & 33.2\%  & 34.2\%  & 24.0\%  & 24.3\%  & 22.4\%  & 25.7\%  & 36.6\%  & 30.9\% \\
+Pileup~Reweight  & 1.1\%  & 1.8\%  & 0.7\%  & 3.2\%  & 1.3\%  & 1.5\%  & 1.6\%  & 1.6\%  & 1.3\%  & 1.1\%  & 3.4\%  & 8.8\%  & 0.8\%  & 2.5\%  & 3.4\%  & 0.7\%  & 3.9\%  & 0.9\%  & 6.0\%  & 2.9\%  & 3.4\%  & 4.6\%  & 6.8\%  & 3.9\%  & 4.5\%  & 1.2\%  & 0.2\% \\
+PDF  & 7.5\%  & 9.1\%  & 9.0\%  & 7.8\%  & 8.5\%  & 9.4\%  & 8.3\%  & 1.7\%  & 7.7\%  & 9.1\%  & 2.9\%  & 13.1\%  & 1.6\%  & 8.1\%  & 3.0\%  & 7.8\%  & 7.2\%  & 4.8\%  & 18.4\%  & 4.3\%  & 8.9\%  & 6.7\%  & 1.9\%  & 10.1\%  & 3.2\%  & 2.4\%  & 13.7\% \\
+$\alpha_{S}$  & 0.7\%  & 1.3\%  & 0.4\%  & 4.0\%  & 6.0\%  & 2.5\%  & 2.3\%  & 1.8\%  & 2.6\%  & 1.8\%  & 1.4\%  & 1.5\%  & 0.9\%  & 1.1\%  & 1.8\%  & 1.2\%  & 1.2\%  & 1.5\%  & 1.5\%  & 4.5\%  & 2.7\%  & 1.7\%  & 2.0\%  & 0.7\%  & 0.8\%  & 6.4\%  & 1.2\% \\
+$Q^{2}$  & 2.9\%  & 4.0\%  & 2.2\%  & 1.0\%  & 1.9\%  & 3.1\%  & 2.6\%  & 3.3\%  & 4.3\%  & 5.1\%  & 2.6\%  & 7.6\%  & 2.0\%  & 3.7\%  & 0.7\%  & 2.8\%  & 5.2\%  & 2.7\%  & 1.7\%  & 1.5\%  & 1.9\%  & 7.8\%  & 3.4\%  & 3.4\%  & 1.1\%  & 3.8\%  & 2.0\% \\
+\hline
+Total  & 27.0\%  & 28.4\%  & 35.3\%  & 41.6\%  & 38.8\%  & 39.4\%  & 44.3\%  & 22.7\%  & 28.3\%  & 53.7\%  & 66.7\%  & 64.1\%  & 25.9\%  & 32.4\%  & 48.0\%  & 40.1\%  & 31.3\%  & 36.4\%  & 83.2\%  & 39.1\%  & 61.0\%  & 53.4\%  & 62.5\%  & 67.5\%  & 80.6\%  & 54.7\%  & 51.6\% \\ \hline
+\end{tabular}}
+\end{table}
+
+\subsubsection{Results}
+\label{sssec:stop:1lw:results}
+
+The full results of the single lepton from W background estimate,
+including systematic uncertainties, are presented in Table
+\ref{tab:stop:1lw:results}.
+
+% 1lW estimate results, made using the common looper.
+% Have NOT checked these against the results in the AN! %%%%%%%%%%%%%%%
+\begin{sidewaystable}
+\centering
+\small
+\caption{Summary of the single lepton from W background estimate, and
+  all its key components.}
+\label{tab:stop:1lw:results}
+\begin{tabular}{|l|c|c|c|c|c|} \hline
+Region & MET bin & Observed$_\text{CR}$ & Purity & $TF_\text{btag}$ & SR Estimate \\ \hline \hline
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$  & 151 $\pm$ 12.29  & 0.68 $\pm$ 0.14  & 0.07 $\pm$ 0.02  & 7.15 $\pm$ 1.93  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$  & 68 $\pm$ 8.25  & 0.71 $\pm$ 0.15  & 0.08 $\pm$ 0.02  & 4.08 $\pm$ 1.16  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$  & 31 $\pm$ 5.57  & 0.76 $\pm$ 0.13  & 0.07 $\pm$ 0.02  & 1.75 $\pm$ 0.62  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$      & 11 $\pm$ 3.32  & 0.83 $\pm$ 0.13  & 0.09 $\pm$ 0.02  & 0.80 $\pm$ 0.33  \\
+\hline
+ $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 232 $\pm$ 15.23  & 0.80 $\pm$ 0.11  & 0.03 $\pm$ 0.01  & 5.60 $\pm$ 2.17  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $450<MET<600$  & 48 $\pm$ 6.93  & 0.79 $\pm$ 0.13  & 0.04 $\pm$ 0.01  & 1.56 $\pm$ 0.62  \\
+ $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>600$      & 27 $\pm$ 5.20  & 0.86 $\pm$ 0.11  & 0.04 $\pm$ 0.01  & 0.89 $\pm$ 0.40  \\
+\hline
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $250<MET<350$  & 143 $\pm$ 11.96  & 0.37 $\pm$ 0.18  & 0.18 $\pm$ 0.04  & 9.79 $\pm$ 2.22  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $350<MET<450$  & 31 $\pm$ 5.57  & 0.45 $\pm$ 0.18  & 0.17 $\pm$ 0.03  & 2.35 $\pm$ 0.67  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $450<MET<550$  & 5 $\pm$ 2.24  & 0.39 $\pm$ 0.20  & 0.23 $\pm$ 0.08  & 0.45 $\pm$ 0.24  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $550<MET<650$  & 3 $\pm$ 1.73  & 0.66 $\pm$ 0.16  & 0.14 $\pm$ 0.04  & 0.28 $\pm$ 0.19  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $MET>650$      & 4 $\pm$ 2.00  & 0.48 $\pm$ 0.20  & 0.23 $\pm$ 0.09  & 0.45 $\pm$ 0.29  \\
+\hline
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $250<MET<350$  & 137 $\pm$ 11.70  & 0.57 $\pm$ 0.16  & 0.09 $\pm$ 0.02  & 6.80 $\pm$ 1.76  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $350<MET<450$  & 36 $\pm$ 6.00  & 0.60 $\pm$ 0.17  & 0.09 $\pm$ 0.02  & 1.90 $\pm$ 0.62  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $450<MET<550$  & 11 $\pm$ 3.32  & 0.64 $\pm$ 0.16  & 0.08 $\pm$ 0.03  & 0.55 $\pm$ 0.26  \\
+ $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $MET>550$      & 13 $\pm$ 3.61  & 0.62 $\pm$ 0.17  & 0.14 $\pm$ 0.04  & 1.13 $\pm$ 0.45  \\
+\hline
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $250<MET<350$  & 54 $\pm$ 7.35  & 0.56 $\pm$ 0.17  & 0.19 $\pm$ 0.05  & 5.66 $\pm$ 1.77  \\
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $350<MET<550$  & 13 $\pm$ 3.61  & 0.67 $\pm$ 0.15  & 0.14 $\pm$ 0.03  & 1.23 $\pm$ 0.45  \\
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $MET>550$      & 2 $\pm$ 1.41  & 0.59 $\pm$ 0.22  & 0.23 $\pm$ 0.08  & 0.28 $\pm$ 0.23  \\
+\hline
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $250<MET<450$  & 50 $\pm$ 7.07  & 0.75 $\pm$ 0.13  & 0.08 $\pm$ 0.03  & 2.95 $\pm$ 1.15  \\
+ $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $MET>450$      & 5 $\pm$ 2.24  & 0.70 $\pm$ 0.17  & 0.07 $\pm$ 0.03  & 0.26 $\pm$ 0.16  \\
+\hline
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$  & 7 $\pm$ 2.65  & 0.43 $\pm$ 0.19  & 0.33 $\pm$ 0.10  & 1.00 $\pm$ 0.53  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$  & 7 $\pm$ 2.65  & 0.67 $\pm$ 0.22  & 0.16 $\pm$ 0.12  & 0.76 $\pm$ 0.48  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$  & 3 $\pm$ 1.73  & 0.63 $\pm$ 0.19  & 0.24 $\pm$ 0.07  & 0.45 $\pm$ 0.31  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$      & 2 $\pm$ 1.41  & 0.73 $\pm$ 0.21  & 0.25 $\pm$ 0.08  & 0.36 $\pm$ 0.29  \\
+\hline
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 12 $\pm$ 3.46  & 0.61 $\pm$ 0.17  & 0.14 $\pm$ 0.06  & 1.01 $\pm$ 0.55  \\
+ $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>450$      & 9 $\pm$ 3.00  & 0.68 $\pm$ 0.16  & 0.09 $\pm$ 0.03  & 0.55 $\pm$ 0.28  \\
+\hline
+Compressed search & $250<MET<350$  & 49 $\pm$ 7.00  & 0.50 $\pm$ 0.19  & 0.21 $\pm$ 0.06  & 5.03 $\pm$ 1.78  \\
+Compressed search & $350<MET<450$  & 11 $\pm$ 3.32  & 0.54 $\pm$ 0.20  & 0.14 $\pm$ 0.03  & 0.84 $\pm$ 0.33  \\
+Compressed search & $450<MET<550$  & 5 $\pm$ 2.24   & 0.42 $\pm$ 0.19  & 0.20 $\pm$ 0.05  & 0.42 $\pm$ 0.24  \\
+Compressed search & $MET>550$      & 3 $\pm$ 1.73  & 0.56 $\pm$ 0.19  & 0.14 $\pm$ 0.05  & 0.24 $\pm$ 0.17  \\
+\hline
+\end{tabular}
+\end{sidewaystable}
 
 \subsection{Single Lepton from Top}
 \label{ssec:stop:1ltop}
 
-Explain how we take this background from Monte Carlo.
-Describe the uncertainties we use to cover this estimate.
+At the start of our search, before making any cuts to the data, the
+main background to contend with was genuine single leptons that result
+from top quarks decaying to W-bosons, which in turn decay
+leptonically. However, as earlier sections have mentioned, our high
+$\met$ and $\mt$ requirements are extremely effective at reducing this
+background component. So much so, in fact, that after event
+selections, the single lepton from top background (or 1$\ell$top) becomes
+practically negligible in all our signal regions.
+
+Unfortunately, there is no way to perform a robust, data-driven
+estimate of this background, because we cannot construct a control
+region that is enhanced in 1$\ell$top processes (mostly $\ttonelep$,
+followed by single top quark production). Since this background was so
+strongly reduced by the $\mt$ cut, one might consider a lower-$\mt$
+sideband region; however, as we discovered in the previous section,
+such a region contains a considerable number of 1$\ell$W events, and
+even lost lepton events. Therefore, we are forced to estimate the
+1$\ell$top background directly from Monte Carlo simulation.
+
+As mentioned in Section \ref{sec:stop:searchstrategy}, most 1$\ell$top
+events that pass the $\mt$ cut do so because of $\met$ resolution
+effects. Therefore, by far the most dominant uncertainty on the 1$\ell
+t$ background component is the uncertainty on $\met$ resolution. Our
+studies in [APPENDIX] show this uncertainty can be as high as 25\%. In
+Figure \ref{fig:stop:1ltop:metres}, we show the $\met$ spectra of
+$\ttonelep$ events from Monte Carlo, both before and after fluctuating
+the $\met$ resolution according to the uncertainties from
+[APPENDIX]. We note that the yields in the various bins may fluctuate
+by 100\% or more as the $\met$ resolution is fluctuated. On that
+basis, we assign a flat 100\% uncertainty to the 1$\ell$top background
+component. All other uncertainties, including statistical, are
+insignificant by comparison, and should be covered by the 100\%
+uncertainty we impose.
+
+% MET resolution fluctuation plots, from AN-16-463. Unpublished.
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{figures/metres_1ltop_C.pdf}
+\includegraphics[width=0.45\textwidth]{figures/metres_1ltop_D.pdf}
+\includegraphics[width=0.45\textwidth]{figures/metres_1ltop_EFGH.pdf}
+\includegraphics[width=0.45\textwidth]{figures/metres_1ltop_I.pdf}
+\caption{$\met$ distributions in $\ttonelep$ Monte Carlo, with and
+  without fluctuated $\met$ resolution. The plots are made
+  in the C regions, the D regions, the combined E/F/G/H regions, and
+  the I (corridor) regions, respectively. The A/B regions have an
+  insignificant $\ttonelep$ component, so are not shown.}
+\label{fig:stop:1ltop:metres}
+\end{figure}
+
+The final results of our single lepton from top background estimate
+are presented in Table \ref{tab:stop:1ltop:results}.
+
+% 1ltop background table. Numbers come from paper draft. Everything
+% else I cobbled together from bits and pieces of other stuff.
+\begin{table}[htbp]
+\centering
+\caption{Results of the single lepton from top background estimate,
+  with 100\% uncertainty applied.}
+\label{tab:stop:1ltop:results}
+\begin{tabular}{|l|c|c|}
+\hline
+Region & MET bin & SR Estimate\\
+\hline
+$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$ &  ---  \\
+$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$ &  0.22$\pm$0.22 \\
+$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$ &  0.13$\pm$0.13  \\
+$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$     &  0.28$\pm$0.28 \\
+\hline
+$<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$ &  --- \\
+$<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $450<MET<600$ &  ---  \\
+$<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>600$     &  ---  \\
+\hline
+$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $250<MET<350$ &  13.2$\pm$13.2  \\
+$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $350<MET<450$ &  2.3$\pm$2.3  \\
+$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $450<MET<550$ &  0.63$\pm$0.63  \\
+$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $550<MET<650$ &  0.09$\pm$0.09 \\
+$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $MET>650$     &  --- \\
+\hline
+$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $250<MET<350$ &  3.1$\pm$3.1  \\
+$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $350<MET<450$ &  0.59$\pm$0.59  \\
+$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $450<MET<550$ &  0.37$\pm$0.37  \\
+$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $MET>550$     &  ---  \\
+\hline
+$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $250<MET<350$ &  1.7$\pm$1.7  \\
+$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $350<MET<550$ &  0.48$\pm$0.48  \\
+$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $MET>550$     &  0.33$\pm$0.33  \\
+\hline
+$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $250<MET<450$ &  0.30$\pm$0.30  \\
+$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $MET>450$     &  ---  \\
+\hline
+$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$ &  0.75$\pm$0.75  \\
+$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$ &  0.69$\pm$0.69  \\
+$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$ &  0.10$\pm$0.10 \\
+$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$     &  0.65$\pm$0.65  \\
+\hline
+$\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$ &  ---  \\
+$\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>450$     &  0.11$\pm$0.11 \\
+\hline
+Compressed search & $250<MET<350$ & 5.3$\pm$5.3 \\
+Compressed search & $350<MET<450$ & 1.0$\pm$1.0 \\
+Compressed search & $450<MET<550$ & 0.12$\pm$0.12 \\
+Compressed search & $MET>550$     & 0.13$\pm$0.13 \\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Rare Standard Model Processes}
 \label{ssec:stop:rarebkg}
 
-Describe the rare background (particularly $TTZ \rightarrow \nu\nu$).
-Talk about how this background is estimated.
-Describe how systematics are assessed.
+The final component to our backgrounds is that from
+rare Standard Model processes. In practice, we define this background
+component to contain any events containing a Z-boson that decays to
+two neutrinos (effectively becoming invisible). The vast majority of
+these events come from ttZ production where the Z decays to
+neutrinos, especially in the $\geq$4-jet regions. The next largest
+source is WZ production, which manifests primarily in the 2-to-3-jet
+regions.
 
-\section{Signal Estimate}
-\label{sec:stop:signal}
+\subsubsection{Estimation Method}
+\label{sssec:stop:rarebkg:estimation}
 
-Talk about how signal yields are estimated.
-Describe the corrections for signal contamination in control regions.
-Explain the method for assessing uncertainties on signal yields.
+Although the rare background is a relatively small component, we still
+attempt to estimate it using robust, data-driven methods. In contrast
+to the methods used for the lost lepton and 1$\ell$W backgrounds, we
+estimate the rare background using a technique more akin to that used
+in the top asymmetry measurements, as described in Section
+\ref{sec:afb:background}.
+
+Our rare background estimate relies on the assumption that the relative
+normalization between data and MC is the same in our signal regions as
+in a three-lepton control region. So:
+\begin{equation}
+\label{eq:stop:rarebkg:rationm}
+\frac{N_\text{rare}^\text{SR}}{M_\text{rare}^\text{SR}} =
+\frac{N_\text{ttZ, WZ}^{CR3\ell}}{M_\text{ttZ, WZ}^{CR3\ell}}
+\end{equation}
+If we invert Equation \ref{eq:stop:rarebkg:rationm}, we can estimate
+our rare background component using the Monte Carlo yield in our
+signal region, times a normalization factor derived in the 3$\ell$
+control region:
+\begin{equation}
+\label{eq:stop:rarebkg:estimation}
+N_\text{rare}^\text{SR} = M_\text{rare}^\text{SR} \times
+NF_\text{ttZ, WZ}^{CR 3\ell}
+\end{equation}
+The normalization factors are derived using a template fit, separately
+for ttZ and WZ production, as shown in Figure
+\ref{fig:stop:rarebkg:normalization}. For ttZ, the factor is $1.14 \pm
+0.30$, and for WZ, it is $1.26 \pm 0.09$. The uncertainties
+incorporate both statistical and systematic factors that influence the
+template fit.
+
+% Plots of ttZ and WZ normalization fits, taken from AN-16-386. Unpublished!!
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/rarebkg_norm_prefit.pdf}
+\includegraphics[width=0.45\textwidth]{figures/rarebkg_norm_postfit.pdf}
+\caption{Distribution of number of b-jets in 3$\ell$ control region,
+  before and after template fit, from 2016 same-sign dilepton search.}
+\label{fig:stop:rarebkg:normalization}
+\end{figure}
+
+We do not derive these factors ourselves; rather, they are taken
+from a CMS internal note documenting changes and improvements to the
+2016 same-sign dilepton search. The same-sign analysis was described
+in public documentation supporting ICHEP 2016\cite{samesign}.
+% AN-2016-386, follow up to PAS SUS-16-020
+
+\subsubsection{Control Region Definition}
+\label{sssec:stop:rarebkg:crdefinitions}
+
+The control region used to select 3-lepton events for the same-sign
+analysis is formed from the following criteria:
+\begin{itemize}
+\item Require three leptons ($e$ or $\mu$) passing tight ID
+  criteria. The first two must have $p_T >$ 25 and 20 GeV,
+  respectively, and the third must have $p_T >$ 10 GeV.
+\item The third lepton must form an opposite-sign same-flavor pair
+  with one of the first two leptons.
+\item The invariant mass of the paired leptons must be within 15 GeV
+  of the Z-boson mass (91.1876 GeV \cite{pdg}).
+\item There must be at least two jets in the event.
+\item The scalar sum of the $p_T$ of the jets, known as $H_T$, must
+  be $>$ 80 GeV.
+\item $\met >$ 30 GeV
+\end{itemize}
+
+\subsubsection{Systematic Uncertainties}
+\label{sssec:stop:rarebkg:systematics}
+
+Because the rare background is estimated differently from the other
+backgrounds, we assess our systematic uncertainties in two different
+ways. The standard experimental systematics are evaluated exactly as
+they were for the lost lepton and 1$\ell$W backgrounds, except where
+explicitly stated otherwise. The experimental uncertainties include:
+\begin{itemize}
+\item Monte Carlo statistics
+\item b-tagging efficiencies (HF and LF)
+\item Lepton ID and isolation efficiencies
+\item JES
+\item ISR $n_\text{jets}$ reweighting
+\item \textbf{Pileup reweighting:} this systematic is highly sensitive to the
+  low MC statistics of this background. To avoid large fluctuations,
+  we evaluate the uncertainty across all signal regions summed
+  together, and see that a conservative 3\% systematic will cover all
+  realistic cases.
+\end{itemize}
+
+When evaluating the theory uncertainties, we only consider the effects
+they have on the shape of the background. We keep the normalization
+fixed to the values derived from the control region. And because the
+theory uncertainties are highly sensitive to our limited statistics,
+we merge several of the nominal regions together by removing the
+binning in $M_{\ell b}$ and $t_\text{mod}$. In effect, this leaves us
+with fewer regions, binned only in $N_\text{jets}$ and $\met$. The
+corridor regions are not merged in any way. This merging is justified
+by studies showing that variations in the shapes of $M_{\ell b}$ and
+$t_\text{mod}$ are small compared to uncertainties arising from the
+$\met$ distribution. The theory uncertainties evaluated in this manner
+are:
+\begin{itemize}
+\item $Q^2$
+\item PDF
+\item $\alpha_S$
+\end{itemize}
+
+The values of the systematic uncertainties are presented in Table
+\ref{tab:stop:rarebkg:systematics}
+
+% Table of systematics adapted from AN-16-463.
+% May wish to change the layout.
+\begin{sidewaystable}
+\centering
+\footnotesize
+\caption{Summary of systematic uncertainties on the rare standard
+  model processes background estimate.}
+\label{tab:stop:rarebkg:systematics}
+\begin{tabular}{|l|cccccccccccc|}
+\hline
+Region & MC stat.   &   Lep. ID/Iso   &   b-tag (LF) &   b-tag (HF)  &   PU &   PDF &   $\alpha_S$ &   $Q^2$ &   ISR njets  & JES &   Norm.  & Total \\
+\hline
+ A 250$<\met<$350 & 11.88\% & 0.31\%  & 1.58\%  & 1.23\%  & 3.00\%  & 0.23\%  & 0.86\%  & 3.86\%  & 7.12\%  & 2.55\%  & 20.70\% & 25.60\% \\
+ A 350$<\met<$450 & 25.04\% & 0.35\%  & 3.63\%  & 0.77\%  & 3.00\%  & 3.33\%  & 0.61\%  & 1.31\%  & 9.09\%  & 0.37\%  & 24.38\% & 36.61\% \\
+ A 450$<\met<$600 & 23.87\% & 0.37\%  & 1.34\%  & 1.34\%  & 3.00\%  & 0.45\%  & 0.39\%  & 2.47\%  & 7.02\%  & 0.46\%  & 20.77\% & 32.71\% \\
+ A $\met>$600     & 51.43\% & 0.41\%  & 2.87\%  & 1.74\%  & 3.00\%  & 8.04\%  & 0.36\%  & 2.37\%  & 5.13\%  & 10.54\% & 16.77\% & 56.17\% \\
+ B 250$<\met<$450 & 29.98\% & 0.50\%  & 1.67\%  & 1.23\%  & 3.00\%  & 1.17\%  & 0.76\%  & 2.86\%  & 3.97\%  & 1.01\%  & 14.74\% & 34.01\% \\
+ B 450$<\met<$600 & 86.04\% & 0.77\%  & 5.28\%  & 1.26\%  & 3.00\%  & 0.45\%  & 0.40\%  & 2.47\%  & 4.00\%  & 32.62\% & 15.46\% & 93.63\% \\
+ B $\met>$600     & 228.31\%& 2.65\%  & 19.40\% & 1.64\%  & 3.00\%  & 8.03\%  & 0.36\%  & 2.37\%  & 8.12\%  & 44.04\% & 22.72\% & 234.76\%\\
+ C 250$<\met<$350 & 4.56\%  & 0.45\%  & 0.06\%  & 0.68\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 0.40\%  & 4.78\%  & 26.18\% & 27.26\% \\
+ C 350$<\met<$450 & 10.85\% & 0.35\%  & 0.48\%  & 0.66\%  & 3.00\%  & 2.01\%  & 1.23\%  & 5.00\%  & 0.99\%  & 6.85\%  & 23.73\% & 27.73\% \\
+ C 450$<\met<$550 & 20.70\% & 0.31\%  & 4.53\%  & 0.26\%  & 3.00\%  & 1.89\%  & 1.34\%  & 4.86\%  & 2.03\%  & 4.52\%  & 18.54\% & 29.25\% \\
+ C 550$<\met<$650 & 9.20\%  & 0.38\%  & 0.77\%  & 0.38\%  & 3.00\%  & 4.90\%  & 1.86\%  & 3.67\%  & 3.67\%  & 2.14\%  & 26.32\% & 29.09\% \\
+ C $\met>$650     & 12.73\% & 0.45\%  & 0.20\%  & 0.40\%  & 3.00\%  & 8.11\%  & 3.08\%  & 4.23\%  & 4.92\%  & 5.74\%  & 26.32\% & 31.85\% \\
+ D 250$<\met<$350 & 19.82\% & 0.31\%  & 0.72\%  & 0.41\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.76\%  & 0.82\%  & 9.76\%  & 20.24\% & 30.20\% \\
+ D 350$<\met<$450 & 27.58\% & 0.32\%  & 1.82\%  & 1.08\%  & 3.00\%  & 2.02\%  & 1.23\%  & 4.99\%  & 1.63\%  & 10.79\% & 17.33\% & 34.98\% \\
+ D 450$<\met<$550 & 47.40\% & 0.33\%  & 4.96\%  & 0.22\%  & 3.00\%  & 1.88\%  & 1.33\%  & 4.85\%  & 2.24\%  & 17.87\% & 17.31\% & 54.17\% \\
+ D $\met>$550     & 18.94\% & 0.44\%  & 0.06\%  & 0.83\%  & 3.00\%  & 7.53\%  & 2.44\%  & 2.55\%  & 7.31\%  & 7.15\%  & 26.32\% & 35.14\% \\
+ E 250$<\met<$350 & 5.55\%  & 0.42\%  & 0.65\%  & 0.74\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 2.52\%  & 3.80\%  & 25.40\% & 26.66\% \\
+ E 350$<\met<$550 & 10.40\% & 0.40\%  & 0.01\%  & 0.83\%  & 3.00\%  & 1.97\%  & 1.26\%  & 4.96\%  & 0.66\%  & 7.23\%  & 23.72\% & 27.63\% \\
+ E $\met>$550     & 87.72\% & 0.77\%  & 7.05\%  & 0.02\%  & 3.00\%  & 7.55\%  & 2.47\%  & 2.51\%  & 2.26\%  & 1.66\%  & 24.61\% & 91.86\% \\
+ F 250$<\met<$450 & 16.02\% & 0.42\%  & 0.06\%  & 0.31\%  & 3.00\%  & 1.16\%  & 0.78\%  & 2.70\%  & 2.10\%  & 4.41\%  & 24.07\% & 29.63\% \\
+ F $\met>$450     & 12.82\% & 0.47\%  & 0.40\%  & 0.57\%  & 3.00\%  & 3.72\%  & 1.70\%  & 3.91\%  & 2.22\%  & 3.37\%  & 26.33\% & 30.26\% \\
+ G 250$<\met<$350 & 5.75\%  & 0.39\%  & 0.01\%  & 1.71\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 2.09\%  & 3.44\%  & 25.42\% & 26.68\% \\
+ G 350$<\met<$450 & 7.06\%  & 0.43\%  & 0.05\%  & 1.35\%  & 3.00\%  & 2.01\%  & 1.23\%  & 5.00\%  & 1.79\%  & 9.62\%  & 25.14\% & 28.63\% \\
+ G 450$<\met<$600 & 9.01\%  & 0.37\%  & 0.19\%  & 1.27\%  & 3.00\%  & 2.63\%  & 1.54\%  & 4.72\%  & 0.51\%  & 5.15\%  & 24.77\% & 27.64\% \\
+ G $\met>$600     & 7.00\%  & 0.47\%  & 0.19\%  & 1.01\%  & 3.00\%  & 8.01\%  & 2.34\%  & 1.74\%  & 0.68\%  & 15.62\% & 26.32\% & 32.70\% \\
+ H 250$<\met<$450 & 9.94\%  & 0.49\%  & 0.05\%  & 0.07\%  & 3.00\%  & 1.17\%  & 0.79\%  & 2.72\%  & 2.06\%  & 4.60\%  & 26.32\% & 28.91\% \\
+ H $\met>$450     & 34.01\% & 0.43\%  & 0.04\%  & 0.88\%  & 3.00\%  & 3.71\%  & 1.70\%  & 3.91\%  & 0.93\%  & 2.41\%  & 19.94\% & 40.03\% \\
+ I 250$<\met<$350 & 9.76\%  & 0.38\%  & 0.78\%  & 0.47\%  & 3.00\%  & 0.21\%  & 0.32\%  & 3.91\%  & 4.30\%  & 5.32\%  & 23.38\% & 26.72\% \\
+ I 350$<\met<$450 & 17.91\% & 0.35\%  & 0.76\%  & 0.60\%  & 3.00\%  & 1.99\%  & 1.41\%  & 5.88\%  & 4.56\%  & 6.05\%  & 22.78\% & 30.79\% \\
+ I 450$<\met<$550 & 25.04\% & 0.51\%  & 4.83\%  & 0.35\%  & 3.00\%  & 1.89\%  & 1.62\%  & 4.90\%  & 5.38\%  & 4.89\%  & 21.64\% & 34.80\% \\
+ I $\met>$550     & 29.62\% & 0.40\%  & 0.22\%  & 0.68\%  & 3.00\%  & 1.82\%  & 1.55\%  & 7.48\%  & 4.76\%  & 6.34\%  & 20.76\% & 37.98\% \\
+\hline
+\end{tabular}
+\end{sidewaystable}
+
+\subsubsection{Results}
+\label{sssec:stop:rarebkg:results}
+
+The results of the rare standard model background estimation procedure
+are presented in Table \ref{tab:stop:rarebkg:results}.
+
+% Results table taken from AN-16-463.
+\begin{table}[htb]
+\centering
+\caption{Summary of the rare standard model background
+  estimate.}
+\label{tab:stop:rarebkg:results}
+\begin{tabular}{|l|cc|c|}
+\hline
+Region & ttZ & WZ & Total  \\
+\hline
+ A 250$<\met<$350 & 3.33 $\pm$ 0.96   & 1.38 $\pm$ 0.58   & 4.71 $\pm$ 1.21   \\
+ A 350$<\met<$450 & 1.85 $\pm$ 0.53   & 0.21 $\pm$ 0.53   & 2.05 $\pm$ 0.75   \\
+ A 450$<\met<$600 & 1.15 $\pm$ 0.33   & 0.47 $\pm$ 0.39   & 1.62 $\pm$ 0.53   \\
+ A $\met>$600 & 0.36 $\pm$ 0.11   & 0.36 $\pm$ 0.41   & 0.71 $\pm$ 0.40   \\
+ B 250$<\met<$450 & 0.61 $\pm$ 0.18   & 0.93 $\pm$ 0.47   & 1.54 $\pm$ 0.52   \\
+ B 450$<\met<$600 & 0.15 $\pm$ 0.05   & 0.20 $\pm$ 0.34   & 0.35 $\pm$ 0.33   \\
+ B $\met>$600 & 0.09 $\pm$ 0.03   & 0.02 $\pm$ 0.26   & 0.11 $\pm$ 0.26   \\
+ C 250$<\met<$350 & 14.28 $\pm$ 3.84  & 0.10 $\pm$ 0.62   & 14.38 $\pm$ 3.92  \\
+ C 350$<\met<$450 & 3.83 $\pm$ 1.06   & 0.60 $\pm$ 0.48   & 4.43 $\pm$ 1.23   \\
+ C 450$<\met<$550 & 1.06 $\pm$ 0.31   & 0.73 $\pm$ 0.39   & 1.79 $\pm$ 0.52   \\
+ C 550$<\met<$650 & 0.40 $\pm$ 0.12   & 0.00 $\pm$ 0.00   & 0.40 $\pm$ 0.12   \\
+ C $\met>$650 & 0.20 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.20 $\pm$ 0.06   \\
+ D 250$<\met<$350 & 2.06 $\pm$ 0.56   & 0.95 $\pm$ 0.63   & 3.01 $\pm$ 0.91   \\
+ D 350$<\met<$450 & 0.62 $\pm$ 0.18   & 0.55 $\pm$ 0.40   & 1.18 $\pm$ 0.41   \\
+ D 450$<\met<$550 & 0.24 $\pm$ 0.07   & 0.21 $\pm$ 0.22   & 0.45 $\pm$ 0.24   \\
+ D $\met>$550 & 0.09 $\pm$ 0.03   & 0.00 $\pm$ 0.00   & 0.09 $\pm$ 0.03   \\
+ E 250$<\met<$350 & 7.88 $\pm$ 2.14   & 0.40 $\pm$ 0.44   & 8.27 $\pm$ 2.21   \\
+ E 350$<\met<$550 & 3.34 $\pm$ 0.94   & 0.52 $\pm$ 0.39   & 3.87 $\pm$ 1.07   \\
+ E $\met>$550 & 0.26 $\pm$ 0.08   & 0.03 $\pm$ 0.25   & 0.29 $\pm$ 0.26   \\
+ F 250$<\met<$450 & 0.98 $\pm$ 0.27   & 0.13 $\pm$ 0.17   & 1.11 $\pm$ 0.33   \\
+ F $\met>$450 & 0.21 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.21 $\pm$ 0.06   \\
+ G 250$<\met<$350 & 2.89 $\pm$ 0.78   & 0.14 $\pm$ 0.15   & 3.03 $\pm$ 0.81   \\
+ G 350$<\met<$450 & 2.51 $\pm$ 0.71   & 0.16 $\pm$ 0.18   & 2.67 $\pm$ 0.77   \\
+ G 450$<\met<$600 & 1.80 $\pm$ 0.50   & 0.16 $\pm$ 0.16   & 1.96 $\pm$ 0.54   \\
+ G $\met>$600 & 0.70 $\pm$ 0.20   & 0.00 $\pm$ 0.00   & 0.70 $\pm$ 0.23   \\
+ H 250$<\met<$450 & 0.37 $\pm$ 0.11   & 0.00 $\pm$ 0.00   & 0.37 $\pm$ 0.11   \\
+ H $\met>$450 & 0.33 $\pm$ 0.10   & 0.16 $\pm$ 0.17   & 0.49 $\pm$ 0.20   \\
+ I 250$<\met<$350 & 3.66 $\pm$ 1.01   & 0.66 $\pm$ 0.43   & 4.33 $\pm$ 1.16   \\
+ I 350$<\met<$450 & 1.57 $\pm$ 0.45   & 0.35 $\pm$ 0.34   & 1.93 $\pm$ 0.59   \\
+ I 450$<\met<$550 & 0.58 $\pm$ 0.17   & 0.19 $\pm$ 0.20   & 0.77 $\pm$ 0.27   \\
+ I $\met>$550 & 0.41 $\pm$ 0.13   & 0.17 $\pm$ 0.17   & 0.58 $\pm$ 0.22   \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Results}
 \label{sec:stop:results}
