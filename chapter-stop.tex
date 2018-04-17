@@ -357,7 +357,8 @@ efficiencies when performing this background estimation.
 Our analysis relies on modeling a number of background and signal
 processes using Monte Carlo simulation. Table \ref{tab:stop:mcsamples}
 presents the complete list of Monte Carlo samples used. All samples
-are produced as MINIAODSIM.
+are produced as MINIAODSIM. Our SM samples were made using FullSim,
+while the SUSY signal samples were made using FastSim \cite{fastsim}.
 
 % Table of MC samples taken from AN-16-463. Unpublished.
 \begin{table}[htp]
@@ -843,7 +844,7 @@ real data with perfect accuracy. Therefore, we must reweight our
 simulated events to reproduce the properties of the data more
 exactly. The nominal weights applied to our MC simulations are
 described here. Sections \ref{sec:stop:bkgest} and
-\ref{sec:stop:signal} will describe the systematic uncertainties
+\ref{sssec:stop:signal:systematics} will describe the systematic uncertainties
 on these and other weights, and how we propagate those uncertainties
 to our final results.
 
@@ -914,7 +915,8 @@ After those criteria have been met, events are further subdivided
 among several different signal regions, to increase our sensitivity to
 a wide variety of SUSY scenarios.
 
-\subsubsection*{Nominal Signal Regions}
+\subsection{Nominal Signal Regions}
+\label{ssec:stop:sigregsnominal}
 
 Our nominal signal regions are tailored to the search for most T2tt
 signals, the T2bW signals, and the T2tb signals. To that end, our
@@ -986,7 +988,8 @@ SM background. We choose how many $\met$ bins to use in each series,
 and where their boundaries should be, in order to give reasonable
 statistics in all signal regions.
 
-\subsubsection*{Corridor Signal Regions}
+\subsection{Corridor Signal Regions}
+\label{ssec:stop:sigregscorridor}
 
 As Section \ref{ssec:stop:sigcompressed} described, previous stop
 searches have struggled to achieve sensitivity in the top corridor
@@ -1080,14 +1083,14 @@ constitute a strict subset of the nominal signal regions. To avoid
 double-counting events in multiple signal regions, we decided to use
 the corridor and nominal signal regions in non-overlapping regions of
 phase space. Using the limit-setting machinery described in Section
-\ref{sec:stop:interp}, I calculated the expected sensitivity to T2tt
+\ref{ssec:stop:limits}, I calculated the expected sensitivity to T2tt
 signals for both the nominal and corridor signal regions at a variety
 of mass points. The sensitivity is expressed as a number, $r$, the
 smallest value by which one could scale the signal cross section and
 be able to exclude the signal hypothesis. Put simply, lower values
 of $r$ indicate greater sensitivity to the signal. In Figure
 \ref{fig:stop:rratio}, I plotted the ratio
-$r_\text{corridor} / r_\text{nominal}$; wherever that value is less
+$r_\text{corridor} / r_\text{nominal}$ for T2tt signals; wherever that value is less
 than 1, the corridor signal regions are expected to be more sensitive
 than the nominal signal regions. Unsurprisingly, the corridor search
 regions have more expected sensitivity for $\Delta M$ between 100 and
@@ -1095,7 +1098,8 @@ regions have more expected sensitivity for $\Delta M$ between 100 and
 corridors. The size of the improvement in sensitivity ranges from
 about 10-30\%. We therefore use only the corridor signal regions for
 T2tt models with $\Delta M$ between 100 and 225 GeV, and we use only
-the nominal signal regions elsewhere.
+the nominal signal regions elsewhere in the T2tt plane, and for the
+T2bW and T2tb signal models.
 
 % r-ratio between corridor and nominal signal regions. Originally made
 % by moi. NOT PUBLISHED!
@@ -1673,7 +1677,7 @@ from W estimate are presented in Table \ref{tab:stop:1lw:systematics}.
 % Plot of W+b crosscheck, taken from AN-16-463. Unpublished.
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.45\textwidth]{Figures/cr0b_nbtags_crosscheck.pdf}
+\includegraphics[width=0.45\textwidth]{figures/cr0b_nbtags_crosscheck.pdf}
 \caption{Number of b-tags compared between data and MC, in
   high-statistics crosscheck region. The second bin includes events
   with one or more b-tags. The uncertainty band illustrates a 50\%
@@ -2061,7 +2065,7 @@ The results of the rare standard model background estimation procedure
 are presented in Table \ref{tab:stop:rarebkg:results}.
 
 % Results table taken from AN-16-463.
-\begin{table}[htb]
+\begin{table}[htbp]
 \centering
 \caption{Summary of the rare standard model background
   estimate.}
@@ -2108,13 +2112,302 @@ Region & ttZ & WZ & Total  \\
 \section{Results}
 \label{sec:stop:results}
 
-Give the final yields and uncertainties.
+The results of the four background estimation procedures, as well as
+the yields of data in our signal regions, are presented in Table
+\ref{tab:stop:results}. The same numbers are presented graphically in
+Figure \ref{fig:stop:results}.
+
+% Results table, adapted from AN-16-463.
+\begin{table}[htbp]
+\footnotesize
+\centering
+\caption{Estimated background yields and measured data yields in our
+  signal regions, based on the full 35.9 fb\textsuperscript{-1} of
+  2016 data.}
+\label{tab:stop:results}
+\begin{tabular}{|r|r|r|r|c|c|c|c|c|c|}
+\hline
+ \multirow{2}{*}{$N_\mathrm{J}$} & \multirow{2}{*}{$t_\mathrm{mod}$} & $M_\mathrm{\ell b}$ & $E_\mathrm{T}^\mathrm{miss}$ & Lost  & \multirow{2}{*}{1$\ell$ (top)} & 1$\ell$ (not & \multirow{2}{*}{$Z\rightarrow\nu\bar{\nu}$} & Total & \multirow{2}{*}{Data} \\
+  &  &  [GeV] &  [GeV] &  lepton &  &  top) &  & background &  \\
+\hline
+$\leq3$ &    $>10$ & $\leq175$ & $250-350$ & 53.9$\pm$6.2 & --- & 7.2$\pm$2.5 & 4.7$\pm$1.2 & 65.8$\pm$6.8 & 72 \\
+$\leq3$ &    $>10$ & $\leq175$ & $350-450$ & 14.2$\pm$2.4 & 0.22$\pm$0.22 & 4.1$\pm$1.4 & 2.1$\pm$0.8 & 20.5$\pm$2.9 & 24 \\
+$\leq3$ &    $>10$ & $\leq175$ & $450-600$ & 2.9$\pm$0.9 & 0.13$\pm$0.13 & 1.7$\pm$0.7 & 1.6$\pm$0.5 & 6.4$\pm$1.3 & 6 \\
+$\leq3$ &    $>10$ & $\leq175$ &    $>600$ & 0.61$\pm$0.49 & 0.28$\pm$0.28 & 0.78$\pm$0.34 & 0.71$\pm$0.40 & 2.4$\pm$0.8 & 2 \\
+\hline
+$\leq3$ &    $>10$ &     $>175$ & $250-450$ & 1.7$\pm$0.8 & --- & 5.6$\pm$2.2 & 1.5$\pm$0.5 & 8.9$\pm$2.4 & 6 \\
+$\leq3$ &    $>10$ &     $>175$ & $450-600$ & 0.02$\pm$0.01 & --- & 1.6$\pm$0.6 & 0.35$\pm$0.33 & 1.9$\pm$0.7 & 3 \\
+$\leq3$ &    $>10$ &     $>175$ &    $>600$ & 0.01$\pm$0.01 & --- & 0.87$\pm$0.39 & 0.11$\pm$0.26 & 0.99$\pm$0.47 & 2 \\
+\hline
+$\geq4$ & $\leq0$ & $\leq175$ & $250-350$ & 346$\pm$30 & 13.2$\pm$13.2 & 9.7$\pm$8.6 & 14.4$\pm$3.9 & 383$\pm$34 & 343 \\
+$\geq4$ & $\leq0$ & $\leq175$ & $350-450$ & 66.3$\pm$7.9 & 2.3$\pm$2.3 & 2.5$\pm$1.7 & 4.4$\pm$1.2 & 75.5$\pm$8.5 & 68 \\
+$\geq4$ & $\leq0$ & $\leq175$ & $450-550$ & 12.1$\pm$2.8 & 0.63$\pm$0.63 & 0.47$\pm$0.46 & 1.8$\pm$0.5 & 15.0$\pm$2.9 & 13 \\
+$\geq4$ & $\leq0$ & $\leq175$ & $550-650$ & 3.4$\pm$1.5 & 0.09$\pm$0.09 & 0.26$\pm$0.20 & 0.40$\pm$0.12 & 4.1$\pm$1.5 & 6 \\
+$\geq4$ & $\leq0$ & $\leq175$ &    $>650$ & 5.9$\pm$2.8 & --- & 0.43$\pm$0.38 & 0.20$\pm$0.06 & 6.6$\pm$2.9 & 2 \\
+\hline
+$\geq4$ & $\leq0$ &     $>175$ & $250-350$ & 26.0$\pm$4.3 & 3.1$\pm$3.1 & 7.5$\pm$3.0 & 3.0$\pm$0.9 & 39.7$\pm$6.2 & 38 \\
+$\geq4$ & $\leq0$ &     $>175$ & $350-450$ & 10.4$\pm$2.6 & 0.59$\pm$0.59 & 1.6$\pm$0.7 & 1.2$\pm$0.4 & 13.7$\pm$2.8 & 8 \\
+$\geq4$ & $\leq0$ &     $>175$ & $450-550$ & 1.7$\pm$0.9 & 0.37$\pm$0.37 & 0.56$\pm$0.32 & 0.45$\pm$0.24 & 3.1$\pm$1.1 & 2 \\
+$\geq4$ & $\leq0$ &     $>175$ &    $>550$ & 1.1$\pm$0.8 & --- & 1.0$\pm$0.6 & 0.09$\pm$0.03 & 2.2$\pm$1.0 & 1 \\
+\hline
+$\geq4$ &   $0-10$ & $\leq175$ & $250-350$ & 43.0$\pm$5.9 & 1.7$\pm$1.7 & 5.7$\pm$3.0 & 8.3$\pm$2.2 & 58.7$\pm$7.2 & 65 \\
+$\geq4$ &   $0-10$ & $\leq175$ & $350-550$ & 9.1$\pm$2.0 & 0.48$\pm$0.48 & 1.2$\pm$0.5 & 3.9$\pm$1.1 & 14.7$\pm$2.4 & 23 \\
+$\geq4$ &   $0-10$ & $\leq175$ &    $>550$ & 0.57$\pm$0.28 & 0.33$\pm$0.33 & 0.26$\pm$0.24 & 0.29$\pm$0.26 & 1.5$\pm$0.6 & 1 \\
+\hline
+$\geq4$ &   $0-10$ &     $>175$ & $250-450$ & 4.4$\pm$1.4 & 0.30$\pm$0.30 & 3.1$\pm$1.3 & 1.1$\pm$0.3 & 8.9$\pm$1.9 & 9 \\
+$\geq4$ &   $0-10$ &     $>175$ &    $>450$ & 0.10$\pm$0.17 & --- & 0.24$\pm$0.16 & 0.21$\pm$0.06 & 0.56$\pm$0.24 & 0 \\
+\hline
+$\geq4$ &    $>10$ & $\leq175$ & $250-350$ & 9.5$\pm$2.3 & 0.75$\pm$0.75 & 1.1$\pm$0.9 & 3.0$\pm$0.8 & 14.3$\pm$2.7 & 12 \\
+$\geq4$ &    $>10$ & $\leq175$ & $350-450$ & 5.9$\pm$1.8 & 0.69$\pm$0.69 & 0.71$\pm$0.51 & 2.7$\pm$0.8 & 10.0$\pm$2.1 & 9 \\
+$\geq4$ &    $>10$ & $\leq175$ & $450-600$ & 3.8$\pm$1.3 & 0.10$\pm$0.10 & 0.43$\pm$0.32 & 2.0$\pm$0.5 & 6.3$\pm$1.5 & 3 \\
+$\geq4$ &    $>10$ & $\leq175$ &    $>600$ & 0.75$\pm$0.61 & 0.65$\pm$0.65 & 0.34$\pm$0.38 & 0.70$\pm$0.23 & 2.4$\pm$1.0 & 0 \\
+\hline
+$\geq4$ &    $>10$ &     $>175$ & $250-450$ & 0.54$\pm$0.32 & --- & 1.0$\pm$0.6 & 0.37$\pm$0.11 & 1.9$\pm$0.7 & 0 \\
+$\geq4$ &    $>10$ &     $>175$ &    $>450$ & 0.24$\pm$0.17 & 0.11$\pm$0.11 & 0.46$\pm$0.26 & 0.49$\pm$0.20 & 1.3$\pm$0.4 & 2 \\
+\hline
+\multicolumn{3}{|l|}{Corridor region} & $250-350$ & 67.5$\pm$8.9 & 5.3$\pm$5.3 & 5.0$\pm$1.8 & 4.3$\pm$1.2 & 82.2$\pm$10.6 & 72 \\
+\multicolumn{3}{|l|}{Corridor region} & $350-450$ & 15.1$\pm$3.5 & 1.0$\pm$1.0 & 0.84$\pm$0.33 & 1.9$\pm$0.6 & 18.9$\pm$3.7 & 30 \\
+\multicolumn{3}{|l|}{Corridor region} & $450-550$ & 2.4$\pm$1.3 & 0.12$\pm$0.12 & 0.42$\pm$0.24 & 0.77$\pm$0.27 & 3.7$\pm$1.4 & 2 \\
+\multicolumn{3}{|l|}{Corridor region} &    $>550$ & 3.9$\pm$2.0 & 0.13$\pm$0.13 & 0.24$\pm$0.17 & 0.58$\pm$0.22 & 4.8$\pm$2.0 & 2 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Plot of final results, taken from AN-16-463.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.99\textwidth]{figures/ResultPlot_Moriond2017.pdf}
+\caption{Estimated background yields, measured data yields, and
+  selected signal predictions in our signal regions, based on the full
+  35.9 fb\textsuperscript{-1} of 2016 data. Hatched bands show the
+  combined statistical and systematic uncertainties.}
+\label{fig:stop:results}
+\end{figure}
 
 \section{Interpretation}
 \label{sec:stop:interp}
 
-Describe the Higgs Combine tool.
-Talk about how we use it.
-Explain (the rudiments of) the statistical methods.
-Interpret our results in the context of constraints on stop production.
+\subsection{Signal Estimate}
+\label{ssec:stop:signal}
 
+With the final tally of data and estimated backgrounds in, we must
+interpret those counts in terms of our SUSY signal models. As
+described in Table \ref{tab:stop:mcsamples}, our signal predictions
+are drawn from several Monte Carlo samples, produced using FastSim.
+
+During the course of routine data analysis, CMS scientists discovered
+certain anomalous events in the samples produced using FastSim. To
+prevent this anomaly from impacting our analysis, we filter out all
+simulated signal events that contain a reconstructed jet with the
+following attributes:
+\begin{itemize}
+\item Not matched to a generated jet within $\Delta R <$ 0.3, and
+\item Charged hadron fraction (CHF) $<$ 0.1
+\end{itemize}
+
+\subsubsection{Systematic Uncertainties}
+\label{sssec:stop:signal:systematics}
+
+Because our signal predictions are drawn from Monte Carlo simulations,
+we must assess many of the same systematic uncertainties for signal as
+we did for our background estimates. Although FastSim and FullSim have
+separate correction factors for a number of uncertainties, the method
+used to apply those corrections is generally the same as has been
+described for the background estimates.
+
+For signal samples, we compute an uncertainty on the lepton veto
+efficiency separately. All our signal models have an efficiency of
+about 94\% to accept true single-lepton events, with the 6\%
+inefficiency due to fake leptons. We assess a 50\% uncertainty on the
+efficiency of identifying these fake leptons, effectively giving a 3\%
+systematic for lepton veto efficiency.
+
+In addition, we must correct for the different modeling of $\met$ resolution
+in FastSim. To make such a correction, whenever $\met$ enters our
+measurements, we take the average of the reconstructed and generated
+$\met$ values. Effectively:
+\begin{equation}
+\met \text{(signal)} = \frac{1}{2} \left( \met \text{(reconstructed)} + \met
+  \text{(generated)} \right)
+\end{equation}
+To evaluate the uncertainty on this $\met$ correction, we vary the
+$\met$ by half the difference between the reconstructed and generated
+$\met$ values. % Is this the same as varying it between recomet and genmet?
+
+A condensed summary of the uncertainties on the signal estimate is
+presented in Table \ref{tab:stop:signal:systematics}.
+
+% Signal systematics table, adapted from AN-16-463
+\begin{table}[htbp]
+\centering
+\caption{Summary of systematic uncertainties on signal
+  yields. Uncertainties are given as typical values for an individual
+  signal region. Low $\Delta M$ refers to the compressed
+  regions. Table also indicates which uncertainties are treated as
+  correlated between regions.}
+\label{tab:stop:signal:systematics}
+\begin{tabular}{lccc}
+\hline\hline
+Systematic & \multicolumn{2}{c}{Typical size} & Correlated \\
+ & low $\Delta M$ & high $\Delta M$ & \\
+\hline
+Monte Carlo statistics & 7--15\% & 5--25\% & ---  \\
+Luminosity & 2.5\% & 2.5\% & $\checkmark$  \\
+Trigger & 2--4\% & 2--4\% & $\checkmark$  \\
+Pile-Up & 5--10\% & 5-10\% & ---  \\
+ISR & 15\% & 1--8\% & $\checkmark$ \\
+Jet energy scale & 1-20\% & 1-12\% & $\checkmark$ \\
+$Q^2$ & 2--4\% & 2-4\% & $\checkmark$ \\
+b-tagging & 1--2\% & 1--7\% & $\checkmark$ \\
+Lepton ID/ISO & 1\% & 1--2\% & $\checkmark$ \\
+Lepton veto efficiency & 3\% & 3\% & --- \\
+$\met$ modeling & 2--7\% & 1--10\% & --- \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Signal Contamination}
+\label{sssec:stop:signal:contamination}
+
+Because our dilepton and 0-btag control regions are so similar to our
+signal regions, with only single cuts inverted, a number of signal
+events are reconstructed in those control regions instead of in the
+signal regions. This is known as \emph{signal contamination}. This
+contamination could cause our background estimates to be
+artificially high, thus preventing us from noticing any excess of SUSY
+events in our signal regions. To account for this effect, we measure
+the number of signal events in our lost lepton and 0-btag control
+regions, and propagate those numbers through our estimation procedure,
+to figure out how the contamination would raise our background
+predictions. We then subtract those numbers from the signal yields
+predicted in the signal regions. This has the effect of reducing our
+sensitivity to SUSY signals in a way that approximates the effect of
+actual signal contamination.
+
+Signal contamination in the lost lepton CRs results in a signal yield
+correction of 5-10\% in the top and W corridor areas of parameter
+space, with corrections of 5\% or less in the bulk regions. In the
+0-btag CRs, signal contamination generally results in corrections of
+3\% or less, except for along the W corridor in the corridor search
+regions, where the correction tends to range from 20-40\%. This heavy
+signal contamination along the W corridor appears because the
+kinematics of compressed T2tt decays make it difficult to tag
+b-jets. In essence, the 0-btag control regions act as fairly good
+signal regions themselves. Future researchers may wish to consider
+inverting the b-tag requirement and defining 0-btag signal regions to
+be used along the W corridor.
+
+\subsection{Limits}
+\label{ssec:stop:limits}
+
+The statistical analysis of our results is performed using the
+CombinedLimit tool originally developed for the Higgs boson search at
+the LHC \cite{higgscombine}. Using this tool, we combine our
+signal regions together using a modified frequentist approach
+\cite{combineregions}. As described in Section
+\ref{ssec:stop:sigregscorridor}, we combine the four corridor signal
+regions (series I) when searching for T2tt signals in the range $100 < \Delta M <
+225$ GeV; for other mass points in the T2tt search, and for all mass
+points in the T2bW and T2tb searches, we combine our 27 nominal signal
+regions (series A-H). When performing this combination, we account for
+the fact that some uncertainties, such as data and MC statistics, are
+totally uncorrelated from region to region, whereas other systematics,
+such as luminosity or JES, are correlated from region to region
+because they are derived from the same scale factors.
+
+We do not generally see large excesses of signal events over the
+Standard Model backgrounds, so we set limits on the cross section for
+stop squark pair production decaying to single-lepton final states.
+At each mass point in the ($\mstop$, $\mlsp$) parameter space,
+we calculate 95\% confidence level (CL) exclusion limits for stop squark
+production using an asymptotic formulation of the
+CL$_\text{s}$ method \cite{cls,asymptotic}.
+
+In Figure \ref{fig:stop:limits:t2tt}, we show the 95\% CL exclusion
+range for the process $pp \rightarrow \tilde{t}\tilde{t}^* \rightarrow
+\ttbar \lsp_1 \lsp_1$ (the T2tt model), along with 95\% CL upper limits on
+the production cross section for such signals. These numbers are
+produced assuming stop squarks are unpolarized. If the LSP is
+massless, we exclude production of stop squarks up to 1120 GeV in
+mass; the excluded LSP masses vary with stop mass, up to a maximum of
+515 GeV for a stop mass of 950 GeV. Note that our exclusion curve does
+not have the ``inlet'' along the top corridor region seen in the Run I
+results, indicating the success of our compressed T2tt search
+strategy. The white band in the lower corner represents a region in
+which we set no cross section limit due to problems in the
+production of the Monte Carlo sample. % Improve this statement
+
+Figure \ref{fig:stop:limits:t2bw} presents the same limits for the
+process $pp \rightarrow \tilde{t}\tilde{t}^* \rightarrow b\bar{b}
+\chargino_1 \chargino_1,\text{ with } \chargino_1 \rightarrow W
+\lsp_1$ (T2bW model). In this case, we exclude stop squarks up to 1000
+GeV for the case of a massless LSP, and LSPs up to 460 GeV for the
+case of an 800 GeV stop squark.
+
+In Figure \ref{fig:stop:limits:t2tb}, we see the exclusion and cross
+section limits for the process $pp \rightarrow \tilde{t}\tilde{t}^*
+\rightarrow tb \chargino_1 \lsp_1,\text{ with} \chargino_1 \rightarrow
+W* \lsp_1$ (T2tb model). In this case, we exclude stops up to 1000 GeV
+for the case of a massless LSP, and LSP masses up to 390 GV for the
+case of an 850 GeV stop squark.
+
+% T2tt exclusion plot, taken from public results page. Published.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/limits_T2tt.pdf}
+\caption{Exclusion limits at 95\% CL (black line) and cross section
+  upper limits at 95\% CL (color scale) for production of stop squarks
+  decaying to top quarks and LSPs.}
+\label{fig:stop:limits:t2tt}
+\end{figure}
+
+% T2bW exclusion plot, taken from public results page. Published.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/limits_T2bW.pdf}
+\caption{Exclusion limits at 95\% CL (black line) and cross section
+  upper limits at 95\% CL (color scale) for production of stop squarks
+  decaying to bottom quarks and charginos, with charginos decaying to
+  W-bosons and LSPs.}
+\label{fig:stop:limits:t2bw}
+\end{figure}
+
+% T2tb exclusion plot, taken from public results page. Published.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/limits_T2tb.pdf}
+\caption{Exclusion limits at 95\% CL (black line) and cross section
+  upper limits at 95\% CL (color scale) for production of stop squarks
+  decaying half to top quarks and LSPs and half to bottom quarks and
+  charginos.}
+\label{fig:stop:limits:t2tb}
+\end{figure}
+
+
+\section{Conclusion}
+\label{sec:stop:conclusion}
+
+We have performed a search for three models of stop squark pair production
+and decay to single lepton final states using data from the CMS
+experiment. The data, collected in 2016, correspond to 35.9
+fb\textsuperscript{-1} of luminosity. We selected events containing a
+single isolated electron or muon, multiple jets, and large
+$\met$. When the backgrounds were subtracted, the results were
+consistent with predictions from the Standard Model. We set exclusion
+limits on these models; at the 95\% confidence level, these exclusions
+include stop squarks up to about 1000 GeV for massless neutralinos,
+and neutralino masses up to 515 GeV for a stop mass of 950 GeV.
+
+\section{Acknowledgements}
+\label{sec:stop:acknowledgements}
+
+Although the bulk of this analysis was the work of a few physicists,
+the analysis would not be possible without the efforts of the entire
+CMS collaboration, more than 3,000 members strong. They were responsible
+for maintaining the detector, software, and computing platforms
+necessary to perform the analysis. In addition, numerous members
+contributed feedback that enhanced the quality of the analysis.
+
+The 2016 analysis was published singly in JHEP \cite{stop1l}, and an
+earlier version based on 2015 data was published, combined with an
+all-hadronic stop search, in EPJ \cite{combination0l}.
