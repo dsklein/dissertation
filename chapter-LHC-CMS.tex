@@ -1,4 +1,4 @@
-\chapter{The Large Hadron Collider and the CMS Detector}
+\chapter{The Large Hadron Collider and the CMS Experiment}
 \label{chap:hardware}
 
 In order to study the properties of the Standard Model particles, and
@@ -33,7 +33,7 @@ so often conducted at high energies, particle physics is sometimes
 referred to as high energy physics, or HEP.
 
 The Large Hadron Collider, or LHC, is currently the largest and most
-powerful particle collider ever built. % cite this
+powerful particle collider ever built. % cite the LHC published description
 It is currently the flagship experiment of CERN, the European Organization
 for Nuclear Research, located in Geneva, Switzerland.
 The LHC is a ring-shaped structure some 27 kilometers in circumference,
@@ -60,8 +60,13 @@ The proton beams are not continuous streams of particles. Rather, the
 protons are grouped into bunches. During Run I, the LHC circulated XX
 bunches of YY particles. These bunches were spaced so that collisions
 could be made to occur every 50ns, or 20 million collisions per
-second. In Run II, the LHC circulates XX bunches of YY protons, and
+second. Currently, in Run II, the LHC circulates XX bunches of YY protons, and
 collides them every 25ns (40 million collisions per second). % Bunch size and spacing needed!
+Each beam crossing is referred to as an ``event''. A single event may
+contain multiple collisions between protons in the bunches. % Explain what pileup is
+
+% Explain luminosity (give the n = l * sigma equation)
+% Also good to explain integrated luminosity
 
 Although we have been describing protons as simple particles, in fact
 they are anything but. Protons contain two up quarks and a down quark,
@@ -92,6 +97,8 @@ which is colocated with LHCb; and LHCf, installed around the ATLAS detector.
 
 \section{The CMS Detector}
 \label{sec:cms}
+
+% Should be citing the original CMS detector description paper!!
 
 The research described in Chapters \ref{chap:afb} and \ref{chap:stop}
 was conducted using data gathered on proton-proton collisions by the
@@ -131,11 +138,11 @@ Before we can understand the design of the CMS detector, or the
 physics it studies, we must assign a coordinate system to the detector.
 Because the beam pipe has cylindrical symmetry, the CMS detector is
 similarly cylindrical. It is shaped like a giant barrel wrapped around
-the beam pipe, some 8 stories tall and wide, and 10 stories % Check numbers
+the beam pipe, some 5 stories tall and wide, and 7 stories
 long. Figure \ref{} depicts the coordinate system attached to the
 detector. The z-axis runs down the center of the beam pipe, and
 defines a longitudinal axis. It has a positive and negative direction;
-the point z=0 is the nominal spot where the protons collide. The
+the point $z$ = 0 is the nominal spot where the protons collide. The
 azimuthal direction in the detector is measured using the coordinate
 $\phi$. The radial coordinate $r$ expresses perpendicular distance from the z-axis.
 
@@ -189,6 +196,8 @@ velocities approaching the speed of light, rapidity and pseudorapidity
 become equal to one another. $\eta$ is used widely in collider
 physics, even to the extent that parts of the CMS detector are
 referred to by their ($\eta, \phi$) coordinates.
+
+% Explain Delta R as a measure of distance (or cone size)
 
 % Describe the barrel and endcap regions. Necessary for explaining the
 % geometry of the components.
@@ -393,21 +402,6 @@ than 1\% for electron energies above about 20 GeV \cite{tdr}.
 
 % Stick in TDR figure 1.7
 
-As they pass through the tracker, electrons tend to produce
-\emph{bremsstrahlung}, a shower of photons that radiate off as the
-electron is decelerated. These photons tend to then convert into
-electron-positron pairs, which may themselves produce bremsstrahlung,
-and so on. This shower, combined with the curved trajectory of
-electrons, means that electrons often appear in the ECAL as an energy
-deposit with a long tail in the $\phi$ direction. Photons, by
-contrast, are not bent by the magnetic field, and thus tend to create
-clustered energy deposits wherever they strike the ECAL. CMS
-scientists have a number clever ways to analyze the shape of these
-energy deposits to aid with particle identification. This information
-can also be combined with information from the tracker to
-differentiate electrons and photons.
-% Not sure if this info belongs here, or down below with particle ID.
-
 \subsection{Hadron Calorimeter (HCAL)}
 \label{ssec:cms:components:hcal}
 
@@ -418,7 +412,7 @@ alternating layers of metal, used to absorb some of the incident
 hadronic energy, and scintillating materials, used to measure the
 hadronic energy deposited in the calorimeter. The HCAL thus has an
 important role in measuring the energy of jets, as well as in
-measuring pileup from secondary collisions in the event. % Does HCAL play a role in measuring pileup?
+measuring pileup from secondary collisions in the event.
 
 The power of materials to stop relativistic particles is described in
 terms of the interaction length, $\lambda_I$. When a number of
@@ -598,42 +592,364 @@ with attached RPCs.
 
 % Anything I want to say about cosmics?
 
-\section{Collecting and Interpreting the Data}
-\label{sec:cms:datacollectinterp}
+\section{Triggers}
+\label{sec:cms:triggers}
 
-\subsection{Triggers} % and other stuff?
-\label{ssec:cms:triggers}
+As previous sections have described, the LHC collides protons at a
+rate of 40 million collisions per second. However, the number of
+collisions per second that can actually be recorded is ultimately
+dictated by the medium used to store the data. Magnetic disk drives
+are prohibitively slow for our uses, while solid-state
+drives are prohibitively expensive. So in particle physics, we store our data
+on magnetic tape (like one might find in a video or audio
+cassette). The data recording system allows us to keep only about one
+of every 100,000 events.
 
-% We can't keep all the data we capture.
-% We use hardware and software triggers to pick out the events that are
-% most interesting, or clearest.
+Fortunately, this constraint is less harmful than it might seem,
+because not every event is worth saving. Even with the
+considerable beam focusing power of the LHC, most bunch crossings only produce
+near-misses or grazing contact between protons. True head-on pp
+collisions, producing particles with a high transverse component to
+their momentum, are somewhat rare. Thus we can reach our threshold of
+1000 events per second by using a system of ``triggers'' to store only
+events where interesting physics is taking place.
+
+The first stage of the trigger system is the Level 1 trigger
+(L1). The L1 trigger is integrated directly into the detector
+hardware, and does not use any computational resources. It
+is tripped by basic signatures such as ionization tracks in the muon system, ECAL
+deposits consistent with electrons or photons, HCAL deposits
+consistent with jets, and a few others. This trigger system is able to
+make extremely fast decisions, and outputs events at a rate of 100
+kHz \cite{trigger}.
+
+Events passing the L1 triggers are handed off to the second trigger
+stage, called the high-level trigger (or HLT). This stage uses
+banks of commodity computers running physics reconstruction
+software to make a much more sophisticated determination of what
+physics objects are present in the event. Thanks to this more
+detailed reconstruction, the HLT allows one to trigger on a wide
+variety of signatures, and with a high degree of specificity about
+what is desired in the events. The HLT outputs events at an average
+rate of about 400 Hz; these are then stored for eventual use in
+physics research \cite{trigger}.
+
+The use of these trigger systems can create certain difficulties
+that must be compensated for during physics analysis. One
+example is that the triggers are not perfectly \emph{efficient},
+meaning they miss some fraction of the events they are intended to
+trigger on. For instance, a trigger designed to select events
+containing muons with $p_T >$ 17 GeV might only select 98\% of those
+target muons, and this fraction might even vary with the muon
+$p_T$. This effect must be measured, and accounted for when we compare
+our data against theoretical predictions. Another problem is that
+certain very common signatures (e.g. a single electron) occur more
+frequently than the triggers can handle. To cope with this flood of
+events, we may have to program the trigger to record only every
+$n^\text{th}$ event, and weight that event to count for $n$
+events. This is called \emph{prescaling} the trigger. Because
+weighting up prescaled events reduces our statistical precision, we
+try to use un-prescaled triggers whenever possible.
+
+\section{Reconstruction and Identification}
+\label{sec:cms:recoandid}
+
+In order to do meaningful particle physics, we must translate the
+output from the CMS detector into a picture of what particles and
+objects are present in the event. This is the process of event
+reconstruction (``reco'') and particle identification (``ID''). There
+are any number of possible algorithms for converting detector
+signatures into particles. The CMS Collaboration performs its basic
+reconstruction using a system called particle flow (PF).
+
+\subsection{Particle Flow}
+\label{ssec:cms:reco:pf}
+
+The particle flow algorithm attempts to associate all of the detector
+readings with particles or physics objects. It begins by
+reconstructing all the tracks, calorimeter energy clusters, and
+vertices in the event. Then, using this information, the algorithm
+iteratively attempts to reconstruct all the particles and physics
+objects in the event using all available detector information. It
+starts with the easiest objects to identify (muons); once all the
+muons in an event are reconstructed, the corresponding detector
+signatures are removed, and the next easiest identifications are
+attempted, and so on. Each successive ID step uses only the
+information that has not been consumed by a previous step. Some
+postprocessing is performed at the end \cite{particleflow}.
+
+\subsubsection{Charged Tracks and Vertices}
+\label{sssec:cms:pf:trackvert}
+
+As a prelude to reconstructing particles, the PF algorithm begins by
+reconstructing tracks from the pixel and strip hits in the inner
+tracker. These tracks are reconstructed using a sophisticated method
+based on Kalman filtering, which is described in References
+\cite{kalman1} and \cite{kalman2}. In short, this method attempts to
+connect hits in successive layers and fit them to a helical
+trajectory. The method places tunable constraints on the minimum
+number of sequential hits required, the maximum number of missing
+``expected'' hits, and other quantities to ensure that tracks may be
+reconstructed to a desired level of quality.
+
+Once all the tracks in the event are identified, they must be grouped
+into vertices. A vertex is a spot where a proton-proton interaction
+took place and produced some particles. Vertices are reconstructed by
+extrapolating tracks backward to see where they originated from, and finding
+spots where several tracks intersect. As mentioned previously, a
+single event may contain multiple proton-proton interactions, and thus
+multiple vertices. The vertex associated with the higest sum of
+squares of track $p_T$ is known as the \emph{primary vertex}; when
+analyzing an event, we only consider particles emanating from the
+primary vertex. Any other vertices are called secondary, and the
+particles originating from them are considered \emph{pileup}, or
+extraneous debris in the event.
+
+\subsubsection{Calorimeter Clusters}
+\label{sssec:cms:pf:caloclusters}
+
+The next step before reconstructing particles is to group the energy
+deposits in the ECAL and HCAL into clusters. The clustering process
+is important for differentiating between electrons and photons, and
+between charged hadrons and neutral hadrons. Each cluster begins with
+a \emph{seed}--a calorimeter cell whose measured energy is above some defined
+threshold. From the seed, a cluster is formed by
+recursively adding in any adjacent cells with sufficient energy, and
+then fitting the energy distribution with a 2D Gaussian. Separate
+calibrations are applied in the endcap and barrel of each calorimeter,
+to account for the differences in geometry and detector layout between
+the regions \cite{particleflow}.
+
+\subsubsection{Muons}
+\label{sssec:cms:pf:muons}
+
+Once the tracks, vertices, and clusters have been formed, the particle
+flow algorithm begins by attempting to reconstruct any muons in the
+event. Muons are the natural starting point because their signature is
+very distinctive and usually quite clean. The ideal muon is made by joining a
+track in the muon system with a track in the inner tracker that lines
+up appropriately. A muon that comes directly from the collision is expected
+to have a low value for its \emph{isolation}, a measurement of how
+much energy and momentum is found within a cone of radius $\Delta R <$
+0.3 around the hypothesized muon track. A muon
+that uses both tracker and muon-system information is known as a
+\emph{global} muon. Sometimes it may also be possible to reconstruct
+\emph{tracker-only} muons or \emph{standalone} muons, which use only
+information from the inner tracker, or the muon system,
+respectively. Once a muon candidate is identified, the associated
+tracks are removed from consideration in future identification
+steps \cite{particleflow}.
+
+\subsubsection{Electrons and Photons}
+\label{sssec:cms:pf:egamma}
+
+Electrons and photons are processed in the same step because the
+identification of both particles relies on ECAL energy deposits. A
+potential electron starts out as a charged track that matches up with
+a suitable ECAL energy deposit, and a photon is suspected when there
+is an ECAL deposit that has no corresponding track. To solidify the
+identification, a number of further identification criteria are
+checked in each case.
+
+The shape of the ECAL energy deposit is a key clue used in identifying
+electrons and photons. As they pass through the tracker, electrons
+tend to produce \emph{bremsstrahlung}, a shower of photons that
+radiate off as the electron's path bends. These photons tend to then
+convert into electron-positron pairs, which may produce further
+bremsstrahlung, and so on. This shower, emitted along the curved
+trajectory of electrons, means that electrons often appear in the ECAL
+as a pronounced energy deposit with a long tail of clusters in the $\phi$
+direction. Photons, by contrast, are not bent by the magnetic field,
+and thus tend to create rounder energy deposits wherever they strike
+the ECAL.
+
+A number of other variables are also used in identifying electrons and
+photons. For instance, electrons and photons shower somewhat
+differently when they strike the ECAL crystals, giving rise to a
+number of variables describing the transverse shower shape that are
+used in electron ID. It is also worth pointing out that decaying
+hadrons can produce electrons and photons. So in order to
+claim an electron or photon originated in the hard collision, its
+assocated ECAL deposits must not overlap large HCAL energy
+deposits. Photons are also required to be isolated \cite{particleflow}.
+
+\subsubsection{Hadrons}
+\label{sssec:cms:pf:hadrons}
+
+Once isolated muons, electrons, and isolated photons are removed from
+the event, the only particles left to identify are charged and neutral
+hadrons. At this step, particle flow also attempts to reconstruct
+non-isolated photons and muons, because these may be produced when
+hadrons decay. Wherever a (non-isolated) ECAL deposit is found that is
+not linked to a track, it becomes a photon; similarly, any HCAL
+deposits not linked to tracks become neutral hadrons. Any remaining
+HCAL deposits must be linked to tracks, and are therefore considered
+to be charged hadrons. When overlapping ECAL deposits, HCAL deposits,
+and/or tracks are found, they may be reconstructed as combinations of
+charged and neutral hadrons and photons \cite{particleflow}.
+
+\subsection{Missing Transverse Energy}
+\label{ssec:cms:reco:met}
+
+As Section \ref{ssec:cms:coordinates} described, the proton beams are
+stabilized so that they have negligible momentum in the transverse
+direction. Conservation of momentum implies that when two protons
+collide, the total momentum of all the collision products should also
+have a transverse component equal to zero. However, if some particles
+pass through the detector without interacting, it would look like
+the total transverse momentum of the event is not zero. Neutrinos are
+well known for their low probability of interacting with standard
+detector hardware. But in addition, some theories of new physics (such
+as supersymmetry) also predict particles that wouldn't be detected by
+CMS. It is therefore important to quantify the apparent transverse
+momentum imbalance in our events.
+
+The law of momentum conservation tells us that the missing $p_T$ from
+the invisible particles should be equal and opposite to the vector sum
+of the $p_T$ of the visible particles:
+\begin{equation}
+p_T^\text{miss} = -1 \cdot \sum_i \vec{p}_T^i
+\end{equation}
+For historical reasons, this quantity tends to be called \emph{missing
+  transverse energy}, even though it is actually a momentum, not an
+energy. It is formally denoted $\met$, or in shorthand, MET (for
+Missing E-sub-T). The particle flow algorithm computes the $\met$ of
+the event using the negative vector sum of the $p_T$ of the PF
+candidates:
+\begin{equation}
+\text{Particle flow } \met \text{ (PFMET) } =
+-1 \cdot \sum_\text{PF cands} \vec{p}_T \text{(cand)}
+\end{equation}
+This information can then be used in any analyses that involve
+neutrino production, or are searching for new physics that produces
+invisible particles.
+
+\subsection{Jets}
+\label{ssec:cms:reco:jets}
+
+As Section \ref{} described, a jet is a spray % Reference jets in particle physics chapter
+of (mostly) hadronic particles produced when a lone parton is ejected
+from a bound state with other partons, and hadronizes with other
+partons produced out of the vacuum. At the reconstruction level, then,
+a jet is simply a set of charged and neutral hadrons that appear to
+originate from a common source. If a given event contains only jets
+that are clearly separated from one another, then grouping particles
+together into a jet is a simple problem. However, in practice, jets
+frequently overlap each other, necessitating the use of clustering
+algorithms to group particles into jets with reasonable
+boundaries. Numerous jet clustering algorithms have been developed,
+but the one preferred by CMS is the anti-$k_t$ algorithm
+\cite{antikt}.
+
+Like many clustering algorithms, the anti-$k_t$ method works by
+grouping particles together that are ``nearby'' according to a
+distance metric $d_{ij}$. Previous algorithms either ignored the $p_T$
+of the particles when computing $d_{ij}$, or had $d_{ij}$ proportional
+to the $p_T$ squared. The anti-$k_t$ method is unique in that $d_{ij}$
+is \emph{inversely} proportional to the $p_T$ squared of the
+particles. The advantage of clustering particles this way is that
+low-momentum particles have less influence on the final shape of the
+jet, an attribute that is important for accurately measuring the jet
+energy \cite{antikt}.
+
+\subsection{Downstream Identification}
+\label{ssec:cms:reco:downstream}
+
+Particle flow and anti-$k_t$ clustering provide a useful foundation
+for the reconstruction of particles and jets. However, in practice,
+these IDs are usually too broad or error-prone for the
+purposes of cutting-edge science. Therefore, particle physicists will
+generally add further identification criteria to the objects they plan
+to use in their research.
+
+The CMS collaboration includes a number of Physics Object Groups
+(POGs) and Physics Analysis Groups (PAGs) whose mandates include
+developing and disseminating identification criteria that are suitable
+for use in analysis. For example, the Muon POG provides recommended
+muon ID criteria, and the SUSY PAG provides recommended
+ID criteria for use when searching for supersymmetry.
+
+It is common for a POG to release multiple versions or ``working
+points'' (WPs) of their ID criteria, with varying levels of purity
+vs. acceptance. For example, a ``tight'' electron ID will contain very
+stringent criteria, ensuring that very nearly all of the objects selected
+by such criteria really are electrons, even if a number of genuine
+electrons are missed. Conversely, a ``loose'' electron ID will
+use less stringent criteria, ensuring that nearly all true electrons
+in the event are selected, even if a number of fake electrons are
+selected as well.
+
+\subsubsection{B-tagging}
+\label{sssec:cms:reco:btagging}
+
+There is one particularly important kind of downstream identification
+that has not been discussed yet. Certain hadrons formed
+from bottom quarks have uniquely long lifetimes, carry uniquely high
+fractions of their parent momentum, or tend to decay into leptons. On
+the basis of these characteristics, it is often possible to identify
+jets that originated from a bottom quark, a process called
+\emph{b-tagging}. There exist numerous methods for tagging b-jets, but
+the one favored by CMS up to this point has generally been the
+Combined Secondary Vertex (CSV) method \cite{btag1,btag2}.
+
+The CSV method relies primarily on information about any secondary vertices
+within a jet. Even if a jet contains no secondary vertex, it may often
+be possible to approximate one from the tracks in the jet. The
+algorithm takes in measurements such as the displacement of the
+vertex, the number of tracks produced from it, the impact parameter of
+the tracks with respect to the primary vertex, and many others. This
+information is fed into a machine learning system, which returns a
+discriminator value between zero and one, with higher values denoting
+a greater likelihood that the jet comes from a b-quark
+\cite{btag1,btag2}. The Btag POG provides recommended WPs for
+identifying b-tags using this and other discriminators.
+
+\section{Monte Carlo Simulations}
+\label{sec:cms:montecarlo}
+
+So far, we have devoted considerable space to discussing how
+proton-proton collision data are processed at the CMS
+experiment. After all these intricate steps, one might imagine that it
+becomes difficult to compare any physics results derived from the
+data against the mathematical equations that describe the Standard
+Model, or any theories of BSM physics. We would do better to compare
+``apples to apples''. To facilitate such a comparison, we use Monte
+Carlo (MC) simulation methods to generate ``fake'' or simulated data
+that reflect the predictions of the theories we're interested in
+testing.
+% MC is described in TDR 2.5, and TDR II appendix C
+
+Monte Carlo simulations are typically produced using ``generator''
+software such as a\textsc{mc@nlo}, MadGraph, or POWHEG. A physicist
+inputs a desired process, such as top quark pair production, and the % Cite the generators? If I'm citing Geant and FastSim, I probably should here too.
+generator will simulate a large number of events where that process
+emerges from the pp collision. These simulations are often then passed
+to more specialized software such as PYTHIA to add realistic jets.
+
+Once the physics processes in the event have been simulated, the
+results are run through a simulated version of the CMS detector using
+the \textsc{Geant4} software \cite{geant}. \textsc{Geant4} is a
+toolkit for simulating the interactions of particles with matter;
+using it, we can mimic the responses of the CMS detector to the
+simulated physics events. We can thus run the same reconstruction
+algorithms on simulated data as are run on real data. In some cases,
+the \textsc{Geant4} representation (\emph{FullSim}) is not fast enough
+for specific needs, so the Monte Carlo simulations are run through
+\emph{FastSim}, a faster, but sometimes less accurate, reproduction of
+the CMS detector \cite{fastsim}.
+
+Armed with MC datasets that contain nearly identical information to
+real datasets, we can make detailed comparisons between theoretical
+predictions and measured results. As an added bonus, we can use the
+simulated data to better understand the physics behind our real
+data. The simulated events contain information about the true physics
+process being simulated, as well as what the detector and
+reconstruction algorithms would see in such a case, allowing us to
+compare the ``truth-level'' information about the event against the
+``reconstruction-level'' information.
+
+% \section{Acknowledgements}
+% \label{sec:hardware:acknowledgements}
 %
-% Some of this hardware is embedded directly in the detector,
-% e.g. muon systems can directly trigger L1
-%
-% Later on down the line, we sometimes have to correct for trigger effects.
-% Sometimes we have to prescale the triggers.
-% Triggers are used to sort the events into primary datasets.
-
-\subsection{Particle reconstruction and identification}
-\label{ssec:cms:recoandid}
-
-% We use the particle flow algorithm to make candidates out of the readouts.
-% Candidates may or may not actually be the thing they're ID'ed as.
-% So, we have IDs with different working points, which vary from analysis to analysis.
-% MET is also a thing.
-
-\subsection{Monte Carlo simulations}
-\label{ssec:cms:montecarlo}
-
-% The easiest way to compare theory predictions against our data is to
-% make fake data based on the theory equations.
-% There are a bunch of software packages we use to do this.
-% Some of these packages include MadGraph, AMC@NLO, Powheg, Pythia, etc.
-% We also use GEANT to simulate the detector response to particles.
-% (OSCAR is based on GEANT)
-% At the end of the day, we have tons of fake data we can use for various purposes.
-
-\section{Acknowledgements}
-\label{sec:hardware:acknowledgements}
-
+% Figure I probably don't need this, since I'm not claiming anything
+% here is my own work?
