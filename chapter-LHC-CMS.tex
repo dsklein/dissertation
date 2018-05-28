@@ -4,17 +4,17 @@
 In order to study the properties of the Standard Model particles, and
 to search for physics beyond the Standard Model, we need a way to
 produce particles other than the simple up and down quarks and
-electrons that make up everyday matter. And once we have produced
+electrons that make up everyday matter. And once we have produced such
 particles, we need a way to detect their presence, identify them, and
 measure their properties.
 
-This chapter will describe the hardware used to perform
+This chapter will describe the machines used to perform
 the analyses described in Chapters \ref{chap:afb} and \ref{chap:stop},
-namely the Large Hadron Collider and the CMS Detector. In addition, it
-will describe how the CMS Collaboration uses software to make sense of
+namely the Large Hadron Collider and the CMS Detector. It
+will also describe how the CMS Collaboration uses software to make sense of
 the readings it has collected from the CMS detector. Because these
-systems are immensely complex, this chapter will not attempt to be
-totally comprehensive, but will focus on the elements that are most
+systems are immensely complex, this chapter will not attempt to
+describe these systems in exhaustive detail, but will focus on the details that are
 important for understanding the science presented in the next two
 chapters. % Review to see if I'm actually meeting this goal
 
@@ -22,7 +22,7 @@ chapters. % Review to see if I'm actually meeting this goal
 \label{sec:lhc}
 
 In order to study heavy particles, we must first create them, since
-they are hard (or even impossible) to find in nature.
+it is impractical to find them in nature.
 Einstein's famous equation, $E = mc^2$, tells us that mass and energy
 are equivalent to one another. Physicists employ this principle to create
 heavier particles by taking lightweight particles, accelerating them to very high
@@ -32,41 +32,78 @@ can be converted into mass, creating heavier particles. Because it is
 so often conducted at high energies, particle physics is sometimes
 referred to as high energy physics, or HEP.
 
-The Large Hadron Collider, or LHC, is currently the largest and most
-powerful particle collider ever built. % cite the LHC published description
-It is currently the flagship experiment of CERN, the European Organization
+The Large Hadron Collider, or LHC, is the largest and most
+powerful particle collider ever built.
+It is the flagship project of CERN, the European Organization
 for Nuclear Research, located in Geneva, Switzerland.
-The LHC is a ring-shaped structure some 27 kilometers in circumference,
+The LHC is a ring-shaped structure about 27 kilometers (17 miles) in circumference,
 buried underground beneath the border between Switzerland and
-France. The ring encloses two pipes, through which beams of
-protons normally circulate in opposite directions. Strong electric fields
-propel the protons along the beam pipes, and strong magnetic fields
-steer the protons around the ring.
+France, as shown in Figure \ref{fig:lhc:above}. The ring encloses two
+pipes, through which beams of protons normally circulate in opposite
+directions for eventual collision. Strong electric fields propel the protons along the beam
+pipes, and strong magnetic fields steer the protons around the ring
+\cite{lhc}. The LHC tunnel and a cutaway view inside the accelerator
+may be seen in Figure \ref{fig:lhc:cutaway}.
 
-% Pictures of the LHC from above, and the tunnel.
-% And maybe a cross-section of the machine.
+% Picture of the LHC from above
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/lhc-from-above.png}
+\caption[Situation of the Large Hadron Collider near Geneva,
+Switzerland.]{Situation of the Large Hadron Collider near Geneva,
+  Switzerland \cite{cernphotos}.}
+\label{fig:lhc:above}
+\end{figure}
+
+% Picture of the LHC tunnel, with cutaway view of the cryomodules
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/lhc-tunnel-cutaway.png}
+\caption[Interior of the LHC tunnel, with cutaway view inside the
+  accelerator.]{Interior of the LHC tunnel, with cutaway view inside
+    the accelerator \cite{cernphotos}.}
+\label{fig:lhc:cutaway}
+\end{figure}
 
 The LHC is fed by a chain of smaller accelerators at CERN that shape
 the beams and bring them partway up to speed so they can be injected
 into the LHC. The LHC was designed to collide protons at an energy of
-14 trillion electron-volts (TeV). However, during early testing, a
+14 trillion electron volts (TeV). However, during early testing, a
 defective weld caused severe damage to the LHC; as a precaution
 against future damage, the LHC was operated at 7 and 8 TeV energy in
 its first run (Run I), and has been colliding at 13 TeV so far in its
 second run (Run II). At these energies, the protons in the beam are
-moving at 99.99999999\% of the speed of light.
+moving at 99.999999\% of the speed of light.
 
 The proton beams are not continuous streams of particles. Rather, the
-protons are grouped into bunches. During Run I, the LHC circulated XX
-bunches of YY particles. These bunches were spaced so that collisions
-could be made to occur every 50ns, or 20 million collisions per
-second. Currently, in Run II, the LHC circulates XX bunches of YY protons, and
-collides them every 25ns (40 million collisions per second). % Bunch size and spacing needed!
-Each beam crossing is referred to as an ``event''. A single event may
-contain multiple collisions between protons in the bunches. % Explain what pileup is
+protons are grouped into bunches. The LHC is designed to circulate
+2808 bunches of protons in each direction, with each bunch containing
+about 120 billion protons when it is first injected.
+The total ``amount of beam'' delivered per unit time is called
+\emph{luminosity}, denoted $\mathcal{L}$. Unrelated to the measure of
+optical power, luminosity in accelerator physics is expressed in
+units of 1/(area$\times$time); the typical luminosity of the LHC integrated over one
+year of running is on the order of several dozen
+\emph{inverse femtobarns} (fb\textsuperscript{-1}). The strange
+choice of units for luminosity allows us to express it as the inverse of
+\emph{cross section} (denoted $\sigma$), which is measured in units
+of area. The cross section for a particular process is a kind of
+relative probability of that process occurring. Because time-integrated
+luminosity has units of inverse area, the number of occurrences, $N$,
+of a given process observed in some time is given by:
+\begin{equation}
+N = \mathcal{L}_\text{int} \cdot \sigma
+\end{equation}
+Thus a process with a cross section of 50 fb may be expected
+to occur 1000 times in 20 fb\textsuperscript{-1} of data.
 
-% Explain luminosity (give the n = l * sigma equation)
-% Also good to explain integrated luminosity
+The proton beams are made to collide every 25ns, or 40 million times
+per second. Each beam crossing is referred to as an ``event''. A
+single event typically contains about 20 collisions between the
+protons in the bunches, though only one collision in the event will be
+analyzed. Usually this is the most energetic collision. The products
+of any secondary collisions are known as \emph{pileup}, and are
+treated as general background debris to be subtracted out.
 
 Although we have been describing protons as simple particles, in fact
 they are anything but. Protons contain two up quarks and a down quark,
@@ -76,15 +113,15 @@ popping into and out of existence on ultrashort timescales, in
 accordance with the laws of quantum mechanics. Collectively, all of
 these components of a proton are known as \emph{partons}, and any of
 them may be involved when two protons collide. Studies on the relative
-momentum of these various partons tell us that at the LHC, most of the
+momentum of the various partons tell us that at the LHC, most of the
 time it is the gluons that are colliding with each other. % Citation?
 
-At four places around the LHC ring, the beam pipes intersect, and the
-proton beams are made to collide with one another. At each of these
+At the LHC, there are four places where the beam pipes intersect and
+the proton beams are made to collide with one another. At each of these
 four locations, a detector is placed where it can observe the
 particles that are produced by these collisions. Two of
 the detectors are large, general-purpose machines, designed to support
-a wide variety of particle physics research. These detectors are called CMS
+a broad range of particle physics research. These detectors are called CMS
 and ATLAS. There are two general-purpose detectors so that the results from one
 may be cross-checked by the other. The other two main
 detectors are moderately sized and designed to study specific kinds of physics
@@ -98,68 +135,75 @@ which is colocated with LHCb; and LHCf, installed around the ATLAS detector.
 \section{The CMS Detector}
 \label{sec:cms}
 
-% Should be citing the original CMS detector description paper!!
-
 The research described in Chapters \ref{chap:afb} and \ref{chap:stop}
 was conducted using data gathered on proton-proton collisions by the
 CMS detector. CMS stands for Compact Muon Solenoid, a name whose
 origin will become apparent in the next few sections. In brief, though,
 this detector is a complex, multilayered array of sensors designed to
 detect and measure the properties of as many of the particles emerging
-from the collision point as possible.
+from the collision point as possible \cite{cms}. Figure
+\ref{fig:cms:outside} provides a cutway view inside these layers.
 
-% Wedge diagram goes here
-
-The CMS detector is composed of multiple layers, each with a specific
-purpose. These layers work in concert to provide a fairly complete
-picture of the numerous particles emerging from a collision.
-Figure \ref{} shows a small cross-sectional wedge
-of the detector, and demonstrates how each of the components
-contributes to measurements of the particles produced in the
-collisions.
+% Picture of the CMS detector with cutaway view
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/cms-cutaway.png}
+\caption[Perspective view of the CMS detector, with cutaway showing
+the many layers inside.]{Perspective view of the CMS detector, with
+  cutaway showing the many layers inside \cite{websitecms}.}
+\label{fig:cms:outside}
+\end{figure}
 
 The CMS detector was designed with a wide array of physics goals in
 mind. Some of these goals included discovering the Higgs boson,
 especially in decays to leptons or photons; discovering signs of
-supersymmetry, if such signs existed; searching for extra
-dimensions; and conducting precision tests of the predictions of the Standard Model.
+supersymmetry, if such signs exist; searching for extra
+dimensions; and conducting precision tests of the predictions of the
+Standard Model \cite{tdr}.
 These and other goals had to be balanced against practical
 constraints, such as budget, durability, and ease of readout. The
 detector that resulted from the convergence of these factors is
-described in Sections
+described in detail in Sections
 \ref{ssec:cms:components:magnet}-\ref{ssec:cms:components:muon}.
 
 \subsection{Coordinates}
 \label{ssec:cms:coordinates}
 
-% Insert pictures that show detector coordinates
+% Insert pictures that show detector coordinates, if possible
 
 Before we can understand the design of the CMS detector, or the
 physics it studies, we must assign a coordinate system to the detector.
 Because the beam pipe has cylindrical symmetry, the CMS detector is
 similarly cylindrical. It is shaped like a giant barrel wrapped around
 the beam pipe, some 5 stories tall and wide, and 7 stories
-long. Figure \ref{} depicts the coordinate system attached to the
-detector. The z-axis runs down the center of the beam pipe, and
-defines a longitudinal axis. It has a positive and negative direction;
-the point $z$ = 0 is the nominal spot where the protons collide. The
-azimuthal direction in the detector is measured using the coordinate
-$\phi$. The radial coordinate $r$ expresses perpendicular distance from the z-axis.
+long. The central part of the detector is actually referred to as the
+\emph{barrel}, and the two plugs that cap off either end of the barrel
+are known as the \emph{endcaps}.
+
+The coordinate system attached to the detector may be seen in
+plots throughout this Section. The longitudinal axis running down the
+center of the beam pipe is defined to be the $z$-axis. The $+z$
+direction points counterclockwise along the LHC, and the $-z$
+direction clockwise. If we consider a circular
+cross-section of the detector, as depicted atop Figure
+\ref{fig:cms:wedge}, the radial coordinate $r$ expresses distance out from
+the center, and the azimuthal angle is labeled $\phi$.
 
 Because the proton beams are compressed and stabilized in the
 transverse plane before they enter the collision area, we expect
 that the system of two colliding protons has no net momentum
-transverse to the beam pipe. We can therefore expect the total
-\emph{transverse momentum} (or $p_T$) of the collision products to be
-zero. However, because the individual partons inside a proton have
-constantly-changing momenta, we cannot know the total longitudinal
-momentum ($p_z$) of the pp collision. For
-this reason, we consider the $p_T$ of particles almost exclusively,
-and seldom spare a thought for $p_z$.
+transverse to the beam pipe, i.e. in the $r$ direction. We can
+therefore expect the total \emph{transverse momentum} (or $p_T$) of
+the collision products to be zero. However, because the individual
+partons inside a proton have constantly-changing momenta, we cannot
+know the total longitudinal momentum ($p_z$) of the pp
+collision. Because the total $p_T$ of the system is known a priori,
+but $p_z$ is not, we consider the $p_T$ of particles almost
+exclusively, and seldom spare a thought for $p_z$.
 
-Because particle collisions take place almost exclusively near the
-origin of the detector and their components spread out from there, it
-is sometimes helpful to describe the trajectories of particles in terms of
+Because particle collisions take place near the
+origin of the detector, it
+is often helpful to describe the trajectories of particles in terms of
 a sort of angle that they make in the $r-z$ plane. We could use the
 polar angle $\theta$ from spherical coordinates. But in a world of
 particles moving at relativistic speeds, we will often need to boost
@@ -171,10 +215,7 @@ of a particle is given by:
 \label{eq:cms:rapidity}
 y = \frac{1}{2} \ln \frac{E+p_z}{E-p_z}
 \end{equation}
-This coordinate has the advantage of transforming simply under Lorentz
-boosts. If two reference frames differ by a relativistic velocity
-$\beta = v/c$, then the rapidity in the new frame is given by $y\prime
-= y - \tanh^-1 \beta$. And because of this easy transformation rule,
+This coordinate has the advantage that
 the rapidity difference $\Delta y$ between two particles is Lorentz
 invariant--it remains the same no matter what reference frame it is
 measured in.
@@ -195,16 +236,41 @@ between two particles is also a relativistic invariant. In fact, at
 velocities approaching the speed of light, rapidity and pseudorapidity
 become equal to one another. $\eta$ is used widely in collider
 physics, even to the extent that parts of the CMS detector are
-referred to by their ($\eta, \phi$) coordinates.
+referred to by their ($\eta, \phi$) coordinates. Thus, you will see
+labels employing the $\eta$ coordinate in Figures
+\ref{fig:cms:tracker}, \ref{fig:cms:ecal}, \ref{fig:cms:hcal}, and
+\ref{fig:cms:muon}.
 
-% Explain Delta R as a measure of distance (or cone size)
+We have established that differences $\Delta \eta$ in pseudorapidity
+are invariant under Lorentz boosts along the $z$-axis. So too are
+differences $\Delta \phi$ in the azimuthal angle, because $\phi$ is
+measured transverse to the $z$-axis. So particle physicists often
+use a 3-dimensional ``angle'' $\Delta R$, defined by:
+\begin{equation}
+\Delta R^2 = \Delta \eta^2 + \Delta \phi^2
+\end{equation}
+This not-quite-an-angle will be used in this and subsequent chapters
+to measure the separation between two objects, and to define cones
+around single objects, in a relativistically invariant way.
 
-% Describe the barrel and endcap regions. Necessary for explaining the
-% geometry of the components.
-
+% CMS wedge diagram
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/cms-wedge.pdf}
+\caption[Diagram showing particles interacting with a typical
+cross-sectional wedge of the CMS detector.]{Diagram showing particles
+  interacting with a typical cross-sectional wedge of the CMS detector
+  \cite{particleflow}.}
+\label{fig:cms:wedge}
+\end{figure}
 
 \subsection{Superconducting Solenoid}
 \label{ssec:cms:components:magnet}
+
+Figure \ref{fig:cms:wedge} shows a small cross-sectional wedge
+of the detector, and demonstrates how each of the components
+contributes to measurements of the particles produced in the
+collisions.
 
 The defining feature of CMS, which gives rise to the 'S' in its name,
 is the superconducting solenoid. This component is a large
@@ -240,11 +306,18 @@ determine the momentum of the particle that created the
 tracks. Because the magnetic field is only in the z-direction, we can
 only measure the $p_T$ of the charged tracks, not the
 $p_z$. Importantly, neutral particles do not leave any hits in the
-tracker, and thus their trajectories cannot be measured.
+tracker, and thus their trajectories and momenta cannot be measured.
 
 % Figure of the tracker geometry
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/tracker.jpg}
+\caption[One-quarter $(r,z)$ view of the layout of the CMS inner
+tracker.]{One-quarter $(r,z)$ view of the layout of the CMS inner tracker \cite{tdr}.}
+\label{fig:cms:tracker}
+\end{figure}
 
-Figure \ref{} shows the geometry of the tracker as originally designed.
+Figure \ref{fig:cms:tracker} shows the geometry of the tracker as originally designed.
 The innermost part of the tracker ($r \lesssim$ 10cm), where the tracks are densest,
 consists of silicon pixels. At installation, there were three pixel
 layers in the barrel and two in the endcaps. Each pixel is
@@ -275,23 +348,14 @@ further processed in hardware outside the detector itself
 maintains the silicon sensors at a temperature no higher than
 $-10^\circ$ C \cite{accelexper}. The materials and geometry of the
 original tracker are chosen to minimize the amount of energy absorbed
-from particles as they pass through. The original
-tracker had a radiation thickness of about $0.4 X_0$ at $\eta = 0$,
-increasing to a maximum of $1.0 X_0$ at $|\eta| = 1.6$ and dropping
-back to $0.6 X_0$ at $|\eta|=2.5$, \cite{tdr}. The radiation length,
-denoted $X_0$, will be explained in the ECAL discussion next.
-% Consider pulling plot of material budget
+from particles as they pass through.
 
 The performance of the inner tracker has been measured using both
-muons and pions. For muons with $p_T$ of 100 GeV, the resolution
-in $p_T$ is about 1.5-2\% up to $|\eta|$ of 1.6, beyond which the
-resolution worsens exponentially. For muons with $p_T$ of 10 or 1 GeV,
-the resolution is better, on the order of 0.5-1.0\%. The efficiency of
-global muon track reconstruction is generally around 99\% for $p_T$ of
-1, 10, or 100 GeV, with a slight dropoff at $\eta=0$ and an
-exponential faloff above $|\eta|$ of 2.0. For pions, the global track
-resolution is somewhat less, ranging from 85-95\% for 100 GeV pions and
-75-90\% for 1 GeV pions \cite{tdr}.
+muons and pions. The $p_T$ resolution for muons ranges from about 0.5
+- 2.0\%, depending on $p_T$ and $\eta$. The efficiency of
+global muon track reconstruction is generally around 99\%. For pions,
+the global track resolution is somewhat less, ranging from 85-95\% for
+100 GeV pions and 75-90\% for 1 GeV pions \cite{tdr}.
 % Consider pulling some of the resolution plots
 
 \subsection{Electromagnetic Calorimeter (ECAL)}
@@ -300,7 +364,7 @@ resolution is somewhat less, ranging from 85-95\% for 100 GeV pions and
 Just outside the tracker, the next component in the CMS
 detector is the electromagnetic calorimeter, or ECAL. The purpose of
 this device is to measure the energy of electromagnetic particles
-(electrons and photons) emitted from the collisions. The ECAL consists
+(electrons and photons) produced in collisions. The ECAL consists
 of a giant array of lead tungstate (PbWO$_4$) crystals; when struck by
 electromagnetic particles, these crystals scintillate with a
 pale blue light that can be read out by optical sensors. The amount of
@@ -312,7 +376,7 @@ reconstruction.
 Lead tungstate has a number of properties that make it an ideal
 material to use in the ECAL. For one thing, it is quick to read
 out: lead tungstate crystals can release 80\% of their scintillation
-photons in the 25ns window between proton bunch crossings. In
+photons in the 25ns window between bunch crossings. In
 addition, lead tungstate is highly resistant (``hard'') to the high
 levels of radiation emitted by the collisions, tolerating a total
 absorbed dose of up to 10 Mrad (100 kGy). But perhaps most importantly,
@@ -342,8 +406,17 @@ average a smaller transverse shower size. For lead tungstate, $R_M =
 2.2$ cm \cite{tdr}. These characteristic distances will play a role in
 determining the size of the ECAL crystals.
 
-The ECAL is divided into two regions: the barrel, and the
-endcaps. These may be seen in Figure \ref{}.
+% Diagram of ECAL layout
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/ecal-layout.pdf}
+\caption[One-quarter $(r,z)$ view of the layout of the CMS ECAL.]{One-quarter $(r,z)$
+  view of the layout of the CMS ECAL \cite{tdr}.}
+\label{fig:cms:ecal}
+\end{figure}
+
+The ECAL is divided into barrel and endcap components.
+These may be seen in Figure \ref{fig:cms:ecal}.
 The PbWO$_4$ crystals are shaped like tapered rectangular prisms. In
 the barrel region, they are 230 mm long, corresponding to 25.8 $X_0$,
 and have front faces that are 22$\times$22 mm, corresponding to
@@ -363,23 +436,18 @@ at high $\eta$. These preshower detecters are composed of lead
 absorbers that initiate pion showering, and silicon strip detectors
 that measure the size and shape of the shower. All told, there are
 75,848 crystals in the entire ECAL, providing very fine spatial
-granularity. As Figure \ref{}
+granularity. As Figure \ref{fig:cms:ecal}
 shows, ECAL coverage extends out to $|\eta|$ = 3.0. However, there is
 a gap in coverage between the barrel and the endcaps. Electromagnetic
 particles that fall into this ``crack'' will not be measured, a fact
 that we must account for when attempting to reconstruct electrons and
 photons \cite{tdr}.
 
-% Pull TDR figure 4.1
-
 Lead tungstate produces a blue-green scintillation light, peaking near
 420mm. The amount of light produced in each crystal must be measured,
 and the information digitized, in order to determine the energy of incident EM
-particles. This presents a slight problem. Despite its other admirable
-properties, lead tungstate produces relatively little scintillation
-light - about 30 photons per MeV of energy. This fact necessitates
-the use of systems that can amplify faint signals. In the
-barrel, photons are read out by silicon avalanche photodiodes (APDs)
+particles. In the
+barrel, scintillation photons are read out by silicon avalanche photodiodes (APDs)
 stuck to the backs of each crystal. In the endcaps, vacuum
 phototriodes (VPTs) are used for readout instead. These sensors feed
 their signals to amplification and digitization hardware attached to
@@ -388,19 +456,7 @@ outside the detector volume \cite{tdr}.
 
 The performance of the ECAL was measured using a controlled beam of
 electrons. The measured energy resolution in groups of 3$\times$3
-crystals is shown in Figure \ref{}.
-This resolution function was parameterized by a Gaussian fit of the form
-\begin{equation}
-\left( \frac{\sigma}{E} \right)^2 =
-\left( \frac{S}{\sqrt{E}} \right)^2 +
-\left( \frac{N}{E} \right)^2 + C^2
-\end{equation}
-where $S$, $N$, and $C$ are parameters representing the stochastic,
-noise, and constant contributions to the resolution, respectively. As
-Figure \ref{} shows, the energy resolution is better
-than 1\% for electron energies above about 20 GeV \cite{tdr}.
-
-% Stick in TDR figure 1.7
+crystals is better than 1\% for electron energies above about 20 GeV \cite{tdr}.
 
 \subsection{Hadron Calorimeter (HCAL)}
 \label{ssec:cms:components:hcal}
@@ -444,7 +500,18 @@ The HCAL is divided into four subcomponents: the barrel (HB), the
 endcaps (HE), the outer calorimeter (HO), and the forward calorimeter
 (HF). Each of these components operates on the same principles, though
 the design of each differs slightly. These components are all cleverly
-overlapped to avoid any cracks like that of the ECAL.
+overlapped to avoid any cracks like that of the ECAL. The arrangement
+of the components is showin in Figure \ref{fig:cms:hcal}.
+
+% Plot showing HCAL layout
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/hcal-layout.jpg}
+\caption[One-quarter $(r,z)$ view showing the layout of the HCAL components within the
+CMS detector.]{One-quarter $(r,z)$ view showing the layout of the HCAL components within the
+  CMS detector \cite{cms}.}
+\label{fig:cms:hcal}
+\end{figure}
 
 The barrel covers the range $|\eta| <$ 1.3. The absorber material in
 the HB is segmented into 36 wedges; each wedge encompasses half the
@@ -523,19 +590,28 @@ technologies to reconstruct the trajectories of muons, from which
 momentum can be inferred. These trajectories can be combined with
 measurements from the tracker for greater precision.
 
-% Insert Fig. 1.6 from the TDR
+% Layout of the muon system
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/muon-layout.pdf}
+\caption[One-quarter $(r,z)$ view of the layout of the CMS muon
+system.]{One-quarter $(r,z)$ view of the layout of the CMS muon system
+  \cite{tdr}.}
+\label{fig:cms:muon}
+\end{figure}
 
-The layout of the muon system is presented in Figure \ref{}.
+The layout of the muon system is presented in Figure \ref{fig:cms:muon}.
 Like many other components, it is divided into barrel and endcap
 regions. The barrel region detects muons using a combination of drift
 tubes (DTs) and resistive plate chambers (RPCs), whereas the endcaps use cathode
 strip chambers (CSCs) and RPCs. All three of these technologies detect
-muons by the trail of ionization they leave after passing through a gas. The
+muons by the trail of ionization the muons leave after passing through a gas. The
 liberated electrons will be attracted to positively charged
 electrodes, and the ions to negatively charged electrodes. When
 electrons and ions hit the electrodes, they produce an electrical
 signal that is read out, and timing information
 is used to tell how far along the electrode the impact occurred.
+
 The drift tubes are long, thin chambers filled with a mixture of 85\%
 Ar and 15\% CO$_2$ gases, and with a positively charged wire running
 down their centers. Drift times in these chambers are a maximum of 380
@@ -545,7 +621,7 @@ provide 2D measurements. These devices are used because they are precise
 and inexpensive, and can function well in the muon barrel, where the
 particle flux and magnetic field are both low
 \cite{accelexper,websitedt}. The cathode strip chambers are planar
-chambers filled with a mix of 40\% AR, 50\% CO$_2$, and 10\%
+chambers filled with a mix of 40\% Ar, 50\% CO$_2$, and 10\%
 CF$_4$. They contain positively charged wires running in
 one direction, and negatively charged strips running perpendicularly,
 providing native 2D position measurements. CSCs are employed in the
@@ -566,12 +642,12 @@ The barrel section of the muon system, covering $|\eta| <$ 1.2, is
 interleaved with the iron return yokes, structures that concentrate
 the magnetic field exiting the solenoid and return it around to the
 other end. As such, the muon barrel follows the geometry of the
-yokes. The return yokes consist of five rings % width of the rings?
-and divided into 12 sectors in $\phi$. As Figure \ref{} shows,
+yokes. The return yokes consist of five rings that are about 2 meters long
+and divided into 12 sectors in $\phi$. As Figure \ref{fig:cms:muon} shows,
 the DTs and RPCs are stacked in four layers, or \emph{stations}. These
 are offset in $\phi$ so that all muons will pass through at least
-three. The three innermost stations contain 12 planes of DTs, 8 of
-which provide $r-\phi$ measurements, and 4 of which provide $z$
+three stations. The three innermost stations contain 12 planes of DTs, 8 of
+which provide $(r,\phi)$ measurements, and 4 of which provide $z$
 measurements. The outer station lacks the $z$ measuring planes. The
 inner two stations are coupled to two RPCs each, and the outer two
 stations have one RPC each. With this geometry, each individual
@@ -600,7 +676,8 @@ rate of 40 million collisions per second. However, the number of
 collisions per second that can actually be recorded is ultimately
 dictated by the medium used to store the data. Magnetic disk drives
 are prohibitively slow for our uses, while solid-state
-drives are prohibitively expensive. So in particle physics, we store our data
+drives are both prohibitively slow and expensive. So in particle
+physics, we store our data
 on magnetic tape (like one might find in a video or audio
 cassette). The data recording system allows us to keep only about one
 of every 100,000 events.
@@ -610,8 +687,8 @@ because not every event is worth saving. Even with the
 considerable beam focusing power of the LHC, most bunch crossings only produce
 near-misses or grazing contact between protons. True head-on pp
 collisions, producing particles with a high transverse component to
-their momentum, are somewhat rare. Thus we can reach our threshold of
-1000 events per second by using a system of ``triggers'' to store only
+their momentum, are somewhat rare. Thus we can reach a manageable threshold of
+$<$1000 events per second using a system of ``triggers'' to store only
 events where interesting physics is taking place.
 
 The first stage of the trigger system is the Level 1 trigger
@@ -629,16 +706,16 @@ banks of commodity computers running physics reconstruction
 software to make a much more sophisticated determination of what
 physics objects are present in the event. Thanks to this more
 detailed reconstruction, the HLT allows one to trigger on a wide
-variety of signatures, and with a high degree of specificity about
-what is desired in the events. The HLT outputs events at an average
+variety of signatures with a high degree of specificity. The HLT
+outputs events at an average
 rate of about 400 Hz; these are then stored for eventual use in
 physics research \cite{trigger}.
 
 The use of these trigger systems can create certain difficulties
-that must be compensated for during physics analysis. One
-example is that the triggers are not perfectly \emph{efficient},
+that must be compensated for during physics analysis. For one, the
+triggers are not perfectly \emph{efficient},
 meaning they miss some fraction of the events they are intended to
-trigger on. For instance, a trigger designed to select events
+trigger on. For example, a trigger designed to select events
 containing muons with $p_T >$ 17 GeV might only select 98\% of those
 target muons, and this fraction might even vary with the muon
 $p_T$. This effect must be measured, and accounted for when we compare
@@ -646,8 +723,8 @@ our data against theoretical predictions. Another problem is that
 certain very common signatures (e.g. a single electron) occur more
 frequently than the triggers can handle. To cope with this flood of
 events, we may have to program the trigger to record only every
-$n^\text{th}$ event, and weight that event to count for $n$
-events. This is called \emph{prescaling} the trigger. Because
+$n^\text{th}$ event, and weight that event to count $n$
+times. This is called \emph{prescaling} the trigger. Because
 weighting up prescaled events reduces our statistical precision, we
 try to use un-prescaled triggers whenever possible.
 
@@ -702,8 +779,7 @@ multiple vertices. The vertex associated with the higest sum of
 squares of track $p_T$ is known as the \emph{primary vertex}; when
 analyzing an event, we only consider particles emanating from the
 primary vertex. Any other vertices are called secondary, and the
-particles originating from them are considered \emph{pileup}, or
-extraneous debris in the event.
+particles originating from them are considered pileup.
 
 \subsubsection{Calorimeter Clusters}
 \label{sssec:cms:pf:caloclusters}
@@ -724,7 +800,7 @@ the regions \cite{particleflow}.
 \label{sssec:cms:pf:muons}
 
 Once the tracks, vertices, and clusters have been formed, the particle
-flow algorithm begins by attempting to reconstruct any muons in the
+flow algorithm attempts to reconstruct any muons in the
 event. Muons are the natural starting point because their signature is
 very distinctive and usually quite clean. The ideal muon is made by joining a
 track in the muon system with a track in the inner tracker that lines
@@ -746,7 +822,7 @@ steps \cite{particleflow}.
 Electrons and photons are processed in the same step because the
 identification of both particles relies on ECAL energy deposits. A
 potential electron starts out as a charged track that matches up with
-a suitable ECAL energy deposit, and a photon is suspected when there
+a suitable ECAL energy deposit; a photon is suspected when there
 is an ECAL deposit that has no corresponding track. To solidify the
 identification, a number of further identification criteria are
 checked in each case.
@@ -766,9 +842,9 @@ the ECAL.
 A number of other variables are also used in identifying electrons and
 photons. For instance, electrons and photons shower somewhat
 differently when they strike the ECAL crystals, giving rise to a
-number of variables describing the transverse shower shape that are
-used in electron ID. It is also worth pointing out that decaying
-hadrons can produce electrons and photons. So in order to
+number of variables describing the transverse shower shape. It is also
+worth pointing out that decaying
+hadrons can produce photons, so in order to
 claim an electron or photon originated in the hard collision, its
 assocated ECAL deposits must not overlap large HCAL energy
 deposits. Photons are also required to be isolated \cite{particleflow}.
@@ -784,7 +860,7 @@ hadrons decay. Wherever a (non-isolated) ECAL deposit is found that is
 not linked to a track, it becomes a photon; similarly, any HCAL
 deposits not linked to tracks become neutral hadrons. Any remaining
 HCAL deposits must be linked to tracks, and are therefore considered
-to be charged hadrons. When overlapping ECAL deposits, HCAL deposits,
+to be charged hadrons. When overlaps of ECAL deposits, HCAL deposits,
 and/or tracks are found, they may be reconstructed as combinations of
 charged and neutral hadrons and photons \cite{particleflow}.
 
@@ -827,10 +903,10 @@ invisible particles.
 \subsection{Jets}
 \label{ssec:cms:reco:jets}
 
-As Section \ref{} described, a jet is a spray % Reference jets in particle physics chapter
-of (mostly) hadronic particles produced when a lone parton is ejected
-from a bound state with other partons, and hadronizes with other
-partons produced out of the vacuum. At the reconstruction level, then,
+As Section \ref{ssec:SM:description} described, a jet is a spray
+of hadronic particles produced when a lone parton is ejected
+from a bound state, and hadronizes with other
+partons produced from the vacuum. At the reconstruction level, then,
 a jet is simply a set of charged and neutral hadrons that appear to
 originate from a common source. If a given event contains only jets
 that are clearly separated from one another, then grouping particles
@@ -882,10 +958,9 @@ selected as well.
 \subsubsection{B-tagging}
 \label{sssec:cms:reco:btagging}
 
-There is one particularly important kind of downstream identification
-that has not been discussed yet. Certain hadrons formed
+Certain hadrons formed
 from bottom quarks have uniquely long lifetimes, carry uniquely high
-fractions of their parent momentum, or tend to decay into leptons. On
+fractions of their parent quark momentum, or tend to decay into leptons. On
 the basis of these characteristics, it is often possible to identify
 jets that originated from a bottom quark, a process called
 \emph{b-tagging}. There exist numerous methods for tagging b-jets, but
@@ -907,12 +982,12 @@ identifying b-tags using this and other discriminators.
 \section{Monte Carlo Simulations}
 \label{sec:cms:montecarlo}
 
-So far, we have devoted considerable space to discussing how
+So far, we have discussed in considerable detail how
 proton-proton collision data are processed at the CMS
 experiment. After all these intricate steps, one might imagine that it
 becomes difficult to compare any physics results derived from the
 data against the mathematical equations that describe the Standard
-Model, or any theories of BSM physics. We would do better to compare
+Model or theories of BSM physics. We would do better to compare
 ``apples to apples''. To facilitate such a comparison, we use Monte
 Carlo (MC) simulation methods to generate ``fake'' or simulated data
 that reflect the predictions of the theories we're interested in
@@ -920,11 +995,12 @@ testing.
 % MC is described in TDR 2.5, and TDR II appendix C
 
 Monte Carlo simulations are typically produced using ``generator''
-software such as a\textsc{mc@nlo}, MadGraph, or POWHEG. A physicist
-inputs a desired process, such as top quark pair production, and the % Cite the generators? If I'm citing Geant and FastSim, I probably should here too.
+software such as a\textsc{mc@nlo} \cite{madgraph},
+MadGraph \cite{madgraph}, or POWHEG \cite{powheg}. A physicist
+inputs a desired process, such as top quark pair production, and the
 generator will simulate a large number of events where that process
-emerges from the pp collision. These simulations are often then passed
-to more specialized software such as PYTHIA to add realistic jets.
+takes place. These simulations are often then passed
+to more specialized software such as PYTHIA \cite{pythia} to add realistic jets.
 
 Once the physics processes in the event have been simulated, the
 results are run through a simulated version of the CMS detector using
@@ -933,23 +1009,28 @@ toolkit for simulating the interactions of particles with matter;
 using it, we can mimic the responses of the CMS detector to the
 simulated physics events. We can thus run the same reconstruction
 algorithms on simulated data as are run on real data. In some cases,
-the \textsc{Geant4} representation (\emph{FullSim}) is not fast enough
+the \textsc{Geant4} representation (FullSim) is not fast enough
 for specific needs, so the Monte Carlo simulations are run through
 \emph{FastSim}, a faster, but sometimes less accurate, reproduction of
 the CMS detector \cite{fastsim}.
 
-Armed with MC datasets that contain nearly identical information to
+Armed with MC datasets that contain the same kind of information as
 real datasets, we can make detailed comparisons between theoretical
 predictions and measured results. As an added bonus, we can use the
 simulated data to better understand the physics behind our real
 data. The simulated events contain information about the true physics
 process being simulated, as well as what the detector and
 reconstruction algorithms would see in such a case, allowing us to
-compare the ``truth-level'' information about the event against the
-``reconstruction-level'' information.
+map the ``reconstruction-level'' information about the event back to
+the underlying ``truth-level'' information.
 
-% \section{Acknowledgements}
-% \label{sec:hardware:acknowledgements}
-%
-% Figure I probably don't need this, since I'm not claiming anything
-% here is my own work?
+\section{Acknowledgements}
+\label{sec:hardware:acknowledgements}
+
+This chapter draws from several works authored by the CMS
+Collaboration. I am but one of over 3000 members of the
+collaboration. Thus, the work in this chapter represents the
+collective contributions of thousands of scientists.
+
+% Do I even need this section? I'm not claiming anything
+% here is my own work.
