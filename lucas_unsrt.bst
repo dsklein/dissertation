@@ -275,7 +275,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
   { namesleft #0 > }
   {
-    namesleft #4 >
+    namesleft #20 > % Above this many total names, just use "first author et al."
     {
       s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
       t * " {et~al.}"
@@ -287,8 +287,11 @@ FUNCTION {format.names}
       {
         namesleft #1 >
         {
-          nameptr #4 =
-          { ", " * t * "{ et~al.}" *}
+          nameptr #10 = % After this many names, the rest become "et al."
+			{
+			  ", " * t * "{ et~al.}" *
+			  #0 'namesleft :=
+			}
           { ", " * t * }
           if$
         }
@@ -336,9 +339,9 @@ FUNCTION {format.eprint}
      { ""}
      { archive empty$
           {"\href{http://www.arXiv.org/abs/" eprint * "}" *
-             "{\texttt{arXiv:" * eprint * "}}" *}
+             "{arXiv:" * eprint * "}" *}
           {"\href{" archive *  "/" * eprint * "}" *
-             "{\texttt{" * eprint * "}}" *}
+             "{" * eprint * "}" *}
        if$
      }
      if$
@@ -1399,7 +1402,7 @@ FUNCTION {begin.bib}
   "\makeatletter" write$ newline$
   "\providecommand{" noop.command "}[0]{\@secondoftwo}%" * * write$ newline$
   "\makeatother" write$ newline$
-  "\providecommand{\doi}{\texttt{doi:}\begingroup \urlstyle{tt}\Url}" write$ newline$
+  "\providecommand{\doi}{doi:\begingroup \urlstyle{same}\Url}" write$ newline$
 }
 
 EXECUTE {begin.bib}
