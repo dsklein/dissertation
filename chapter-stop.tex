@@ -680,8 +680,8 @@ WP (CSV $>$ 0.8) or the tight WP (CSV $>$ 0.935). Section
 As described earlier, $\metvec$ is calculated as the negative of the vector
 sum of all the particle flow candidates in the event. We recalculate
 the $\met$ after the jet energy corrections have been applied to the jets
-in the event. We also employ the following filters, as recommended by
-the JetMET group in CMS:
+in the event. We require each event have $\met >$ 250 GeV. We also
+employ the following filters, as recommended by the JetMET group in CMS:
 
 \begin{itemize}
 \item Primary vertex filter
@@ -747,10 +747,10 @@ resolution effects.
 \label{fig:stop:mt:nminusone}
 \end{figure}
 
-\subsection{Modified Topness (\texorpdfstring{$t_{\text{mod}}$}{tmod})}
+\subsection{Modified Topness (\texorpdfstring{$\tmod$}{tmod})}
 \label{ssec:stop:tmod}
 
-In a previous search for stop quarks, particle physicists developed a
+In a previous search for stop squarks, particle physicists developed a
 variable they called \emph{topness}, denoted $t$. This complicated
 variable attempts to quantify the degree to which an event is
 consistent with being a $\ttdilep$ event \cite{topness}. Although our
@@ -759,7 +759,7 @@ investigations showed that we could achieve better discrimination
 between signal and $\ttdilep$ by removing two of the terms in the
 topness variable (specifically, the center-of-mass constraint, and the
 $\chi^2$ for leptonic top decay). We thus arrive at a variable we call
-\emph{modified topness}, or $t_\text{mod}$. To calculate this
+\emph{modified topness}, or $\tmod$. To calculate this
 variable, we must minimize an expression that constrains the
 neutrino-lepton system to have a mass similar to the W-boson mass, and the
 b-quark-W-boson system to have a mass similar to top quark mass. Thus
@@ -767,7 +767,7 @@ we define:
 \begin{equation}
 \label{eq:stop:tmod}
 \begin{split}
-t_\text{mod} & = \ln ( \text{min} \; S ), \; \text{where} \\
+\tmod & = \ln ( \text{min} \; S ), \; \text{where} \\
 S(\vec{p}_W, p_{\nu,z}) & = \frac{(m_W^2-(p_\nu+p_\ell)^2)^2}{a_W^4} + \frac{(m_t^2 - (p_{b_2}+p_W)^2)^2}{a_t^4}
 \end{split}
 \end{equation}
@@ -775,7 +775,7 @@ S(\vec{p}_W, p_{\nu,z}) & = \frac{(m_W^2-(p_\nu+p_\ell)^2)^2}{a_W^4} + \frac{(m_
 The parameters $a_W$ and $a_t$ provide the scale for the W-boson
 and top quark masses; we set them to 5 GeV and 15 GeV, respectively.
 There is some ambiguity as to which jets should be used in this
-calculation. We found that $t_\text{mod}$ behaved best across signal
+calculation. We found that $\tmod$ behaved best across signal
 models with both low and high mass splittings if we chose our jets
 according to these rules:
 \begin{itemize}
@@ -783,14 +783,14 @@ according to these rules:
   CSVv2 discriminator values. If at least one such jet is b-tagged,
   only consider permutations that include at least one b-tagged jet.
 \item Choose the combination of jets that minimizes the ultimate
-  $t_\text{mod}$ value.
+  $\tmod$ value.
 \end{itemize}
 Ultimately, modified topness is effective in discriminating against
 both $\ttdilep$ events and single top $tW$ events. However, it also
 suppresses signal models with certain kinematics. For that reason, we
-choose to bin our signal regions in $t_\text{mod}$, instead of making
+choose to bin our signal regions in $\tmod$, instead of making
 a strict cut on it. Figure \ref{fig:stop:tmod} shows the distribution
-of $t_\text{mod}$ for our background processes and various signal mass
+of $\tmod$ for our background processes and various signal mass
 points.
 
 % Plot of t_mod taken from AN-16-463. Unpublished.
@@ -798,44 +798,44 @@ points.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/nminusone_tmod.pdf}
-\caption{Distribution of $t_\text{mod}$ after all other selections
+\caption{Distribution of $\tmod$ after all other selections
   have been applied. Normalization is arbitrary.}
 \label{fig:stop:tmod}
 \end{figure}
 
-\subsection{Lepton-b Invariant Mass (\texorpdfstring{$M_{\ell b}$}{mlb})}
+\subsection{Lepton-b Invariant Mass (\texorpdfstring{$\mlb$}{mlb})}
 \label{ssec:stop:mlb}
 
 Another variable that can help us discriminate signal from background
 is the invariant mass of the lepton and its corresponding b-jet,
-denoted $M_{\ell b}$. In the case of $\ttdilep$ and $\ttonelep$
+denoted $\mlb$. In the case of $\ttdilep$ and $\ttonelep$
 backgrounds, as well as T2tt signals, assuming we pair our lepton with
-the correct b-jet, then $M_{\ell b}$ is constrained by kinematics:
+the correct b-jet, then $\mlb$ is constrained by kinematics:
 \begin{equation}
-M_{\ell b} \leq \sqrt{m_t^2 - m_W^2} \approx 153 \text{GeV} % Verify this calculation for yourself!
+\mlb \leq \sqrt{m_t^2 - m_W^2} \approx 153 \text{GeV} % Verify this calculation for yourself!
 \end{equation}
 This inequality does not hold true for the W+jets background, nor for T2bW
-signals. So a low-$M_{\ell b}$ requirement will reduce W+jets content
-compared to the T2tt signal, and a high-$M_{\ell b}$ requirement will reduce
+signals. So a low-$\mlb$ requirement will reduce W+jets content
+compared to the T2tt signal, and a high-$\mlb$ requirement will reduce
 the $\ttbar$ backgrounds compared to the T2bW signal. As Section
 \ref{sec:stop:sigregs} will describe, we use different bins of
-$M_{\ell b}$ in the definitions of some of our signal regions.
+$\mlb$ in the definitions of some of our signal regions.
 
-We define $M_{\ell b}$ to be the invariant mass of the system of the
+We define $\mlb$ to be the invariant mass of the system of the
 leading lepton and the b-tag nearest the lepton in $\Delta R$. Figure
 \ref{fig:stop:mlb} shows an example distribution of this
 variable. Because the W+jets background is dominant at higher
-$M_{\ell b}$, and because W+jets has a much higher prevalence of
+$\mlb$, and because W+jets has a much higher prevalence of
 light-flavor jets over b-jets, we also tighten our b-tagging WP at
-high $M_{\ell b}$.
+high $\mlb$.
 
 % Mlb plot pulled from AN-16-463. Unpublished.
 %%% ALSO: like plot above, needs the CMS header
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/nminusone_mlb.pdf}
-\caption{Distribution of $M_{\ell b}$ variable after baseline
-  selections, in the region $t_\text{mod} > 0$. Normalization is arbitrary.}
+\caption{Distribution of $\mlb$ variable after baseline
+  selections, in the region $\tmod > 0$. Normalization is arbitrary.}
 \label{fig:stop:mlb}
 \end{figure}
 
@@ -961,7 +961,7 @@ A3, D1, G4, etc.
 \label{tab:stop:nominalsrs}
 \begin{tabular}{|c|c|r|r|lllll|}
 \hline
-Label & $N_J$ & $t_\text{mod}$ & $M_{\ell b}$ [GeV] & \multicolumn{5}{c|}{$\met$ [GeV]} \\
+Label & $N_J$ & $\tmod$ & $\mlb$ [GeV] & \multicolumn{5}{c|}{$\met$ [GeV]} \\
 \hline
 A & 2-3     & $>10$ & $\leq175$     & 250-350 & 350-450 & 450-600 & $>600$ & \\
 B & 2-3     & $>10$ & $>175$        & 250-450 & 450-600 & $>600$ & & \\
@@ -975,7 +975,7 @@ H & $\geq4$ & $>10$ & $>175$        & 250-450 & $>450$ & & & \\
 \end{tabular}
 \end{table}
 
-The signal regions that require 2-3 jets and $t_\text{mod} >$ 10
+The signal regions that require 2-3 jets and $\tmod >$ 10
 (the A and B series) are
 designed to target T2tb signals. Because we take the mass difference
 between the chargino and the LSP to be only 5 GeV in this model, the
@@ -990,23 +990,23 @@ models. They include a four jet requirement because we expect two b-jets from th
 top or stop decays and two more jets from the hadronic W decay.
 
 Each of our three signal models peaks in a different part of the
-$t_\text{mod}$ range. So by creating three distinct bins in
-$t_\text{mod}$ (but not applying a cut), we can target each model in
+$\tmod$ range. So by creating three distinct bins in
+$\tmod$ (but not applying a cut), we can target each model in
 a different region, while effectively dividing the background events into three
 parts. As Figure \ref{fig:stop:tmod} shows, the compressed
 case (small $\Delta M$) is most prominent when
-$t_\text{mod}$ is $<$ 0. When $0 < t_\text{mod} < 10$, signal models
+$\tmod$ is $<$ 0. When $0 < \tmod < 10$, signal models
 with moderate $\Delta M$ will stand out most against
-$\ttdilep$. And when $t_\text{mod} >$ 10, the $\ttdilep$ background
+$\ttdilep$. And when $\tmod >$ 10, the $\ttdilep$ background
 drops off substantially faster than signals with a large $\Delta M$.
 
-The binning in $M_{\ell b}$ follows from the facts explained in
-Section \ref{ssec:stop:mlb}. At low $M_{\ell b}$, the W+jets
+The binning in $\mlb$ follows from the facts explained in
+Section \ref{ssec:stop:mlb}. At low $\mlb$, the W+jets
 background is reduced with little loss in the T2tt signal, and at high
-$M_{\ell b}$, the $\ttbar$ backgrounds are reduced for little loss in
+$\mlb$, the $\ttbar$ backgrounds are reduced for little loss in
 the T2bW signal. Because this reduction in $\ttbar$ leaves W+jets as
 the dominant background, we also require that our one b-tag pass a
-tight WP in the in the high $M_{\ell b}$ regions.
+tight WP in the in the high $\mlb$ regions.
 
 Finally, the higher the mass splitting, the more $\met$ we generally
 expect in an event. So binning in $\met$ increases the
@@ -1293,45 +1293,45 @@ $\met$ extrapolation factor, where relevant).
 \hline
 Region  & $\ge2$~leptons & $1$~lepton,~from~$W$ & $1$~lepton,~from~$t$ & $Z\rightarrow\nu\nu$ & Sum Bkg. & Data & Data/MC \\*
 \hline \hline
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 215.40 $\pm$ 4.56  & 4.27 $\pm$ 2.62  & 6.49 $\pm$ 0.95  & 1.35 $\pm$ 0.06  & 227.51 $\pm$ 5.35  & 217 $\pm$ 14.73  & 0.95 $\pm$ 0.07 \\*
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$  & 77.88 $\pm$ 2.80  & 0.27 $\pm$ 0.13  & 2.61 $\pm$ 0.62  & 0.65 $\pm$ 0.04  & 81.40 $\pm$ 2.87  & 75 $\pm$ 8.66  & 0.92 $\pm$ 0.11 \\*
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$  & 25.01 $\pm$ 1.63  & 3.33 $\pm$ 3.08  & 1.37 $\pm$ 0.44  & 0.23 $\pm$ 0.03  & 29.95 $\pm$ 3.51  & 25 $\pm$ 5.00  & 0.83 $\pm$ 0.19 \\*
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 6.62 $\pm$ 0.84  & 0.02 $\pm$ 0.02  & 0.47 $\pm$ 0.27  & 0.06 $\pm$ 0.01  & 7.17 $\pm$ 0.88  & 3 $\pm$ 1.73  & 0.42 $\pm$ 0.25 \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$250<\met<350$  & 215.40 $\pm$ 4.56  & 4.27 $\pm$ 2.62  & 6.49 $\pm$ 0.95  & 1.35 $\pm$ 0.06  & 227.51 $\pm$ 5.35  & 217 $\pm$ 14.73  & 0.95 $\pm$ 0.07 \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$350<\met<450$  & 77.88 $\pm$ 2.80  & 0.27 $\pm$ 0.13  & 2.61 $\pm$ 0.62  & 0.65 $\pm$ 0.04  & 81.40 $\pm$ 2.87  & 75 $\pm$ 8.66  & 0.92 $\pm$ 0.11 \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$450<\met<600$  & 25.01 $\pm$ 1.63  & 3.33 $\pm$ 3.08  & 1.37 $\pm$ 0.44  & 0.23 $\pm$ 0.03  & 29.95 $\pm$ 3.51  & 25 $\pm$ 5.00  & 0.83 $\pm$ 0.19 \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$\met>600$  & 6.62 $\pm$ 0.84  & 0.02 $\pm$ 0.02  & 0.47 $\pm$ 0.27  & 0.06 $\pm$ 0.01  & 7.17 $\pm$ 0.88  & 3 $\pm$ 1.73  & 0.42 $\pm$ 0.25 \\*
 \hline
-$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 9.44 $\pm$ 0.92  & 3.15 $\pm$ 2.80  & 0.88 $\pm$ 0.36  & 0.22 $\pm$ 0.02  & 13.68 $\pm$ 2.97  & 11 $\pm$ 3.32  & 0.80 $\pm$ 0.30 \\*
-$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$450<MET<650$  & 2.64 $\pm$ 0.51  & 0.05 $\pm$ 0.03  & ---  & 0.04 $\pm$ 0.01  & 2.72 $\pm$ 0.51  & 3 $\pm$ 1.73  & 1.10 $\pm$ 0.67 \\*
-$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>600$  & 0.75 $\pm$ 0.26  & 0.05 $\pm$ 0.03  & 0.15 $\pm$ 0.15  & 0.01 $\pm$ 0.00  & 0.95 $\pm$ 0.31  & --- & --- \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$250<\met<450$  & 9.44 $\pm$ 0.92  & 3.15 $\pm$ 2.80  & 0.88 $\pm$ 0.36  & 0.22 $\pm$ 0.02  & 13.68 $\pm$ 2.97  & 11 $\pm$ 3.32  & 0.80 $\pm$ 0.30 \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$450<\met<650$  & 2.64 $\pm$ 0.51  & 0.05 $\pm$ 0.03  & ---  & 0.04 $\pm$ 0.01  & 2.72 $\pm$ 0.51  & 3 $\pm$ 1.73  & 1.10 $\pm$ 0.67 \\*
+$<4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$\met>600$  & 0.75 $\pm$ 0.26  & 0.05 $\pm$ 0.03  & 0.15 $\pm$ 0.15  & 0.01 $\pm$ 0.00  & 0.95 $\pm$ 0.31  & --- & --- \\*
 \hline
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$250<MET<350$  & 667.08 $\pm$ 7.32  & 0.71 $\pm$ 0.21  & 27.62 $\pm$ 1.81  & 4.87 $\pm$ 0.11  & 700.28 $\pm$ 7.54  & 675 $\pm$ 25.98  & 0.96 $\pm$ 0.04 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$350<MET<450$  & 140.51 $\pm$ 3.45  & 2.45 $\pm$ 2.19  & 5.53 $\pm$ 0.84  & 1.28 $\pm$ 0.06  & 149.76 $\pm$ 4.17  & 150 $\pm$ 12.25  & 1.00 $\pm$ 0.09 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$450<MET<550$  & 34.80 $\pm$ 1.75  & 0.18 $\pm$ 0.10  & 1.00 $\pm$ 0.38  & 0.33 $\pm$ 0.03  & 36.31 $\pm$ 1.79  & 27 $\pm$ 5.20  & 0.74 $\pm$ 0.15 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$550<MET<650$  & 10.44 $\pm$ 0.95  & 0.08 $\pm$ 0.04  & 0.27 $\pm$ 0.19  & 0.13 $\pm$ 0.02  & 10.92 $\pm$ 0.97  & 7 $\pm$ 2.65  & 0.64 $\pm$ 0.25 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$MET>650$  & 3.97 $\pm$ 0.59  & ---  & 0.14 $\pm$ 0.14  & 0.05 $\pm$ 0.01  & 4.17 $\pm$ 0.60  & 8 $\pm$ 2.83  & 1.92 $\pm$ 0.73 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$250<\met<350$  & 667.08 $\pm$ 7.32  & 0.71 $\pm$ 0.21  & 27.62 $\pm$ 1.81  & 4.87 $\pm$ 0.11  & 700.28 $\pm$ 7.54  & 675 $\pm$ 25.98  & 0.96 $\pm$ 0.04 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$350<\met<450$  & 140.51 $\pm$ 3.45  & 2.45 $\pm$ 2.19  & 5.53 $\pm$ 0.84  & 1.28 $\pm$ 0.06  & 149.76 $\pm$ 4.17  & 150 $\pm$ 12.25  & 1.00 $\pm$ 0.09 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$450<\met<550$  & 34.80 $\pm$ 1.75  & 0.18 $\pm$ 0.10  & 1.00 $\pm$ 0.38  & 0.33 $\pm$ 0.03  & 36.31 $\pm$ 1.79  & 27 $\pm$ 5.20  & 0.74 $\pm$ 0.15 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$550<\met<650$  & 10.44 $\pm$ 0.95  & 0.08 $\pm$ 0.04  & 0.27 $\pm$ 0.19  & 0.13 $\pm$ 0.02  & 10.92 $\pm$ 0.97  & 7 $\pm$ 2.65  & 0.64 $\pm$ 0.25 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$\met>650$  & 3.97 $\pm$ 0.59  & ---  & 0.14 $\pm$ 0.14  & 0.05 $\pm$ 0.01  & 4.17 $\pm$ 0.60  & 8 $\pm$ 2.83  & 1.92 $\pm$ 0.73 \\*
 \hline
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$250<MET<350$  & 95.64 $\pm$ 2.73  & 0.83 $\pm$ 0.24  & 5.54 $\pm$ 0.82  & 1.02 $\pm$ 0.05  & 103.03 $\pm$ 2.86  & 73 $\pm$ 8.54  & 0.71 $\pm$ 0.09 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$350<MET<450$  & 25.32 $\pm$ 1.45  & 0.28 $\pm$ 0.11  & 1.39 $\pm$ 0.42  & 0.25 $\pm$ 0.03  & 27.25 $\pm$ 1.52  & 24 $\pm$ 4.90  & 0.88 $\pm$ 0.19 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$450<MET<550$  & 7.16 $\pm$ 0.78  & 0.00 $\pm$ 0.00  & 0.61 $\pm$ 0.28  & 0.09 $\pm$ 0.02  & 7.86 $\pm$ 0.83  & 4 $\pm$ 2.00  & 0.51 $\pm$ 0.26 \\*
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$MET>550$  & 4.92 $\pm$ 0.65  & 0.02 $\pm$ 0.02  & 0.40 $\pm$ 0.23  & 0.05 $\pm$ 0.01  & 5.38 $\pm$ 0.69  & 2 $\pm$ 1.41  & 0.37 $\pm$ 0.27 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$250<\met<350$  & 95.64 $\pm$ 2.73  & 0.83 $\pm$ 0.24  & 5.54 $\pm$ 0.82  & 1.02 $\pm$ 0.05  & 103.03 $\pm$ 2.86  & 73 $\pm$ 8.54  & 0.71 $\pm$ 0.09 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$350<\met<450$  & 25.32 $\pm$ 1.45  & 0.28 $\pm$ 0.11  & 1.39 $\pm$ 0.42  & 0.25 $\pm$ 0.03  & 27.25 $\pm$ 1.52  & 24 $\pm$ 4.90  & 0.88 $\pm$ 0.19 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$450<\met<550$  & 7.16 $\pm$ 0.78  & 0.00 $\pm$ 0.00  & 0.61 $\pm$ 0.28  & 0.09 $\pm$ 0.02  & 7.86 $\pm$ 0.83  & 4 $\pm$ 2.00  & 0.51 $\pm$ 0.26 \\*
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$\met>550$  & 4.92 $\pm$ 0.65  & 0.02 $\pm$ 0.02  & 0.40 $\pm$ 0.23  & 0.05 $\pm$ 0.01  & 5.38 $\pm$ 0.69  & 2 $\pm$ 1.41  & 0.37 $\pm$ 0.27 \\*
 \hline
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$250<MET<350$  & 119.79 $\pm$ 3.04  & 1.02 $\pm$ 0.74  & 12.02 $\pm$ 1.24  & 1.46 $\pm$ 0.11  & 134.29 $\pm$ 3.36  & 119 $\pm$ 10.91  & 0.89 $\pm$ 0.08 \\*
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$350<MET<550$  & 33.87 $\pm$ 1.68  & 0.37 $\pm$ 0.14  & 4.69 $\pm$ 0.80  & 0.50 $\pm$ 0.04  & 39.42 $\pm$ 1.86  & 33 $\pm$ 5.74  & 0.84 $\pm$ 0.15 \\*
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$MET>550$  & 1.64 $\pm$ 0.41  & 0.02 $\pm$ 0.02  & ---  & 0.05 $\pm$ 0.01  & 1.71 $\pm$ 0.42  & 1 $\pm$ 1.00  & 0.58 $\pm$ 0.60 \\*
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb<175$,~$250<\met<350$  & 119.79 $\pm$ 3.04  & 1.02 $\pm$ 0.74  & 12.02 $\pm$ 1.24  & 1.46 $\pm$ 0.11  & 134.29 $\pm$ 3.36  & 119 $\pm$ 10.91  & 0.89 $\pm$ 0.08 \\*
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb<175$,~$350<\met<550$  & 33.87 $\pm$ 1.68  & 0.37 $\pm$ 0.14  & 4.69 $\pm$ 0.80  & 0.50 $\pm$ 0.04  & 39.42 $\pm$ 1.86  & 33 $\pm$ 5.74  & 0.84 $\pm$ 0.15 \\*
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb<175$,~$\met>550$  & 1.64 $\pm$ 0.41  & 0.02 $\pm$ 0.02  & ---  & 0.05 $\pm$ 0.01  & 1.71 $\pm$ 0.42  & 1 $\pm$ 1.00  & 0.58 $\pm$ 0.60 \\*
 \hline
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$250<MET<450$  & 7.95 $\pm$ 0.79  & 0.53 $\pm$ 0.19  & 1.58 $\pm$ 0.44  & 0.18 $\pm$ 0.02  & 10.24 $\pm$ 0.92  & 16 $\pm$ 4.00  & 1.56 $\pm$ 0.42 \\*
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$MET>450$  & 1.31 $\pm$ 0.32  & 0.15 $\pm$ 0.10  & 0.26 $\pm$ 0.18  & 0.13 $\pm$ 0.11  & 1.85 $\pm$ 0.39  & 1 $\pm$ 1.00  & 0.54 $\pm$ 0.55 \\*
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb\ge175$,~$250<\met<450$  & 7.95 $\pm$ 0.79  & 0.53 $\pm$ 0.19  & 1.58 $\pm$ 0.44  & 0.18 $\pm$ 0.02  & 10.24 $\pm$ 0.92  & 16 $\pm$ 4.00  & 1.56 $\pm$ 0.42 \\*
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb\ge175$,~$\met>450$  & 1.31 $\pm$ 0.32  & 0.15 $\pm$ 0.10  & 0.26 $\pm$ 0.18  & 0.13 $\pm$ 0.11  & 1.85 $\pm$ 0.39  & 1 $\pm$ 1.00  & 0.54 $\pm$ 0.55 \\*
 \hline
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$  & 23.14 $\pm$ 1.35  & 0.13 $\pm$ 0.11  & 7.34 $\pm$ 0.95  & 0.44 $\pm$ 0.03  & 31.04 $\pm$ 1.65  & 29 $\pm$ 5.39  & 0.93 $\pm$ 0.18 \\*
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$  & 18.13 $\pm$ 1.24  & 0.26 $\pm$ 0.14  & 3.37 $\pm$ 0.66  & 0.29 $\pm$ 0.03  & 22.05 $\pm$ 1.41  & 23 $\pm$ 4.80  & 1.04 $\pm$ 0.23 \\*
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$  & 11.54 $\pm$ 0.98  & 0.03 $\pm$ 0.02  & 2.15 $\pm$ 0.54  & 0.16 $\pm$ 0.02  & 13.88 $\pm$ 1.12  & 15 $\pm$ 3.87  & 1.08 $\pm$ 0.29 \\*
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$  & 3.22 $\pm$ 0.51  & 0.05 $\pm$ 0.03  & 0.22 $\pm$ 0.15  & 0.21 $\pm$ 0.14  & 3.71 $\pm$ 0.55  & 2 $\pm$ 1.41  & 0.54 $\pm$ 0.39 \\*
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$250<\met<350$  & 23.14 $\pm$ 1.35  & 0.13 $\pm$ 0.11  & 7.34 $\pm$ 0.95  & 0.44 $\pm$ 0.03  & 31.04 $\pm$ 1.65  & 29 $\pm$ 5.39  & 0.93 $\pm$ 0.18 \\*
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$350<\met<450$  & 18.13 $\pm$ 1.24  & 0.26 $\pm$ 0.14  & 3.37 $\pm$ 0.66  & 0.29 $\pm$ 0.03  & 22.05 $\pm$ 1.41  & 23 $\pm$ 4.80  & 1.04 $\pm$ 0.23 \\*
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$450<\met<600$  & 11.54 $\pm$ 0.98  & 0.03 $\pm$ 0.02  & 2.15 $\pm$ 0.54  & 0.16 $\pm$ 0.02  & 13.88 $\pm$ 1.12  & 15 $\pm$ 3.87  & 1.08 $\pm$ 0.29 \\*
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$\met>600$  & 3.22 $\pm$ 0.51  & 0.05 $\pm$ 0.03  & 0.22 $\pm$ 0.15  & 0.21 $\pm$ 0.14  & 3.71 $\pm$ 0.55  & 2 $\pm$ 1.41  & 0.54 $\pm$ 0.39 \\*
 \hline
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$  & 2.01 $\pm$ 0.36  & 0.10 $\pm$ 0.09  & 1.05 $\pm$ 0.37  & 0.07 $\pm$ 0.01  & 3.22 $\pm$ 0.53  & 1 $\pm$ 1.00  & 0.31 $\pm$ 0.31 \\*
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>450$  & 1.91 $\pm$ 0.40  & 0.21 $\pm$ 0.13  & 0.37 $\pm$ 0.21  & 0.02 $\pm$ 0.01  & 2.51 $\pm$ 0.47  & 3 $\pm$ 1.73  & 1.20 $\pm$ 0.73 \\*
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$250<\met<450$  & 2.01 $\pm$ 0.36  & 0.10 $\pm$ 0.09  & 1.05 $\pm$ 0.37  & 0.07 $\pm$ 0.01  & 3.22 $\pm$ 0.53  & 1 $\pm$ 1.00  & 0.31 $\pm$ 0.31 \\*
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$\met>450$  & 1.91 $\pm$ 0.40  & 0.21 $\pm$ 0.13  & 0.37 $\pm$ 0.21  & 0.02 $\pm$ 0.01  & 2.51 $\pm$ 0.47  & 3 $\pm$ 1.73  & 1.20 $\pm$ 0.73 \\*
 \hline
-Compressed search, $250<MET<350$  & 109.78 $\pm$ 2.79  & 0.43 $\pm$ 0.14  & 8.20 $\pm$ 0.97  & 1.19 $\pm$ 0.06  & 119.60 $\pm$ 2.96  & 114.00 $\pm$ 10.68  & 0.95 $\pm$ 0.09 \\*
-Compressed search, $350<MET<450$  & 31.39 $\pm$ 1.53  & 0.30 $\pm$ 0.13  & 2.01 $\pm$ 0.49  & 0.35 $\pm$ 0.03  & 34.05 $\pm$ 1.61  & 27.00 $\pm$ 5.20  & 0.79 $\pm$ 0.16 \\*
-Compressed search, $450<MET<550$  & 8.04 $\pm$ 0.81  & 0.07 $\pm$ 0.04  & 0.30 $\pm$ 0.22  & 0.11 $\pm$ 0.02  & 8.52 $\pm$ 0.83  & 4.00 $\pm$ 2.00  & 0.47 $\pm$ 0.24 \\*
-Compressed search, $MET>550$  & 4.76 $\pm$ 0.61  & 0.05 $\pm$ 0.03  & 0.23 $\pm$ 0.16  & 0.08 $\pm$ 0.01  & 5.12 $\pm$ 0.63  & 5.00 $\pm$ 2.24  & 0.98 $\pm$ 0.45 \\*
+Compressed search, $250<\met<350$  & 109.78 $\pm$ 2.79  & 0.43 $\pm$ 0.14  & 8.20 $\pm$ 0.97  & 1.19 $\pm$ 0.06  & 119.60 $\pm$ 2.96  & 114.00 $\pm$ 10.68  & 0.95 $\pm$ 0.09 \\*
+Compressed search, $350<\met<450$  & 31.39 $\pm$ 1.53  & 0.30 $\pm$ 0.13  & 2.01 $\pm$ 0.49  & 0.35 $\pm$ 0.03  & 34.05 $\pm$ 1.61  & 27.00 $\pm$ 5.20  & 0.79 $\pm$ 0.16 \\*
+Compressed search, $450<\met<550$  & 8.04 $\pm$ 0.81  & 0.07 $\pm$ 0.04  & 0.30 $\pm$ 0.22  & 0.11 $\pm$ 0.02  & 8.52 $\pm$ 0.83  & 4.00 $\pm$ 2.00  & 0.47 $\pm$ 0.24 \\*
+Compressed search, $\met>550$  & 4.76 $\pm$ 0.61  & 0.05 $\pm$ 0.03  & 0.23 $\pm$ 0.16  & 0.08 $\pm$ 0.01  & 5.12 $\pm$ 0.63  & 5.00 $\pm$ 2.24  & 0.98 $\pm$ 0.45 \\*
 \hline
 \end{tabular}
 }
@@ -1476,46 +1476,46 @@ systematic uncertainties, are presented in Table
 \caption{Summary of the lost lepton background estimate and its key terms.}
 \label{tab:stop:lostlep:results}
 \begin{tabular}{|l|c|c|c|c|c|c|} \hline
-Region & MET bin & Observed$_{CR}$ & $TF_\text{lepton}$ & $TF_\text{SR bin}$ & $TF_\text{Total}$ & SR Estimate \\ \hline \hline
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$  & 217 $\pm$ 14.73  & 0.25 $\pm$ 0.02  & 1.00 $\pm$ 0.00 & 0.25 $\pm$ 0.02  & 53.89 $\pm$ 6.23  \\
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$  & 75 $\pm$ 8.66  & 0.19 $\pm$ 0.02  & 1.00 $\pm$ 0.00 & 0.19 $\pm$ 0.02  & 14.16 $\pm$ 2.45  \\
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$  & 25 $\pm$ 5.00  & 0.12 $\pm$ 0.03  & 1.00 $\pm$ 0.00 & 0.12 $\pm$ 0.03  & 2.95 $\pm$ 0.92  \\
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$  & 3 $\pm$ 1.73  & 0.20 $\pm$ 0.11  & 1.00 $\pm$ 0.00 & 0.20 $\pm$ 0.11  & 0.61 $\pm$ 0.49  \\
+Region & $\met$ bin & Observed$_{CR}$ & $TF_\text{lepton}$ & $TF_\text{SR bin}$ & $TF_\text{Total}$ & SR Estimate \\ \hline \hline
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $250<\met<350$  & 217 $\pm$ 14.73  & 0.25 $\pm$ 0.02  & 1.00 $\pm$ 0.00 & 0.25 $\pm$ 0.02  & 53.89 $\pm$ 6.23  \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $350<\met<450$  & 75 $\pm$ 8.66  & 0.19 $\pm$ 0.02  & 1.00 $\pm$ 0.00 & 0.19 $\pm$ 0.02  & 14.16 $\pm$ 2.45  \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $450<\met<600$  & 25 $\pm$ 5.00  & 0.12 $\pm$ 0.03  & 1.00 $\pm$ 0.00 & 0.12 $\pm$ 0.03  & 2.95 $\pm$ 0.92  \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $\met>600$  & 3 $\pm$ 1.73  & 0.20 $\pm$ 0.11  & 1.00 $\pm$ 0.00 & 0.20 $\pm$ 0.11  & 0.61 $\pm$ 0.49  \\
 \hline
- $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 11 $\pm$ 3.32  & 0.15 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.15 $\pm$ 0.06  & 1.70 $\pm$ 0.79  \\
- $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $450<MET<600$  & 3 $\pm$ 1.73  & 0.01 $\pm$ 0.00  & 0.64 $\pm$ 0.16 & 0.01 $\pm$ 0.00  & 0.02 $\pm$ 0.01  \\
- $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>600$  & 3 $\pm$ 1.73  & 0.01 $\pm$ 0.00  & 0.36 $\pm$ 0.16 & 0.00 $\pm$ 0.00  & 0.01 $\pm$ 0.01  \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $250<\met<450$  & 11 $\pm$ 3.32  & 0.15 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.15 $\pm$ 0.06  & 1.70 $\pm$ 0.79  \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $450<\met<600$  & 3 $\pm$ 1.73  & 0.01 $\pm$ 0.00  & 0.64 $\pm$ 0.16 & 0.01 $\pm$ 0.00  & 0.02 $\pm$ 0.01  \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $\met>600$  & 3 $\pm$ 1.73  & 0.01 $\pm$ 0.00  & 0.36 $\pm$ 0.16 & 0.00 $\pm$ 0.00  & 0.01 $\pm$ 0.01  \\
 \hline
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $250<MET<350$  & 675 $\pm$ 25.98  & 0.51 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.51 $\pm$ 0.04  & 345.68 $\pm$ 30.33  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $350<MET<450$  & 150 $\pm$ 12.25  & 0.44 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.44 $\pm$ 0.04  & 66.25 $\pm$ 7.93  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $450<MET<550$  & 27 $\pm$ 5.20  & 0.45 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.45 $\pm$ 0.06  & 12.11 $\pm$ 2.77  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $550<MET<650$  & 7 $\pm$ 2.65  & 0.48 $\pm$ 0.11  & 1.00 $\pm$ 0.00 & 0.48 $\pm$ 0.11  & 3.38 $\pm$ 1.48  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $MET>650$  & 8 $\pm$ 2.83  & 0.74 $\pm$ 0.24  & 1.00 $\pm$ 0.00 & 0.74 $\pm$ 0.24  & 5.92 $\pm$ 2.84  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $250<\met<350$  & 675 $\pm$ 25.98  & 0.51 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.51 $\pm$ 0.04  & 345.68 $\pm$ 30.33  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $350<\met<450$  & 150 $\pm$ 12.25  & 0.44 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.44 $\pm$ 0.04  & 66.25 $\pm$ 7.93  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $450<\met<550$  & 27 $\pm$ 5.20  & 0.45 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.45 $\pm$ 0.06  & 12.11 $\pm$ 2.77  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $550<\met<650$  & 7 $\pm$ 2.65  & 0.48 $\pm$ 0.11  & 1.00 $\pm$ 0.00 & 0.48 $\pm$ 0.11  & 3.38 $\pm$ 1.48  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $\met>650$  & 8 $\pm$ 2.83  & 0.74 $\pm$ 0.24  & 1.00 $\pm$ 0.00 & 0.74 $\pm$ 0.24  & 5.92 $\pm$ 2.84  \\
 \hline
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $250<MET<350$  & 73 $\pm$ 8.54  & 0.36 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.36 $\pm$ 0.04  & 26.05 $\pm$ 4.31  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $350<MET<450$  & 24 $\pm$ 4.90  & 0.43 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.43 $\pm$ 0.06  & 10.41 $\pm$ 2.61  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $450<MET<550$  & 4 $\pm$ 2.00  & 0.42 $\pm$ 0.10  & 1.00 $\pm$ 0.00 & 0.42 $\pm$ 0.10  & 1.68 $\pm$ 0.93  \\
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $MET>550$  & 2 $\pm$ 1.41  & 0.54 $\pm$ 0.16  & 1.00 $\pm$ 0.00 & 0.54 $\pm$ 0.16  & 1.08 $\pm$ 0.83  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $250<\met<350$  & 73 $\pm$ 8.54  & 0.36 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.36 $\pm$ 0.04  & 26.05 $\pm$ 4.31  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $350<\met<450$  & 24 $\pm$ 4.90  & 0.43 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.43 $\pm$ 0.06  & 10.41 $\pm$ 2.61  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $450<\met<550$  & 4 $\pm$ 2.00  & 0.42 $\pm$ 0.10  & 1.00 $\pm$ 0.00 & 0.42 $\pm$ 0.10  & 1.68 $\pm$ 0.93  \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $\met>550$  & 2 $\pm$ 1.41  & 0.54 $\pm$ 0.16  & 1.00 $\pm$ 0.00 & 0.54 $\pm$ 0.16  & 1.08 $\pm$ 0.83  \\
 \hline
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $250<MET<350$  & 119 $\pm$ 10.91  & 0.36 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.36 $\pm$ 0.04  & 42.99 $\pm$ 5.89  \\
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $350<MET<550$  & 34 $\pm$ 5.83  & 0.28 $\pm$ 0.04  & 0.94 $\pm$ 0.02 & 0.27 $\pm$ 0.04  & 9.13 $\pm$ 2.05  \\
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $MET>550$  & 34 $\pm$ 5.83  & 0.28 $\pm$ 0.04  & 0.06 $\pm$ 0.02 & 0.02 $\pm$ 0.01  & 0.55 $\pm$ 0.28  \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $250<\met<350$  & 119 $\pm$ 10.91  & 0.36 $\pm$ 0.04  & 1.00 $\pm$ 0.00 & 0.36 $\pm$ 0.04  & 42.99 $\pm$ 5.89  \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $350<\met<550$  & 34 $\pm$ 5.83  & 0.28 $\pm$ 0.04  & 0.94 $\pm$ 0.02 & 0.27 $\pm$ 0.04  & 9.13 $\pm$ 2.05  \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $\met>550$  & 34 $\pm$ 5.83  & 0.28 $\pm$ 0.04  & 0.06 $\pm$ 0.02 & 0.02 $\pm$ 0.01  & 0.55 $\pm$ 0.28  \\
 \hline
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $250<MET<450$  & 17 $\pm$ 4.12  & 0.27 $\pm$ 0.06  & 0.98 $\pm$ 0.03 & 0.26 $\pm$ 0.05  & 4.43 $\pm$ 1.42  \\
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $MET>450$  & 17 $\pm$ 4.12  & 0.27 $\pm$ 0.06  & 0.02 $\pm$ 0.03 & 0.01 $\pm$ 0.01  & 0.10 $\pm$ 0.16  \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$ & $250<\met<450$  & 17 $\pm$ 4.12  & 0.27 $\pm$ 0.06  & 0.98 $\pm$ 0.03 & 0.26 $\pm$ 0.05  & 4.43 $\pm$ 1.42  \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$ & $\met>450$  & 17 $\pm$ 4.12  & 0.27 $\pm$ 0.06  & 0.02 $\pm$ 0.03 & 0.01 $\pm$ 0.01  & 0.10 $\pm$ 0.16  \\
 \hline
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$  & 29 $\pm$ 5.39  & 0.33 $\pm$ 0.05  & 1.00 $\pm$ 0.00 & 0.33 $\pm$ 0.05  & 9.48 $\pm$ 2.25  \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$  & 23 $\pm$ 4.80  & 0.26 $\pm$ 0.05  & 1.00 $\pm$ 0.00 & 0.26 $\pm$ 0.05  & 5.92 $\pm$ 1.75  \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$  & 15 $\pm$ 3.87  & 0.26 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.26 $\pm$ 0.06  & 3.83 $\pm$ 1.31  \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$  & 2 $\pm$ 1.41  & 0.38 $\pm$ 0.15  & 1.00 $\pm$ 0.00 & 0.38 $\pm$ 0.15  & 0.75 $\pm$ 0.61  \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $250<\met<350$  & 29 $\pm$ 5.39  & 0.33 $\pm$ 0.05  & 1.00 $\pm$ 0.00 & 0.33 $\pm$ 0.05  & 9.48 $\pm$ 2.25  \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $350<\met<450$  & 23 $\pm$ 4.80  & 0.26 $\pm$ 0.05  & 1.00 $\pm$ 0.00 & 0.26 $\pm$ 0.05  & 5.92 $\pm$ 1.75  \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $450<\met<600$  & 15 $\pm$ 3.87  & 0.26 $\pm$ 0.06  & 1.00 $\pm$ 0.00 & 0.26 $\pm$ 0.06  & 3.83 $\pm$ 1.31  \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $\met>600$  & 2 $\pm$ 1.41  & 0.38 $\pm$ 0.15  & 1.00 $\pm$ 0.00 & 0.38 $\pm$ 0.15  & 0.75 $\pm$ 0.61  \\
 \hline
- $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.70 $\pm$ 0.15 & 0.14 $\pm$ 0.04  & 0.55 $\pm$ 0.32  \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.30 $\pm$ 0.15 & 0.06 $\pm$ 0.03  & 0.23 $\pm$ 0.17  \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $250<\met<450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.70 $\pm$ 0.15 & 0.14 $\pm$ 0.04  & 0.55 $\pm$ 0.32  \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $\met>450$  & 4 $\pm$ 2.00  & 0.19 $\pm$ 0.04  & 0.30 $\pm$ 0.15 & 0.06 $\pm$ 0.03  & 0.23 $\pm$ 0.17  \\
 \hline
-Compressed search & $250<MET<350$  & 114 $\pm$ 10.68  & 0.59 $\pm$ 0.06 & 1.00 $\pm$ 0.00 & 0.59 $\pm$ 0.06  & 67.55 $\pm$ 8.95  \\
-Compressed search & $350<MET<450$  &  27 $\pm$ 5.20   & 0.56 $\pm$ 0.07 & 1.00 $\pm$ 0.00 & 0.56 $\pm$ 0.07  & 15.11 $\pm$ 3.48  \\
-Compressed search & $450<MET<550$  &   4 $\pm$ 2.00   & 0.61 $\pm$ 0.12 & 1.00 $\pm$ 0.00 & 0.61 $\pm$ 0.12  &  2.44 $\pm$ 1.31  \\
-Compressed search & $MET>550$      &   5 $\pm$ 2.24   & 0.77 $\pm$ 0.21 & 1.00 $\pm$ 0.00 & 0.77 $\pm$ 0.21  &  3.86 $\pm$ 2.02  \\
+Compressed search & $250<\met<350$  & 114 $\pm$ 10.68  & 0.59 $\pm$ 0.06 & 1.00 $\pm$ 0.00 & 0.59 $\pm$ 0.06  & 67.55 $\pm$ 8.95  \\
+Compressed search & $350<\met<450$  &  27 $\pm$ 5.20   & 0.56 $\pm$ 0.07 & 1.00 $\pm$ 0.00 & 0.56 $\pm$ 0.07  & 15.11 $\pm$ 3.48  \\
+Compressed search & $450<\met<550$  &   4 $\pm$ 2.00   & 0.61 $\pm$ 0.12 & 1.00 $\pm$ 0.00 & 0.61 $\pm$ 0.12  &  2.44 $\pm$ 1.31  \\
+Compressed search & $\met>550$      &   5 $\pm$ 2.24   & 0.77 $\pm$ 0.21 & 1.00 $\pm$ 0.00 & 0.77 $\pm$ 0.21  &  3.86 $\pm$ 2.02  \\
 \hline
 \end{tabular}
 \end{sidewaystable}
@@ -1541,7 +1541,7 @@ category, even if it has a leptonic W decay.
 The method used to estimate the 1$\ell$W background is very similar to
 the method used for the lost lepton background, as described in
 Section \ref{sssec:stop:lostlep:estimation}. We estimate the number of
-such events in our signal regions based on the number of events in a
+1$\ell$W background events in our signal regions based on the number of events in a
 set of 0-btag control regions, described below. We assume that Monte
 Carlo simulations correctly model the ratio of $\geq$1-btag events to
 0-btag events, so that this ratio holds true:
@@ -1583,24 +1583,24 @@ have b-jets very rarely. So one of the easiest ways to make a sample
 enriched in 1$\ell$W events is to require the absence of b-tags.
 Thus we generally form our 0-btag control regions from the
 corresponding signal regions by simply inverting
-the b-tag requirement. The low-$M_{\ell b}$ signal regions, which
+the b-tag requirement. The low-$\mlb$ signal regions, which
 require 1 medium b-tag, are inverted to form control regions that require no medium
-b-tags. Similarly, the high-$M_{\ell b}$ signal regions, which require
+b-tags. Similarly, the high-$\mlb$ signal regions, which require
 1 tight b-tag, are inverted to form control regions that require no
 tight b-tags.
 
-This na\"{i}ve inversion does give rise to some high-$M_{\ell b}$ control regions with low
+This na\"{i}ve inversion does give rise to some high-$\mlb$ control regions with low
 purity of 1$\ell$W events. We later assess a systematic uncertainty on
 impurities (or \emph{contamination}), so any low-purity CRs would wind up
 with an outsize uncertainty. To reduce the number of CRs with
-excessive uncertainties, we change certain high-$M_{\ell b}$ CRs to
+excessive uncertainties, we change certain high-$\mlb$ CRs to
 require 0 medium b-tags, instead of 0 tight b-tags. This modification
 is made on a case-by-case basis; we apply the change only in CRs where
 we see a 0 medium b-tag requirement would substantially increase the
 purity without cutting out too many data events. These regions are:
 \begin{itemize}
-\item All CRs in the D series ($\geq 4$ jets, $t_\text{mod} < 0$, high $M_{\ell b}$)
-\item All CRs in the F series ($\geq 4$ jets, $0 < t_\text{mod} < 10$, high $M_{\ell b}$)
+\item All CRs in the D series ($\geq 4$ jets, $\tmod < 0$, high $\mlb$)
+\item All CRs in the F series ($\geq 4$ jets, $0 < \tmod < 10$, high $\mlb$)
 \end{itemize}
 Clearly, in these regions, the b-tag transfer factor must take
 on a slightly new meaning, as it maps CRs with 0 medium b-tags to
@@ -1611,22 +1611,22 @@ TF_\text{btag} = \frac{M_{\geq\text{1 (tight) btag,
 \end{equation}
 
 Because the control regions are defined by the absence of
-b-tagged jets, the definition of $M_{\ell b}$ from Section
+b-tagged jets, the definition of $\mlb$ from Section
 \ref{ssec:stop:mlb} will no longer serve. In the absence of formally
-b-tagged jets, we instead calculate $M_{\ell b}$ using the jet with
+b-tagged jets, we instead calculate $\mlb$ using the jet with
 the highest CSV discriminator value in place of a b-tag.
 In Figure \ref{fig:stop:1lw:mlb}, we plot this makeshift
-$M_{\ell b}$ from our CRs against the nominal $M_{\ell b}$ from the
+$\mlb$ from our CRs against the nominal $\mlb$ from the
 SRs, both using MC, and verify that they agree to within
-uncertainties. We also check the shape of $M_{\ell b}$ in data vs MC
+uncertainties. We also check the shape of $\mlb$ in data vs MC
 within a high-statistics crosscheck region, defined only by $60 < \mt
 < 120$ GeV, $\met >$ 250 GeV, and 1-2 jets. As Figure
 \ref{fig:stop:1lw:mlbxcheck} shows, the
 shape agreement is quite good. Therefore we
-do not assess a systematic uncertainty on $M_{\ell b}$ shape
-modeling. Note that any issues with $M_{\ell b}$ modeling
+do not assess a systematic uncertainty on $\mlb$ shape
+modeling. Note that any issues with $\mlb$ modeling
 would not affect the corridor regions because they are not binned in
-$M_{\ell b}$.
+$\mlb$.
 
 % Mlb comparison plots taken from AN-16-463. Unpublished!
 % Also not quite up to CMS publication standards...
@@ -1636,8 +1636,8 @@ $M_{\ell b}$.
 \includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_CD.png}
 \includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_EF.png}
 \includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_GH.png}
-\caption{Comparison between $M_{\ell b}$ from SRs and makeshift $M_{\ell
-    b}$ from CRs, using simulated data. The four plots are made in the
+\caption{Comparison between $\mlb$ from SRs and makeshift $\mlb$
+   from CRs, using simulated data. The four plots are made in the
   combined A+B regions, the C+D regions, the E+F regions, and the G+H
   regions, respectively.}
 \label{fig:stop:1lw:mlb}
@@ -1646,7 +1646,7 @@ $M_{\ell b}$.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/cr0b_Mlbshape_crosscheck.pdf}
-\caption{Comparison of $M_{\ell b}$ shape for data and MC, in 0-btag
+\caption{Comparison of $\mlb$ shape for data and MC, in 0-btag
   and $\geq$1-btag crosscheck regions.}
 \label{fig:stop:1lw:mlbxcheck}
 \end{figure}
@@ -1669,45 +1669,45 @@ will be addressed further on with a systematic uncertainty.
 \hline
 Region  & $\ge2$~leptons & $1$~lepton,~from~$W$ & $1$~lepton,~from~$t$ & $Z\rightarrow\nu\nu$ & Sum Bkg. & Data & Data/MC \\*
 \hline \hline
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$        & 31.59 $\pm$ 2.40 & 99.79 $\pm$ 3.00  & 0.49 $\pm$ 0.28 & 14.59 $\pm$ 2.05 & 146.46 $\pm$ 4.36 & 151 $\pm$ 12.29 & 1.03 $\pm$ 0.09 \\
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$        & 10.15 $\pm$ 1.33 & 48.50 $\pm$ 2.25  & 0.33 $\pm$ 0.23 & 9.55 $\pm$ 1.40  & 68.52 $\pm$ 2.97  & 68 $\pm$ 8.25   & 0.99 $\pm$ 0.13 \\
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$        & 3.44 $\pm$ 0.84  & 24.34 $\pm$ 1.79  &       ---       & 4.68 $\pm$ 1.08  & 32.45 $\pm$ 2.25  & 31 $\pm$ 5.57   & 0.96 $\pm$ 0.18 \\
-$<4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$            & 0.39 $\pm$ 0.20  & 6.66 $\pm$ 0.37   &       ---       & 1.20 $\pm$ 0.53  & 8.25 $\pm$ 0.68   & 11 $\pm$ 3.32   & 1.33 $\pm$ 0.42 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$250<\met<350$        & 31.59 $\pm$ 2.40 & 99.79 $\pm$ 3.00  & 0.49 $\pm$ 0.28 & 14.59 $\pm$ 2.05 & 146.46 $\pm$ 4.36 & 151 $\pm$ 12.29 & 1.03 $\pm$ 0.09 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$350<\met<450$        & 10.15 $\pm$ 1.33 & 48.50 $\pm$ 2.25  & 0.33 $\pm$ 0.23 & 9.55 $\pm$ 1.40  & 68.52 $\pm$ 2.97  & 68 $\pm$ 8.25   & 0.99 $\pm$ 0.13 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$450<\met<600$        & 3.44 $\pm$ 0.84  & 24.34 $\pm$ 1.79  &       ---       & 4.68 $\pm$ 1.08  & 32.45 $\pm$ 2.25  & 31 $\pm$ 5.57   & 0.96 $\pm$ 0.18 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$\met>600$            & 0.39 $\pm$ 0.20  & 6.66 $\pm$ 0.37   &       ---       & 1.20 $\pm$ 0.53  & 8.25 $\pm$ 0.68   & 11 $\pm$ 3.32   & 1.33 $\pm$ 0.42 \\
 \hline
-$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$      & 19.15 $\pm$ 1.90 & 167.31 $\pm$ 1.88 &       ---       & 22.63 $\pm$ 2.37 & 209.09 $\pm$ 3.57 & 234 $\pm$ 15.30 & 1.12 $\pm$ 0.08 \\
-$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$450<MET<650$      & 3.22 $\pm$ 0.80  & 44.17 $\pm$ 1.46  &       ---       & 9.67 $\pm$ 1.44  & 57.06 $\pm$ 2.20  & 49 $\pm$ 7.00   & 0.86 $\pm$ 0.13 \\
-$<4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>600$          & 0.40 $\pm$ 0.27  & 26.11 $\pm$ 1.76  &       ---       & 4.38 $\pm$ 1.10  & 30.89 $\pm$ 2.09  & 27 $\pm$ 5.20   & 0.87 $\pm$ 0.18 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$250<\met<450$      & 19.15 $\pm$ 1.90 & 167.31 $\pm$ 1.88 &       ---       & 22.63 $\pm$ 2.37 & 209.09 $\pm$ 3.57 & 234 $\pm$ 15.30 & 1.12 $\pm$ 0.08 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$450<\met<650$      & 3.22 $\pm$ 0.80  & 44.17 $\pm$ 1.46  &       ---       & 9.67 $\pm$ 1.44  & 57.06 $\pm$ 2.20  & 49 $\pm$ 7.00   & 0.86 $\pm$ 0.13 \\
+$<4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$\met>600$          & 0.40 $\pm$ 0.27  & 26.11 $\pm$ 1.76  &       ---       & 4.38 $\pm$ 1.10  & 30.89 $\pm$ 2.09  & 27 $\pm$ 5.20   & 0.87 $\pm$ 0.18 \\
 \hline
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$250<MET<350$       & 81.70 $\pm$ 3.39 & 55.64 $\pm$ 2.31  & 5.02 $\pm$ 0.87 & 8.92 $\pm$ 1.19  & 151.28 $\pm$ 4.37 & 143 $\pm$ 11.96 & 0.95 $\pm$ 0.08 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$350<MET<450$       & 16.78 $\pm$ 1.62 & 17.05 $\pm$ 1.69  & 0.53 $\pm$ 0.26 & 3.78 $\pm$ 0.88  & 38.14 $\pm$ 2.51  & 31 $\pm$ 5.57   & 0.81 $\pm$ 0.16 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$450<MET<550$       & 4.27 $\pm$ 0.85  & 3.89 $\pm$ 0.28   & 0.17 $\pm$ 0.17 & 1.76 $\pm$ 0.61  & 10.08 $\pm$ 1.09  & 5 $\pm$ 2.24    & 0.50 $\pm$ 0.23 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$550<MET<650$       & 0.84 $\pm$ 0.33  & 1.66 $\pm$ 0.25   &       ---       & 0.09 $\pm$ 0.02  & 2.59 $\pm$ 0.41   & 3 $\pm$ 1.73    & 1.16 $\pm$ 0.69 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}<175$,~$MET>650$           & 0.97 $\pm$ 0.40  & 1.18 $\pm$ 0.15   & 0.13 $\pm$ 0.13 & 0.32 $\pm$ 0.27  & 2.60 $\pm$ 0.52   & 4 $\pm$ 2.00    & 1.54 $\pm$ 0.83 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$250<\met<350$       & 81.70 $\pm$ 3.39 & 55.64 $\pm$ 2.31  & 5.02 $\pm$ 0.87 & 8.92 $\pm$ 1.19  & 151.28 $\pm$ 4.37 & 143 $\pm$ 11.96 & 0.95 $\pm$ 0.08 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$350<\met<450$       & 16.78 $\pm$ 1.62 & 17.05 $\pm$ 1.69  & 0.53 $\pm$ 0.26 & 3.78 $\pm$ 0.88  & 38.14 $\pm$ 2.51  & 31 $\pm$ 5.57   & 0.81 $\pm$ 0.16 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$450<\met<550$       & 4.27 $\pm$ 0.85  & 3.89 $\pm$ 0.28   & 0.17 $\pm$ 0.17 & 1.76 $\pm$ 0.61  & 10.08 $\pm$ 1.09  & 5 $\pm$ 2.24    & 0.50 $\pm$ 0.23 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$550<\met<650$       & 0.84 $\pm$ 0.33  & 1.66 $\pm$ 0.25   &       ---       & 0.09 $\pm$ 0.02  & 2.59 $\pm$ 0.41   & 3 $\pm$ 1.73    & 1.16 $\pm$ 0.69 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb<175$,~$\met>650$           & 0.97 $\pm$ 0.40  & 1.18 $\pm$ 0.15   & 0.13 $\pm$ 0.13 & 0.32 $\pm$ 0.27  & 2.60 $\pm$ 0.52   & 4 $\pm$ 2.00    & 1.54 $\pm$ 0.83 \\
 \hline
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$250<MET<350$     & 36.35 $\pm$ 2.31 & 81.05 $\pm$ 3.77  & 2.58 $\pm$ 0.59 & 6.82 $\pm$ 1.28  & 126.80 $\pm$ 4.64 & 104 $\pm$ 10.20 & 0.82 $\pm$ 0.09 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$350<MET<450$     & 10.93 $\pm$ 1.30 & 31.43 $\pm$ 3.80  & 0.42 $\pm$ 0.24 & 5.69 $\pm$ 1.05  & 48.47 $\pm$ 4.15  & 27 $\pm$ 5.20   & 0.56 $\pm$ 0.12 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$450<MET<550$     & 3.77 $\pm$ 0.78  & 10.41 $\pm$ 0.51  & 0.00 $\pm$ 0.00 & 1.57 $\pm$ 0.67  & 15.74 $\pm$ 1.15  & 9 $\pm$ 3.00    & 0.57 $\pm$ 0.20 \\
-$\ge4$jets,~modTopness$<0.0$,~$M_{lb}\ge175$,~$MET>550$         & 3.99 $\pm$ 1.36  & 8.50 $\pm$ 0.45   & 0.13 $\pm$ 0.13 & 1.23 $\pm$ 0.58  & 13.84 $\pm$ 1.55  & 12 $\pm$ 3.46   & 0.87 $\pm$ 0.27 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$250<\met<350$     & 36.35 $\pm$ 2.31 & 81.05 $\pm$ 3.77  & 2.58 $\pm$ 0.59 & 6.82 $\pm$ 1.28  & 126.80 $\pm$ 4.64 & 104 $\pm$ 10.20 & 0.82 $\pm$ 0.09 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$350<\met<450$     & 10.93 $\pm$ 1.30 & 31.43 $\pm$ 3.80  & 0.42 $\pm$ 0.24 & 5.69 $\pm$ 1.05  & 48.47 $\pm$ 4.15  & 27 $\pm$ 5.20   & 0.56 $\pm$ 0.12 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$450<\met<550$     & 3.77 $\pm$ 0.78  & 10.41 $\pm$ 0.51  & 0.00 $\pm$ 0.00 & 1.57 $\pm$ 0.67  & 15.74 $\pm$ 1.15  & 9 $\pm$ 3.00    & 0.57 $\pm$ 0.20 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb\ge175$,~$\met>550$         & 3.99 $\pm$ 1.36  & 8.50 $\pm$ 0.45   & 0.13 $\pm$ 0.13 & 1.23 $\pm$ 0.58  & 13.84 $\pm$ 1.55  & 12 $\pm$ 3.46   & 0.87 $\pm$ 0.27 \\
 \hline
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$250<MET<350$  & 16.96 $\pm$ 1.51 & 28.65 $\pm$ 3.66  & 0.29 $\pm$ 0.21 & 4.87 $\pm$ 0.81  & 50.78 $\pm$ 4.05  & 54 $\pm$ 7.35   & 1.06 $\pm$ 0.17 \\
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$350<MET<550$  & 4.17 $\pm$ 0.80  & 12.99 $\pm$ 0.53  & 0.12 $\pm$ 0.12 & 1.71 $\pm$ 0.63  & 19.00 $\pm$ 1.15  & 13 $\pm$ 3.61   & 0.68 $\pm$ 0.19 \\
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}<175$,~$MET>550$      & 0.32 $\pm$ 0.18  & 1.38 $\pm$ 0.16   &       ---       & 0.75 $\pm$ 0.41  & 2.45 $\pm$ 0.48   & 2 $\pm$ 1.41    & 0.82 $\pm$ 0.60 \\
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb<175$,~$250<\met<350$  & 16.96 $\pm$ 1.51 & 28.65 $\pm$ 3.66  & 0.29 $\pm$ 0.21 & 4.87 $\pm$ 0.81  & 50.78 $\pm$ 4.05  & 54 $\pm$ 7.35   & 1.06 $\pm$ 0.17 \\
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb<175$,~$350<\met<550$  & 4.17 $\pm$ 0.80  & 12.99 $\pm$ 0.53  & 0.12 $\pm$ 0.12 & 1.71 $\pm$ 0.63  & 19.00 $\pm$ 1.15  & 13 $\pm$ 3.61   & 0.68 $\pm$ 0.19 \\
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb<175$,~$\met>550$      & 0.32 $\pm$ 0.18  & 1.38 $\pm$ 0.16   &       ---       & 0.75 $\pm$ 0.41  & 2.45 $\pm$ 0.48   & 2 $\pm$ 1.41    & 0.82 $\pm$ 0.60 \\
 \hline
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$250<MET<450$& 6.60 $\pm$ 0.90  & 34.16 $\pm$ 1.52  &       ---       & 5.12 $\pm$ 0.96  & 45.88 $\pm$ 2.01  & 51 $\pm$ 7.14   & 1.11 $\pm$ 0.16 \\
-$\ge4$jets,~$0.0<$modTopness$<10$,~$M_{lb}\ge175$,~$MET>450$    & 1.68 $\pm$ 0.81  & 8.35 $\pm$ 0.40   &       ---       & 2.54 $\pm$ 0.63  & 12.58 $\pm$ 1.10  & 5 $\pm$ 2.24    & 0.40 $\pm$ 0.18 \\
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb\ge175$,~$250<\met<450$& 6.60 $\pm$ 0.90  & 34.16 $\pm$ 1.52  &       ---       & 5.12 $\pm$ 0.96  & 45.88 $\pm$ 2.01  & 51 $\pm$ 7.14   & 1.11 $\pm$ 0.16 \\
+$\ge4$ jets,~$0.0< \tmod <10$,~$\mlb\ge175$,~$\met>450$    & 1.68 $\pm$ 0.81  & 8.35 $\pm$ 0.40   &       ---       & 2.54 $\pm$ 0.63  & 12.58 $\pm$ 1.10  & 5 $\pm$ 2.24    & 0.40 $\pm$ 0.18 \\
 \hline
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$250<MET<350$      & 1.83 $\pm$ 0.47  & 1.82 $\pm$ 0.19   & 0.16 $\pm$ 0.16 & 0.58 $\pm$ 0.24  & 4.38 $\pm$ 0.58   & 8 $\pm$ 2.83    & 1.82 $\pm$ 0.69 \\
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$350<MET<450$      & 1.98 $\pm$ 0.52  & 3.88 $\pm$ 1.13   &       ---       & 0.26 $\pm$ 0.03  & 6.11 $\pm$ 1.24   & 7 $\pm$ 2.65    & 1.15 $\pm$ 0.49 \\
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$450<MET<600$      & 1.42 $\pm$ 0.57  & 2.96 $\pm$ 0.24   &       ---       & 0.52 $\pm$ 0.44  & 4.89 $\pm$ 0.76   & 3 $\pm$ 1.73    & 0.61 $\pm$ 0.37 \\
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}<175$,~$MET>600$          & 0.68 $\pm$ 0.39  & 2.54 $\pm$ 1.16   &       ---       & 0.32 $\pm$ 0.45  & 3.54 $\pm$ 1.30   & 2 $\pm$ 1.41    & 0.57 $\pm$ 0.45 \\
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$250<\met<350$      & 1.83 $\pm$ 0.47  & 1.82 $\pm$ 0.19   & 0.16 $\pm$ 0.16 & 0.58 $\pm$ 0.24  & 4.38 $\pm$ 0.58   & 8 $\pm$ 2.83    & 1.82 $\pm$ 0.69 \\
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$350<\met<450$      & 1.98 $\pm$ 0.52  & 3.88 $\pm$ 1.13   &       ---       & 0.26 $\pm$ 0.03  & 6.11 $\pm$ 1.24   & 7 $\pm$ 2.65    & 1.15 $\pm$ 0.49 \\
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$450<\met<600$      & 1.42 $\pm$ 0.57  & 2.96 $\pm$ 0.24   &       ---       & 0.52 $\pm$ 0.44  & 4.89 $\pm$ 0.76   & 3 $\pm$ 1.73    & 0.61 $\pm$ 0.37 \\
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb<175$,~$\met>600$          & 0.68 $\pm$ 0.39  & 2.54 $\pm$ 1.16   &       ---       & 0.32 $\pm$ 0.45  & 3.54 $\pm$ 1.30   & 2 $\pm$ 1.41    & 0.57 $\pm$ 0.45 \\
 \hline
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$250<MET<450$    & 2.04 $\pm$ 0.84  & 6.03 $\pm$ 0.34   & 0.11 $\pm$ 0.11 & 0.41 $\pm$ 0.14  & 8.60 $\pm$ 0.92   & 10 $\pm$ 3.16   & 1.16 $\pm$ 0.39 \\
-$\ge4$jets,~modTopness$\ge10$,~$M_{lb}\ge175$,~$MET>450$        & 0.93 $\pm$ 0.45  & 8.10 $\pm$ 0.39   &       ---       & 2.14 $\pm$ 0.53  & 11.17 $\pm$ 0.80  & 7 $\pm$ 2.65    & 0.63 $\pm$ 0.24 \\
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$250<\met<450$    & 2.04 $\pm$ 0.84  & 6.03 $\pm$ 0.34   & 0.11 $\pm$ 0.11 & 0.41 $\pm$ 0.14  & 8.60 $\pm$ 0.92   & 10 $\pm$ 3.16   & 1.16 $\pm$ 0.39 \\
+$\ge4$ jets,~$\tmod \ge10$,~$\mlb\ge175$,~$\met>450$        & 0.93 $\pm$ 0.45  & 8.10 $\pm$ 0.39   &       ---       & 2.14 $\pm$ 0.53  & 11.17 $\pm$ 0.80  & 7 $\pm$ 2.65    & 0.63 $\pm$ 0.24 \\
 \hline
-Compressed search, $250<MET<350$  & 19.70 $\pm$ 1.43  & 23.62 $\pm$ 4.24  & 1.80 $\pm$ 0.45  & 2.36 $\pm$ 0.52  & 47.47 $\pm$ 4.53  & 49 $\pm$ 7.00  & 1.03 $\pm$ 0.18 \\*
-Compressed search, $350<MET<450$  & 7.49 $\pm$ 0.92  & 12.07 $\pm$ 3.64  & 0.40 $\pm$ 0.21  & 2.43 $\pm$ 0.76  & 22.38 $\pm$ 3.83  & 11 $\pm$ 3.32  & 0.49 $\pm$ 0.17 \\*
-Compressed search, $450<MET<550$  & 2.98 $\pm$ 0.67  & 3.68 $\pm$ 0.27  & 0.30 $\pm$ 0.22  & 1.75 $\pm$ 0.53  & 8.71 $\pm$ 0.92  & 5 $\pm$ 2.24  & 0.57 $\pm$ 0.26 \\*
-Compressed search, $MET>550$      & 1.43 $\pm$ 0.43  & 3.26 $\pm$ 0.26  & ---  & 1.13 $\pm$ 0.48  & 5.82 $\pm$ 0.70  & 3 $\pm$ 1.73  & 0.52 $\pm$ 0.30 \\*
+Compressed search, $250<\met<350$  & 19.70 $\pm$ 1.43  & 23.62 $\pm$ 4.24  & 1.80 $\pm$ 0.45  & 2.36 $\pm$ 0.52  & 47.47 $\pm$ 4.53  & 49 $\pm$ 7.00  & 1.03 $\pm$ 0.18 \\*
+Compressed search, $350<\met<450$  & 7.49 $\pm$ 0.92  & 12.07 $\pm$ 3.64  & 0.40 $\pm$ 0.21  & 2.43 $\pm$ 0.76  & 22.38 $\pm$ 3.83  & 11 $\pm$ 3.32  & 0.49 $\pm$ 0.17 \\*
+Compressed search, $450<\met<550$  & 2.98 $\pm$ 0.67  & 3.68 $\pm$ 0.27  & 0.30 $\pm$ 0.22  & 1.75 $\pm$ 0.53  & 8.71 $\pm$ 0.92  & 5 $\pm$ 2.24  & 0.57 $\pm$ 0.26 \\*
+Compressed search, $\met>550$      & 1.43 $\pm$ 0.43  & 3.26 $\pm$ 0.26  & ---  & 1.13 $\pm$ 0.48  & 5.82 $\pm$ 0.70  & 3 $\pm$ 1.73  & 0.52 $\pm$ 0.30 \\*
 \hline
 \end{tabular}
 \end{sidewaystable}
@@ -1820,46 +1820,46 @@ including systematic uncertainties, are presented in Table
   all its key components.}
 \label{tab:stop:1lw:results}
 \begin{tabular}{|l|c|c|c|c|c|} \hline
-Region & MET bin & Observed$_\text{CR}$ & Purity & $TF_\text{btag}$ & SR Estimate \\ \hline \hline
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$        & $250<MET<350$ & 151 $\pm$ 12.29 & 0.68 $\pm$ 0.03  & 0.07 $\pm$ 0.00 & 7.18 $\pm$ 0.79 \\
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$        & $350<MET<450$ & 68 $\pm$ 8.25   & 0.71 $\pm$ 0.04  & 0.08 $\pm$ 0.01 & 4.06 $\pm$ 0.65 \\
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$        & $450<MET<600$ & 31 $\pm$ 5.57   & 0.75 $\pm$ 0.08  & 0.07 $\pm$ 0.01 & 1.71 $\pm$ 0.42 \\
- $<4$jets,~tmod$\ge10.0$,~$mlb<175$        & $MET>600$     & 11 $\pm$ 3.32   & 0.81 $\pm$ 0.08  & 0.09 $\pm$ 0.02 & 0.78 $\pm$ 0.30 \\
+Region & $\met$ bin & Observed$_\text{CR}$ & Purity & $TF_\text{btag}$ & SR Estimate \\ \hline \hline
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$        & $250<\met<350$ & 151 $\pm$ 12.29 & 0.68 $\pm$ 0.03  & 0.07 $\pm$ 0.00 & 7.18 $\pm$ 0.79 \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$        & $350<\met<450$ & 68 $\pm$ 8.25   & 0.71 $\pm$ 0.04  & 0.08 $\pm$ 0.01 & 4.06 $\pm$ 0.65 \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$        & $450<\met<600$ & 31 $\pm$ 5.57   & 0.75 $\pm$ 0.08  & 0.07 $\pm$ 0.01 & 1.71 $\pm$ 0.42 \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$        & $\met>600$     & 11 $\pm$ 3.32   & 0.81 $\pm$ 0.08  & 0.09 $\pm$ 0.02 & 0.78 $\pm$ 0.30 \\
 \hline
- $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$      & $250<MET<450$ & 234 $\pm$ 15.30 & 0.80 $\pm$ 0.02  & 0.03 $\pm$ 0.00 & 5.64 $\pm$ 0.54 \\
- $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$      & $450<MET<600$ & 49 $\pm$ 7.00   & 0.77 $\pm$ 0.04  & 0.04 $\pm$ 0.00 & 1.56 $\pm$ 0.29 \\
- $<4$jets,~tmod$\ge10.0$,~$mlb\ge175$      & $MET>600$     & 27 $\pm$ 5.20   & 0.85 $\pm$ 0.08  & 0.04 $\pm$ 0.01 & 0.87 $\pm$ 0.23 \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$      & $250<\met<450$ & 234 $\pm$ 15.30 & 0.80 $\pm$ 0.02  & 0.03 $\pm$ 0.00 & 5.64 $\pm$ 0.54 \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$      & $450<\met<600$ & 49 $\pm$ 7.00   & 0.77 $\pm$ 0.04  & 0.04 $\pm$ 0.00 & 1.56 $\pm$ 0.29 \\
+ $<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$      & $\met>600$     & 27 $\pm$ 5.20   & 0.85 $\pm$ 0.08  & 0.04 $\pm$ 0.01 & 0.87 $\pm$ 0.23 \\
 \hline
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$         & $250<MET<350$ & 143 $\pm$ 11.96 & 0.37 $\pm$ 0.02  & 0.18 $\pm$ 0.02 & 9.65 $\pm$ 1.54 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$         & $350<MET<450$ & 31 $\pm$ 5.57   & 0.45 $\pm$ 0.05  & 0.18 $\pm$ 0.03 & 2.51 $\pm$ 0.67 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$         & $450<MET<550$ & 5 $\pm$ 2.24    & 0.39 $\pm$ 0.05  & 0.25 $\pm$ 0.05 & 0.47 $\pm$ 0.24 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$         & $550<MET<650$ & 3 $\pm$ 1.73    & 0.64 $\pm$ 0.14  & 0.14 $\pm$ 0.04 & 0.26 $\pm$ 0.18 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb<175$         & $MET>650$     & 4 $\pm$ 2.00    & 0.45 $\pm$ 0.11  & 0.24 $\pm$ 0.07 & 0.43 $\pm$ 0.27 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$         & $250<\met<350$ & 143 $\pm$ 11.96 & 0.37 $\pm$ 0.02  & 0.18 $\pm$ 0.02 & 9.65 $\pm$ 1.54 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$         & $350<\met<450$ & 31 $\pm$ 5.57   & 0.45 $\pm$ 0.05  & 0.18 $\pm$ 0.03 & 2.51 $\pm$ 0.67 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$         & $450<\met<550$ & 5 $\pm$ 2.24    & 0.39 $\pm$ 0.05  & 0.25 $\pm$ 0.05 & 0.47 $\pm$ 0.24 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$         & $550<\met<650$ & 3 $\pm$ 1.73    & 0.64 $\pm$ 0.14  & 0.14 $\pm$ 0.04 & 0.26 $\pm$ 0.18 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$         & $\met>650$     & 4 $\pm$ 2.00    & 0.45 $\pm$ 0.11  & 0.24 $\pm$ 0.07 & 0.43 $\pm$ 0.27 \\
 \hline
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$       & $250<MET<350$ & 104 $\pm$ 10.20 & 0.64 $\pm$ 0.04  & 0.11 $\pm$ 0.01 & 7.52 $\pm$ 1.11 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$       & $350<MET<450$ & 27 $\pm$ 5.20   & 0.65 $\pm$ 0.10  & 0.09 $\pm$ 0.02 & 1.55 $\pm$ 0.47 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$       & $450<MET<550$ & 9 $\pm$ 3.00    & 0.66 $\pm$ 0.06  & 0.09 $\pm$ 0.02 & 0.56 $\pm$ 0.23 \\
- $\ge4$jets,~tmod$<0.0$,~$mlb\ge175$       & $MET>550$     & 12 $\pm$ 3.46   & 0.61 $\pm$ 0.08  & 0.14 $\pm$ 0.04 & 1.02 $\pm$ 0.42 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$       & $250<\met<350$ & 104 $\pm$ 10.20 & 0.64 $\pm$ 0.04  & 0.11 $\pm$ 0.01 & 7.52 $\pm$ 1.11 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$       & $350<\met<450$ & 27 $\pm$ 5.20   & 0.65 $\pm$ 0.10  & 0.09 $\pm$ 0.02 & 1.55 $\pm$ 0.47 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$       & $450<\met<550$ & 9 $\pm$ 3.00    & 0.66 $\pm$ 0.06  & 0.09 $\pm$ 0.02 & 0.56 $\pm$ 0.23 \\
+ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$       & $\met>550$     & 12 $\pm$ 3.46   & 0.61 $\pm$ 0.08  & 0.14 $\pm$ 0.04 & 1.02 $\pm$ 0.42 \\
 \hline
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$  & $250<MET<350$ & 54 $\pm$ 7.35   & 0.56 $\pm$ 0.09  & 0.19 $\pm$ 0.05 & 5.67 $\pm$ 1.83 \\
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$  & $350<MET<550$ & 13 $\pm$ 3.61   & 0.68 $\pm$ 0.05  & 0.14 $\pm$ 0.02 & 1.25 $\pm$ 0.38 \\
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$  & $MET>550$     & 2 $\pm$ 1.41    & 0.56 $\pm$ 0.13  & 0.23 $\pm$ 0.06 & 0.26 $\pm$ 0.21 \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$  & $250<\met<350$ & 54 $\pm$ 7.35   & 0.56 $\pm$ 0.09  & 0.19 $\pm$ 0.05 & 5.67 $\pm$ 1.83 \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$  & $350<\met<550$ & 13 $\pm$ 3.61   & 0.68 $\pm$ 0.05  & 0.14 $\pm$ 0.02 & 1.25 $\pm$ 0.38 \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$  & $\met>550$     & 2 $\pm$ 1.41    & 0.56 $\pm$ 0.13  & 0.23 $\pm$ 0.06 & 0.26 $\pm$ 0.21 \\
 \hline
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$& $250<MET<450$ & 51 $\pm$ 7.14   & 0.74 $\pm$ 0.05  & 0.08 $\pm$ 0.01 & 3.10 $\pm$ 0.59 \\
- $\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$& $MET>450$     & 5 $\pm$ 2.24    & 0.66 $\pm$ 0.07  & 0.07 $\pm$ 0.01 & 0.24 $\pm$ 0.12 \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$& $250<\met<450$ & 51 $\pm$ 7.14   & 0.74 $\pm$ 0.05  & 0.08 $\pm$ 0.01 & 3.10 $\pm$ 0.59 \\
+ $\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$& $\met>450$     & 5 $\pm$ 2.24    & 0.66 $\pm$ 0.07  & 0.07 $\pm$ 0.01 & 0.24 $\pm$ 0.12 \\
 \hline
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$      & $250<MET<350$ & 8 $\pm$ 2.83    & 0.41 $\pm$ 0.07  & 0.32 $\pm$ 0.07 & 1.06 $\pm$ 0.47 \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$      & $350<MET<450$ & 7 $\pm$ 2.65    & 0.63 $\pm$ 0.22  & 0.16 $\pm$ 0.05 & 0.71 $\pm$ 0.44 \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$      & $450<MET<600$ & 3 $\pm$ 1.73    & 0.60 $\pm$ 0.11  & 0.24 $\pm$ 0.04 & 0.43 $\pm$ 0.27 \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb<175$      & $MET>600$     & 2 $\pm$ 1.41    & 0.72 $\pm$ 0.42  & 0.24 $\pm$ 0.12 & 0.34 $\pm$ 0.36 \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$      & $250<\met<350$ & 8 $\pm$ 2.83    & 0.41 $\pm$ 0.07  & 0.32 $\pm$ 0.07 & 1.06 $\pm$ 0.47 \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$      & $350<\met<450$ & 7 $\pm$ 2.65    & 0.63 $\pm$ 0.22  & 0.16 $\pm$ 0.05 & 0.71 $\pm$ 0.44 \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$      & $450<\met<600$ & 3 $\pm$ 1.73    & 0.60 $\pm$ 0.11  & 0.24 $\pm$ 0.04 & 0.43 $\pm$ 0.27 \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$      & $\met>600$     & 2 $\pm$ 1.41    & 0.72 $\pm$ 0.42  & 0.24 $\pm$ 0.12 & 0.34 $\pm$ 0.36 \\
 \hline
- $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$    & $250<MET<450$ & 10 $\pm$ 3.16   & 0.70 $\pm$ 0.08  & 0.14 $\pm$ 0.02 & 1.00 $\pm$ 0.37 \\
- $\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$    & $MET>450$     & 7 $\pm$ 2.65    & 0.72 $\pm$ 0.06  & 0.09 $\pm$ 0.02 & 0.46 $\pm$ 0.19 \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$    & $250<\met<450$ & 10 $\pm$ 3.16   & 0.70 $\pm$ 0.08  & 0.14 $\pm$ 0.02 & 1.00 $\pm$ 0.37 \\
+ $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$    & $\met>450$     & 7 $\pm$ 2.65    & 0.72 $\pm$ 0.06  & 0.09 $\pm$ 0.02 & 0.46 $\pm$ 0.19 \\
 \hline
-Compressed search & $250<MET<350$  & 49 $\pm$ 7.00  & 0.50 $\pm$ 0.19  & 0.21 $\pm$ 0.06  & 5.03 $\pm$ 1.78  \\
-Compressed search & $350<MET<450$  & 11 $\pm$ 3.32  & 0.54 $\pm$ 0.20  & 0.14 $\pm$ 0.03  & 0.84 $\pm$ 0.33  \\
-Compressed search & $450<MET<550$  & 5 $\pm$ 2.24   & 0.42 $\pm$ 0.19  & 0.20 $\pm$ 0.05  & 0.42 $\pm$ 0.24  \\
-Compressed search & $MET>550$      & 3 $\pm$ 1.73  & 0.56 $\pm$ 0.19  & 0.14 $\pm$ 0.05  & 0.24 $\pm$ 0.17  \\
+Compressed search & $250<\met<350$  & 49 $\pm$ 7.00  & 0.50 $\pm$ 0.19  & 0.21 $\pm$ 0.06  & 5.03 $\pm$ 1.78  \\
+Compressed search & $350<\met<450$  & 11 $\pm$ 3.32  & 0.54 $\pm$ 0.20  & 0.14 $\pm$ 0.03  & 0.84 $\pm$ 0.33  \\
+Compressed search & $450<\met<550$  & 5 $\pm$ 2.24   & 0.42 $\pm$ 0.19  & 0.20 $\pm$ 0.05  & 0.42 $\pm$ 0.24  \\
+Compressed search & $\met>550$      & 3 $\pm$ 1.73  & 0.56 $\pm$ 0.19  & 0.14 $\pm$ 0.05  & 0.24 $\pm$ 0.17  \\
 \hline
 \end{tabular}
 \end{sidewaystable}
@@ -1928,47 +1928,47 @@ are presented in Table \ref{tab:stop:1ltop:results}.
 \label{tab:stop:1ltop:results}
 \begin{tabular}{|l|c|c|}
 \hline
-Region & MET bin & SR Estimate\\
+Region & $\met$ bin & SR Estimate\\
 \hline
-$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$ &  ---  \\
-$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$ &  0.22$\pm$0.22 \\
-$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$ &  0.13$\pm$0.13  \\
-$<4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$     &  0.28$\pm$0.28 \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $250<\met<350$ &  ---  \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $350<\met<450$ &  0.22$\pm$0.22 \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $450<\met<600$ &  0.13$\pm$0.13  \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $\met>600$     &  0.28$\pm$0.28 \\
 \hline
-$<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$ &  --- \\
-$<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $450<MET<600$ &  ---  \\
-$<4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>600$     &  ---  \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $250<\met<450$ &  --- \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $450<\met<600$ &  ---  \\
+$<4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $\met>600$     &  ---  \\
 \hline
-$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $250<MET<350$ &  13.2$\pm$13.2  \\
-$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $350<MET<450$ &  2.3$\pm$2.3  \\
-$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $450<MET<550$ &  0.63$\pm$0.63  \\
-$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $550<MET<650$ &  0.09$\pm$0.09 \\
-$\ge4$jets,~tmod$<0.0$,~$mlb<175$ & $MET>650$     &  --- \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $250<\met<350$ &  13.2$\pm$13.2  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $350<\met<450$ &  2.3$\pm$2.3  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $450<\met<550$ &  0.63$\pm$0.63  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $550<\met<650$ &  0.09$\pm$0.09 \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb <175$ & $\met>650$     &  --- \\
 \hline
-$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $250<MET<350$ &  3.1$\pm$3.1  \\
-$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $350<MET<450$ &  0.59$\pm$0.59  \\
-$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $450<MET<550$ &  0.37$\pm$0.37  \\
-$\ge4$jets,~tmod$<0.0$,~$mlb\ge175$ & $MET>550$     &  ---  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $250<\met<350$ &  3.1$\pm$3.1  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $350<\met<450$ &  0.59$\pm$0.59  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $450<\met<550$ &  0.37$\pm$0.37  \\
+$\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $\met>550$     &  ---  \\
 \hline
-$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $250<MET<350$ &  1.7$\pm$1.7  \\
-$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $350<MET<550$ &  0.48$\pm$0.48  \\
-$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb<175$ & $MET>550$     &  0.33$\pm$0.33  \\
+$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $250<\met<350$ &  1.7$\pm$1.7  \\
+$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $350<\met<550$ &  0.48$\pm$0.48  \\
+$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $\met>550$     &  0.33$\pm$0.33  \\
 \hline
-$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $250<MET<450$ &  0.30$\pm$0.30  \\
-$\ge4$jets,~$0.0<$tmod$<10.0$,~$mlb\ge175$ & $MET>450$     &  ---  \\
+$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$ & $250<\met<450$ &  0.30$\pm$0.30  \\
+$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$ & $\met>450$     &  ---  \\
 \hline
-$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $250<MET<350$ &  0.75$\pm$0.75  \\
-$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $350<MET<450$ &  0.69$\pm$0.69  \\
-$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $450<MET<600$ &  0.10$\pm$0.10 \\
-$\ge4$jets,~tmod$\ge10.0$,~$mlb<175$ & $MET>600$     &  0.65$\pm$0.65  \\
+$\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $250<\met<350$ &  0.75$\pm$0.75  \\
+$\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $350<\met<450$ &  0.69$\pm$0.69  \\
+$\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $450<\met<600$ &  0.10$\pm$0.10 \\
+$\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $\met>600$     &  0.65$\pm$0.65  \\
 \hline
-$\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $250<MET<450$ &  ---  \\
-$\ge4$jets,~tmod$\ge10.0$,~$mlb\ge175$ & $MET>450$     &  0.11$\pm$0.11 \\
+$\ge4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $250<\met<450$ &  ---  \\
+$\ge4$ jets,~$\tmod \ge10.0$,~$\mlb \ge175$ & $\met>450$     &  0.11$\pm$0.11 \\
 \hline
-Compressed search & $250<MET<350$ & 5.3$\pm$5.3 \\
-Compressed search & $350<MET<450$ & 1.0$\pm$1.0 \\
-Compressed search & $450<MET<550$ & 0.12$\pm$0.12 \\
-Compressed search & $MET>550$     & 0.13$\pm$0.13 \\
+Compressed search & $250<\met<350$ & 5.3$\pm$5.3 \\
+Compressed search & $350<\met<450$ & 1.0$\pm$1.0 \\
+Compressed search & $450<\met<550$ & 0.12$\pm$0.12 \\
+Compressed search & $\met>550$     & 0.13$\pm$0.13 \\
 \hline
 \end{tabular}
 \end{table}
@@ -2032,7 +2032,7 @@ template fit.
 We do not derive these factors ourselves; rather, they are taken
 from a CMS internal note documenting changes and improvements to the
 2016 same-sign dilepton search. The same-sign analysis was described
-in public documentation supporting ICHEP 2016\cite{samesign}.
+in public documentation supporting ICHEP 2016 \cite{samesign}.
 % AN-2016-386, follow up to PAS SUS-16-020
 
 \subsubsection{Control Region Definition}
@@ -2080,11 +2080,11 @@ they have on the shape of the background. We keep the normalization
 fixed to the values derived from the control region. And because the
 theory uncertainties are highly sensitive to our limited statistics,
 we merge several of the nominal regions together by removing the
-binning in $M_{\ell b}$ and $t_\text{mod}$. In effect, this leaves us
+binning in $\mlb$ and $\tmod$. In effect, this leaves us
 with fewer regions, binned only in $N_\text{jets}$ and $\met$. The
 corridor regions are not merged in any way. This merging is justified
-by studies showing that variations in the shapes of $M_{\ell b}$ and
-$t_\text{mod}$ are small compared to uncertainties arising from the
+by studies showing that variations in the shapes of $\mlb$ and
+$\tmod$ are small compared to uncertainties arising from the
 $\met$ distribution. The theory uncertainties evaluated in this manner
 are:
 \begin{itemize}
@@ -2107,37 +2107,37 @@ The values of the systematic uncertainties are presented in Table
 \hline
 Region & MC stat.   &   Lep. ID/Iso   &   b-tag (LF) &   b-tag (HF)  &   PU &   PDF &   $\alpha_S$ &   $Q^2$ &   ISR njets  & JES &   Norm.  & Total \\
 \hline
- A 250$<\met<$350 & 11.88\% & 0.31\%  & 1.58\%  & 1.23\%  & 3.00\%  & 0.23\%  & 0.86\%  & 3.86\%  & 7.12\%  & 2.55\%  & 20.70\% & 25.60\% \\
- A 350$<\met<$450 & 25.04\% & 0.35\%  & 3.63\%  & 0.77\%  & 3.00\%  & 3.33\%  & 0.61\%  & 1.31\%  & 9.09\%  & 0.37\%  & 24.38\% & 36.61\% \\
- A 450$<\met<$600 & 23.87\% & 0.37\%  & 1.34\%  & 1.34\%  & 3.00\%  & 0.45\%  & 0.39\%  & 2.47\%  & 7.02\%  & 0.46\%  & 20.77\% & 32.71\% \\
- A $\met>$600     & 51.43\% & 0.41\%  & 2.87\%  & 1.74\%  & 3.00\%  & 8.04\%  & 0.36\%  & 2.37\%  & 5.13\%  & 10.54\% & 16.77\% & 56.17\% \\
- B 250$<\met<$450 & 29.98\% & 0.50\%  & 1.67\%  & 1.23\%  & 3.00\%  & 1.17\%  & 0.76\%  & 2.86\%  & 3.97\%  & 1.01\%  & 14.74\% & 34.01\% \\
- B 450$<\met<$600 & 86.04\% & 0.77\%  & 5.28\%  & 1.26\%  & 3.00\%  & 0.45\%  & 0.40\%  & 2.47\%  & 4.00\%  & 32.62\% & 15.46\% & 93.63\% \\
- B $\met>$600     & 228.31\%& 2.65\%  & 19.40\% & 1.64\%  & 3.00\%  & 8.03\%  & 0.36\%  & 2.37\%  & 8.12\%  & 44.04\% & 22.72\% & 234.76\%\\
- C 250$<\met<$350 & 4.56\%  & 0.45\%  & 0.06\%  & 0.68\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 0.40\%  & 4.78\%  & 26.18\% & 27.26\% \\
- C 350$<\met<$450 & 10.85\% & 0.35\%  & 0.48\%  & 0.66\%  & 3.00\%  & 2.01\%  & 1.23\%  & 5.00\%  & 0.99\%  & 6.85\%  & 23.73\% & 27.73\% \\
- C 450$<\met<$550 & 20.70\% & 0.31\%  & 4.53\%  & 0.26\%  & 3.00\%  & 1.89\%  & 1.34\%  & 4.86\%  & 2.03\%  & 4.52\%  & 18.54\% & 29.25\% \\
- C 550$<\met<$650 & 9.20\%  & 0.38\%  & 0.77\%  & 0.38\%  & 3.00\%  & 4.90\%  & 1.86\%  & 3.67\%  & 3.67\%  & 2.14\%  & 26.32\% & 29.09\% \\
- C $\met>$650     & 12.73\% & 0.45\%  & 0.20\%  & 0.40\%  & 3.00\%  & 8.11\%  & 3.08\%  & 4.23\%  & 4.92\%  & 5.74\%  & 26.32\% & 31.85\% \\
- D 250$<\met<$350 & 19.82\% & 0.31\%  & 0.72\%  & 0.41\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.76\%  & 0.82\%  & 9.76\%  & 20.24\% & 30.20\% \\
- D 350$<\met<$450 & 27.58\% & 0.32\%  & 1.82\%  & 1.08\%  & 3.00\%  & 2.02\%  & 1.23\%  & 4.99\%  & 1.63\%  & 10.79\% & 17.33\% & 34.98\% \\
- D 450$<\met<$550 & 47.40\% & 0.33\%  & 4.96\%  & 0.22\%  & 3.00\%  & 1.88\%  & 1.33\%  & 4.85\%  & 2.24\%  & 17.87\% & 17.31\% & 54.17\% \\
- D $\met>$550     & 18.94\% & 0.44\%  & 0.06\%  & 0.83\%  & 3.00\%  & 7.53\%  & 2.44\%  & 2.55\%  & 7.31\%  & 7.15\%  & 26.32\% & 35.14\% \\
- E 250$<\met<$350 & 5.55\%  & 0.42\%  & 0.65\%  & 0.74\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 2.52\%  & 3.80\%  & 25.40\% & 26.66\% \\
- E 350$<\met<$550 & 10.40\% & 0.40\%  & 0.01\%  & 0.83\%  & 3.00\%  & 1.97\%  & 1.26\%  & 4.96\%  & 0.66\%  & 7.23\%  & 23.72\% & 27.63\% \\
- E $\met>$550     & 87.72\% & 0.77\%  & 7.05\%  & 0.02\%  & 3.00\%  & 7.55\%  & 2.47\%  & 2.51\%  & 2.26\%  & 1.66\%  & 24.61\% & 91.86\% \\
- F 250$<\met<$450 & 16.02\% & 0.42\%  & 0.06\%  & 0.31\%  & 3.00\%  & 1.16\%  & 0.78\%  & 2.70\%  & 2.10\%  & 4.41\%  & 24.07\% & 29.63\% \\
- F $\met>$450     & 12.82\% & 0.47\%  & 0.40\%  & 0.57\%  & 3.00\%  & 3.72\%  & 1.70\%  & 3.91\%  & 2.22\%  & 3.37\%  & 26.33\% & 30.26\% \\
- G 250$<\met<$350 & 5.75\%  & 0.39\%  & 0.01\%  & 1.71\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 2.09\%  & 3.44\%  & 25.42\% & 26.68\% \\
- G 350$<\met<$450 & 7.06\%  & 0.43\%  & 0.05\%  & 1.35\%  & 3.00\%  & 2.01\%  & 1.23\%  & 5.00\%  & 1.79\%  & 9.62\%  & 25.14\% & 28.63\% \\
- G 450$<\met<$600 & 9.01\%  & 0.37\%  & 0.19\%  & 1.27\%  & 3.00\%  & 2.63\%  & 1.54\%  & 4.72\%  & 0.51\%  & 5.15\%  & 24.77\% & 27.64\% \\
- G $\met>$600     & 7.00\%  & 0.47\%  & 0.19\%  & 1.01\%  & 3.00\%  & 8.01\%  & 2.34\%  & 1.74\%  & 0.68\%  & 15.62\% & 26.32\% & 32.70\% \\
- H 250$<\met<$450 & 9.94\%  & 0.49\%  & 0.05\%  & 0.07\%  & 3.00\%  & 1.17\%  & 0.79\%  & 2.72\%  & 2.06\%  & 4.60\%  & 26.32\% & 28.91\% \\
- H $\met>$450     & 34.01\% & 0.43\%  & 0.04\%  & 0.88\%  & 3.00\%  & 3.71\%  & 1.70\%  & 3.91\%  & 0.93\%  & 2.41\%  & 19.94\% & 40.03\% \\
- I 250$<\met<$350 & 9.76\%  & 0.38\%  & 0.78\%  & 0.47\%  & 3.00\%  & 0.21\%  & 0.32\%  & 3.91\%  & 4.30\%  & 5.32\%  & 23.38\% & 26.72\% \\
- I 350$<\met<$450 & 17.91\% & 0.35\%  & 0.76\%  & 0.60\%  & 3.00\%  & 1.99\%  & 1.41\%  & 5.88\%  & 4.56\%  & 6.05\%  & 22.78\% & 30.79\% \\
- I 450$<\met<$550 & 25.04\% & 0.51\%  & 4.83\%  & 0.35\%  & 3.00\%  & 1.89\%  & 1.62\%  & 4.90\%  & 5.38\%  & 4.89\%  & 21.64\% & 34.80\% \\
- I $\met>$550     & 29.62\% & 0.40\%  & 0.22\%  & 0.68\%  & 3.00\%  & 1.82\%  & 1.55\%  & 7.48\%  & 4.76\%  & 6.34\%  & 20.76\% & 37.98\% \\
+ A $250<\met<350$ & 11.88\% & 0.31\%  & 1.58\%  & 1.23\%  & 3.00\%  & 0.23\%  & 0.86\%  & 3.86\%  & 7.12\%  & 2.55\%  & 20.70\% & 25.60\% \\
+ A $350<\met<450$ & 25.04\% & 0.35\%  & 3.63\%  & 0.77\%  & 3.00\%  & 3.33\%  & 0.61\%  & 1.31\%  & 9.09\%  & 0.37\%  & 24.38\% & 36.61\% \\
+ A $450<\met<600$ & 23.87\% & 0.37\%  & 1.34\%  & 1.34\%  & 3.00\%  & 0.45\%  & 0.39\%  & 2.47\%  & 7.02\%  & 0.46\%  & 20.77\% & 32.71\% \\
+ A $\met>600$     & 51.43\% & 0.41\%  & 2.87\%  & 1.74\%  & 3.00\%  & 8.04\%  & 0.36\%  & 2.37\%  & 5.13\%  & 10.54\% & 16.77\% & 56.17\% \\
+ B $250<\met<450$ & 29.98\% & 0.50\%  & 1.67\%  & 1.23\%  & 3.00\%  & 1.17\%  & 0.76\%  & 2.86\%  & 3.97\%  & 1.01\%  & 14.74\% & 34.01\% \\
+ B $450<\met<600$ & 86.04\% & 0.77\%  & 5.28\%  & 1.26\%  & 3.00\%  & 0.45\%  & 0.40\%  & 2.47\%  & 4.00\%  & 32.62\% & 15.46\% & 93.63\% \\
+ B $\met>600$     & 228.31\%& 2.65\%  & 19.40\% & 1.64\%  & 3.00\%  & 8.03\%  & 0.36\%  & 2.37\%  & 8.12\%  & 44.04\% & 22.72\% & 234.76\%\\
+ C $250<\met<350$ & 4.56\%  & 0.45\%  & 0.06\%  & 0.68\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 0.40\%  & 4.78\%  & 26.18\% & 27.26\% \\
+ C $350<\met<450$ & 10.85\% & 0.35\%  & 0.48\%  & 0.66\%  & 3.00\%  & 2.01\%  & 1.23\%  & 5.00\%  & 0.99\%  & 6.85\%  & 23.73\% & 27.73\% \\
+ C $450<\met<550$ & 20.70\% & 0.31\%  & 4.53\%  & 0.26\%  & 3.00\%  & 1.89\%  & 1.34\%  & 4.86\%  & 2.03\%  & 4.52\%  & 18.54\% & 29.25\% \\
+ C $550<\met<650$ & 9.20\%  & 0.38\%  & 0.77\%  & 0.38\%  & 3.00\%  & 4.90\%  & 1.86\%  & 3.67\%  & 3.67\%  & 2.14\%  & 26.32\% & 29.09\% \\
+ C $\met>650$     & 12.73\% & 0.45\%  & 0.20\%  & 0.40\%  & 3.00\%  & 8.11\%  & 3.08\%  & 4.23\%  & 4.92\%  & 5.74\%  & 26.32\% & 31.85\% \\
+ D $250<\met<350$ & 19.82\% & 0.31\%  & 0.72\%  & 0.41\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.76\%  & 0.82\%  & 9.76\%  & 20.24\% & 30.20\% \\
+ D $350<\met<450$ & 27.58\% & 0.32\%  & 1.82\%  & 1.08\%  & 3.00\%  & 2.02\%  & 1.23\%  & 4.99\%  & 1.63\%  & 10.79\% & 17.33\% & 34.98\% \\
+ D $450<\met<550$ & 47.40\% & 0.33\%  & 4.96\%  & 0.22\%  & 3.00\%  & 1.88\%  & 1.33\%  & 4.85\%  & 2.24\%  & 17.87\% & 17.31\% & 54.17\% \\
+ D $\met>550$     & 18.94\% & 0.44\%  & 0.06\%  & 0.83\%  & 3.00\%  & 7.53\%  & 2.44\%  & 2.55\%  & 7.31\%  & 7.15\%  & 26.32\% & 35.14\% \\
+ E $250<\met<350$ & 5.55\%  & 0.42\%  & 0.65\%  & 0.74\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 2.52\%  & 3.80\%  & 25.40\% & 26.66\% \\
+ E $350<\met<550$ & 10.40\% & 0.40\%  & 0.01\%  & 0.83\%  & 3.00\%  & 1.97\%  & 1.26\%  & 4.96\%  & 0.66\%  & 7.23\%  & 23.72\% & 27.63\% \\
+ E $\met>550$     & 87.72\% & 0.77\%  & 7.05\%  & 0.02\%  & 3.00\%  & 7.55\%  & 2.47\%  & 2.51\%  & 2.26\%  & 1.66\%  & 24.61\% & 91.86\% \\
+ F $250<\met<450$ & 16.02\% & 0.42\%  & 0.06\%  & 0.31\%  & 3.00\%  & 1.16\%  & 0.78\%  & 2.70\%  & 2.10\%  & 4.41\%  & 24.07\% & 29.63\% \\
+ F $\met>450$     & 12.82\% & 0.47\%  & 0.40\%  & 0.57\%  & 3.00\%  & 3.72\%  & 1.70\%  & 3.91\%  & 2.22\%  & 3.37\%  & 26.33\% & 30.26\% \\
+ G $250<\met<350$ & 5.75\%  & 0.39\%  & 0.01\%  & 1.71\%  & 3.00\%  & 0.81\%  & 0.60\%  & 1.77\%  & 2.09\%  & 3.44\%  & 25.42\% & 26.68\% \\
+ G $350<\met<450$ & 7.06\%  & 0.43\%  & 0.05\%  & 1.35\%  & 3.00\%  & 2.01\%  & 1.23\%  & 5.00\%  & 1.79\%  & 9.62\%  & 25.14\% & 28.63\% \\
+ G $450<\met<600$ & 9.01\%  & 0.37\%  & 0.19\%  & 1.27\%  & 3.00\%  & 2.63\%  & 1.54\%  & 4.72\%  & 0.51\%  & 5.15\%  & 24.77\% & 27.64\% \\
+ G $\met>600$     & 7.00\%  & 0.47\%  & 0.19\%  & 1.01\%  & 3.00\%  & 8.01\%  & 2.34\%  & 1.74\%  & 0.68\%  & 15.62\% & 26.32\% & 32.70\% \\
+ H $250<\met<450$ & 9.94\%  & 0.49\%  & 0.05\%  & 0.07\%  & 3.00\%  & 1.17\%  & 0.79\%  & 2.72\%  & 2.06\%  & 4.60\%  & 26.32\% & 28.91\% \\
+ H $\met>450$     & 34.01\% & 0.43\%  & 0.04\%  & 0.88\%  & 3.00\%  & 3.71\%  & 1.70\%  & 3.91\%  & 0.93\%  & 2.41\%  & 19.94\% & 40.03\% \\
+ I $250<\met<350$ & 9.76\%  & 0.38\%  & 0.78\%  & 0.47\%  & 3.00\%  & 0.21\%  & 0.32\%  & 3.91\%  & 4.30\%  & 5.32\%  & 23.38\% & 26.72\% \\
+ I $350<\met<450$ & 17.91\% & 0.35\%  & 0.76\%  & 0.60\%  & 3.00\%  & 1.99\%  & 1.41\%  & 5.88\%  & 4.56\%  & 6.05\%  & 22.78\% & 30.79\% \\
+ I $450<\met<550$ & 25.04\% & 0.51\%  & 4.83\%  & 0.35\%  & 3.00\%  & 1.89\%  & 1.62\%  & 4.90\%  & 5.38\%  & 4.89\%  & 21.64\% & 34.80\% \\
+ I $\met>550$     & 29.62\% & 0.40\%  & 0.22\%  & 0.68\%  & 3.00\%  & 1.82\%  & 1.55\%  & 7.48\%  & 4.76\%  & 6.34\%  & 20.76\% & 37.98\% \\
 \hline
 \end{tabular}
 \end{sidewaystable}
@@ -2158,37 +2158,37 @@ are presented in Table \ref{tab:stop:rarebkg:results}.
 \hline
 Region & ttZ & WZ & Total  \\
 \hline
- A 250$<\met<$350 & 3.33 $\pm$ 0.96   & 1.38 $\pm$ 0.58   & 4.71 $\pm$ 1.21   \\
- A 350$<\met<$450 & 1.85 $\pm$ 0.53   & 0.21 $\pm$ 0.53   & 2.05 $\pm$ 0.75   \\
- A 450$<\met<$600 & 1.15 $\pm$ 0.33   & 0.47 $\pm$ 0.39   & 1.62 $\pm$ 0.53   \\
- A $\met>$600 & 0.36 $\pm$ 0.11   & 0.36 $\pm$ 0.41   & 0.71 $\pm$ 0.40   \\
- B 250$<\met<$450 & 0.61 $\pm$ 0.18   & 0.93 $\pm$ 0.47   & 1.54 $\pm$ 0.52   \\
- B 450$<\met<$600 & 0.15 $\pm$ 0.05   & 0.20 $\pm$ 0.34   & 0.35 $\pm$ 0.33   \\
- B $\met>$600 & 0.09 $\pm$ 0.03   & 0.02 $\pm$ 0.26   & 0.11 $\pm$ 0.26   \\
- C 250$<\met<$350 & 14.28 $\pm$ 3.84  & 0.10 $\pm$ 0.62   & 14.38 $\pm$ 3.92  \\
- C 350$<\met<$450 & 3.83 $\pm$ 1.06   & 0.60 $\pm$ 0.48   & 4.43 $\pm$ 1.23   \\
- C 450$<\met<$550 & 1.06 $\pm$ 0.31   & 0.73 $\pm$ 0.39   & 1.79 $\pm$ 0.52   \\
- C 550$<\met<$650 & 0.40 $\pm$ 0.12   & 0.00 $\pm$ 0.00   & 0.40 $\pm$ 0.12   \\
- C $\met>$650 & 0.20 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.20 $\pm$ 0.06   \\
- D 250$<\met<$350 & 2.06 $\pm$ 0.56   & 0.95 $\pm$ 0.63   & 3.01 $\pm$ 0.91   \\
- D 350$<\met<$450 & 0.62 $\pm$ 0.18   & 0.55 $\pm$ 0.40   & 1.18 $\pm$ 0.41   \\
- D 450$<\met<$550 & 0.24 $\pm$ 0.07   & 0.21 $\pm$ 0.22   & 0.45 $\pm$ 0.24   \\
- D $\met>$550 & 0.09 $\pm$ 0.03   & 0.00 $\pm$ 0.00   & 0.09 $\pm$ 0.03   \\
- E 250$<\met<$350 & 7.88 $\pm$ 2.14   & 0.40 $\pm$ 0.44   & 8.27 $\pm$ 2.21   \\
- E 350$<\met<$550 & 3.34 $\pm$ 0.94   & 0.52 $\pm$ 0.39   & 3.87 $\pm$ 1.07   \\
- E $\met>$550 & 0.26 $\pm$ 0.08   & 0.03 $\pm$ 0.25   & 0.29 $\pm$ 0.26   \\
- F 250$<\met<$450 & 0.98 $\pm$ 0.27   & 0.13 $\pm$ 0.17   & 1.11 $\pm$ 0.33   \\
- F $\met>$450 & 0.21 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.21 $\pm$ 0.06   \\
- G 250$<\met<$350 & 2.89 $\pm$ 0.78   & 0.14 $\pm$ 0.15   & 3.03 $\pm$ 0.81   \\
- G 350$<\met<$450 & 2.51 $\pm$ 0.71   & 0.16 $\pm$ 0.18   & 2.67 $\pm$ 0.77   \\
- G 450$<\met<$600 & 1.80 $\pm$ 0.50   & 0.16 $\pm$ 0.16   & 1.96 $\pm$ 0.54   \\
- G $\met>$600 & 0.70 $\pm$ 0.20   & 0.00 $\pm$ 0.00   & 0.70 $\pm$ 0.23   \\
- H 250$<\met<$450 & 0.37 $\pm$ 0.11   & 0.00 $\pm$ 0.00   & 0.37 $\pm$ 0.11   \\
- H $\met>$450 & 0.33 $\pm$ 0.10   & 0.16 $\pm$ 0.17   & 0.49 $\pm$ 0.20   \\
- I 250$<\met<$350 & 3.66 $\pm$ 1.01   & 0.66 $\pm$ 0.43   & 4.33 $\pm$ 1.16   \\
- I 350$<\met<$450 & 1.57 $\pm$ 0.45   & 0.35 $\pm$ 0.34   & 1.93 $\pm$ 0.59   \\
- I 450$<\met<$550 & 0.58 $\pm$ 0.17   & 0.19 $\pm$ 0.20   & 0.77 $\pm$ 0.27   \\
- I $\met>$550 & 0.41 $\pm$ 0.13   & 0.17 $\pm$ 0.17   & 0.58 $\pm$ 0.22   \\
+ A $250<\met<350$ & 3.33 $\pm$ 0.96   & 1.38 $\pm$ 0.58   & 4.71 $\pm$ 1.21   \\
+ A $350<\met<450$ & 1.85 $\pm$ 0.53   & 0.21 $\pm$ 0.53   & 2.05 $\pm$ 0.75   \\
+ A $450<\met<600$ & 1.15 $\pm$ 0.33   & 0.47 $\pm$ 0.39   & 1.62 $\pm$ 0.53   \\
+ A $\met>600$ & 0.36 $\pm$ 0.11   & 0.36 $\pm$ 0.41   & 0.71 $\pm$ 0.40   \\
+ B $250<\met<450$ & 0.61 $\pm$ 0.18   & 0.93 $\pm$ 0.47   & 1.54 $\pm$ 0.52   \\
+ B $450<\met<600$ & 0.15 $\pm$ 0.05   & 0.20 $\pm$ 0.34   & 0.35 $\pm$ 0.33   \\
+ B $\met>600$ & 0.09 $\pm$ 0.03   & 0.02 $\pm$ 0.26   & 0.11 $\pm$ 0.26   \\
+ C $250<\met<350$ & 14.28 $\pm$ 3.84  & 0.10 $\pm$ 0.62   & 14.38 $\pm$ 3.92  \\
+ C $350<\met<450$ & 3.83 $\pm$ 1.06   & 0.60 $\pm$ 0.48   & 4.43 $\pm$ 1.23   \\
+ C $450<\met<550$ & 1.06 $\pm$ 0.31   & 0.73 $\pm$ 0.39   & 1.79 $\pm$ 0.52   \\
+ C $550<\met<650$ & 0.40 $\pm$ 0.12   & 0.00 $\pm$ 0.00   & 0.40 $\pm$ 0.12   \\
+ C $\met>650$ & 0.20 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.20 $\pm$ 0.06   \\
+ D $250<\met<350$ & 2.06 $\pm$ 0.56   & 0.95 $\pm$ 0.63   & 3.01 $\pm$ 0.91   \\
+ D $350<\met<450$ & 0.62 $\pm$ 0.18   & 0.55 $\pm$ 0.40   & 1.18 $\pm$ 0.41   \\
+ D $450<\met<550$ & 0.24 $\pm$ 0.07   & 0.21 $\pm$ 0.22   & 0.45 $\pm$ 0.24   \\
+ D $\met>550$ & 0.09 $\pm$ 0.03   & 0.00 $\pm$ 0.00   & 0.09 $\pm$ 0.03   \\
+ E $250<\met<350$ & 7.88 $\pm$ 2.14   & 0.40 $\pm$ 0.44   & 8.27 $\pm$ 2.21   \\
+ E $350<\met<550$ & 3.34 $\pm$ 0.94   & 0.52 $\pm$ 0.39   & 3.87 $\pm$ 1.07   \\
+ E $\met>550$ & 0.26 $\pm$ 0.08   & 0.03 $\pm$ 0.25   & 0.29 $\pm$ 0.26   \\
+ F $250<\met<450$ & 0.98 $\pm$ 0.27   & 0.13 $\pm$ 0.17   & 1.11 $\pm$ 0.33   \\
+ F $\met>450$ & 0.21 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.21 $\pm$ 0.06   \\
+ G $250<\met<350$ & 2.89 $\pm$ 0.78   & 0.14 $\pm$ 0.15   & 3.03 $\pm$ 0.81   \\
+ G $350<\met<450$ & 2.51 $\pm$ 0.71   & 0.16 $\pm$ 0.18   & 2.67 $\pm$ 0.77   \\
+ G $450<\met<600$ & 1.80 $\pm$ 0.50   & 0.16 $\pm$ 0.16   & 1.96 $\pm$ 0.54   \\
+ G $\met>600$ & 0.70 $\pm$ 0.20   & 0.00 $\pm$ 0.00   & 0.70 $\pm$ 0.23   \\
+ H $250<\met<450$ & 0.37 $\pm$ 0.11   & 0.00 $\pm$ 0.00   & 0.37 $\pm$ 0.11   \\
+ H $\met>450$ & 0.33 $\pm$ 0.10   & 0.16 $\pm$ 0.17   & 0.49 $\pm$ 0.20   \\
+ I $250<\met<350$ & 3.66 $\pm$ 1.01   & 0.66 $\pm$ 0.43   & 4.33 $\pm$ 1.16   \\
+ I $350<\met<450$ & 1.57 $\pm$ 0.45   & 0.35 $\pm$ 0.34   & 1.93 $\pm$ 0.59   \\
+ I $450<\met<550$ & 0.58 $\pm$ 0.17   & 0.19 $\pm$ 0.20   & 0.77 $\pm$ 0.27   \\
+ I $\met>550$ & 0.41 $\pm$ 0.13   & 0.17 $\pm$ 0.17   & 0.58 $\pm$ 0.22   \\
 \hline
 \end{tabular}
 \end{table}
@@ -2212,7 +2212,7 @@ Figure \ref{fig:stop:results}.
 \scalebox{0.95}{
 \begin{tabular}{|r|r|r|r|c|c|c|c|c|c|}
 \hline
- \multirow{2}{*}{$N_\mathrm{J}$} & \multirow{2}{*}{$t_\mathrm{mod}$} & $M_\mathrm{\ell b}$ & $E_\mathrm{T}^\mathrm{miss}$ & Lost  & \multirow{2}{*}{1$\ell$ (top)} & 1$\ell$ (not & \multirow{2}{*}{$Z\rightarrow\nu\bar{\nu}$} & Total & \multirow{2}{*}{Data} \\
+ \multirow{2}{*}{$N_\mathrm{J}$} & \multirow{2}{*}{$\tmod$} & $M_\mathrm{\ell b}$ & $E_\mathrm{T}^\mathrm{miss}$ & Lost  & \multirow{2}{*}{1$\ell$ (top)} & 1$\ell$ (not & \multirow{2}{*}{$Z\rightarrow\nu\bar{\nu}$} & Total & \multirow{2}{*}{Data} \\
   &  &  [GeV] &  [GeV] &  lepton &  &  top) &  & background &  \\
 \hline
 $\leq3$ &    $>10$ & $\leq175$ & $250-350$ & 53.9$\pm$6.2 & --- & 7.2$\pm$2.5 & 4.7$\pm$1.2 & 65.8$\pm$6.8 & 72 \\
@@ -2258,7 +2258,7 @@ $\geq4$ &    $>10$ &     $>175$ &    $>450$ & 0.24$\pm$0.17 & 0.11$\pm$0.11 & 0.
 \end{tabular}}
 \end{table}
 
-% Plot of final results, taken from AN-16-463.
+% Plot of final results, taken from SUS-16-051 paper draft.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.99\textwidth]{figures/ResultPlot_Moriond2017.pdf}
