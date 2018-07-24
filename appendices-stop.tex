@@ -81,8 +81,8 @@ cases an efficiency of 0.86 $\pm$ 0.003.
 
 We compare the data and Monte Carlo distributions for a number of
 variables in our crosscheck regions. In general, we find fairly good
-agreement for number of jets, number of b-tags, jet $p_T$, and
-dilepton $p_T$, as shown in Figure \ref{fig:emu:kinematics}.
+agreement for number of jets, number of b-tags, and jet $p_T$, as
+shown in Figure \ref{fig:emu:kinematics}.
 
 % Plots of various kinematic variables, taken from AN-16-463. Unpublished.
 \begin{figure}[htbp]
@@ -90,28 +90,20 @@ dilepton $p_T$, as shown in Figure \ref{fig:emu:kinematics}.
 \includegraphics[width=0.45\textwidth]{figures/emuRegion_nJets.pdf}
 \includegraphics[width=0.45\textwidth]{figures/emuRegion_nBtags.pdf}
 \includegraphics[width=0.45\textwidth]{figures/emuRegion_jetPt.pdf}
-\includegraphics[width=0.45\textwidth]{figures/emuRegion_dilepPt.pdf}
+\includegraphics[width=0.45\textwidth]{figures/emuRegion_met.pdf}
 \caption{Distributions of number of jets and number of b-tags in the
-  $\geq$0 b-tag region, and jet $p_T$
-  and dilepton $p_T$ in the $\geq$1 b-tag regions.}
+  $\geq$0 b-tag region, and jet $p_T$ and $\met$ in the $\geq$1 b-tag
+  regions. The $\met$ distribution contains a noticeable discrepancy in
+  the last two bins.}
 \label{fig:emu:kinematics}
 \end{figure}
 
-However, the $\met$ distribution, pictured in Figure \ref{fig:emu:met}
+However, the $\met$ distribution
 shows significant disagreement in the last two bins. This discrepancy
 must be corrected, because we perform $\met$ extrapolation in some of
 our high-$\met$ control regions (see Section
-\ref{sssec:stop:lostlep:estimation}, and a disagreement between data
+\ref{sssec:stop:lostlep:estimation}), and a disagreement between data
 and MC would skew our background estimate in those regions.
-
-% MET plot taken from AN-16-463. Unpublished.
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.6\textwidth]{figures/emuRegion_met.pdf}
-\caption{Distribution of $\met$ in the $\geq$1 b-tag crosscheck
-  region, showing a strong discrepancy in the last two bins.}
-\label{fig:emu:met}
-\end{figure}
 
 To correct the disagreement, we calculate the data/MC ratio in each
 $\met$ bin, as well as the data/MC ratio in our merged $\met$ bins
@@ -235,7 +227,7 @@ MC due to $\met$ resolution effects.
 \includegraphics[width=0.245\textwidth]{figures/metres_DataVsSim_I.pdf}
 \caption{Comparison of $E_\text{T,mod}^\text{miss}$ shapes in photon
   data and MC. The first plot shows a 2-3 jet region, the second shows
-  $\geq$4 jets with $t_\text{mod}\leq$0, the third $geq$4 jets with
+  $\geq$4 jets with $t_\text{mod}\leq$0, the third $\geq$4 jets with
   $t_\text{mod}>$0, and the last shows a $\geq$5 jet region.}
 \label{fig:metres:datamcratio}
 \end{figure}
