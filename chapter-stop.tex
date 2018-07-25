@@ -330,7 +330,7 @@ to 100\%, we do not correct for the small inefficiency. However, we
 assign a systematic uncertainty of 2\% for events with $\met$ below 300
 GeV, and 4\% for events with $\met$ greater than 300 GeV.
 
-% Plots of trigger efficiency taken from AN-16-463. Unpublished!
+% Plots of trigger efficiency taken from AN-16-463.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/TriggerEff_el.pdf}
@@ -356,7 +356,7 @@ have substantial inefficiency at low $\met$ and low lepton $p_T$, we
 do correct our Monte Carlo simulations for these trigger
 efficiencies when performing this background estimation.
 
-% Plots of 2nd-lep-plus-met trigger efficiency taken from AN-16-463. Unpublished!
+% Plots of 2nd-lep-plus-met trigger efficiency taken from AN-16-463.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/TriggerEff2l_el.pdf}
@@ -378,7 +378,7 @@ presents the complete list of Monte Carlo samples used. All samples
 are produced as MINIAODSIM. Our SM samples were made using FullSim,
 while the SUSY signal samples were made using FastSim \cite{fastsim}.
 
-% Table of MC samples taken from AN-16-463. Unpublished.
+% Table of MC samples taken from AN-16-463.
 \begin{table}[htp]
 \caption[Monte Carlo simulation datasets used in this analysis, and
   their theoretical cross sections. The symbols * and $\dagger$ replace
@@ -390,7 +390,6 @@ while the SUSY signal samples were made using FastSim \cite{fastsim}.
   RunIISpring16MiniAODv2-PUSpring16Fast\_80X\_mcRun2\_asymptotic\_2016\_miniAODv2\_v0.}
 \label{tab:stop:mcsamples}
 \centering
-%\makebox[\textwidth][c]{%
 {\footnotesize
 \begin{tabular}{|l|c|c|c|}
 \hline
@@ -465,8 +464,7 @@ given by Equation \ref{eq:stop:mt} in Section \ref{ssec:stop:mt}. This cut works
 concert with our high-$\met$ requirement to help reduce the single-lepton
 background component.
 
-% M_T study plots taken from AN-16-463. Unpublished.
-% Also, they still say "Preliminary" on them...
+% M_T study plots adapted from AN-16-463.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/mtstudies_W_reco.pdf}
@@ -739,7 +737,7 @@ events. This fact is illustrated in Figure
 $\mt$ distribution are mostly due to off-shell W-bosons and $\met$
 resolution effects.
 
-% MT n-1 plot, taken from AN-16-463. Believed unpublished.
+% MT n-1 plot, taken from AN-16-463.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/nminusone_mt.pdf}
@@ -793,8 +791,7 @@ a strict cut on it. Figure \ref{fig:stop:tmod} shows the distribution
 of $\tmod$ for our background processes and various signal mass
 points.
 
-% Plot of t_mod taken from AN-16-463. Unpublished.
-%%% ALSO: needs to have the CMS header added!
+% Plot of t_mod adapted from AN-16-463.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/nminusone_tmod.pdf}
@@ -829,8 +826,7 @@ $\mlb$, and because W+jets has a much higher prevalence of
 light-flavor jets over b-jets, we also tighten our b-tagging WP at
 high $\mlb$.
 
-% Mlb plot pulled from AN-16-463. Unpublished.
-%%% ALSO: like plot above, needs the CMS header
+% Mlb plot adapted from AN-16-463.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/nminusone_mlb.pdf}
@@ -858,6 +854,7 @@ variable. We require a min$\Delta\phi >$ 0.8 for our bulk signal
 regions; for the compressed T2tt search, this requirement is relaxed
 to min$\Delta\phi >$ 0.5.
 
+% Plot of MinDPhi taken from AN-16-463.
 \begin{figure}
 \centering
 \includegraphics[width=0.6\textwidth]{figures/nminusone_mindphi.pdf}
@@ -954,7 +951,7 @@ amount of $\met$. These signal regions are enumerated in Table
 letter for the series and a number for the specific $\met$ bin, as
 A3, D1, G4, etc.
 
-% Table of nominal SRs adapted from AN-16-463. Published.
+% Table of nominal SRs adapted from AN-16-463.
 \begin{table}[htb]
 \centering
 \caption{Definitions of the signal regions used in the nominal search.}
@@ -1043,7 +1040,7 @@ the nominal signal regions, except for the following changes:
 In addition to these selections, the four corridor signal regions are
 defined by four bins in $\met$, given by Table \ref{tab:stop:corridorsrs}:
 
-% Table of corridor SR met bins, adapted from AN-16-463. Something like this is published.
+% Table of corridor SR met bins, adapted from AN-16-463.
 \begin{table}[h]
 \centering
 \caption{$\met$ bins used in the dedicated corridor signal regions.}
@@ -1089,9 +1086,7 @@ b-quarks, because b-quarks are fairly heavy, and thus hard to
 produce. So we further target the compressed signal by requiring
 that the leading jet not be b-tagged.
 
-% N-1 plots, made by moi, but sourced from AN-16-463. Unpublished.
-% Still say "Preliminary". And signal points are all DM=150. And
-% x-axis for MinDPhi could be better labeled.
+% N-1 plots, made by moi, but sourced from AN-16-463.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/nminus1_njets.pdf}
@@ -1145,7 +1140,7 @@ the nominal signal regions elsewhere in the T2tt plane, and for the
 T2bW and T2tb signal models.
 
 % r-ratio between corridor and nominal signal regions. Originally made
-% by moi. NOT PUBLISHED!
+% by moi, then taken from AN-16-463, then further tweaked.
 \begin{sidewaysfigure}
 \centering
 \includegraphics{figures/rratioplot.pdf}
@@ -1282,7 +1277,7 @@ normalization comes entirely from the CR data, and that MC is used
 only to calculate the transfer factor from the CRs to SRs (and the
 $\met$ extrapolation factor, where relevant).
 
-% Dilepton CR yield table, adapted from AN-16-463. Unpublished!
+% Dilepton CR yield table, adapted from AN-16-463.
 \begin{sidewaystable}
 \centering
 {\scriptsize
@@ -1407,7 +1402,7 @@ estimate these uncertainties are as follows:
 The size of these uncertainties is presented in Table
 \ref{tab:stop:lostlep:systematics}.
 
-% Table of systematics, adapted from AN-16-463. Unpublished.
+% Table of systematics, adapted from AN-16-463.
 \begin{sidewaystable}
 \centering
 \scriptsize
@@ -1469,7 +1464,7 @@ The results of the full background estimation procedure, including
 systematic uncertainties, are presented in Table
 \ref{tab:stop:lostlep:results}.
 
-% Results table adapted from AN-16-463. Unpublished.
+% Results table adapted from AN-16-463.
 \begin{sidewaystable}
 \centering
 \small
@@ -1628,8 +1623,7 @@ modeling. Note that any issues with $\mlb$ modeling
 would not affect the corridor regions because they are not binned in
 $\mlb$.
 
-% Mlb comparison plots taken from AN-16-463. Unpublished!
-% Also not quite up to CMS publication standards...
+% Mlb comparison plots adapted from AN-16-463.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_AB.png}
@@ -1658,7 +1652,7 @@ from a high of 83\% to a low of 37\%. The impurity of these regions
 will be addressed further on with a systematic uncertainty.
 
 % Yield table made by hand. Corridor results taken from common looper;
-% bulk results scraped from tables in AN-16-463. Unpublished.
+% bulk results scraped from tables in AN-16-463.
 \begin{sidewaystable}
 \centering
 \scriptsize
@@ -1738,7 +1732,7 @@ non-1$\ell$W backgrounds, so we assess a 50\% systematic uncertainty on
 that contamination. The systematic uncertainties on the single lepton
 from W estimate are presented in Table \ref{tab:stop:1lw:systematics}.
 
-% Plot of W+b crosscheck, taken from AN-16-463. Unpublished.
+% Plot of W+b crosscheck, taken from AN-16-463.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/cr0b_nbtags_crosscheck.pdf}
@@ -1812,7 +1806,7 @@ including systematic uncertainties, are presented in Table
 \ref{tab:stop:1lw:results}.
 
 % 1lW estimate results. Corridor numbers made using common looper,
-% bulk numbers scraped from tables in AN-16-463. Unpublished.
+% bulk numbers scraped from tables in AN-16-463.
 \begin{sidewaystable}
 \centering
 \small
@@ -1901,7 +1895,7 @@ component. All other uncertainties, including statistical, are
 insignificant by comparison, and should be covered by the 100\%
 uncertainty we impose.
 
-% MET resolution fluctuation plots, from AN-16-463. Unpublished.
+% MET resolution fluctuation plots, from AN-16-463.
 \begin{figure}
 \centering
 \includegraphics[width=0.45\textwidth]{figures/metres_1ltop_C.pdf}
@@ -1950,12 +1944,12 @@ $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $350<\met<450$ &  0.59$\pm$0.59  \\
 $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $450<\met<550$ &  0.37$\pm$0.37  \\
 $\ge4$ jets,~$\tmod <0.0$,~$\mlb \ge175$ & $\met>550$     &  ---  \\
 \hline
-$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $250<\met<350$ &  1.7$\pm$1.7  \\
-$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $350<\met<550$ &  0.48$\pm$0.48  \\
-$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb <175$ & $\met>550$     &  0.33$\pm$0.33  \\
+$\ge4$ jets,~$0.0< \tmod <10.0$,~$\mlb <175$ & $250<\met<350$ &  1.7$\pm$1.7  \\
+$\ge4$ jets,~$0.0< \tmod <10.0$,~$\mlb <175$ & $350<\met<550$ &  0.48$\pm$0.48  \\
+$\ge4$ jets,~$0.0< \tmod <10.0$,~$\mlb <175$ & $\met>550$     &  0.33$\pm$0.33  \\
 \hline
-$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$ & $250<\met<450$ &  0.30$\pm$0.30  \\
-$\ge4$ jets,~$0.0<$tmod$<10.0$,~$\mlb \ge175$ & $\met>450$     &  ---  \\
+$\ge4$ jets,~$0.0< \tmod <10.0$,~$\mlb \ge175$ & $250<\met<450$ &  0.30$\pm$0.30  \\
+$\ge4$ jets,~$0.0< \tmod <10.0$,~$\mlb \ge175$ & $\met>450$     &  ---  \\
 \hline
 $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $250<\met<350$ &  0.75$\pm$0.75  \\
 $\ge4$ jets,~$\tmod \ge10.0$,~$\mlb <175$ & $350<\met<450$ &  0.69$\pm$0.69  \\
@@ -2019,13 +2013,13 @@ for ttZ and WZ production, as shown in Figure
 incorporate both statistical and systematic factors that influence the
 template fit.
 
-% Plots of ttZ and WZ normalization fits, taken from AN-16-386. Unpublished!!
+% Plots of ttZ and WZ normalization fits, taken from AN-16-386.
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/rarebkg_norm_prefit.pdf}
 \includegraphics[width=0.45\textwidth]{figures/rarebkg_norm_postfit.pdf}
 \caption{Distribution of number of b-jets in 3$\ell$ control region,
-  before and after template fit, from 2016 same-sign dilepton search.}
+  before (left) and after (right) template fit, from 2016 same-sign dilepton search.}
 \label{fig:stop:rarebkg:normalization}
 \end{figure}
 

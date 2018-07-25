@@ -586,9 +586,6 @@ possible, we do not use the event in measuring the asymmetries that
 require $\ttbar$ reconstruction (about 16\% of events, in both data
 and MC).
 
-% Do I need to present the efficiency and resolution of the neutrino
-% solver? Maybe kick this to an appendix?
-
 \section{Background Estimation}
 \label{sec:afb:background}
 
@@ -616,7 +613,7 @@ each targeting a particular background component,
 diagrammed in Figure \ref{fig:afb:crs}. These CRs are described in
 detail in Table \ref{tab:afb:crdefs}.
 
-% Pulled from AN-14-246. UNPUBLISHED! %%%%%%%%%%%%%%%%%
+% SR/CR diagram, pulled from AN-14-246.
 \vspace{0.25in}
 \begin{figure}[htb]
   \centering
@@ -626,7 +623,7 @@ detail in Table \ref{tab:afb:crdefs}.
 \end{figure}
 
 
-% Adapted from AN-14-246 UNPUBLISHED! %%%%%%%%%%%%%%%%%%
+% Table of CR definitions, adapted from AN-14-246.
 \begin{table}[h]
 \begin{center}
 \caption{Summary of control regions. For each ``CR$N$'' other than
@@ -677,7 +674,7 @@ directly from MC, and assign a 50\% systematic uncertainty. The
 background from QCD processes is expected to be negligible, a fact we
 verify in a loosened version of CR5.
 
-% Pulled from AN-14-246. UNPUBLISHED! %%%%%%%%%%%%%%%%%
+% Background SF plots, pulled from AN-14-246.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.75\textwidth]{figures/SFs_all.pdf}
@@ -686,7 +683,7 @@ verify in a loosened version of CR5.
   \label{fig:afb:sfvariations}
 \end{figure}
 
-% Pulled from AN-14-246. Something similar has been published.
+% Background SF table, pulled from AN-14-246. Something similar has been published.
 \begin{table}[h]
 \begin{center}
 \caption{SFs applied to the background components, and their
@@ -901,7 +898,7 @@ approximately equal. The specific bins chosen are given in Table
 \ref{tab:afb:binning1d}. The reconstruction-level bins are formed by
 simply dividing the truth-level bins in half.
 
-% Table of binnings from AN-14-246. Believed unpublished, but could probably be deduced from published plots.
+% Table of binnings from AN-14-246.
 \begin{sidewaystable}
 \begin{center}
 \caption{Truth-level bins chosen for 1D unfolding of asymmetry variables.}
@@ -940,7 +937,7 @@ separate acceptance matrices for each case. In Figure \ref{fig:afb:acceptance}, 
 show the acceptance matrices for each asymmetry, after combining
 the two dilepton flavors in appropriate proportion.
 
-% Acceptance matrices taken from AN-14-246. Unpublished in papers or PASes
+% Acceptance matrices taken from AN-14-246.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/accept_lepChargeAsym_all.pdf}
@@ -970,7 +967,7 @@ software. At any rate, these smearing matrices are nearly symmetric
 about the diagonal. This fact indicates that reconstruction introduces
 little to no bias, and simply dilutes the true asymmetry.
 
-% Smearing matrices taken from AN-14-246. Not published in papers or PASes.
+% Smearing matrices taken from AN-14-246.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/smearing_lepChargeAsym_all.pdf}
@@ -999,7 +996,7 @@ this behavior, we deduce that our choices for $\tau$ were
 appropriate. The dependence of the asymmetries and their uncertainties
 on the choice of $\tau$ is shown in Figure \ref{fig:afb:tauvary}.
 
-% Table of tau values from AN-14-246. Unpublished. %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of tau values from AN-14-246.
 \begin{table}[htb]
 \begin{center}
 \caption{Optimized $\tau$ values chosen for each asymmetry.}
@@ -1045,7 +1042,7 @@ the same binning described in Table \ref{tab:afb:binning1d}. For the
 secondary variables, our chosen binning is described in Table
 \ref{tab:afb:binning2d}.
 
-% Binning table from AN-14-246. Believed unpublished, but could probably be deduced from published plots.
+% Binning table from AN-14-246.
 \begin{table}[htb]
 \begin{center}
 \caption{Bins chosen for kinematic variables in differential measurements.}
@@ -1073,7 +1070,7 @@ distribution, and re-wrap it to obtain the differential asymmetry
 measurements. The correspondence between the wrapped and unwrapped
 histograms is shown in Figure \ref{fig:afb:unwrapping}.
 
-% Figure I made myself to show how the unwrapping works, and how
+% Diagram I made to show how the unwrapping works, and how
 % regularizing adjacent bins becomes complicated
 \begin{figure}[htb]
 \centering
@@ -1097,7 +1094,7 @@ of the global correlation coefficients. As an example, the $\tau$
 values used for 2D unfolding vs. $m_{\ttbar}$ are given in Table
 \ref{tab:afb:tau2d}.
 
-% Table of 2D tau values vs Mttbar from AN-14-246. Unpublished.
+% Table of 2D tau values vs Mttbar from AN-14-246.
 \begin{table}[htbp]
 \begin{center}
 \caption{Optimized $\tau$ values used to unfold each asymmetry
@@ -1180,7 +1177,7 @@ of bias. This information is also taken into consideration when
 evaluating our systematic uncertainty due to regularization, described
 in Section \ref{sec:afb:systematics}.
 
-% Plots of the linearity results taken from AN-14-246. Unpublished.
+% Plots of the linearity results taken from AN-14-246.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/linearity_lepChargeAsym.pdf}
@@ -1195,7 +1192,7 @@ in Section \ref{sec:afb:systematics}.
 \label{fig:afb:linearity}
 \end{figure}
 
-% Table of linear fit parameters taken from AN-14-246. Unpublished.
+% Table of linear fit parameters taken from AN-14-246.
 \begin{table}[htpb]
 \begin{center}
 \caption{Parameters describing the fit to the linearity test results.}
@@ -1228,7 +1225,7 @@ distributions for the example case of $K = 0$. Figure
 \ref{fig:afb:pullwidths} shows the pull widths as a function of the
 induced asymmetries.
 
-% Pull distributions from AN-14-246. Unpublished.
+% Pull distributions from AN-14-246.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/pull_lepChargeAsym.pdf}
@@ -1241,7 +1238,7 @@ induced asymmetries.
 \label{fig:afb:pulls}
 \end{figure}
 
-% Pull widths from AN-14-246. Unpublished.
+% Pull widths from AN-14-246.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_lepChargeAsym.pdf}
@@ -1530,8 +1527,7 @@ any discrepancy from the Standard Model expectation.
 \label{fig:afb:results2d:spincorrpol}
 \end{figure}
 
-% Inclusive 2D asymmetries adapted from AN-14-246. Not published, but
-% can be inferred from published plots.
+% Inclusive 2D asymmetries, adapted from AN-14-246.
 \begin{table}[hbt]
 \begin{center}
 \caption{Measured asymmetries after 2D unfolding, for each of the
@@ -1579,8 +1575,7 @@ $A_{\cos\phi}$                              & 0.100 $\pm$ 0.011     $\pm$ 0.011 
 \end{center}
 \end{table}
 
-% Bin-by-bin 2D asymmetries adapted from AN-14-246. Not published, but
-% can be inferred from published plots.
+% Bin-by-bin 2D asymmetries adapted from AN-14-246.
 \begin{table}[hbt]
 \begin{center}
 \caption{Measured asymmetry values after 2D unfolding, presented
@@ -1630,9 +1625,7 @@ $A_{P}$  & $-0.016 \pm 0.012 \pm 0.025$   & $0.029 \pm 0.023 \pm 0.036$   & $-0.
 
 % Not sure if this section should be included or not. If I keep it:
 % -Talk about the search for chromo-magnetic dipole moments.
-% -Also, would be cool to talk about possible stop searches using ttbar
-% spin correlation. Maybe talk to the bosses and see if they know of any
-% such analysis that has been done recently.
+% -Also, would be cool to talk about possible stop searches using ttbar spin correlation.
 
 \section{Conclusion}
 \label{sec:afb:conclusion}
