@@ -12,11 +12,11 @@ This chapter will describe the machines used to perform
 the analyses described in Chapters \ref{chap:afb} and \ref{chap:stop},
 namely the Large Hadron Collider and the CMS Detector. It
 will also describe how the CMS Collaboration uses software to make sense of
-the readings it has collected from the CMS detector. Because these
+the readings it has collected from the CMS Detector. Because these
 systems are immensely complex, this chapter will not attempt to
-describe these systems in exhaustive detail, but will focus on the details that are
-important for understanding the science presented in the next two
-chapters. % Review to see if I'm actually meeting this goal
+describe them in exhaustive detail, but will focus on the aspects that are
+important for understanding the science presented in the remaining
+chapters.
 
 \section{The Large Hadron Collider}
 \label{sec:lhc}
@@ -99,10 +99,10 @@ to occur 1000 times in 20 fb\textsuperscript{-1} of data.
 
 The proton beams are made to collide every 25ns, or 40 million times
 per second. Each beam crossing is referred to as an ``event''. A
-single event typically contains about 20 collisions between the
+single event may contain anywhere from 20-60 collisions between the
 protons in the bunches, though only one collision in the event will be
 analyzed. Usually this is the most energetic collision. The products
-of any secondary collisions are known as \emph{pileup}, and are
+of any other pp collisions are known as \emph{pileup}, and are
 treated as general background debris to be subtracted out.
 
 Although we have been describing protons as simple particles, in fact
@@ -136,11 +136,11 @@ which is colocated with LHCb; and LHCf, installed around the ATLAS detector.
 \label{sec:cms}
 
 The research described in Chapters \ref{chap:afb} and \ref{chap:stop}
-was conducted using data gathered on proton-proton collisions by the
+was conducted using proton-proton collision data gathered by the
 CMS detector. CMS stands for Compact Muon Solenoid, a name whose
 origin will become apparent in the next few sections. In brief, though,
 this detector is a complex, multilayered array of sensors designed to
-detect and measure the properties of as many of the particles emerging
+detect, and measure the properties of, as many of the particles emerging
 from the collision point as possible \cite{cms}. Figure
 \ref{fig:cms:outside} provides a cutaway view inside these layers.
 
@@ -166,7 +166,7 @@ detector that resulted from the convergence of these factors is
 described in detail in Sections
 \ref{ssec:cms:components:magnet}-\ref{ssec:cms:components:muon}.
 
-\subsection{Coordinates}
+\subsection{Coordinate System}
 \label{ssec:cms:coordinates}
 
 % Insert pictures that show detector coordinates, if possible
@@ -176,7 +176,7 @@ physics it studies, we must assign a coordinate system to the detector.
 Because the beam pipe has cylindrical symmetry, the CMS detector is
 similarly cylindrical. It is shaped like a giant barrel wrapped around
 the beam pipe, some 5 stories tall and wide, and 7 stories
-long. The central part of the detector is actually referred to as the
+long. The middle region of the detector is actually referred to as the
 \emph{barrel}, and the two plugs that cap off either end of the barrel
 are known as the \emph{endcaps}.
 
@@ -190,15 +190,15 @@ cross-section of the detector, as depicted atop Figure
 the center, and the azimuthal angle is labeled $\phi$.
 
 Because the proton beams are compressed and stabilized in the
-transverse plane before they enter the collision area, we expect
+transverse direction before they enter the collision area, we expect
 that the system of two colliding protons has no net momentum
 transverse to the beam pipe, i.e. in the $r$ direction. We can
 therefore expect the total \emph{transverse momentum} (or $p_T$) of
 the collision products to be zero. However, because the individual
 partons inside a proton have constantly-changing momenta, we cannot
 know the total longitudinal momentum ($p_z$) of the pp
-collision. Because the total $p_T$ of the system is known a priori,
-but $p_z$ is not, we consider the $p_T$ of particles almost
+collision. Because the total $p_T$ of the system is known \textit{a priori},
+but the $p_z$ is not, we consider the $p_T$ of particles almost
 exclusively, and seldom spare a thought for $p_z$.
 
 Because particle collisions take place near the
@@ -247,7 +247,7 @@ differences $\Delta \phi$ in the azimuthal angle, because $\phi$ is
 measured transverse to the $z$-axis. So particle physicists often
 use a 3-dimensional ``angle'' $\Delta R$, defined by:
 \begin{equation}
-\Delta R^2 = \Delta \eta^2 + \Delta \phi^2
+(\Delta R)^2 = (\Delta \eta)^2 + (\Delta \phi)^2
 \end{equation}
 This not-quite-an-angle will be used in this and subsequent chapters
 to measure the separation between two objects, and to define cones
@@ -278,7 +278,7 @@ electromagnet; it is made from superconducting niobium-titanium
 material, taking the form of a giant coil 12.9m long and with an inner
 bore of 5.9m \cite{tdr}. When cooled to about 4 Kelvin using liquid helium,
 the magnet can generate a longitudinal magnetic
-field of up to 4T inside the solenoid, though in practice we run it at
+field of up to 4T inside the solenoid, though in practice it is run at
 3.8T to help it last longer. The return field outside the
 solenoid is lower, and is not uniform \cite{accelexper}.
 
@@ -343,11 +343,11 @@ tracker coverage out to $|\eta| \approx 2.5$.
 The electrical impulses produced in the silicon pixels and strips are
 read out by ``APV25'' chips that amplify and process the signals. The
 signals are then passed out of the detector using optical cable, and
-further processed in hardware outside the detector itself
+further processed in hardware outside the detector volume
 \cite{tdr}. Additional hardware circulates a refrigerant liquid that
 maintains the silicon sensors at a temperature no higher than
-$-10^\circ$ C \cite{accelexper}. The materials and geometry of the
-original tracker are chosen to minimize the amount of energy absorbed
+-10 $^\circ$C \cite{accelexper}. The materials and geometry of the
+tracker were chosen to minimize the amount of energy absorbed
 from particles as they pass through.
 
 The performance of the inner tracker has been measured using both
@@ -367,11 +367,10 @@ this device is to measure the energy of electromagnetic particles
 (electrons and photons) produced in collisions. The ECAL consists
 of a giant array of lead tungstate (PbWO$_4$) crystals; when struck by
 electromagnetic particles, these crystals scintillate with a
-pale blue light that can be read out by optical sensors. The amount of
+blue light that can be read out by optical sensors. The amount of
 light gives us a measure of how much energy the particle was
 carrying. In addition, the pattern of energy deposition in the
-crystals can provide information useful in particle
-reconstruction.
+crystals can provide clues to the identity of the particle.
 
 Lead tungstate has a number of properties that make it an ideal
 material to use in the ECAL. For one thing, it is quick to read
@@ -403,8 +402,8 @@ transverse to the particle's trajectory. It is the characteristic
 lateral distance over which 90\% of an EM shower's energy will be
 contained. So materials with a shorter Moli\`{e}re radius will have on
 average a smaller transverse shower size. For lead tungstate, $R_M =
-2.2$ cm \cite{tdr}. These characteristic distances will play a role in
-determining the size of the ECAL crystals.
+2.2$ cm \cite{tdr}. These characteristic distances play an important
+role in determining the size of the ECAL crystals.
 
 % Diagram of ECAL layout
 \begin{figure}[htb]
@@ -497,7 +496,7 @@ where extreme particle flux and radiation is an issue, quartz fiber is
 used instead for its superior radiation hardness. The amount of light
 produced by these scintillators corresponds to how much hadronic
 energy was deposited in them. Note that any energy deposited in the
-absorber layers is not measured, and must be calculated from the
+absorber layers is not measured, and must be extrapolated from the
 measurements in the scintillating layers.
 
 The HCAL is divided into four subcomponents: the barrel (HB), the
@@ -519,13 +518,14 @@ CMS detector.]{One-quarter $(r,z)$ view showing the layout of the HCAL component
 
 The barrel covers the range $|\eta| <$ 1.3. The absorber material in
 the HB is segmented into 36 wedges; each wedge encompasses half the
-length of the HB and 20$^\circ$ in $\phi$. There are 16 layers of
+length of the HB and 20$^\circ$ in $\phi$, corresponding exactly to
+the size and position of the ECAL supermodules. There are 16 layers of
 absorber material in each wedge; the innermost and outermost layers are
 made of stainless steel, for strength, and the middle 14 layers are
 brass. The total thickness of these absorber layers is 5.82
 $\lambda_I$ at $\eta$ = 0, increasing to 10.6 $\lambda_I$ at $|\eta|$
 = 1.3. Within each wedge, the scintillating material is further
-divided into segments of size 0.087$\times$0.087 in $(\Delta\eta,\Delta\phi)$
+divided into segments of size 0.087$\times$0.087 in $\Delta\eta-\Delta\phi$
 space, providing fine granularity. The innermost layer of
 scintillating material in the HB is Bicron BC408, and the remaining 16
 layers are Kuraray SCSN81 \cite{accelexper}.
@@ -535,7 +535,7 @@ absorber and scintillator materials as the barrel, with one exception:
 stainless steel is only used as the outer absorber layer, to
 prevent any magnetic interference inside the magnet bore. The
 scintillators are divided into segments of size 0.087$\times$0.087 in
-$(\Delta\eta,\Delta\phi)$ space for $|\eta| <$ 1.6, and approximately
+$\Delta\eta-\Delta\phi$ space for $|\eta| <$ 1.6, and approximately
 0.17$\times$0.17 for $|\eta| \geq$ 1.6. The total thickness of the
 endcaps (including attached ECAL dees) is about 10 $\lambda_I$
 \cite{accelexper}.
@@ -547,7 +547,7 @@ gathers the returning magnetic field outside the solenoid. Thus the HO
 actually uses the solenoid material itself as an absorber.
 Following the shape of the return yoke, the HO is divided into 5 rings
 along the $z$-axis, each of which has 12 sectors in $\phi$. There are
-gaps between the rings and in some azimuth sectors for the cryogenic
+gaps between the rings, and in some azimuth sectors, for the cryogenic
 and power lines that supply the magnet. The scintillator tiles roughly
 follow the 0.087$\times$0.087 segmentation of the HB, within the
 constraints of the yoke geometry \cite{accelexper}.
@@ -564,14 +564,14 @@ by quartz fibers that run parallel to the beamline. Some of these
 fibers only penetrate partway through the steel plate, allowing the HF to
 differentiate between electromagnetic and hadronic showers based on
 penetration depth. The fibers form towers of size 0.175$\times$0.175
-in $(\Delta\eta,\Delta\phi)$ space \cite{accelexper}.
+in $\Delta\eta-\Delta\phi$ space \cite{accelexper}.
 
-The scintillation light from the plastic tiles is read out by
+The scintillation light from the plastic tiles in the HB, HE, and HO is read out by
 Kuraray Y-11 wavelength-shifting (WLS) fibers. These fibers are embedded
 into the tiles themselves. Once outside the tiles, the WLS fibers are
 spliced to clear optical fibers that send the light to hybrid
 photodiodes for electronic processing. The Cherenkov light from the
-quartz fibers is transmitted to air-core light guides, which carry the
+quartz fibers in the HF is transmitted to air-core light guides, which carry the
 light through layers of radiation shielding to photomultiplier tubes
 outside the shielding \cite{accelexper}.
 
@@ -647,7 +647,7 @@ interleaved with the iron return yokes, structures that concentrate
 the magnetic field exiting the solenoid and return it around to the
 other end. As such, the muon barrel follows the geometry of the
 yokes. The return yokes consist of five rings that are about 2 meters long
-and divided into 12 sectors in $\phi$. As Figure \ref{fig:cms:muon} shows,
+in $z$ and divided into 12 sectors in $\phi$. As Figure \ref{fig:cms:muon} shows,
 the DTs and RPCs are stacked in four layers, or \emph{stations}. These
 are offset in $\phi$ so that all muons will pass through at least
 three stations. The three innermost stations contain 12 planes of DTs, 8 of
@@ -684,7 +684,7 @@ drives are both prohibitively slow and expensive. So in particle
 physics, we store our data
 on magnetic tape (like one might find in a video or audio
 cassette). The data recording system allows us to keep only about one
-of every 100,000 events.
+out of every 100,000 events.
 
 Fortunately, this constraint is less harmful than it might seem,
 because not every event is worth saving. Even with the
@@ -730,13 +730,13 @@ events, we may have to program the trigger to record only every
 $n^\text{th}$ event, and weight that event to count $n$
 times. This is called \emph{prescaling} the trigger. Because
 weighting up prescaled events reduces our statistical precision, we
-try to use un-prescaled triggers whenever possible.
+try to use non-prescaled triggers whenever possible.
 
 \section{Reconstruction and Identification}
 \label{sec:cms:recoandid}
 
-In order to do meaningful particle physics, we must translate the
-output from the CMS detector into a picture of what particles and
+In order to perform meaningful particle physics analysis, we must translate the
+electronic output from the CMS detector into a picture of what particles and
 objects are present in the event. This is the process of event
 reconstruction (``reco'') and particle identification (``ID''). There
 are any number of possible algorithms for converting detector
@@ -747,11 +747,11 @@ reconstruction using a system called particle flow (PF).
 \label{ssec:cms:reco:pf}
 
 The particle flow algorithm attempts to associate all of the detector
-readings with particles or physics objects. It begins by
+readings with particles. It begins by
 reconstructing all the tracks, calorimeter energy clusters, and
 vertices in the event. Then, using this information, the algorithm
-iteratively attempts to reconstruct all the particles and physics
-objects in the event using all available detector information. It
+iteratively attempts to reconstruct all the particles
+in the event using all available detector information. It
 starts with the easiest objects to identify (muons); once all the
 muons in an event are reconstructed, the corresponding detector
 signatures are removed, and the next easiest identifications are
@@ -774,16 +774,18 @@ number of sequential hits required, the maximum number of missing
 reconstructed to a desired level of quality.
 
 Once all the tracks in the event are identified, they must be grouped
-into vertices. A vertex is a spot where a proton-proton interaction
-took place and produced some particles. Vertices are reconstructed by
+into vertices. A vertex is a spot where a collision or decay took
+place and some number of particles were emitted. Vertices are reconstructed by
 extrapolating tracks backward to see where they originated from, and finding
 spots where several tracks intersect. As mentioned previously, a
-single event may contain multiple proton-proton interactions, and thus
+single event may contain multiple proton-proton interactions, as well
+as decays of intermediate particles, and thus
 multiple vertices. The vertex associated with the highest sum of
-squares of track $p_T$ is known as the \emph{primary vertex}; when
-analyzing an event, we only consider particles emanating from the
-primary vertex. Any other vertices are called secondary, and the
-particles originating from them are considered pileup.
+squares of track $p_T$ is known as the \emph{primary vertex}, and any
+others are called secondary. When analyzing an event, we primarily
+study particles emanating from the primary vertex. Secondary
+vertices that give rise to pileup are mostly ignored, though displaced
+secondary vertices may be used in reconstructing other particle signatures.
 
 \subsubsection{Calorimeter Clusters}
 \label{sssec:cms:pf:caloclusters}
@@ -805,13 +807,13 @@ the regions \cite{particleflow}.
 
 Once the tracks, vertices, and clusters have been formed, the particle
 flow algorithm attempts to reconstruct any muons in the
-event. Muons are the natural starting point because their signature is
+event. Among particles, muons are the natural starting point because their signature is
 very distinctive and usually quite clean. The ideal muon is made by joining a
 track in the muon system with a track in the inner tracker that lines
 up appropriately. A muon that comes directly from the collision is expected
 to have a low value for its \emph{isolation}, a measurement of how
 much energy and momentum is found within a cone of radius $\Delta R <$
-0.3 around the hypothesized muon track. A muon
+0.3 around the prospective muon. A muon
 that uses both tracker and muon-system information is known as a
 \emph{global} muon. Sometimes it may also be possible to reconstruct
 \emph{tracker-only} muons or \emph{standalone} muons, which use only
@@ -820,10 +822,10 @@ respectively. Once a muon candidate is identified, the associated
 tracks are removed from consideration in future identification
 steps \cite{particleflow}.
 
-\subsubsection{Electrons and Photons}
+\subsubsection{Electrons and Isolated Photons}
 \label{sssec:cms:pf:egamma}
 
-Electrons and photons are processed in the same step because the
+Electrons and isolated photons are processed in the same step because the
 identification of both particles relies on ECAL energy deposits. A
 potential electron starts out as a charged track that matches up with
 a suitable ECAL energy deposit; a photon is suspected when there
@@ -836,30 +838,30 @@ electrons and photons. As they pass through the tracker, electrons
 tend to produce \emph{bremsstrahlung}, a shower of photons that
 radiate off as the electron's path bends. These photons tend to then
 convert into electron-positron pairs, which may produce further
-bremsstrahlung, and so on. This shower, emitted along the curved
+bremsstrahlung, and so on. This cascade, emitted tangent to the curved
 trajectory of electrons, means that electrons often appear in the ECAL
-as a pronounced energy deposit with a long tail of clusters in the $\phi$
+as a pronounced energy deposit with a long tail in the $\phi$
 direction. Photons, by contrast, are not bent by the magnetic field,
 and thus tend to create rounder energy deposits wherever they strike
-the ECAL.
+the ECAL \cite{particleflow}.
 
-A number of other variables are also used in identifying electrons and
-photons. For instance, electrons and photons shower somewhat
-differently when they strike the ECAL crystals, giving rise to a
-number of variables describing the transverse shower shape. It is also
-worth pointing out that decaying
-hadrons can produce photons, so in order to
-claim an electron or photon originated in the hard collision, its
-associated ECAL deposits must not overlap large HCAL energy
-deposits. Photons are also required to be isolated \cite{particleflow}.
+A number of other criteria are also used in identifying electrons and
+photons. For example, the track of an electron must be well-aligned
+with its corresponding ECAL cluster, and the magnitude of the track
+momentum must be compatible with the energy of the cluster. In
+addition, the ECAL deposits associated with an electron or photon must
+not overlap significant HCAL deposits, because certain hadrons can
+emit photons when they decay. In the case of electrons, these and
+other criteria are combined and optimized using machine learning
+techniques. Photons are also subject to an isolation requirement \cite{particleflow}.
 
 \subsubsection{Hadrons}
 \label{sssec:cms:pf:hadrons}
 
 Once isolated muons, electrons, and isolated photons are removed from
-the event, the only particles left to identify are charged and neutral
-hadrons. At this step, particle flow also attempts to reconstruct
-non-isolated photons and muons, because these may be produced when
+the event, the final task is to identify charged and neutral
+hadrons. However, particle flow also attempts to reconstruct
+non-isolated photons and muons at this point, because they may be produced when
 hadrons decay. Wherever a (non-isolated) ECAL deposit is found that is
 not linked to a track, it becomes a photon; similarly, any HCAL
 deposits not linked to tracks become neutral hadrons. Any remaining
@@ -873,26 +875,26 @@ charged and neutral hadrons and photons \cite{particleflow}.
 
 As Section \ref{ssec:cms:coordinates} described, the proton beams are
 stabilized so that they have negligible momentum in the transverse
-direction. Conservation of momentum implies that when two protons
-collide, the total momentum of all the collision products should also
-have a transverse component equal to zero. However, if some particles
+direction. Thus, conservation of momentum implies that
+the total momentum of all the collision products should also
+have a negligible transverse component. However, if some particles
 pass through the detector without interacting, it would look like
 the total transverse momentum of the event is not zero. Neutrinos are
 well known for their low probability of interacting with standard
-detector hardware. But in addition, some theories of new physics (such
-as supersymmetry) also predict particles that wouldn't be detected by
+detector hardware. In addition, some theories of new physics (such
+as supersymmetry) predict particles that wouldn't be detected by
 CMS. It is therefore important to quantify the apparent transverse
 momentum imbalance in our events.
 
-The law of momentum conservation tells us that the missing $p_T$ from
+Momentum conservation tells us that the missing $p_T$ from
 the invisible particles should be equal and opposite to the vector sum
 of the $p_T$ of the visible particles:
 \begin{equation}
 p_T^\text{miss} = -1 \cdot \sum_i \vec{p}_T^i
 \end{equation}
 For historical reasons, this quantity tends to be called \emph{missing
-  transverse energy}, even though it is actually a momentum, not an
-energy. It is formally denoted $\met$, or in shorthand, MET (for
+  transverse energy}, even though it is actually a momentum.
+It is formally denoted $\met$, or in shorthand, MET (for
 Missing E-sub-T). The particle flow algorithm computes the $\met$ of
 the event using the negative vector sum of the $p_T$ of the PF
 candidates:
@@ -900,9 +902,8 @@ candidates:
 \text{Particle flow } \met \text{ (PFMET) } =
 -1 \cdot \sum_\text{PF cands} \vec{p}_T \text{(cand)}
 \end{equation}
-This information can then be used in any analyses that involve
-neutrino production, or are searching for new physics that produces
-invisible particles.
+This information is used in nearly all analyses that involve
+neutrino production, or are searching for new invisible particles.
 
 \subsection{Jets}
 \label{ssec:cms:reco:jets}
@@ -931,6 +932,8 @@ particles. The advantage of clustering particles this way is that
 low-momentum particles have less influence on the final shape of the
 jet, an attribute that is important for accurately measuring the jet
 energy \cite{antikt}.
+
+% Optional: Plot of jet clustering algorithms, from the Anti-kT paper
 
 \subsection{Downstream Identification}
 \label{ssec:cms:reco:downstream}
@@ -988,10 +991,10 @@ identifying b-tags using this and other discriminators.
 
 So far, we have discussed in considerable detail how
 proton-proton collision data are processed at the CMS
-experiment. After all these intricate steps, one might imagine that it
-becomes difficult to compare any physics results derived from the
-data against the mathematical equations that describe the Standard
-Model or theories of BSM physics. We would do better to compare
+experiment. After these intricate steps of reconstruction and identification,
+it becomes difficult to compare measurements of the
+data against the equations of the Standard
+Model or BSM theories. We would do better to compare
 ``apples to apples''. To facilitate such a comparison, we use Monte
 Carlo (MC) simulation methods to generate ``fake'' or simulated data
 that reflect the predictions of the theories we're interested in
