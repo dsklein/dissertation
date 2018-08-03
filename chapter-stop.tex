@@ -1,7 +1,7 @@
 \chapter{Single-Lepton Stop Search}
 \label{chap:stop}
 
-This chapter will describe a search for supersymmetry with the target signal
+This chapter will describe a search for evidence of supersymmetry, with the target signal
 being stop-antistop squark pairs decaying to a single-lepton (1$\ell$)
 final state. This work was performed using the CMS experiment during
 Run II of the LHC, at 13 TeV center-of-mass energy. This analysis
@@ -11,13 +11,13 @@ and a combined single-lepton and all-hadronic search using 2015 data
 also produced to support conference results \cite{pasichep,pasmoriond},
 however these are superseded by the published results. I will focus on
 the analysis as described in the most recent publication
-\cite{stop1l}, particularly my work developing the compressed T2tt
-search strategy.
+\cite{stop1l}, particularly my work developing, validating, and
+executing the compressed T2tt search strategy.
 
 \section{Motivation}
 \label{sec:stop:motivation}
 
-As Section \ref{ssec:susy:rationale} has described, supersymmetry
+As Section \ref{ssec:susy:motivation} has described, supersymmetry
 (SUSY) is a very important class of theories in particle physics. It
 has the potential to solve the hierarchy problem, and may provide the
 answer to the difficult question of what particles make up dark
@@ -26,10 +26,10 @@ current or near-future particle colliders have just the right energies
 to search for evidence of SUSY.
 
 Many models predict that in order for SUSY to solve the hierarchy
-problem, the stop squark must have a mass that is relatively close to
+problem, the stop squark must have a mass that is relatively close to % Citation?
 the mass of the top quark. In other words, the stop squark should be
 one of the lighter sparticles. The Lightest Supersymmetric Particle
-($\lsp$) and the chargino ($\chargino$) are also expected to be
+($\lsp_1$) and the chargino ($\chargino_1$) are also expected to be
 relatively light, so it is only natural that a search for evidence of
 SUSY should focus on stops, LSPs, and charginos.
 
@@ -51,7 +51,7 @@ be described more fully in Section \ref{sec:stop:sigmodels}.
 
 Various searches for stop pairs have previously been performed at CMS
 during Run I, including in the one-lepton final state
-\cite{stop1l8tev}. This previous single-lepton search used 19.5
+\cite{run1stop1l}. This previous single-lepton search used 19.5
 fb\textsuperscript{-1} of 8 TeV collision data. The analyzers performed a traditional
 cut-based search, and also a search employing a boosted decision tree
 (BDT). This machine-learning technique allows a computer to decide how best
@@ -60,14 +60,13 @@ strategy detected any evidence of the production of stop squarks. This
 result allowed the analyzers to set limits on the possible masses of
 stops and LSPs. Specifically, stop squarks were excluded up to masses
 of about 650 GeV in the case where the LSP is massless, and LSPs were
-excluded up to a maximum of 200-250 GeV for stop masses around 500-600
-GeV.
+excluded up to a maximum of about 250 GeV for stop masses around 550 GeV.
 
 The LHC and the CMS detector received a number of upgrades for Run II,
 some of which have greatly benefitted the single-lepton stop
 search. Of particular note, the LHC collision energy was raised from 8
-to 13 TeV, which increases the likelihood of producing heavy new
-particles, and the luminosity was increased considerably, allowing us % Quantify lumi increase?
+to 13 TeV, increasing the likelihood of producing heavy new
+particles, and the luminosity was raised considerably, allowing us % Quantify lumi increase?
 to record more data in the same amount of running time. In addition,
 we have learned from the Run I analysis, and attempted to improve our
 analysis techniques for Run II. To avoid the obfuscation inherent in
@@ -85,7 +84,7 @@ from Run I.
 \section{Signal Models}
 \label{sec:stop:sigmodels}
 
-Because supersymmetry is still a theoretical construct, and the masses
+Because supersymmetry is still purely theoretical, and the masses
 of the sparticles are unknown, there are a number of possible
 ways that a stop squark pair could decay to a single lepton final
 state. We consider three possible signal models, each with its own
@@ -102,13 +101,13 @@ One of the primary models we target is known by the identifier
 LSPs ($\tilde{t} \rightarrow t \lsp_1$). The top quarks then decay to
 bottoms and W bosons, as normal; one of the Ws decays leptonically,
 and the other hadronically. The two free parameters in this model are
-the stop mass, $\mstop$, and the LSP mass, $m_{\lsp_0}$; we
+the stop mass, $\mstop$, and the LSP mass, $\mlsp$; we
 scan a wide range of possible values for these two variables. The
 kinematics of the decay products are determined entirely by the stop
 and LSP masses. We may sometimes refer to regions of the parameter
 space in terms of $\Delta M$, which is given by $\mstop - \mlsp$, the
-difference in stop and LSP masses. A diagram of the T2tt model is
-pictured at the top of Figure \ref{fig:stop:feynmandiagrams}.
+difference in stop and LSP masses. A Feynman diagram of the T2tt model is
+given at the top left of Figure \ref{fig:stop:feynmandiagrams}.
 
 \subsubsection*{T2bW}
 
@@ -116,14 +115,14 @@ The second primary model we consider is known as \textbf{T2bW}. In this
 model, the stop squarks decay to bottom quarks and charginos, skipping
 the top quarks entirely. The charginos then decay to W bosons and
 neutralinos ($\tilde{t} \rightarrow b \chargino_1, \chargino_1 \rightarrow
-W \lsp_1$). One W then decays leptonically, and the other
+W \lsp_1$). One W boson then decays leptonically, and the other
 hadronically. In this case, the free parameters are $\mstop$,
-$m_{\lsp_0}$, and also the chargino mass, $\mchargino$. For the
+$\mlsp$, and also the chargino mass, $\mchargino$. For the
 purposes of this analysis, we fix the chargino mass at the average of
 the stop and neutralino masses, $\mchargino = (\mstop
 + \mlsp) / 2$. We then scan a broad range of possible values
 for $\mstop$ and $\mlsp$. The T2bW model is diagrammed in
-the middle of Figure \ref{fig:stop:feynmandiagrams}.
+the top right of Figure \ref{fig:stop:feynmandiagrams}.
 
 \subsubsection*{T2tb}
 
@@ -142,11 +141,11 @@ $\mlsp$. The T2tb model is pictured at the bottom of Figure
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.45\linewidth]{figures/feynmandiagram_T2tt.pdf}
-\includegraphics[width=0.45\linewidth]{figures/feynmandiagram_T2bW.pdf}
+\includegraphics[width=0.45\linewidth]{figures/feynmandiagram_T2bw.pdf}
 \includegraphics[width=0.45\linewidth]{figures/feynmandiagram_T2tb.pdf}
 \caption{Feynman diagrams showing the production of stop pairs that
   subsequently decay to single-lepton final states. Pictured are the
-  T2tt, T2bW, and T2tb models, respectively.}
+  T2tt (top left), T2bW (top right), and T2tb (bottom) models, respectively.}
 \label{fig:stop:feynmandiagrams}
 \end{figure}
 
@@ -157,31 +156,119 @@ There is a region of the $\mstop$ and $\mlsp$ phase space
 that is of particular interest to us in this analysis. In the T2tt
 model, if the difference between the stop and LSP masses is less than
 the mass of the top quark, $\Delta M \lesssim m_t$, then the top quark
-must be produced off-shell (i.e. with a mass that is not its normal
-$\sim$173 GeV). This kind of process would be difficult to detect
+must be produced off-shell (i.e. with a mass less than its normal
+173 GeV). This kind of process would be difficult to detect
 because the production of off-shell top quarks is suppressed, and
 because there is also less energy and momentum available to the top
 decay products. We may also consider what happens if we go one step
 further, to the region where $\mstop - \mlsp \lesssim m_W$. In this case, not
-only the top quark but also its resultant W boson must be produced
+only the top quark but also its daughter W boson must be produced
 off-shell, making it even harder to detect this signal. We call these
-cases \emph{compressed} T2tt decays, because the phase space available to
-the decay products is squeezed down to a small range.
+cases \emph{compressed} T2tt decays, because the particles are
+squeezed into a smaller mass window.
 
 The difficulties in detecting compressed T2tt signals are evident in
-the results plot of the Run I analysis \cite{stop1l8tev}. The exclusion
+the results plot of the Run I analysis \cite{run1stop1l}. The exclusion
 curve for the T2tt model has no coverage in the narrow strip where
 $\mstop - \mlsp \approx m_t$, or the strip where $\mstop - \mlsp
 \approx m_W$. We call these two regions the \emph{top corridor} and
-the \emph{W corridor}, respectively. In this analysis we wished to
+the \emph{W corridor}, respectively. In this analysis we wish to
 fill in these two gaps, and achieve exclusion in the corridor
 regions. To that end, I developed a specialized set of
 signal regions that target the kinematics of compressed decays, with
 the aim of increasing our sensitivity to these signals. These
 specialized signal regions will be described in Section
-\ref{sec:stop:sigregs}, and the compressed T2tt search will be
-described separately from the nominal search in cases where
-the two strategies differ.
+\ref{sec:stop:sigregs}.
+
+\section{Search Strategy}
+\label{sec:stop:searchstrategy}
+
+Because we are searching for single-lepton stop decays, we must of
+course select events with one and only one lepton in them. In addition
+to a lepton, all of our signal models have two LSPs and a neutrino in
+the final state. The LSPs should go undetected by the CMS detector,
+just as neutrinos do, so we must also search for the presence of large $\met$.
+
+Many other physics processes can produce a single lepton plus high
+$\met$, or can produce signatures that resemble these. We must therefore
+identify these backgrounds, and attempt to reduce their size using
+a series of cuts and selections. When it is not possible to mitigate
+the backgrounds with cuts, we must attempt to estimate how many
+background events fall into our signal regions so we can subtract them
+from the final measurements.
+
+Before applying any cuts and selections, the largest
+background will naturally be SM processes that produce one true lepton
+and large $\met$. The largest component of this background is $\ttonelep$,
+though other processes can contribute as well, such as W boson production
+with jets, where the W decays leptonically. In order to reduce the
+true single-lepton background, we first add a cut on the transverse mass of the
+lepton-plus-$\met$ system, called $\mt$. The exact definition of this variable is
+given in Section \ref{ssec:stop:mt}. This cut works in
+concert with our high-$\met$ requirement to help reduce the single-lepton
+background component.
+
+% M_T study plots adapted from AN-16-463.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/mtstudies_W_reco.pdf}
+\includegraphics[width=0.45\textwidth]{figures/mtstudies_WTop_recogen.pdf}
+\caption{$\mt$ distributions in W+jets with various $\met$ selections
+  applied, and comparison between gen and reco $\mt$ in W+jets and
+  $\ttonelep$.}
+\label{fig:stop:mtstudies}
+\end{figure}
+
+Figure \ref{fig:stop:mtstudies} shows the results of several
+investigations into the $\mt$ variable. The left plot shows the
+reconstructed value of $\mt$ in a sample of W($\ell\nu$)+jets MC
+events, with three different $\met$ cuts applied. As the plot shows,
+higher $\met$ requirements cause the W-boson mass edge to become more
+sharply defined, making it easier to set a cut threshold.
+
+The right plot in Figure \ref{fig:stop:mtstudies} shows generator-level $\mt$ and reconstructed $\mt$
+for both W+jets and $\ttonelep$ simulated events. These
+events were selected by requiring a single lepton and at least 2
+jets, all with $p_T > 30$ GeV, and $\met >$ 250 GeV. The generator-level $\mt$ was
+calculated using the neutrino momentum in place of the $\met$. The plot
+shows that the tails of the $\mt$ distribution look very different for
+W+jets and $\ttonelep$. In the case of $\ttonelep$, the top mass
+restricts the mass spectrum of the W boson, so that most events in the
+tail are present because of the limited resolution of $\met$
+reconstruction. This is seen in the difference between the gen and reco
+$\mt$ spectra. By contrast, in W+jets events, there is no constraint
+on the W mass, so the tail is attributable to the natural width of the
+W boson mass spectrum. Thus, by selecting an appropriate $\mt$ cut, we
+can effectively reduce the single lepton background to mostly W+jets
+events. We can then estimate the size of the remaining background
+component using techniques that will be described in Sections
+\ref{ssec:stop:1lw} and \ref{ssec:stop:1ltop}.
+
+After reducing the single lepton background using $\met$ and $\mt$ cuts,
+the next largest background comes from events with two genuine
+leptons, such as $\ttdilep$, where one of the leptons is not
+reconstructed. Although we
+veto events that have a second electron, muon, or tau, as well as
+events with an isolated track in them, these vetos are
+not perfect. And often, a second lepton falls outside our range of
+acceptance in $p_T$ or $\eta$, is not isolated, or is not
+reconstructed. We call this component the ``lost lepton''
+background. As Chapter \ref{chap:afb} has demonstrated, we have a good
+understanding of the $\ttdilep$ process, and can model it fairly
+well. On the basis of that strong understanding, we estimate this
+background using data-driven techniques described in Section
+\ref{ssec:stop:lostlep}.
+
+The final background to consider is events with one genuine lepton,
+but where the high $\met$ comes from a $Z \rightarrow \nu\nu$ decay,
+and not from SUSY particles. The largest contributor to this
+background is $ttZ$ events, where the $\ttbar$ pair decays
+semileptonically and the Z decays to invisible neutrinos; the next
+largest contributor is WZ production. There is little we can do to
+exclude such events with cuts; fortunately, this background component
+is relatively small. We estimate the $Z \rightarrow \nu\nu$
+component using MC with theoretical uncertainties applied, as
+described in Section \ref{ssec:stop:rarebkg}.
 
 \section{Datasets and Triggers}
 \label{sec:stop:datatrig}
@@ -189,23 +276,18 @@ the two strategies differ.
 \subsection{Data samples}
 \label{ssec:stop:datasamples}
 
-There are two main signatures that we use to search for our stop
-decays. The first is, obviously, the presence of a single, isolated lepton.
-In addition, all of our signal models have two
-LSPs and a neutrino in the final state. The LSPs should go undetected
-by the CMS detector, just as neutrinos do, so we also expect our
-signals to appear with large amounts of $\met$. % If I move up search strategy, this may no longer be the first place I describe the signature
-
-With these two main signatures in mind, we select our data from the
+As Section \ref{sec:stop:searchstrategy} described, our two main
+experimental signatures are a single lepton and large $\met$.
+With these two signatures in mind, we select our data from the
 Single Lepton and $\met$ datasets produced by the CMS
 experiment. We also employ the muon+electron dataset for a set of crosscheck
 regions to be described in Appendix \ref{apx:stop:emustudies}, and the
-single photon datasets for $\met$ resolution studies to be
+single photon dataset for $\met$ resolution studies to be
 described in Appendix \ref{apx:stop:metres}. These datasets were recorded during the
 2016 datataking period, encompassing eras 2016B through 2016H, and
 represent a total integrated luminosity of 35.9 fb\textsuperscript{-1}. Table
 \ref{tab:stop:datasets} gives a complete listing of all datasets used
-in the analysis.
+in this analysis.
 
 % Homemade table of datasets goes here. Run ranges collected by hand from DAS.
 \begin{table}[htbp]
@@ -342,20 +424,6 @@ GeV, and 4\% for events with $\met$ greater than 300 GeV.
 \label{fig:stop:trigeff:1lepmet}
 \end{figure}
 
-% It kinda helps to know what the lost lepton background is before
-% this part
-As Section \ref{ssec:stop:lostlep} will describe, if we fail to
-reconstruct a second lepton, the $p_T$ of that lepton effectively
-contributes to the $\met$ of the event. When considering such events, we must
-re-evaluate the efficiency of our combined single lepton and $\met$
-triggers. We do so using the exact same procedures described above,
-except that we additionally require events to have a second lepton
-with $p_T >$ 10 GeV. These efficiencies are presented in Figure
-\ref{fig:stop:trigeff:2ndlepplusmet}. Because the combined triggers
-have substantial inefficiency at low $\met$ and low lepton $p_T$, we
-do correct our Monte Carlo simulations for these trigger
-efficiencies when performing this background estimation.
-
 % Plots of 2nd-lep-plus-met trigger efficiency taken from AN-16-463.
 \begin{figure}[htb]
 \centering
@@ -368,6 +436,19 @@ efficiencies when performing this background estimation.
   the leading lepton is an electron (left), and a muon (right).}
 \label{fig:stop:trigeff:2ndlepplusmet}
 \end{figure}
+
+As Section \ref{sec:stop:searchstrategy} has described, we sometimes
+fail to reconstruct a true second lepton in the event. When that
+happens, the $p_T$ of the lost lepton effectively
+contributes to the $\met$ of the event. When considering such events, we must
+re-evaluate the efficiency of our combined single lepton and $\met$
+triggers. We do so using the exact same procedures described above,
+except that we additionally require events to have a second lepton
+with $p_T >$ 10 GeV. These efficiencies are presented in Figure
+\ref{fig:stop:trigeff:2ndlepplusmet}. Because the combined triggers
+have substantial inefficiency at low $\met$ and low lepton $p_T$, we
+do correct our Monte Carlo simulations for these trigger
+efficiencies when considering dilepton events.
 
 \subsection{Monte Carlo Samples}
 \label{ssec:stop:mcsamples}
@@ -434,97 +515,6 @@ Sample & Cross Section \\
 \end{tabular}
 }
 \end{table}
-
-\section{Search Strategy}
-\label{sec:stop:searchstrategy}
-
-Because we are searching for single lepton stop decays, we must select
-events with one and only one lepton in them. In addition, the LSPs and
-charginos should go undetected by the CMS detector; those sparticles
-plus the neutrino should give relatively
-large amounts of $\met$. Therefore, our main experimental signature is a
-single lepton plus high $\met$.
-
-Many other physics processes can produce a single lepton plus high
-$\met$, or can produce signatures that resemble these. We must therefore
-identify these backgrounds, and attempt to reduce their presence using
-a series of cuts and selections. When it is not possible to mitigate
-the backgrounds with cuts, we must attempt to estimate how many
-background events fall into our signal regions so we can exclude them
-from the final calculations.
-
-In the absence of any particular cuts and selections, the largest
-background will naturally be SM processes that produce one true lepton
-and large $\met$. The notable example is $\ttonelep$,
-though other processes contribute as well, such as W-boson production
-with jets, where the W decays leptonically. In order to combat this
-background component, we first add a cut on the transverse mass of the
-lepton plus the $\met$, or $\mt$. The exact formula for this variable is
-given by Equation \ref{eq:stop:mt} in Section \ref{ssec:stop:mt}. This cut works in
-concert with our high-$\met$ requirement to help reduce the single-lepton
-background component.
-
-% M_T study plots adapted from AN-16-463.
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.45\textwidth]{figures/mtstudies_W_reco.pdf}
-\includegraphics[width=0.45\textwidth]{figures/mtstudies_WTop_recogen.pdf}
-\caption{$\mt$ distributions in W+jets with various $\met$ selections
-  applied, and comparison between gen and reco $\mt$ in W+jets and
-  $\ttonelep$.}
-\label{fig:stop:mtstudies}
-\end{figure}
-
-Figure \ref{fig:stop:mtstudies} shows the results of several
-investigations into the $\mt$ variable. The left plot shows the
-reconstructed value of $\mt$ in a sample of W($\ell\nu$)+jets MC
-events, with three different $\met$ cuts applied. As the plot shows,
-higher $\met$ requirements cause the W-boson mass edge to become more
-sharply defined, making it easier to set a cut threshold.
-
-The right plot shows generator-level $\mt$ and reconstructed $\mt$
-for both W+jets and $\ttonelep$ simulated events. These
-events were selected by requiring a single lepton and at least 2
-jets, all with $p_T > 30$ GeV, and $\met >$ 250 GeV. The generator-level $\mt$ was
-calculated using the neutrino momentum in place of the $\met$. The plot
-shows that the tails of the $\mt$ distribution look very different for
-W+jets and $\ttonelep$. In the case of $\ttonelep$, the top mass
-restricts the mass spectrum of the W-boson, so that most events in the
-tail are present because of the limited resolution of $\met$
-reconstruction. This is seen in the difference between the gen and reco
-$\mt$ spectra. By contrast, in W+jets events, there is no constraint
-on the W mass, so the tail is attributable to the natural width of the
-W-boson mass spectrum. Thus, by selecting an appropriate $\mt$ cut, we
-can effectively reduce the single lepton background to mostly W+jets
-events. We can then estimate the size of the remaining background
-component using techniques that will be described in Sections
-\ref{ssec:stop:1lw} and \ref{ssec:stop:1ltop}.
-
-After reducing the single lepton background using $\met$ and $\mt$ cuts,
-the next largest background comes from events with two genuine
-leptons, such as $\ttdilep$, where one of the leptons is not
-reconstructed. As Section \ref{sec:stop:selections} will describe, we
-veto events that have a second electron, muon, or tau, as well as
-events with an isolated track in them. Nevertheless, these vetos are
-not perfect. And often, a second lepton falls outside our range of
-acceptance in $p_T$ or $\eta$, is not isolated, or is not
-reconstructed. We call this component the ``lost lepton''
-background. As Chapter \ref{chap:afb} has demonstrated, we have a good
-understanding of the $\ttdilep$ process, and can model it fairly
-well. On the basis of that strong understanding, we estimate this
-background using data-driven techniques described in Section
-\ref{ssec:stop:lostlep}.
-
-The final background to consider is events with one genuine lepton,
-but where the high $\met$ comes from a $Z \rightarrow \nu\nu$ decay,
-and not from SUSY particles. The largest contributor to this
-background is $ttZ$ events, where the $\ttbar$ pair decays
-semileptonically and the Z decays to invisible neutrinos; the next
-largest contributor is WZ production. There is little we can do to
-exclude such events with cuts; fortunately, this background component
-is relatively small. We estimate the $Z \rightarrow \nu\nu$
-component using MC with theoretical uncertainties applied, as
-described in Section \ref{ssec:stop:rarebkg}.
 
 \section{Object and Event Selection}
 \label{sec:stop:selections}
@@ -618,7 +608,7 @@ criteria:
 \item $\Delta R >$ 0.4 from the selected lepton
 \item $z$-component of the distance to the PV is $<$ 0.1 cm
 \end{itemize}
-We measure the isolation of a charged track using tracker-only
+We measure the isolation of charged tracks using tracker-only
 isolation, because tau decays sometimes produce multiple neutral
 hadrons along with the charged track, and these hadrons should not be
 counted against the track isolation. With that in mind, we require our
@@ -663,23 +653,23 @@ established jet ID at the loose working point. The jet ID requirement
 is waived for our signal MC samples, because the jet ID has some
 inefficiencies in samples made using FastSim. We apply the official
 CMS jet energy corrections. Each event is required to have at least
-two jets; some signal regions have higher requirements to
+two jets, though most signal regions have higher requirements to
 suit their purposes, as Section \ref{sec:stop:sigregs} will describe.
 
 We also require each event to have at least one b-tagged jet, where
 b-tagging is performed using the CSVv2 algorithm. Depending on the
 signal region in question, the b-tag may be required to pass the loose
-WP (CSV $>$ 0.8) or the tight WP (CSV $>$ 0.935). Section
+WP (CSV discriminant $>$ 0.8) or the tight WP (CSV discriminant $>$ 0.935). Section
 \ref{sec:stop:sigregs} will list which WP is used for each signal region.
 
-\subsection{\texorpdfstring{$\met$}{MET}}
+\subsection{Missing Transverse Energy (\texorpdfstring{$\met$}{MET})}
 \label{ssec:stop:met}
 
 As described earlier, $\metvec$ is calculated as the negative of the vector
 sum of all the particle flow candidates in the event. We recalculate
 the $\met$ after the jet energy corrections have been applied to the jets
-in the event. We require each event have $\met >$ 250 GeV. We also
-employ the following filters, as recommended by the JetMET group in CMS:
+in the event. We require each event to have $\met >$ 250 GeV. We also
+employ the following $\met$ filters, as recommended by the JetMET group in CMS:
 
 \begin{itemize}
 \item Primary vertex filter
@@ -693,6 +683,11 @@ employ the following filters, as recommended by the JetMET group in CMS:
 \item Bad muons filter
 \item Duplicate muons filter
 \end{itemize}
+
+These filters reject events where the $\met$ (or a significant
+fraction of it) is believed to originate from detector noise, spurious
+particles in the event, interference from the proton beams, etc., and
+not from invisible particles produced in the hard collision.
 
 \subsection{Transverse Mass (\texorpdfstring{$\mt$}{MT})}
 \label{ssec:stop:mt}
@@ -720,7 +715,7 @@ thing, giving us:
 \end{equation}
 In our case, $m_\ell$ is negligible compared to
 $p_\text{T}^\ell$. This also means $E_\text{T}^\ell \approx p_\text{T}^\ell$.
-So if $\phi$ denotes the transverse angle between $\metvec$ and
+So if $\phi$ denotes the azimuthal angle between $\metvec$ and
 $\vec{p}_\text{T}^\ell$, then we find:
 \begin{equation}
 \label{eq:stop:mt}
@@ -734,7 +729,7 @@ strongly reduce the presence of $\ttonelep$, W+jets, and single-top
 events. This fact is illustrated in Figure
 \ref{fig:stop:mt:nminusone}. As described in Section
 \ref{sec:stop:searchstrategy}, background events in the tail of the
-$\mt$ distribution are mostly due to off-shell W-bosons and $\met$
+$\mt$ distribution are mostly due to off-shell W bosons and $\met$
 resolution effects.
 
 % MT n-1 plot, taken from AN-16-463.
@@ -760,7 +755,7 @@ $\chi^2$ for leptonic top decay). We thus arrive at a variable we call
 \emph{modified topness}, or $\tmod$. To calculate this
 variable, we must minimize an expression that constrains the
 neutrino-lepton system to have a mass similar to the W-boson mass, and the
-b-quark-W-boson system to have a mass similar to top quark mass. Thus
+b-quark-W-boson system to have a mass similar to the top quark mass. Thus
 we define:
 \begin{equation}
 \label{eq:stop:tmod}
@@ -773,7 +768,7 @@ S(\vec{p}_W, p_{\nu,z}) & = \frac{(m_W^2-(p_\nu+p_\ell)^2)^2}{a_W^4} + \frac{(m_
 The parameters $a_W$ and $a_t$ provide the scale for the W-boson
 and top quark masses; we set them to 5 GeV and 15 GeV, respectively.
 There is some ambiguity as to which jets should be used in this
-calculation. We found that $\tmod$ behaved best across signal
+calculation. We find that $\tmod$ behaves best across signal
 models with both low and high mass splittings if we chose our jets
 according to these rules:
 \begin{itemize}
@@ -883,19 +878,19 @@ to our final results.
   triggers, we do apply a weight for the efficiency of those triggers.
 \item We apply the official jet energy corrections from CMS, as mentioned in
   Sections \ref{ssec:stop:jets} and \ref{ssec:stop:met}.
-\item We apply weights to mimic the efficiency of our b-tagging
+\item We apply weights to correct the efficiency of our b-tagging
   algorithms. These weights are provided by the b-tagging POG within
   CMS. There are separate weights for heavy flavor (HF) and light
   flavor (LF) jets, as well as for the medium and tight WPs used in
   the analysis.
 \item We apply weights for the efficiency of lepton identification and
-  isolation, as provided by the SUSY group in CMS. We also account for
+  isolation, as provided by the SUSY PAG in CMS. We also account for
   the efficiency of vetoing a second lepton where applicable. Separate
   weights must be applied to our signal samples because they were
   generated using FastSim.
 \item Initial state radiation (ISR) refers to partons (and the jets
   they produce) that radiate off the
-  incoming particles in the hard collision process. ISR is not
+  initial particles in the hard collision process. ISR is not
   necessarily modeled correctly in our Monte Carlo samples. We
   reweight our simulated events using a prescription from the SUSY
   group to obtain a more accurate distribution of the number of jets
@@ -933,10 +928,10 @@ for our search using the following criteria:
 \item The $\met$ must be at least 250 GeV.
 \item The $\mt$ must be at least 150 GeV.
 \item The minimum $\Delta \phi$ between the $\met$ and the two leading
-  jets must be at least 0.8; at least 0.5 for the corridor search.
+  jets must be at least 0.8 (at least 0.5 for the corridor search).
 \end{itemize}
 After those criteria have been met, events are further subdivided
-among several different signal regions, to increase our sensitivity to
+among several different signal regions to increase our sensitivity to
 a wide variety of SUSY scenarios.
 
 \subsection{Nominal Signal Regions}
@@ -976,7 +971,7 @@ The signal regions that require 2-3 jets and $\tmod >$ 10
 (the A and B series) are
 designed to target T2tb signals. Because we take the mass difference
 between the chargino and the LSP to be only 5 GeV in this model, the
-W-boson produced in the chargino to LSP decay will be very off
+W boson produced in the chargino decay will be very off
 shell. Thus the lepton will come from the top decay, and the off-shell
 W will decay into very weak jets that we cannot resolve. In addition,
 these regions will also have sensitivity to any of our signal models
@@ -988,7 +983,7 @@ top or stop decays and two more jets from the hadronic W decay.
 
 Each of our three signal models peaks in a different part of the
 $\tmod$ range. So by creating three distinct bins in
-$\tmod$ (but not applying a cut), we can target each model in
+$\tmod$ (but not applying a cut), we can target each model with
 a different region, while effectively dividing the background events into three
 parts. As Figure \ref{fig:stop:tmod} shows, the compressed
 case (small $\Delta M$) is most prominent when
@@ -1003,7 +998,7 @@ background is reduced with little loss in the T2tt signal, and at high
 $\mlb$, the $\ttbar$ backgrounds are reduced for little loss in
 the T2bW signal. Because this reduction in $\ttbar$ leaves W+jets as
 the dominant background, we also require that our one b-tag pass a
-tight WP in the in the high $\mlb$ regions.
+tight WP in the high $\mlb$ regions.
 
 Finally, the higher the mass splitting, the more $\met$ we generally
 expect in an event. So binning in $\met$ increases the
@@ -1056,7 +1051,7 @@ I & 250-350 & 350-450 & 450-550 & $>550$ \\
 
 To develop these signal regions, I considered the unique kinematics of
 compressed T2tt signals, and how they might affect the variables
-already employed in our stop search. I also considered whether any new
+already measured in our stop search. I also considered whether any new
 variables might be able to discriminate compressed T2tt from the SM
 background. Although several variables had the potential to
 discriminate compressed T2tt from background, I made the final choice
@@ -1080,10 +1075,10 @@ We concluded that in the corridor region, in order to generate at least
 dictates that in order to have a large boost, the stop pair should be
 recoiling off some other physics object. The most likely candidate was
 a high-$p_T$ jet produced as ISR. Because we expected another jet in
-the event, in addition to the four from stop decay, we imposed the
+the event, in addition to the four from stop decay, I imposed the
 $N_J > 5$ requirement. Additionally, ISR jets seldom originate from
 b-quarks, because b-quarks are fairly heavy, and thus hard to
-produce. So we further target the compressed signal by requiring
+produce. So I further target the compressed signal by requiring
 that the leading jet not be b-tagged.
 
 % N-1 plots, made by moi, but sourced from AN-16-463.
@@ -1104,7 +1099,7 @@ The $\met$ in a stop decay comes from the two LSPs, as well as the
 neutrino produced alongside the single lepton. In the case where the
 stop squarks are boosted, we expect the products of the stop decays,
 including the main contributors to the
-$\met$, to continue in the rough direction of their parents too. Thus the cut
+$\met$, to continue in the rough direction of their parents. Thus the cut
 $\Delta\phi (\met, \ell) < 2$ selects events where the lepton and the
 $\met$ are not separated by a large angle. Similarly, by relaxing
 the cut on min$\Delta \phi(j_{1,2},\metvec)$ to $>$ 0.5, we allow jets
@@ -1132,12 +1127,12 @@ $r_\text{corridor} / r_\text{nominal}$ for T2tt signals; wherever that value is 
 than 1, the corridor signal regions are expected to be more sensitive
 than the nominal signal regions. Perhaps unsurprisingly, the corridor search
 regions have higher expected sensitivity for $\Delta M$ between 100 and
-225 GeV--in other words, in the area around and between the top and W
+225 GeV--in other words, in the area around the top and W
 corridors. The size of the improvement in sensitivity ranges from
-about 10-30\%. We therefore use only the corridor signal regions for
-T2tt models with $\Delta M$ between 100 and 225 GeV, and we use only
-the nominal signal regions elsewhere in the T2tt plane, and for the
-T2bW and T2tb signal models.
+about 10-30\%. We therefore use the corridor signal regions for
+T2tt models with $\Delta M$ between 100 and 225 GeV, and we use
+the nominal signal regions everywhere else in the T2tt plane, as well
+as for the T2bW and T2tb signal models.
 
 % r-ratio between corridor and nominal signal regions. Originally made
 % by moi, then taken from AN-16-463, then further tweaked.
@@ -1156,32 +1151,30 @@ T2bW and T2tb signal models.
 As previous sections have described, we apply a number of
 preselections that reduce the prevalence of the SM backgrounds in our
 search. In addition, we divide our search up into signal
-regions so that we can hunt for several possible signal models while
-spreading out the backgrounds. However, even with these measures,
+regions so that we can be sensitive to several possible signal models while
+spreading out the backgrounds. However, even after these measures,
 we still expect our signal regions to be dominated by SM background
 events. If we hope to find any signal from SUSY among the backgrounds,
 we must be able to reliably estimate the size of the backgrounds so we
 can subtract them from the measured data. We make these estimates
 using a variety of techniques that will be described below. Wherever
-possible, we make data-driven estimates by looking at control regions
-(CRs) that are adjacent or complementary to our signal regions. In
-general, the same strategies are applied to estimate backgrounds for
-both the nominal and corridor signal regions. This section will also
-describe how we estimate the systematic uncertainties on each
-background component.
+possible, we make data-driven estimates based on control regions
+that are adjacent or complementary to our signal regions.
+This section will also describe how we estimate the systematic
+uncertainties on each background component.
 
 \subsection{Lost Lepton}
 \label{ssec:stop:lostlep}
 
 Across all our signal regions, the largest total background
 is the lost lepton background. These are events that have two true
-leptons in them, but for various reasons, the second lepton is not
+leptons in them, but for various reasons, one lepton is not
 caught by our second lepton veto, hadronic tau veto, or isolated track
 veto. Often this loss occurs because the additional lepton is poorly
-reconstructed, or falls outside the $|\eta|$ or $p_T$ ranges we can
-detect. Because the second lepton is not detected, it effectively
+reconstructed, or falls outside the $|\eta|$ or $p_T$ ranges of our
+detect or ID criteria. Because the second lepton is not detected, it effectively
 creates additional $\met$, helping the event to pass our $\met$
-requirement. Plus the additional neutrino associated with the second
+requirement. Plus, the additional neutrino associated with the second
 lepton can help the event pass our $\mt$ cut. The dominant physics
 process contributing to this background is $\ttdilep$, however there
 is a strong contribution from single-top production in the $tW$
@@ -1209,13 +1202,14 @@ actual data, and $M$ will denote the number of events in Monte Carlo
 simulations.
 
 By rearranging Equation \ref{eq:stop:lostlep:rationm}, we can derive
-a data-driven estimate for the number of lost lepton events in the
-signal region, using the data yield in the corresponding control region
+the formula for a data-driven estimate of the number of lost lepton events in the
+signal region. The estimate is given by the data yield in the corresponding control region
 times the SR/CR ratio derived from Monte Carlo. This ratio is known as
 the lepton transfer factor, $TF_\text{lep}$. So:
 \begin{equation}
 \label{eq:stop:lostlep:estimate}
-N_{\ell\ell}^\text{SR} = N_{\ell\ell}^\text{CR} \times \frac{M_{\ell\ell}^\text{SR}}{M_{\ell\ell}^\text{CR}}
+N_{\text{lost }\ell}^\text{SR} = N_{\ell\ell}^\text{CR} \times
+\frac{M_{\text{lost }\ell}^\text{SR}}{M_{\ell\ell}^\text{CR}}
 \end{equation}
 
 Five of the high-$\met$ CRs have very small data yields, a fact that
@@ -1226,8 +1220,8 @@ higher statistics, and add another term where we use MC to extrapolate
 from the merged $\met$ bins to the single $\met$ bins:
 \begin{equation}
 \label{eq:stop:lostlep:metextrap}
-N_{\ell\ell}^\text{SR, bin} = N_{\ell\ell}^\text{CR, merged} \times \frac{M_{\ell\ell}^\text{SR, merged}}{M_{\ell\ell}^\text{CR, merged}}
-\times \left( \frac{M_{\ell\ell}^\text{SR, bin}}{M_{\ell\ell}^\text{SR, merged}} \right)
+N_{\text{lost }\ell}^\text{SR, bin} = N_{\ell\ell}^\text{CR, merged} \times \frac{M_{\text{lost }\ell}^\text{SR, merged}}{M_{\ell\ell}^\text{CR, merged}}
+\times \left( \frac{M_{\text{lost }\ell}^\text{SR, bin}}{M_{\text{lost }\ell}^\text{SR, merged}} \right)
 \end{equation}
 The specific regions that are merged in this way are: B2/3, E2/3,
 F1/2, and H1/2.
@@ -1267,7 +1261,7 @@ in them, we apply a scale factor to correct the efficiency of tau
 identification. We also apply different trigger weights, because we
 select dilepton events using dilepton triggers.
 Our control regions are over 95\% pure in dilepton events,
-so we make no correction for impurities. The rightmost column of Table
+so we make no correction for impurities. The last column of Table
 \ref{tab:stop:lostlep:cryields} presents the ratio of the data to MC
 yields. In some regions, this ratio differs considerably from
 unity. Such differences in normalization between data and MC
@@ -1337,11 +1331,10 @@ Compressed search, $\met>550$  & 4.76 $\pm$ 0.61  & 0.05 $\pm$ 0.03  & 0.23 $\pm
 
 Our use of Monte Carlo simulations introduces several sources of
 systematic uncertainty on our lost lepton background
-estimate. Interestingly, a number of uncertainties cancel out in the
+estimate. Some uncertainties cancel out in the
 ratio $M^\text{SR} / M^\text{CR}$, such as the flat 2.6\% uncertainty
-on the luminosity of the data. But most do not, or not completely, and
-must be included in our background estimate. The procedures used to
-estimate these uncertainties are as follows:
+on the luminosity of the data, though most do not. The procedures used to
+estimate our uncertainties are as follows:
 
 \begin{itemize}
 \item \textbf{Data and MC statistics:} The largest sources of uncertainty
@@ -1365,7 +1358,7 @@ estimate these uncertainties are as follows:
 \item \textbf{$\ttbar$ and $tW$ $\met$:} The modeling of $\met$ in our
   dilepton CRs is studied in Appendix \ref{apx:stop:emustudies}. The
   scale factors we derive are not applied where $\met$ extrapolation
-  is not used. The uncertainty on these scale factors are propagated
+  is not used. The uncertainty on these scale factors is propagated
   through the background estimate.
 \item \textbf{b-tagging efficiencies:} We apply the uncertainties on the heavy
   flavor (HF) and light flavor (LF) b-tagging scale factors provided
@@ -1375,7 +1368,7 @@ estimate these uncertainties are as follows:
   and isolation scale factors are applied.
 \item \textbf{Hadronic tau and isolated track efficiencies:} Our
   method for assigning this uncertainty is based on the method used in
-  the all-hadronic mt2 search \cite{mt2hadronic}. Most of our tau
+  the all-hadronic $M_{T2}$ search \cite{mt2hadronic}. Most of our tau
   rejection power comes from the isolated track veto. The isolation
   efficiency for 1-prong hadronic taus may differ by up to 15\% from
   the efficiency for electrons and muons, so we take half this figure
@@ -1384,7 +1377,7 @@ estimate these uncertainties are as follows:
   than 10\% efficient. We thus assign a 100\% uncertainty to this
   component of the veto.
 \item \textbf{Pileup reweighting:} The cross section for the data
-  sample used to reweigh the distribution of the number of primary
+  sample used to reweight the distribution of the number of primary
   vertices is varied by 5\%.
 \item \textbf{PDF:} We take the average of 100 different PDF
   variations from the NNPDF3.0 set \cite{nnpdf30}, and use the
@@ -1468,7 +1461,7 @@ systematic uncertainties, are presented in Table
 \begin{sidewaystable}
 \centering
 \small
-\caption{Summary of the lost lepton background estimate and its key terms.}
+\caption{Summary of the lost lepton background estimate and its key components.}
 \label{tab:stop:lostlep:results}
 \begin{tabular}{|l|c|c|c|c|c|c|} \hline
 Region & $\met$ bin & Observed$_{CR}$ & $TF_\text{lepton}$ & $TF_\text{SR bin}$ & $TF_\text{Total}$ & SR Estimate \\ \hline \hline
@@ -1519,13 +1512,13 @@ Compressed search & $\met>550$      &   5 $\pm$ 2.24   & 0.77 $\pm$ 0.21 & 1.00 
 \label{ssec:stop:1lw}
 
 The second largest background component across all signal regions
-comprises events with one true lepton that originates from a W-boson,
-where the W-boson is not the daughter of a top quark. We may refer to
+comprises events with one true lepton that originates from a W boson,
+where the W boson is not the daughter of a top quark. We sometimes refer to
 this background as 1$\ell$W. By far the
 largest physics process contributing to this background is the
-production of W+jets, where the W-boson decays leptonically. Other
-very small contributions come from single top $tW$ and $ttW$
-production where no top quarks decay leptonically, and diboson
+production of W+jets, where the W boson decays leptonically. Other
+small contributions come from single top $tW$ and $ttW$
+production where no top quarks decay leptonically, as well as diboson
 production. Note that if an event has any Z-boson decaying to
 neutrinos, it is automatically counted in the rare background
 category, even if it has a leptonic W decay.
@@ -1545,9 +1538,9 @@ Carlo simulations correctly model the ratio of $\geq$1-btag events to
 \frac{N_{\geq\text{1 btag}}^\text{data}}{N_\text{0 btag}^\text{data}} = \frac{M_{\geq\text{1 btag}}^\text{MC}}{M_\text{0 btag}^\text{MC}}
 \end{equation}
 
-We can rearrange this equation to derive
+We can rearrange this equation to derive the formula for
 a data-driven estimate of the 1$\ell$W background component in our
-signal regions, using the data yield from the control regions times
+signal regions. The estimate is given by the data yield from the control regions times
 the SR/CR ratio derived in Monte Carlo. We will refer to this ratio as
 the b-tag transfer factor, $TF_\text{btag}$.
 \begin{equation}
@@ -1556,8 +1549,8 @@ N_{\geq\text{1 btag}}^\text{SR} = N_\text{0 btag}^\text{CR} \times
 \frac{M_{\geq\text{1 btag}}^\text{SR}}{M_\text{0 btag}^\text{CR}}
 \end{equation}
 
-The 0-btag control regions are not totally pure; in other words, the
-contamination from non-1$\ell$W events is significant. So in order for
+The 0-btag control regions are not totally pure; they contain significant
+contamination from non-1$\ell$W events. So in order for
 our background estimate to reflect only the 1$\ell$W content in the
 signal regions, we must multiply our estimate by the purity of the
 CR. The purity is the fraction of events in the CR that are true
@@ -1565,18 +1558,18 @@ CR. The purity is the fraction of events in the CR that are true
 now given by:
 \begin{equation}
 \label{eq:stop:1lw:estimatepure}
-N_{\geq\text{1 btag, SR}}^{1\ell W} = N_\text{0 btag, CR}^\text{total} \times
-\frac{M_{\geq\text{1 btag, SR}}^\text{total}}{M_\text{0 btag, CR}^\text{total}} \times
-\frac{M_\text{0 btag, CR}^{1\ell W}}{M_\text{0 btag, CR}^\text{total}}
+N_{1\ell W}^{\geq\text{1 btag, SR}} = N_\text{total}^\text{0 btag, CR} \times
+\frac{M_\text{total}^{\geq\text{1 btag, SR}}}{M_\text{total}^\text{0 btag, CR}} \times
+\frac{M_{1\ell W}^\text{0 btag, CR}}{M_\text{total}^\text{0 btag, CR}}
 \end{equation}
 
 \subsubsection{Control Region Definitions}
 \label{sssec:stop:1lw:crdefinitions}
 
-Because bottom quarks are heavy, processes without top decays tend to
-have b-jets very rarely. So one of the easiest ways to make a sample
+Because bottom quarks are heavy, processes without top decays tend not to
+have b-jets in them. So one of the easiest ways to make a sample
 enriched in 1$\ell$W events is to require the absence of b-tags.
-Thus we generally form our 0-btag control regions from the
+Thus, we generally form our 0-btag control regions from the
 corresponding signal regions by simply inverting
 the b-tag requirement. The low-$\mlb$ signal regions, which
 require 1 medium b-tag, are inverted to form control regions that require no medium
@@ -1605,11 +1598,11 @@ TF_\text{btag} = \frac{M_{\geq\text{1 (tight) btag,
       SR}}^\text{total}}{M_\text{0 (med) btag, CR}^\text{total}}
 \end{equation}
 
-Because the control regions are defined by the absence of
+Because these control regions are defined by the absence of
 b-tagged jets, the definition of $\mlb$ from Section
 \ref{ssec:stop:mlb} will no longer serve. In the absence of formally
 b-tagged jets, we instead calculate $\mlb$ using the jet with
-the highest CSV discriminator value in place of a b-tag.
+the highest CSV discriminator value.
 In Figure \ref{fig:stop:1lw:mlb}, we plot this makeshift
 $\mlb$ from our CRs against the nominal $\mlb$ from the
 SRs, both using MC, and verify that they agree to within
@@ -1626,10 +1619,10 @@ $\mlb$.
 % Mlb comparison plots adapted from AN-16-463.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_AB.png}
-\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_CD.png}
-\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_EF.png}
-\includegraphics[width=0.4\textwidth]{figures/cr0b_Mlbshape_GH.png}
+\includegraphics[width=0.35\textwidth]{figures/cr0b_Mlbshape_AB.png}
+\includegraphics[width=0.35\textwidth]{figures/cr0b_Mlbshape_CD.png}
+\includegraphics[width=0.35\textwidth]{figures/cr0b_Mlbshape_EF.png}
+\includegraphics[width=0.35\textwidth]{figures/cr0b_Mlbshape_GH.png}
 \caption{Comparison between $\mlb$ from SRs and makeshift $\mlb$
    from CRs, using simulated data. The four plots are made in the
   combined A+B regions, the C+D regions, the E+F regions, and the G+H
@@ -1723,7 +1716,7 @@ are:
 
 Because our $TF_\text{btag}$ is derived from simulation, we must ensure that
 the relative cross-sections of W+b and W+non-b jets are correctly
-modeled in MC. We check the agreement between data and MC on number of
+modeled in MC. We check the agreement between data and MC on the number of
 b-jets in the high-statistics crosscheck region described above. As
 Figure \ref{fig:stop:1lw:wb} shows, a 50\% systematic uncertainty on
 the W+b cross section adequately covers any mismodeling that may
@@ -1862,7 +1855,7 @@ Compressed search & $\met>550$      & 3 $\pm$ 1.73  & 0.56 $\pm$ 0.19  & 0.14 $\
 \label{ssec:stop:1ltop}
 
 At the start of our search, before making any cuts to the data, the
-main background to contend with was genuine single leptons that result
+largest background to contend with was genuine single leptons that result
 from top quarks decaying to W-bosons, which in turn decay
 leptonically. However, as earlier sections have mentioned, our high
 $\met$ and $\mt$ requirements are extremely effective at reducing this
@@ -1882,8 +1875,8 @@ even lost lepton events. Therefore, we are forced to estimate the
 
 As mentioned in Section \ref{sec:stop:searchstrategy}, most 1$\ell$top
 events that pass the $\mt$ cut do so because of $\met$ resolution
-effects. Therefore, by far the most dominant uncertainty on the 1$\ell
-t$ background component is the uncertainty on $\met$ resolution. Our
+effects. Thus, by far the largest uncertainty on the 1$\ell$top
+background component is the uncertainty on $\met$ resolution. Our
 studies in Appendix \ref{apx:stop:metres} show this uncertainty can be as high as 25\%. In
 Figure \ref{fig:stop:1ltop:metres}, we show the $\met$ spectra of
 $\ttonelep$ events from Monte Carlo, both before and after fluctuating
@@ -1970,14 +1963,20 @@ Compressed search & $\met>550$     & 0.13$\pm$0.13 \\
 \subsection{Rare Standard Model Processes}
 \label{ssec:stop:rarebkg}
 
-The final component to our backgrounds is that from
+The final component of our backgrounds is that from
 rare Standard Model processes. In practice, we define this background
-component to contain any events containing a Z-boson that decays to
-two neutrinos (effectively becoming invisible). The vast majority of
-these events come from ttZ production where the Z decays to
-neutrinos, especially in the $\geq$4-jet regions. The next largest
-source is WZ production, which manifests primarily in the 2-to-3-jet
-regions.
+component as any events containing a Z boson that decays to
+two neutrinos (an ``invisible'' Z decay). The non-detection of a heavy
+particle such as the Z boson creates a considerable amount of real
+$\met$, helping the event to pass our selections.
+
+The majority of this background comes from ttZ events where the Z
+decays to neutrinos, especially in the $\geq$4-jet regions. The next
+largest source is WZ production, which manifests primarily in the
+2-to-3-jet regions. Note that the rare background category takes
+precedence over all others. For example, if an event has a $Z \rightarrow \nu\nu$
+decay as well as one lepton from a top quark, it should always be
+classified as belonging to the rare background.
 
 \subsubsection{Estimation Method}
 \label{sssec:stop:rarebkg:estimation}
@@ -1999,19 +1998,22 @@ in a three-lepton control region. So:
 \end{equation}
 If we invert Equation \ref{eq:stop:rarebkg:rationm}, we can estimate
 our rare background component using the Monte Carlo yield in our
-signal region, times a normalization factor derived in the 3$\ell$
-control region:
+signal region, times a normalization factor:
 \begin{equation}
 \label{eq:stop:rarebkg:estimation}
 N_\text{rare}^\text{SR} = M_\text{rare}^\text{SR} \times
 NF_\text{ttZ, WZ}^{CR 3\ell}
 \end{equation}
-The normalization factors are derived using a template fit, separately
-for ttZ and WZ production, as shown in Figure
+where the normalization factor is just the data/MC ratio measured in
+the 3$\ell$ control region.
+
+The normalization factors for ttZ and WZ production are derived using
+a simultaneous template fit, as shown in Figure
 \ref{fig:stop:rarebkg:normalization}. For ttZ, the factor is $1.14 \pm
-0.30$, and for WZ, it is $1.26 \pm 0.09$. The uncertainties
-incorporate both statistical and systematic factors that influence the
-template fit.
+0.30$, and for WZ, it is $1.26 \pm 0.09$. The uncertainties on these
+normalization factors include all the statistical and systematic
+factors that influence the template fit. The normalization uncertainty
+is taken as a systematic on the final background estimate.
 
 % Plots of ttZ and WZ normalization fits, taken from AN-16-386.
 \begin{figure}[htb]
@@ -2041,8 +2043,9 @@ analysis is formed from the following criteria:
 \item The third lepton must form an opposite-sign same-flavor pair
   with one of the first two leptons.
 \item The invariant mass of the paired leptons must be within 15 GeV
-  of the Z-boson mass (91.1876 GeV \cite{pdg}).
-\item There must be at least two jets in the event.
+  of the Z-boson mass (which is 91.1876 GeV \cite{pdg}).
+\item There must be at least two jets in the event. No requirement is
+  made on the number of b-tags.
 \item The scalar sum of the $p_T$ of the jets, known as $H_T$, must
   be $>$ 80 GeV.
 \item $\met >$ 30 GeV
@@ -2053,8 +2056,8 @@ analysis is formed from the following criteria:
 
 Because the rare background is estimated differently from the other
 backgrounds, we assess our systematic uncertainties in two different
-ways. The standard experimental systematics are evaluated exactly as
-they were for the lost lepton and 1$\ell$W backgrounds, except where
+ways. The standard experimental systematics are evaluated the same way
+as for the lost lepton and 1$\ell$W backgrounds, except where
 explicitly stated otherwise. The experimental uncertainties include:
 \begin{itemize}
 \item Monte Carlo statistics
@@ -2063,10 +2066,11 @@ explicitly stated otherwise. The experimental uncertainties include:
 \item JES
 \item ISR $n_\text{jets}$ reweighting
 \item \textbf{Pileup reweighting:} this systematic is highly sensitive to the
-  low MC statistics of this background. To avoid large fluctuations,
-  we evaluate the uncertainty across all signal regions summed
-  together, and see that a conservative 3\% systematic will cover all
-  realistic cases.
+  low MC statistics of this background, especially in the tail of the
+  pileup distribution. To avoid large variations, we evaluate the
+  uncertainty across all signal regions summed together, and see that
+  it is $<$1\%. To be conservative, we assign a flat 3\% systematic,
+  expecting it will cover any variations due to signal region kinematics.
 \end{itemize}
 
 When evaluating the theory uncertainties, we only consider the effects
@@ -2075,20 +2079,19 @@ fixed to the values derived from the control region. And because the
 theory uncertainties are highly sensitive to our limited statistics,
 we merge several of the nominal regions together by removing the
 binning in $\mlb$ and $\tmod$. In effect, this leaves us
-with fewer regions, binned only in $N_\text{jets}$ and $\met$. The
-corridor regions are not merged in any way. This merging is justified
-by studies showing that variations in the shapes of $\mlb$ and
-$\tmod$ are small compared to uncertainties arising from the
-$\met$ distribution. The theory uncertainties evaluated in this manner
-are:
+with fewer regions, binned only in $N_\text{jets}$ and $\met$. This
+merging is justified by studies showing that variations in the shapes
+of $\mlb$ and $\tmod$ are small compared to uncertainties arising from
+the $\met$ distribution. The corridor regions are not merged in any
+way. The theory uncertainties evaluated in this manner are:
 \begin{itemize}
 \item $Q^2$
 \item PDF
 \item $\alpha_S$
 \end{itemize}
 
-The values of the systematic uncertainties are presented in Table
-\ref{tab:stop:rarebkg:systematics}
+The systematic uncertainties on the rare background estimate are
+presented in Table \ref{tab:stop:rarebkg:systematics}.
 
 % Table of systematics adapted from AN-16-463.
 \begin{sidewaystable}
@@ -2139,8 +2142,9 @@ Region & MC stat.   &   Lep. ID/Iso   &   b-tag (LF) &   b-tag (HF)  &   PU &   
 \subsubsection{Results}
 \label{sssec:stop:rarebkg:results}
 
-The results of the rare standard model background estimation procedure
-are presented in Table \ref{tab:stop:rarebkg:results}.
+The full results of the rare standard model background estimate,
+including systematic uncertainties, are presented in Table
+\ref{tab:stop:rarebkg:results}.
 
 % Results table taken from AN-16-463.
 \begin{table}[htbp]
@@ -2156,29 +2160,37 @@ Region & ttZ & WZ & Total  \\
  A $350<\met<450$ & 1.85 $\pm$ 0.53   & 0.21 $\pm$ 0.53   & 2.05 $\pm$ 0.75   \\
  A $450<\met<600$ & 1.15 $\pm$ 0.33   & 0.47 $\pm$ 0.39   & 1.62 $\pm$ 0.53   \\
  A $\met>600$ & 0.36 $\pm$ 0.11   & 0.36 $\pm$ 0.41   & 0.71 $\pm$ 0.40   \\
+\hline
  B $250<\met<450$ & 0.61 $\pm$ 0.18   & 0.93 $\pm$ 0.47   & 1.54 $\pm$ 0.52   \\
  B $450<\met<600$ & 0.15 $\pm$ 0.05   & 0.20 $\pm$ 0.34   & 0.35 $\pm$ 0.33   \\
  B $\met>600$ & 0.09 $\pm$ 0.03   & 0.02 $\pm$ 0.26   & 0.11 $\pm$ 0.26   \\
+\hline
  C $250<\met<350$ & 14.28 $\pm$ 3.84  & 0.10 $\pm$ 0.62   & 14.38 $\pm$ 3.92  \\
  C $350<\met<450$ & 3.83 $\pm$ 1.06   & 0.60 $\pm$ 0.48   & 4.43 $\pm$ 1.23   \\
  C $450<\met<550$ & 1.06 $\pm$ 0.31   & 0.73 $\pm$ 0.39   & 1.79 $\pm$ 0.52   \\
  C $550<\met<650$ & 0.40 $\pm$ 0.12   & 0.00 $\pm$ 0.00   & 0.40 $\pm$ 0.12   \\
  C $\met>650$ & 0.20 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.20 $\pm$ 0.06   \\
+\hline
  D $250<\met<350$ & 2.06 $\pm$ 0.56   & 0.95 $\pm$ 0.63   & 3.01 $\pm$ 0.91   \\
  D $350<\met<450$ & 0.62 $\pm$ 0.18   & 0.55 $\pm$ 0.40   & 1.18 $\pm$ 0.41   \\
  D $450<\met<550$ & 0.24 $\pm$ 0.07   & 0.21 $\pm$ 0.22   & 0.45 $\pm$ 0.24   \\
  D $\met>550$ & 0.09 $\pm$ 0.03   & 0.00 $\pm$ 0.00   & 0.09 $\pm$ 0.03   \\
+\hline
  E $250<\met<350$ & 7.88 $\pm$ 2.14   & 0.40 $\pm$ 0.44   & 8.27 $\pm$ 2.21   \\
  E $350<\met<550$ & 3.34 $\pm$ 0.94   & 0.52 $\pm$ 0.39   & 3.87 $\pm$ 1.07   \\
  E $\met>550$ & 0.26 $\pm$ 0.08   & 0.03 $\pm$ 0.25   & 0.29 $\pm$ 0.26   \\
+\hline
  F $250<\met<450$ & 0.98 $\pm$ 0.27   & 0.13 $\pm$ 0.17   & 1.11 $\pm$ 0.33   \\
  F $\met>450$ & 0.21 $\pm$ 0.06   & 0.00 $\pm$ 0.00   & 0.21 $\pm$ 0.06   \\
+\hline
  G $250<\met<350$ & 2.89 $\pm$ 0.78   & 0.14 $\pm$ 0.15   & 3.03 $\pm$ 0.81   \\
  G $350<\met<450$ & 2.51 $\pm$ 0.71   & 0.16 $\pm$ 0.18   & 2.67 $\pm$ 0.77   \\
  G $450<\met<600$ & 1.80 $\pm$ 0.50   & 0.16 $\pm$ 0.16   & 1.96 $\pm$ 0.54   \\
  G $\met>600$ & 0.70 $\pm$ 0.20   & 0.00 $\pm$ 0.00   & 0.70 $\pm$ 0.23   \\
+\hline
  H $250<\met<450$ & 0.37 $\pm$ 0.11   & 0.00 $\pm$ 0.00   & 0.37 $\pm$ 0.11   \\
  H $\met>450$ & 0.33 $\pm$ 0.10   & 0.16 $\pm$ 0.17   & 0.49 $\pm$ 0.20   \\
+\hline
  I $250<\met<350$ & 3.66 $\pm$ 1.01   & 0.66 $\pm$ 0.43   & 4.33 $\pm$ 1.16   \\
  I $350<\met<450$ & 1.57 $\pm$ 0.45   & 0.35 $\pm$ 0.34   & 1.93 $\pm$ 0.59   \\
  I $450<\met<550$ & 0.58 $\pm$ 0.17   & 0.19 $\pm$ 0.20   & 0.77 $\pm$ 0.27   \\
@@ -2186,6 +2198,8 @@ Region & ttZ & WZ & Total  \\
 \hline
 \end{tabular}
 \end{table}
+
+\clearpage
 
 \section{Results}
 \label{sec:stop:results}
@@ -2266,17 +2280,19 @@ $\geq4$ &    $>10$ &     $>175$ &    $>450$ & 0.24$\pm$0.17 & 0.11$\pm$0.11 & 0.
 \section{Interpretation}
 \label{sec:stop:interp}
 
+As Table \ref{tab:stop:results} and Figure \ref{fig:stop:results}
+show, our measured data are consistent with the predictions of the
+Standard Model. We must interpret these results in the context of our
+SUSY signal models.
+
 \subsection{Signal Estimate}
 \label{ssec:stop:signal}
 
-With the final tally of data and estimated backgrounds in, we must
-interpret those counts in terms of our SUSY signal models. As
-described in Table \ref{tab:stop:mcsamples}, our signal predictions
-are drawn from several Monte Carlo samples, produced using FastSim.
-
-During the course of routine data analysis, CMS scientists discovered
+As described in Table \ref{tab:stop:mcsamples}, our signal predictions
+are drawn from several Monte Carlo samples, all of which were produced
+using FastSim. In the course of routine data analysis, CMS scientists discovered
 certain anomalous events in the samples produced using FastSim. To
-prevent this anomaly from impacting our analysis, we filter out all
+prevent these anomalies from impacting our analysis, we filter out all
 simulated signal events that contain a reconstructed jet with the
 following attributes:
 \begin{itemize}
@@ -2394,8 +2410,8 @@ totally uncorrelated from region to region, whereas other systematics,
 such as luminosity or JES, are correlated from region to region
 because they are derived from the same scale factors.
 
-We do not generally see large excesses of signal events over the
-Standard Model backgrounds, so we set limits on the cross section for
+Because we do not see any large excesses of signal events over the
+Standard Model prediction, we set limits on the cross section for
 stop squark pair production decaying to single-lepton final states.
 At each mass point in the ($\mstop$, $\mlsp$) parameter space,
 we calculate 95\% confidence level (CL) exclusion limits for stop squark
@@ -2423,10 +2439,10 @@ process $pp \rightarrow \tilde{t}\tilde{t}^* \rightarrow b\bar{b}
 GeV for the case of a massless LSP, and LSPs up to 460 GeV for the
 case of an 800 GeV stop squark.
 
-In Figure \ref{fig:stop:limits:t2tb}, we see the exclusion and cross
+In Figure \ref{fig:stop:limits:t2tb}, we present the exclusion and cross
 section limits for the process $pp \rightarrow \tilde{t}\tilde{t}^*
-\rightarrow tb \chargino_1 \lsp_1,\text{ with} \chargino_1 \rightarrow
-W* \lsp_1$ (T2tb model). In this case, we exclude stops up to 1000 GeV
+\rightarrow tb \chargino_1 \lsp_1,\text{ with } \chargino_1 \rightarrow
+W \lsp_1$ (T2tb model). In this case, we exclude stops up to 1000 GeV
 for the case of a massless LSP, and LSP masses up to 390 GV for the
 case of an 850 GeV stop squark.
 

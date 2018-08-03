@@ -8,7 +8,7 @@ processes are correctly modeled. We know from Chapter \ref{chap:afb}
 that our Monte Carlo simulations do a very good job of modeling
 $\ttbar$ processes on the whole, but our search for supersymmetry
 demands exacting precision. For that reason, we employ a set of $e/\mu$
-crosscheck regions, enriched in $\ttdilep$ and single top tW processes,
+crosscheck regions, enriched in $\ttdilep$ and single top $tW$ processes,
 to validate the physics of our lost lepton control regions.
 
 \subsubsection{Crosscheck Region Definitions}
@@ -32,7 +32,7 @@ We define our crosscheck regions using the following criteria:
 \item The event must contain at least 2 jets.
 \item $\met$ must be $>$ 50 GeV.
 \end{itemize}
-We create three regions, binned in number of b-tags: $\geq$0 tags, $\geq$1 tag,
+We create three overlapping regions, binned in number of b-tags: $\geq$0 tags, $\geq$1 tag,
 and $\geq2$ tags. The data and Monte Carlo yields in these regions are
 presented in Table \ref{tab:emu:yields}.
 
@@ -40,7 +40,7 @@ presented in Table \ref{tab:emu:yields}.
 \begin{table}[htb]
 \centering
 \caption{Data and Monte Carlo yields in the $e/\mu$ crosscheck
-  regions, for 35.9 fb\textsuperscript{-1}.}
+  regions, based on 35.9 fb\textsuperscript{-1} of luminosity.}
 \label{tab:emu:yields}
 \begin{tabular}{|l|c|c|c|}
 
@@ -59,7 +59,7 @@ $t\bar{t}+W$  & 223.77 $\pm$ 0.86  & 166.85 $\pm$ 0.73  & 56.97 $\pm$ 0.42 \\*
 $t\bar{t}+Z$  & 232.05 $\pm$ 0.76  & 176.28 $\pm$ 0.66  & 68.44 $\pm$ 0.40 \\*
 \hline \hline
 All~Background  & 136634.29 $\pm$ 289.71  & 102829.20 $\pm$ 133.08  & 36425.65 $\pm$ 65.82 \\*
-Data,$~ee/e\mu/\mu\mu$  & 127684.00 $\pm$ 357.33  & 96778.00 $\pm$ 311.09  & 35435.00 $\pm$ 188.24 \\*
+Data,$~ee/e\mu/\mu\mu$  & 127684 $\pm$ 357.33  & 96778 $\pm$ 311.09  & 35435 $\pm$ 188.24 \\*
 Data/MC  & 0.93 $\pm$ 0.00  & 0.94 $\pm$ 0.00  & 0.97 $\pm$ 0.01 \\*
 \hline \hline
 $1$~lepton,~from~$W$  & 363.69 $\pm$ 28.00  & 72.48 $\pm$ 10.51  & 7.47 $\pm$ 3.20 \\*
@@ -98,7 +98,7 @@ shown in Figure \ref{fig:emu:kinematics}.
 \label{fig:emu:kinematics}
 \end{figure}
 
-However, the $\met$ distribution
+However, the $\met$ distribution in Figure \ref{fig:emu:kinematics}
 shows significant disagreement in the last two bins. This discrepancy
 must be corrected, because we perform $\met$ extrapolation in some of
 our high-$\met$ control regions (see Section
@@ -112,7 +112,7 @@ events so that the ratio in the individual bin equals the ratio in the
 merged bin. Because we only perform $\met$ extrapolation in a few
 $\met$ bins in the dilepton CRs, we only calculate and apply scale
 factors to $\ttbar$ and single-top tW events that have two leptons and
-that fall into one of the affected $\met$ bins. The uncertainty on the
+that fall into one of the affected $\met$ bins. The uncertainties on the
 scale factors are used to evaluate a systematic uncertainty on the
 lost lepton background estimate in the bins where $\met$ extrapolation
 takes place. These scale factors and their uncertainties are presented
@@ -127,19 +127,19 @@ in Table \ref{tab:emu:sfmetextrap}.
 \begin{tabular}{|l|c|c|c|c|} \hline
 Bin & Data & MC & Data/MC Norm & Scale Factor \\ \hline \hline
  \multicolumn{5}{|l|}{Region B} \\ \hline
- $450.0~<~p_{T}~<~800.0$ & $41~\pm~6.4$ & $75.9~\pm~2.5$ & $0.54~\pm~0.09$ & ---\\ \hline \hline
- $450.0~<~p_{T}~<~600.0$ & $33~\pm~5.7$ & $60.9~\pm~2.3$ & $0.54~\pm~0.09$ & $1.00~\pm~0.24$ \\ \hline
- $600.0~<~p_{T}~<~800.0$ & $8~\pm~2.8$ & $15.0~\pm~1.1$ & $0.54~\pm~0.09$ & $0.99~\pm~0.39$ \\ \hline
+ $450~<~p_{T}~<~800$ & $41~\pm~6.4$ & $75.9~\pm~2.5$ & $0.54~\pm~0.09$ & ---\\ \hline \hline
+ $450~<~p_{T}~<~600$ & $33~\pm~5.7$ & $60.9~\pm~2.3$ & $0.54~\pm~0.09$ & $1.00~\pm~0.24$ \\ \hline
+ $600~<~p_{T}~<~800$ & $8~\pm~2.8$ & $15.0~\pm~1.1$ & $0.54~\pm~0.09$ & $0.99~\pm~0.39$ \\ \hline
 \hline
 \multicolumn{5}{|l|}{Region E} \\ \hline
- $350.0~<~p_{T}~<~800.0$ & $222~\pm~14.9$ & $269.4~\pm~4.8$ & $0.82~\pm~0.06$ & ---\\ \hline \hline
- $350.0~<~p_{T}~<~550.0$ & $209~\pm~14.5$ & $244.1~\pm~4.5$ & $0.82~\pm~0.06$ & $1.04~\pm~0.10$ \\ \hline
- $550.0~<~p_{T}~<~800.0$ & $13~\pm~3.6$ & $25.3~\pm~1.4$ & $0.82~\pm~0.06$ & $0.62~\pm~0.18$ \\ \hline
+ $350~<~p_{T}~<~800$ & $222~\pm~14.9$ & $269.4~\pm~4.8$ & $0.82~\pm~0.06$ & ---\\ \hline \hline
+ $350~<~p_{T}~<~550$ & $209~\pm~14.5$ & $244.1~\pm~4.5$ & $0.82~\pm~0.06$ & $1.04~\pm~0.10$ \\ \hline
+ $550~<~p_{T}~<~800$ & $13~\pm~3.6$ & $25.3~\pm~1.4$ & $0.82~\pm~0.06$ & $0.62~\pm~0.18$ \\ \hline
 \hline
 \multicolumn{5}{|l|}{Region F, H} \\ \hline
- $250.0~<~p_{T}~<~800.0$ & $1092~\pm~33.0$ & $1246.5~\pm~14.6$ & $0.88~\pm~0.03$ & ---\\ \hline \hline
- $250.0~<~p_{T}~<~450.0$ & $1051~\pm~32.4$ & $1170.6~\pm~14.4$ & $0.88~\pm~0.03$ & $1.02~\pm~0.05$ \\ \hline
- $450.0~<~p_{T}~<~800.0$ & $41~\pm~6.4$ & $75.9~\pm~2.5$ & $0.88~\pm~0.03$ & $0.62~\pm~0.10$ \\ \hline
+ $250~<~p_{T}~<~800$ & $1092~\pm~33.0$ & $1246.5~\pm~14.6$ & $0.88~\pm~0.03$ & ---\\ \hline \hline
+ $250~<~p_{T}~<~450$ & $1051~\pm~32.4$ & $1170.6~\pm~14.4$ & $0.88~\pm~0.03$ & $1.02~\pm~0.05$ \\ \hline
+ $450~<~p_{T}~<~800$ & $41~\pm~6.4$ & $75.9~\pm~2.5$ & $0.88~\pm~0.03$ & $0.62~\pm~0.10$ \\ \hline
 \end{tabular}
 \end{table}
 
@@ -243,10 +243,10 @@ Monte Carlo:
 \end{equation}
 The values and uncertainties of these scale factors in each bin are
 given in Table \ref{tab:metres:scalefactors}. We apply these scale
-factors to all events in the $\ttonelep$, $\ttdilep$, single top tW,
+factors to all events in the $\ttonelep$, $\ttdilep$, single top $tW$,
 and W+Jets Monte Carlo samples. Note that because the corridor signal
-regions overlap with the nominal signal regions, a single
-event can take on different weights when it is considered in a nominal
+regions overlap with the nominal signal regions, some events
+receive different weights when considered in a nominal
 SR versus in a corridor SR.
 
 % Table of SF values made from material in AN-16-463.

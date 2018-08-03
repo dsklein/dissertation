@@ -6,11 +6,9 @@ events where a top-antitop ($\ttbar$) pair decays to a two-lepton
 final state ($2\ell$). This work was performed using the CMS
 experiment during Run I of the LHC, at both 7 TeV and 8 TeV
 center-of-mass energies;
-I will focus on the 8 TeV results, and in particular, my work on the
+I will focus on the 8 TeV results, and in particular, my work with the
 unfolding technique. The 8 TeV analysis led to two publications, which
 are References \cite{chargeasym} and \cite{spincorrpol}.
-
-% Make sure to do a final check for past vs. present tense
 
 \section{Motivation}
 \label{sec:afb:motivation}
@@ -20,36 +18,36 @@ heaviest known elementary particle, with a mass of $\sim 173$ GeV
 \cite{pdg}. This large mass gives the top quark a number of properties
 that make it uniquely interesting to study.
 
-In general, a particle's lifetime -- how long it tends to last before
-decaying -- is inversely related to its mass \cite{griffiths}.
-The top quark being so heavy, it has an extremely short lifetime
+In general, a particle's lifetime -- how long it tends to exist before
+decaying to lighter particles -- is inversely related to its mass \cite{griffiths}.
+The top quark, being so heavy, has an extremely short lifetime
 of $\mathcal{O} (10^{-25})$ seconds. This is shorter than the timescales on
 which hadronization ($10^{-24}$s) and spin decorrelation ($10^{-21}$s)
-normally occur \cite{pdg,spindecorrelation}, processes that normally
+normally occur \cite{pdg,spindecorrelation}, processes that
 wipe out some information about a quark. Since the top quark decays
-before they can happen, it passes on information about its spin
+before these processes can happen, it passes on information about its spin
 correlation and polarization to its decay products. So studying the decay
 products of the top quark is one of the only ways we have to measure
 these properties from a bare, unbound quark.
 
 Additionally, the top quark's large mass places it on the edge of
-unexplored territory. Because the likelihood of a particular decay is
+unexplored territory. Because the likelihood of a decay is
 proportional to the mass difference between the particles involved,
 many of the heavy new particles predicted by BSM theories would have strong
 couplings to the top quark.
 These couplings would naturally cause some of the top quark's
-properties to deviate from the value predicted by the SM. Thus, it is
-important to make precise measurements of properties such as charge
-asymmetry to tease out any links to possible new physics.
+properties to deviate from the values predicted by the SM. Thus,
+precise measurements of properties such as charge
+asymmetry may tease out links to possible new physics.
 
 There are a few different final states that can result from the decay
 of $\ttbar$ pairs. The top decays to a W boson and a $b$ quark, and
-the W boson can decay to quarks or to a lepton and a neutrino. The
+the W boson can decay to quarks, or to a lepton and a neutrino. The
 hadronic W decay has a higher cross-section than the leptonic decay \cite{pdg},
 meaning that the more hadrons in the final state, the more data we
-would have to work with. Nevertheless, the CMS detector was designed
+would have to work with. However, the CMS detector was designed
 with high-precision lepton reconstruction in mind, and precision is
-important to these asymmetry measurements. So we chose to study the two-lepton
+important to these asymmetry measurements. So we choose to study the two-lepton
 final state, valuing the precision of the lepton reconstruction over
 higher statistics. The production of a top-antitop pair and its decay
 to a dilepton final state is depicted in Figure
@@ -65,7 +63,7 @@ to a dilepton final state is depicted in Figure
   same flavor.]
   {Feynman diagram showing a proton-proton collision that produces
   a $\ttbar$ pair, which subsequently decays dileptonically. The two
-  leptons ($\ell$) are not necessarily the same flavor. This
+  leptons ($\ell$) are not necessarily of the same flavor. This
   diagram was made using the Tikz-Feynman package \cite{tikzfeynman}.}
 \label{fig:afb:feynmandiagram}
 \end{figure}
@@ -97,7 +95,7 @@ This case was called ``forward'', and the reverse was called
 ``backward''. Thus, given a number of $\ttbar$
 events from the Tevatron, we can define a forward-backward
 asymmetry by subtracting the number of backward events from the number
-of forward ones:
+of forward ones, and dividing by the total:
 
 \begin{equation}
 A_{FB} = \asymmetry{\Delta y}{0}
@@ -125,7 +123,7 @@ As at the Tevatron, the top charge asymmetry was measured at CMS using
 the rapidity of the top quarks. However, absent a natural direction
 for the top and antitop to travel, we categorized events as
 ``forward'' and ``backward'' based on which quark had a higher
-absolute value of rapidity. Thus we define our \textbf{top charge
+\emph{absolute value} of rapidity. Thus we define our \textbf{top charge
 asymmetry} as:
 \begin{equation}
 A_C = \asymmetry{|y_t|}{|y_{\bar{t}}|}
@@ -143,8 +141,8 @@ is based purely on the pseudorapidity of the leptons produced in the
 decay. We may use the leptons as a proxy for the tops because we
 expect their direction to be correlated with the directions of their
 parent tops. One advantage of using only the leptons is that it obviates the
-need to reconstruct the $\ttbar$ system, as described in Sec.
-\ref{sec:afb:selections}, thereby allowing us to include more events in
+need to reconstruct the $\ttbar$ system (a process described in Section
+\ref{sec:afb:selections}), thereby allowing us to include more events in
 our calculation of this variable. However, this variable also has some
 dependence on the polarization, so it is not fully correlated with $A_C$.
 
@@ -216,16 +214,16 @@ rapidity ($|y_{\ttbar}|$), and transverse momentum ($p_T^{\ttbar}$).
 \section{Datasets and Triggers}
 \label{sec:afb:datatrig}
 
-For this analysis, we used 19.5 fb\textsuperscript{-1} of data from
+For this analysis, we use 19.5 fb\textsuperscript{-1} of data from
 the 8 TeV portion of CMS Run I, encompassing the 2012A through 2012D
-eras. Because the analysis focused on a process that produced two
-leptons in the final state, we used the dilepton datasets from that
-period. A complete list is given in Table \ref{tab:afb:datasamples}.
+eras. Because the analysis focuses on a process that produces two
+leptons in the final state, we use the dilepton datasets
+A complete list of these datasets is given in Table \ref{tab:afb:datasamples}.
 
 %% Table of data samples. Taken from AN-14-246. Believed unpublished so far %%%%%%%
 \begin{table}[!ht]
 \begin{center}
-\caption{List of CMS datasets used.}
+\caption{List of CMS datasets used in this analysis.}
 \label{tab:afb:datasamples}
 {\footnotesize
 \begin{tabular}{l|r}
@@ -263,14 +261,14 @@ Dataset Name & run range \\
 \end{center}
 \end{table}
 
-We used several Monte Carlo datasets to model both the $\ttdilep$
+We use several Monte Carlo datasets to model both the $\ttdilep$
 process and any potential background processes. A list of all Monte
 Carlo datasets used is given in Table \ref{tab:afb:mcsamples}.
 
 %% Table of MC samples. Adapted from AN-14-246. Believed unpublished so far %%%%%%%
 \begin{table}[pht]
 \begin{center}
-\caption{List of CMS Monte Carlo samples used.}
+\caption{List of CMS Monte Carlo samples used in this analysis.}
 \label{tab:afb:mcsamples}
 {\footnotesize
 \begin{tabular}{l|l|c}
@@ -323,15 +321,15 @@ WWG     & / WWGJets\_TuneZ2Star\_8TeV-madgraph (53)             & 0.528 \\
 \end{center}
 \end{table}
 
-To select events from the datasets listed in
-\ref{tab:afb:datasamples}, we used a set of dilepton triggers that
-would capture the four possible dilepton flavors. These triggers are
-listed in table \ref{tab:afb:triggers}.
+To select events from the datasets listed in Table
+\ref{tab:afb:datasamples}, we use a set of dilepton triggers that
+capture the four possible dilepton flavors. These triggers are
+listed in Table \ref{tab:afb:triggers}.
 
 %% Table of triggers used. Taken from AN-14-246. Believed unpublished so far %%%%%%%
 \begin{table}[!ht]
 \begin{center}
-\caption{List of triggers used.}
+\caption{List of triggers used in this analysis.}
 \label{tab:afb:triggers}
 \begin{tabular}{l}
 \hline\hline
@@ -351,7 +349,7 @@ Dilepton Sample \\
 \section{Object and Event Selection}
 \label{sec:afb:selections}
 
-We employed a set of physics object and event selections designed to
+We employ a set of physics object and event selections designed to
 accept as many $\ttdilep$ events as possible while minimizing the
 number of background events selected.
 
@@ -366,9 +364,8 @@ using the following criteria:
 \begin{itemize}
 \item Electrons and muons are defined using the recommended
   2012 identification criteria provided by their respective
-  POGs within CMS. Specifically, electrons use the
-  recommended medium working point, and muons use the recommended
-  tight WP.
+  POGs. Specifically, electrons use the recommended medium working
+  point, and muons use the recommended tight WP.
 \item We require the leptons to have $p_T > 20$ GeV and $|\eta| < 2.4$.
 \item We use particle flow-based isolation within a cone of $\Delta R
   < 0.3$, where absolute isolation must be $< 5$ GeV, and relative
@@ -381,8 +378,8 @@ using the following criteria:
 Jets are defined using particle flow. They must have $p_T > 30$ GeV
 and $|\eta| < 2.4$. They must pass the tight Multi-Variate Analysis
 (MVA) pileup ID, and they must be separated from leptons by $\Delta R
-> 0.4$. B-tagging of jets is done using the Combined Secondary Vertex
-(CSV) medium working point. $\metvec$ is computed by summing up the vector
+> 0.4$. B-tagging of jets is done using the CSV
+medium working point. $\metvec$ is computed by summing up the vector
 momenta of all PF particles, and multiplying by $-1$.
 
 \subsection{Event Selections}
@@ -441,11 +438,11 @@ properties of the data. In particular:
   10$ GeV, and the $\met$ is also corrected to remove modulation in $\phi$.
 \end{itemize}
 
-\subsubsection{Trigger efficiency measurements} % Should this section be moved to under "datasets and triggers"?
+\subsubsection{Trigger efficiency measurements}
 \label{sssec:afb:evtweights:trigeff}
 We measure the efficiencies of the dilepton triggers listed in Table
 \ref{tab:afb:triggers} using a method called \emph{tag-and-probe}. The
-essence of this method is that the process $Z \rightarrow \ell\ell$
+key to this method is the fact that the process $Z \rightarrow \ell\ell$
 is very clean to reconstruct and has a much higher cross section than its
 backgrounds. We begin by selecting pairs of leptons that are consistent with
 a Z boson origin. We require that one of the leptons pass some very tight
@@ -608,8 +605,8 @@ compared to the $\ttdilep$ signal.
 Since our signal region (SR) is designed to target the $\ttdilep$
 process and exclude backgrounds, we can create control regions (CRs)
 that target specific background processes by inverting one to two cuts
-and selections from the SR. There are three broad categories of CRs,
-each targeting a particular background component,
+and selections from the SR. We form three broad categories of CRs,
+each targeting a particular background component, as
 diagrammed in Figure \ref{fig:afb:crs}. These CRs are described in
 detail in Table \ref{tab:afb:crdefs}.
 
@@ -666,7 +663,7 @@ the uncertainty on this background component from a CMS cross section
 measurement of $23.4 \pm 5.4$ pb \cite{twxsec}.
 
 There are a few more backgrounds that come from rare processes. These
-include $\ttbar$ production in association with a W or Z boson, or a
+include $\ttbar$ production in association with a W or Z boson or a
 photon; diboson production (WW, ZZ, WZ); and triboson production
 (WWW, WWZ, WZZ, ZZZ). The cross sections for these processes are
 extremely small compared to that for $\ttdilep$, so we predict them
@@ -678,8 +675,8 @@ verify in a loosened version of CR5.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.75\textwidth]{figures/SFs_all.pdf}
-  \caption{SFs measured in different CRs. Blue line depicts the
-    central value, and red lines give the systematic uncertainty band.}
+  \caption{SFs measured in different CRs. The blue line depicts the
+    central value, and the red lines give the systematic uncertainty band.}
   \label{fig:afb:sfvariations}
 \end{figure}
 
@@ -744,8 +741,8 @@ $\ttdilep$ process.
                  $\ttbar \rightarrow \ell\ell$   &   6313.6 $\pm$ 37.7   &   8975.7 $\pm$ 44.1   &  24651.6 $\pm$ 73.4   &  39940.9 $\pm$ 93.6  \\
               $\ttbar \rightarrow \ell +$ jets   &     107.1 $\pm$ 7.7   &      62.2 $\pm$ 5.4   &    327.4 $\pm$ 13.4   &    496.7 $\pm$ 16.4  \\
                                         W+jets   &       7.3 $\pm$ 3.6   &       1.8 $\pm$ 1.8   &      10.0 $\pm$ 3.5   &      19.1 $\pm$ 5.3  \\
-                  single top (s/t-chan, 1-lep)   &       2.6 $\pm$ 0.6   &       4.6 $\pm$ 0.9   &      18.8 $\pm$ 1.6   &      26.1 $\pm$ 1.9  \\
-                        single top ($tW$, 2-lep) &     298.0 $\pm$ 1.6   &     425.9 $\pm$ 1.9   &    1161.9 $\pm$ 3.1   &    1885.8 $\pm$ 4.0  \\
+                single top (s/t-chan, 1$\ell$)   &       2.6 $\pm$ 0.6   &       4.6 $\pm$ 0.9   &      18.8 $\pm$ 1.6   &      26.1 $\pm$ 1.9  \\
+                    single top ($tW$, 2$\ell$)   &     298.0 $\pm$ 1.6   &     425.9 $\pm$ 1.9   &    1161.9 $\pm$ 3.1   &    1885.8 $\pm$ 4.0  \\
                                       WW/WZ/ZZ   &      27.6 $\pm$ 1.4   &      40.7 $\pm$ 1.4   &      89.3 $\pm$ 2.3   &     157.5 $\pm$ 3.0  \\
                DY $\rightarrow ee/\mu\mu$+jets   &    211.0 $\pm$ 16.0   &    368.0 $\pm$ 22.8   &       1.6 $\pm$ 0.5   &    580.6 $\pm$ 27.9  \\
                 DY $\rightarrow \tau\tau$+jets   &      33.9 $\pm$ 2.5   &      51.5 $\pm$ 3.0   &     137.6 $\pm$ 5.1   &     223.0 $\pm$ 6.4  \\
@@ -795,13 +792,13 @@ $\ttdilep$ process.
 \section{Unfolding}
 \label{sec:afb:unfolding}
 
-As described in Section \ref{sec:cms}, the CMS detector and its
-associated reconstruction software are not perfect, nor are our object
+The CMS detector and reconstruction software described in Section
+\ref{sec:cms} are not perfect. Neither are our object
 and event selections and reconstruction methods described in Section
 \ref{sec:afb:selections}. Because of these imperfections, our measured
-asymmetry values may be distorted from the true values.
+asymmetry values may be distorted from their true values. In addition,
 The unique attributes of other experiments may cause their measured
-asymmetry values to differ from those at CMS. And
+asymmetry values to differ from those at CMS. And finally,
 when theorists make predictions for these asymmetries,
 they predict the true values, not the values that would be measured by any
 individual experiment. So in order to compare our results with
@@ -818,7 +815,7 @@ smearing effects. In other fields it may be known as
 \emph{deconvolution} or \emph{unsmearing}. The technique originated in
 signal processing and image processing, but its broad utility has seen
 it spread to various other scientific and technical
-disciplines. Unfolding for particle physics in general is described in detail in
+disciplines. General unfolding for particle physics is described in detail in
 References \cite{unfoldingcowan} and \cite{blobelseminar}. For our
 asymmetry measurements, we use the technique as follows:
 
@@ -830,7 +827,7 @@ vector $\vec{b}$, and the bin contents of the hypothetical ``true''
 histogram for that variable are expressed as a vector $\vec{x}$, then we can model the
 distorting effects of our detector, reconstruction, etc. using a response
 matrix that transforms $\vec{x}$ into $\vec{b}$. We choose to split the
-response matrix into two components, $S$ and $A$, giving us the matrix equation:
+response matrix into two components, giving us the matrix equation:
 \begin{equation}
 \vec{b} = S A \vec{x}
 \label{eq:afb:convolution}
@@ -842,7 +839,8 @@ matrix, which describes the fraction of true events from each bin that
 get measured in other bins due to distortion from reconstruction
 effects. If we know the values of the matrices $S$ and
 $A$, and they are invertible, then we can invert Equation
-\ref{eq:afb:convolution} to solve for the true distribution:
+\ref{eq:afb:convolution} to solve for the true distribution, $\vec{x}$,
+of our variables:
 \begin{equation}
 \vec{x} = A^{-1} S^{-1} \vec{b}
 \label{eq:afb:deconvolution}
@@ -852,8 +850,8 @@ Unfolding is an example of an \emph{inverse problem}, because it takes
 effects and attempts to extrapolate back to their causes. And like
 many other inverse problems, this one is mathematically
 \emph{ill-posed}, because a small fluctuation in the measured
-distribution $\vec{b}$ can cause a much larger fluctuation in the
-unfolded solution $\vec{x}$ \cite{blobelseminar}. To curtail these
+distribution, $\vec{b}$, can cause a much larger fluctuation in the
+unfolded solution, $\vec{x}$ \cite{blobelseminar}. To curtail these
 fluctuations, we employ a technique called \emph{regularization}.
 
 Regularization is the act of adding additional constraints to the
@@ -874,8 +872,8 @@ regularization, and lead to more statistical fluctuations in the
 output; choosing a large value of $\tau$ will give heavy
 regularization, and strongly constrain the output to resemble the bias
 distribution. In truth, any amount of regularization must introduce
-some degree of bias into our measurements. In Section
-\ref{ssec:afb:unfoldingtests}, I describe the tests we perform to
+some degree of bias into our measurements. So, in Section
+\ref{ssec:afb:unfoldingtests} I describe the tests we perform to
 quantify the amount of introduced bias.
 
 \subsection{One-Dimensional Unfolding Procedure}
@@ -892,8 +890,8 @@ reconstruction, we have more statistics and finer resolution, allowing
 us to use 12 bins at truth level. In both cases we use twice as many
 bins for the reconstruction-level distribution $\vec{b}$ to avoid a
 quirk of the numerical method that would make the problem seem
-artificially well-posed \cite{blobelseminar}. We chose to bin our
-variables so that the number of events in each bin would be
+artificially well-posed \cite{blobelseminar}. We choose to bin our
+variables so that the number of events in each bin is
 approximately equal. The specific bins chosen are given in Table
 \ref{tab:afb:binning1d}. The reconstruction-level bins are formed by
 simply dividing the truth-level bins in half.
@@ -928,11 +926,11 @@ $A_{\Delta\phi}$ & [$30\pi/60$, $35\pi/60$ ]  &  [$35\pi/60$,$40\pi/60$]  &  [$4
 \end{center}
 \end{sidewaystable}
 
-For each asymmetry variable, we calculated the fraction of true
-Monte Carlo events in each bin that passed our selections. These
-values then became the diagonal entries of the acceptance matrix,
+For each asymmetry variable, we calculate the fraction of true
+Monte Carlo events in each bin that pass our selections. These
+values then become the diagonal entries of the acceptance matrix,
 $A$. Because our event selections are slightly different for
-same-flavor and opposite-flavor dileptons, we calculated and applied
+same-flavor and opposite-flavor dileptons, we calculate and apply
 separate acceptance matrices for each case. In Figure \ref{fig:afb:acceptance}, we
 show the acceptance matrices for each asymmetry, after combining
 the two dilepton flavors in appropriate proportion.
@@ -951,11 +949,11 @@ the two dilepton flavors in appropriate proportion.
 \label{fig:afb:acceptance}
 \end{figure}
 
-The smearing matrices $S$ were generated based on Monte Carlo
-simulations. Each simulated event was put into a 2D histogram with the
+The smearing matrices $S$ are generated based on Monte Carlo
+simulations. Each simulated event is placed into a 2D histogram with the
 gen-level asymmetry variable on the y-axis and the reco-level
 asymmetry variable on the x-axis. The unfolding software then
-converted the histogram bins into elements of the smearing
+converts the histogram bins into elements of the smearing
 matrix. These histograms are presented in Figure
 \ref{fig:afb:smearing}. The histograms that represent the smearing
 matrices for the leptonic variables have almost no off-diagonal
@@ -986,13 +984,13 @@ fluctuation in the unfolded distribution, and the amount of
 bias. There are many ways to choose the optimal value of this parameter. We
 use the method of minimizing the mean of the global correlation
 coefficients, which is also favored by Blobel
-\cite{blobelseminar}. The values of $\tau$ we arrived at in this way
+\cite{blobelseminar}. The values of $\tau$ we arrive at this way
 are presented in Table \ref{tab:afb:tau1d}. To validate these values,
-we checked how the unfolded asymmetries and their uncertainties varied as we scaled
+we check how the unfolded asymmetries and their uncertainties vary as we scale
 $\tau$ up and down by up to a factor of 100. As expected, the
-uncertainties became larger as $\tau$ was decreased; as $\tau$ was
-increased, the asymmetry central value shifted, indicating bias. From
-this behavior, we deduce that our choices for $\tau$ were
+uncertainties become larger as $\tau$ is decreased; as $\tau$ is
+increased, the asymmetry central value shifts, indicating the addition of bias. From
+this behavior, we deduce that our choices for $\tau$ are
 appropriate. The dependence of the asymmetries and their uncertainties
 on the choice of $\tau$ is shown in Figure \ref{fig:afb:tauvary}.
 
@@ -1024,7 +1022,7 @@ $\tau$ value & 0.000185 & 0.000166 & 0.000110 & 0.000075 & 0.000089 & 0.000098 \
 \label{fig:afb:tauvary}
 \end{figure}
 
-We performed the actual regularized unfolding using the TUnfold
+We perform the actual regularized unfolding using the TUnfold
 package \cite{tunfold}. We chose TUnfold because it provides good
 support for two-dimensional unfolding, a process described in the next
 section. The results of the one-dimensional unfolding are presented in
@@ -1109,13 +1107,13 @@ $\tau$ value & 0.000426 & 0.000422 & 0.000144 & 0.000102 & 0.000120 & 0.000121 \
 \end{table}
 
 Our regularization procedure was already described in Section
-\ref{ssec:afb:unfoldingbkg}, however there is an additional subtlety
+\ref{ssec:afb:unfoldingbkg}; however, there is an additional subtlety
 introduced in two-dimensional unfolding. Because the distribution we
 are unfolding is actually an ``unwrapped'' two-dimensional
 distribution, we do not want to regularize the curvature at the
 boundaries between unwrapped rows. In addition, we also wish to
-regularize in the secondary variable, which, in the unwrapped
-distribution, means we must regularize bins that are no longer
+regularize in the secondary variable. In the unwrapped
+distribution, this means we must regularize bins that are no longer
 adjacent. Using Figure \ref{fig:afb:unwrapping} as an example, bin 8
 must be regularized with bins 7, 9, 2, and 14; however, bins 12 and 13
 must not be regularized with each other.
@@ -1124,7 +1122,7 @@ complex regularization schemes \cite{tunfold}. The results of the 2D unfolding
 procedure are presented in Section \ref{ssec:afb:results2d}, and the
 bias tests are described in the next section.
 
-\subsection{Linearity Tests}
+\subsection{Bias Tests}
 \label{ssec:afb:unfoldingtests}
 
 As described in Section \ref{ssec:afb:unfoldingbkg}, regularization
@@ -1138,9 +1136,9 @@ introduced by regularization, and judge whether or not it is acceptable.
 To test the amount of bias introduced by regularization, we perform
 \emph{linearity tests} on our asymmetries. For each asymmetry, we
 begin by reweighting the $\ttdilep$ Monte Carlo events using a linear
-function of the measured variable. For example, Equation
-\ref{eq:afb:topchargeasym} describes the top charge asymmetry in terms
-of the measured variable $|y_t| - |y_{\bar{t}}|$, so the reweighting
+function of the measured variable. For example, the top charge
+asymmetry is defined in terms of the measured variable $|y_t| -
+|y_{\bar{t}}|$ (see Equation \ref{eq:afb:topchargeasym}), so the reweighting
 equation would be:
 \begin{equation}
 \text{weight} = 1 + K \cdot (|y_t| - |y_{\bar{t}}|)
@@ -1151,10 +1149,10 @@ in steps of 0.1. This reweighting artificially induces asymmetries of up to
 25\% in the simulated data, which is much larger than anything we
 would expect from Standard Model or BSM physics.
 
-For each $K$ value, we then make 10,000 copies of the measurement
+For each $K$ value, we make 10,000 copies of the measurement
 histogram, and in each copy we fluctuate the various bin contents randomly up and down according to
 Poisson statistics. Each of these fluctuated histograms is called a
-\emph{pseudoexperiment}, because the Poisson fluctuation approximates
+\emph{pseudoexperiment} (PE), because the Poisson fluctuation approximates
 what we might see if we ran our experiment again. Each of
 the 10,000 pseudoexperiments is unfolded, and we compare the average
 of those unfolded asymmetries against the original,
@@ -1164,7 +1162,7 @@ for each of the seven $K$ values. We fit these plots
 with a straight line, and record the slope and offset
 (or intercept) of the line. The slope tells us by what
 factor any asymmetry in the data will be scaled up or down by
-regularization. On top of that, the offset tells us how much asymmetry
+regularization. The offset tells us how much asymmetry
 will be added or subtracted by the regularization. These slopes and
 offsets are listed in Table \ref{tab:afb:linearity}. Most of the offsets are
 zero (the largest is 0.2\%), meaning regularization will add
@@ -1186,7 +1184,7 @@ in Section \ref{sec:afb:systematics}.
 \includegraphics[width=0.325\linewidth]{figures/linearity_lepCosTheta.pdf}
 \includegraphics[width=0.325\linewidth]{figures/linearity_topSpinCorr.pdf}
 \includegraphics[width=0.325\linewidth]{figures/linearity_lepCosOpeningAngle.pdf}
-\caption{Results of our linearity tests. Artificially induced
+\caption{Results of the linearity tests. Artificially induced
   asymmetry values are on the x-axis, and average unfolded asymmetries
   are on the y-axis.}
 \label{fig:afb:linearity}
@@ -1226,7 +1224,7 @@ distributions for the example case of $K = 0$. Figure
 induced asymmetries.
 
 % Pull distributions from AN-14-246.
-\begin{figure}[htpb]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/pull_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pull_lepAzimAsym2.pdf}
@@ -1239,7 +1237,7 @@ induced asymmetries.
 \end{figure}
 
 % Pull widths from AN-14-246.
-\begin{figure}[htpb]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_lepChargeAsym.pdf}
 \includegraphics[width=0.325\linewidth]{figures/pullwidth_lepAzimAsym2.pdf}
@@ -1313,7 +1311,7 @@ $\ttdilep$ process. These uncertainties are evaluated as follows:
   quark mass. To evaluate the systematic on this value, we use
   $\ttbar$ MC samples with the top mass varied by $\pm 3$ GeV, and
   interpolate down to an effective variation of $\pm 1$ GeV.
-\item \textbf{Parton density functions (PDFs):} The systematic
+\item \textbf{Parton distribution functions (PDFs):} The systematic
   uncertainty on PDFs was evaluated using the then-current PDF4LHC
   recommendations \cite{pdf4lhc}.
 \item \textbf{Top $p_T$ reweighting:} Since the effects of top $p_T$
@@ -1321,10 +1319,10 @@ $\ttdilep$ process. These uncertainties are evaluated as follows:
   100\% systematic to the reweighting.
 \end{itemize}
 
-Evaluating most of these systematics required us to regenerate the
+Evaluating most of these systematics requires us to regenerate the
 smearing and acceptance matrices using reweighted Monte Carlo
 simulations, and then reapply the unfolding procedure. In addition, we
-evaluated the systematic uncertainty due to limited \textbf{Monte
+evaluate the systematic uncertainty due to limited \textbf{Monte
   Carlo statistics} by propagating the uncertainty on the smearing
 matrix to the unfolded result.
 
@@ -1342,10 +1340,10 @@ any mismodeling in $S$ is already covered by the other systematic
 uncertainties described above.
 
 To evaluate the systematic uncertainty due to regularization, we
-reweighted the bias distribution to match the data, and compared that
+reweight the bias distribution to match the data, and compare that
 unfolded result to the nominal. This procedure should isolate the
 effect of the regularization from any other sources of
-uncertainty. As Section \ref{sec:afb:results} will show, the
+uncertainty. As Section \ref{sec:afb:results} shows, the
 uncertainty we obtain this way is less than 0.001 on
 all asymmetry variables -- far smaller than the statistical
 uncertainty on the results.
@@ -1359,13 +1357,13 @@ uncertainty is consistent with the findings from Section
 is a very small fraction of the total asymmetry.
 
 To validate the claim that any mismodeling of the smearing matrix is
-covered by other systematics, we tried reweighting both the bias
+covered by other systematics, we try reweighting both the bias
 distribution and $S$ together. The uncertainty produced by this test
-was still smaller in magnitude than the sum of the other systematics,
+is still smaller in magnitude than the sum of the other systematics,
 so we can be confident that those systematics cover any mismodeling in
 $S$.
 
-Finally, we verified that the regularization term contributes only a
+Finally, we verify that the regularization term contributes only a
 small amount to the $\chi^2$ that is minimized in the unfolding
 procedure.
 % There's a table of chi^2 values, but do I really need it here?
@@ -1427,16 +1425,6 @@ Total uncertainty (inc. data stat.) & $0.013$   & $0.006$   & $0.013$   & $0.016
 \subsection{One-Dimensional Results}
 \label{ssec:afb:results1d}
 
-After subtracting the background and unfolding, distributions for our
-six asymmetry variables are shown in Figure \ref{fig:afb:results1d},
-along with SM parton-level predictions using
-\textsc{mc@nlo} and NLO+EW predictions. The
-measured asymmetry values with uncertainties and the \textsc{mc@nlo}
-predictions are presented numerically in Table
-\ref{tab:afb:results1d}. All six asymmetries are consistent with the
-predictions; thus, we do not observe any significant deviations from
-the Standard Model expectation.
-
 % Plots taken from AN-14-246. Charge asymmetry plots are a wee bit
 % different from published versions, which say "NLO (QCD+EW)", and
 % have horizontal error bars on the ratio plot markers
@@ -1475,6 +1463,16 @@ $A_{P}$ & $-0.011 \pm 0.007 \pm 0.028$  &  $ 0.000 \pm 0.001$       \\
 \end{tabular}
 \end{center}
 \end{table}
+
+After subtracting the background and unfolding, distributions for our
+six asymmetry variables are shown in Figure \ref{fig:afb:results1d},
+along with SM parton-level predictions using
+\textsc{mc@nlo} and NLO+EW predictions. The
+measured asymmetry values with uncertainties and the \textsc{mc@nlo}
+predictions are presented numerically in Table
+\ref{tab:afb:results1d}. All six asymmetries are consistent with the
+predictions; thus, we do not observe any significant deviations from
+the Standard Model expectation.
 
 \subsection{Two-Dimensional Results}
 \label{ssec:afb:results2d}
@@ -1631,17 +1629,17 @@ $A_{P}$  & $-0.016 \pm 0.012 \pm 0.025$   & $0.029 \pm 0.023 \pm 0.036$   & $-0.
 \label{sec:afb:conclusion}
 
 We performed a measurement of six different asymmetries in $\ttdilep$
-events measured by the CMS experiment at the LHC. The data sample was
+events recorded by the CMS experiment at the LHC. The data sample was
 gathered at an energy of 8 TeV, and corresponds to 19.5
 fb\textsuperscript{-1} of luminosity. We selected events where
 top-antitop pairs decayed to a final state with two leptons (electrons
 or muons), giving a sample that was estimated to be 91\%
 signal and 9\% background. After subtracting the backgrounds, we used
-the unfolding technique to present our results at parton level. These
+the unfolding technique to extrapolate our results to parton level. These
 results included inclusive measurements of the asymmetries, and
 differential measurements with respect to the mass, transverse
 momentum, and absolute rapidity of the $\ttbar$ system. Our results
-were consistent with the predictions of the Standard Model, and as a
+are consistent with the predictions of the Standard Model, and as a
 result, we see no evidence of deviations from theory that could
 indicate the presence of new physics.
 
