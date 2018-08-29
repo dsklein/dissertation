@@ -1,7 +1,7 @@
 # Dissertation
 A repository to store all the files and history for my PhD dissertation.
 
-This is based on the `ucsd-thesis` template. For more details, see the `TEMPLATE_FILES` directory.
+This document is based on the `ucsd-thesis` template. For more details, see the `TEMPLATE_FILES` directory. The template was released under the MIT license. However, my dissertation itself is copyright 2018.
 
 ### Building
 I use **latexmk** as my build system. To compile the dissertation, do:
